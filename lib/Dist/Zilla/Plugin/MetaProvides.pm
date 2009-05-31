@@ -5,9 +5,12 @@ use Moose;
 with 'Dist::Zilla::Role::MetaProvider';
 
 use Class::Discover;
+use Module::Extract::Namespaces;
+use Module::Extract::VERSION;
 use Path::Class qw( dir file );
 use File::Find::Rule       ();
 use File::Find::Rule::Perl ();
+use Carp                   ();
 
 =head1 DESCRIPTION
 
@@ -184,8 +187,41 @@ sub _build__extra_files_reader {
   return $self->extra_files_reader_class->new();
 }
 
-sub _build__scanned_data {
+sub _scan_file {
+  my ( $self, $file ) = @_;
 
+  # MX Family
+  my $discovered = Class::Discover->discover_classes( files => [$file] );
+  if ( scalar keys %{$discovered} > 0 ) {
+    return $discovered;
+  }
+
+  # Everything else
+  my %namespaces =
+    map { $_ => 1 } Module::Extract::Namespaces->from_file($file);
+  my $version = Module::Extact::VERSION->parse_version_safely($file);
+  $discovered = {};
+  for my $namespace ( keys %namespaces ) {
+    $discovered->{$namespace} = { file => $file };
+    if ($version) {
+      $discovered->{$namespace}->{'version'} = $version;
+    }
+  }
+  return $discovered;
+}
+
+sub _build__scanned_data {
+  my ($self) = shift;
+  my %data = ();
+  for my $file ( @{ $self->_scan_list } ) {
+    my %found = %{ $self->_scan_file($_) };
+
+    # TODO : Smells like WTF
+    for my $class ( keys %found ) {
+      $data{$class} = $found{$class};
+    }
+  }
+  return \%data;
 }
 
 sub _build__extra_files_data {
@@ -193,7 +229,21 @@ sub _build__extra_files_data {
   return {} unless $self->has_extra_files;
 
   # Load Configuration Here.
+  my $conf =
+    $self->_extra_files_reader->read_file( $self->extra_files )->{plugins};
+  my $cconf = {};
 
+  # Filter/Validate Config
+  for my $class ( keys %{$conf} ) {
+    $cconf->{$class} = {};
+    Carp::croak( "No File defined for Module $class in " . $self->extra_files )
+      unless exists $conf->{$class}->{'file'};
+    $cconf->{$class}->{'file'} = $conf->{$class}->{'file'};
+    next unless exists $conf->{$class}->{'version'};
+    $cconf->{$class}->{'version'} = $conf->{$class}->{'version'};
+
+  }
+  return $cconf;
 }
 
 sub _build__provides {
@@ -218,6 +268,8 @@ sub _build__provides {
     }
   }
   elsif ( $self->inherit_missing ) {
+
+    # Only Fill Gaps
     for my $k ( keys %{$scanned} ) {
       next if exists $scanned->{$k}->{'version'};
       $scanned->{$k}->{'version'} = $self->zilla->version;
