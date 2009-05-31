@@ -1,4 +1,4 @@
-package Dist::Zilla::Plugin::ProvidesClass;
+package Dist::Zilla::Plugin::MetaProvides;
 # ABSTRACT: use Class::Discover to define 'provides' for distribution metadata
 use Moose;
 with 'Dist::Zilla::Role::MetaProvider';
@@ -10,11 +10,11 @@ use Class::Discover;
 This plugin automatically adds 'provides' entries to distribution metadata.
 You can add your own if the scanner can't work it out.
 
-  [ProvidesClass]
+  [MetaProvides]
 
 or
 
-  [ProvidesClass]
+  [MetaProvides]
   extra_files = dist_provides_class.ini
 
   ; See Below for details
@@ -109,6 +109,8 @@ which is files containing classes defined with L<MooseX::Declare>.
 This means, that, if you happen to have B<NON> L<MooseX::Declare> packages, you will have to
 index their metadata by hand using C<extra_files>
 ( or at least the file <-> package corelation map ), or they won't show up on CPAN.
+
+Solution Pending.
 
 =cut
 
