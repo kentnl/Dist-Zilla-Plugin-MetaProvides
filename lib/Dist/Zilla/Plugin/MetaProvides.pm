@@ -1,11 +1,12 @@
 package Dist::Zilla::Plugin::MetaProvides;
+
 # ABSTRACT: use Class::Discover to define 'provides' for distribution metadata
 use Moose;
 with 'Dist::Zilla::Role::MetaProvider';
 
 use Class::Discover;
 use Path::Class qw( dir file );
-use File::Find::Rule ();
+use File::Find::Rule       ();
 use File::Find::Rule::Perl ();
 
 =head1 DESCRIPTION
@@ -52,11 +53,11 @@ and C<inherit_missing>
 =cut
 
 has extra_files => (
-  is       => 'ro',
-  isa      => 'Str',
-  documentation => 'A name of a file to read supplementary version/package info from',
+  is            => 'ro',
+  isa           => 'Str',
+  documentation => 'A name of a file to read supplementary version/package'
+    . ' info from',
 );
-
 
 =head2 extra_files_reader_class
 
@@ -67,10 +68,12 @@ must perform L<Dist::Zilla::Config>
 =cut
 
 has extra_files_reader_class => (
-  isa => 'Dist::Zilla::Config',
-  is  => 'ro',
+  isa     => 'Dist::Zilla::Config',
+  is      => 'ro',
   default => 'Dist::Zilla::Config::INI',
-  documentation => 'The name of a class that can be instantiated to parse the file specified in extra_files',
+  documentation =>
+    'The name of a class that can be instantiated to parse the file specified'
+    . ' in extra_files',
 );
 
 =head2 inherit_version
@@ -90,9 +93,9 @@ This option also controls data in the extra_files list.
 =cut
 
 has inherit_version => (
-  isa => 'Bool',
-  is  => 'ro',
-  default => 1,
+  isa           => 'Bool',
+  is            => 'ro',
+  default       => 1,
   documentation => 'Whether or not to treat the global version as an authority',
 );
 
@@ -110,48 +113,117 @@ instead.
 =cut
 
 has inherit_missing => (
-  isa => 'Bool',
-  is  => 'ro',
+  isa     => 'Bool',
+  is      => 'ro',
   default => 1,
-  documentaiton => 'How to behave when we are trusting modules to have versions and one is missing one',
+  documentaiton =>
+    'How to behave when we are trusting modules to have versions and one is'
+    . ' missing one',
 );
 
 has _module_dirs => (
-  is       => 'ro',
-  isa      => 'ArrayRef',
-  lazy_build => 1,
+  is            => 'ro',
+  isa           => 'ArrayRef',
+  lazy_build    => 1,
   documentation => 'A list of files that are scanned for .pm files to process',
 );
 
 has _extra_files_reader => (
-  isa => 'Object',
-  is  => 'ro',
-  lazy_build => 1,
+  isa           => 'Object',
+  is            => 'ro',
+  lazy_build    => 1,
   documentation => 'An entity that is created to parse our configuration',
 );
 
 has _scan_list => (
-  isa => 'ArrayRef',
-  is  => 'ro',
-  lazy_build => 1,
+  isa           => 'ArrayRef',
+  is            => 'ro',
+  lazy_build    => 1,
   documentation => 'A list of files to attempt version/class extraction from',
 );
 
+has _scanned_data => (
+  isa           => 'HashRef',
+  is            => 'ro',
+  lazy_build    => 1,
+  documentation => 'HashRef of data aggregated from files',
+);
+
+has _extra_files_data => (
+  isa           => 'HashRef',
+  is            => 'ro',
+  lazy_build    => 1,
+  documentation => 'User Specified data read from configs',
+);
+
+has _provides => (
+  isa           => 'HashRef',
+  is            => 'ro',
+  lazy_build    => 1,
+  documentation => 'Aggregated Pool for provide data ',
+);
+
 sub _build__module_dirs {
-  # Todo : Ask Zilla about where these are.
-  return [ 'lib',];
+
+  # TODO : Ask Zilla about where these are.
+  return [ 'lib', ];
 }
 
 sub _build__scan_list {
-  # Todo: Ask Zilla for these.
+
+  # TODO : Ask Zilla for these.
   my ($self) = shift;
-  my @files = File::Find::Rule->perl_module->in(@{ $self->_module_dirs });
+  my @files = File::Find::Rule->perl_module->in( @{ $self->_module_dirs } );
 }
 
-sub _build_extra_files_reader {
+sub _build__extra_files_reader {
+
+  # TODO : Get rid of pesky runtime stringy eval thing
   my ($self) = shift;
   eval "require " . $self->extra_files_reader_class . "; 1" or die;
   return $self->extra_files_reader_class->new();
+}
+
+sub _build__scanned_data {
+
+}
+
+sub _build__extra_files_data {
+  my ($self) = shift;
+  return {} unless $self->has_extra_files;
+
+  # Load Configuration Here.
+
+}
+
+sub _build__provides {
+  my ($self) = shift;
+
+  my $scanned        = $self->_scanned_data();
+  my $extrafilesdata = $self->_extra_files_data();
+
+  # Override scanned with specified data
+  for my $k ( keys %{$extrafilesdata} ) {
+    my $mod = $extrafilesdata->{$k};
+    $scanned->{$k} ||= {};
+    $scanned->{$k}{'file'} = $mod->{'file'} if exists $mod->{'file'};
+    $scanned->{$k}{'version'} = $mod->{'version'}
+      if exists $mod->{'version'};
+  }
+  if ( $self->inherit_version ) {
+
+    # Overwrite all scanned versions with zilla
+    for my $k ( keys %{$scanned} ) {
+      $scanned->{$k}->{'version'} = $self->zilla->version;
+    }
+  }
+  elsif ( $self->inherit_missing ) {
+    for my $k ( keys %{$scanned} ) {
+      next if exists $scanned->{$k}->{'version'};
+      $scanned->{$k}->{'version'} = $self->zilla->version;
+    }
+  }
+  return $scanned;
 }
 
 sub metadata {
@@ -175,5 +247,5 @@ Solution Pending.
 =cut
 
 no Moose;
-__PACKAGE__->meta->make_immutable(inline_constructor => 0);
+__PACKAGE__->meta->make_immutable();
 1;
