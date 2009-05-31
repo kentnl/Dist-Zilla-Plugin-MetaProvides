@@ -4,6 +4,9 @@ use Moose;
 with 'Dist::Zilla::Role::MetaProvider';
 
 use Class::Discover;
+use Path::Class qw( dir file );
+use File::Find::Rule ();
+use File::Find::Rule::Perl ();
 
 =head1 DESCRIPTION
 
@@ -78,20 +81,63 @@ instead.
 
 =cut
 
-has resources => (
+has extra_files => (
   is       => 'ro',
-  isa      => 'HashRef',
-  required => 1,
+  isa      => 'Str',
 );
 
-sub new {
-  my ($class, $arg) = @_;
+has extra_files_reader_class => (
+  isa => 'Dist::Zilla::Config',
+  is  => 'ro',
+  default => 'Dist::Zilla::Config::INI',
+);
 
-  my $self = $class->SUPER::new({
-    '=name'   => delete $arg->{'=name'},
-    zilla     => delete $arg->{zilla},
-    resources => $arg,
-  });
+has inherit_version => (
+  isa => 'Bool',
+  is  => 'ro',
+  default => 1,
+);
+
+has inherit_missing => (
+  isa => 'Bool',
+  is  => 'ro',
+  default => 1,
+);
+
+has _module_dirs => (
+  is       => 'ro',
+  isa      => 'ArrayRef',
+  lazy_build => 1,
+);
+
+
+has _extra_files_reader => (
+  isa => 'Object',
+  is  => 'ro',
+  lazy_build => 1,
+);
+
+has _scan_list => (
+  isa => 'ArrayRef',
+  is  => 'ro',
+  lazy_build => 1,
+);
+
+sub _build__module_dirs {
+  # Todo : Ask Zilla about where these are.
+  return [ 'lib',];
+}
+
+sub _build__scan_list {
+  # Todo: Ask Zilla for these.
+  my ($self) = shift;
+  my @files = File::Find::Rule->perl_module->in(@{ $self->_module_dirs });
+}
+
+sub _build_extra_files_reader {
+  my ($self) = shift;
+  eval "require " . $self->extra_files_reader_class . "; 1" or die;
+  return $self->extra_files_reader_class->new();
 }
 
 sub metadata {
