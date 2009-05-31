@@ -25,6 +25,7 @@ or
   inherit_version = false
   inherit_missing = true
 
+=cut
 
 =head2 extra_files
 
@@ -48,11 +49,29 @@ Mandatory parameter, path to file relative to distribution root.
 Optional Parameter, package version. Behaviour dictated by C<inherit_version>
 and C<inherit_missing>
 
+=cut
+
+has extra_files => (
+  is       => 'ro',
+  isa      => 'Str',
+  documentation => 'A name of a file to read supplementary version/package info from',
+);
+
+
 =head2 extra_files_reader_class
 
 package to create an instance of to read the configuration.
 
 must perform L<Dist::Zilla::Config>
+
+=cut
+
+has extra_files_reader_class => (
+  isa => 'Dist::Zilla::Config',
+  is  => 'ro',
+  default => 'Dist::Zilla::Config::INI',
+  documentation => 'The name of a class that can be instantiated to parse the file specified in extra_files',
+);
 
 =head2 inherit_version
 
@@ -68,6 +87,15 @@ the authority, and it is copied to the provides metadata.
 
 This option also controls data in the extra_files list.
 
+=cut
+
+has inherit_version => (
+  isa => 'Bool',
+  is  => 'ro',
+  default => 1,
+  documentation => 'Whether or not to treat the global version as an authority',
+);
+
 =head2 inherit_missing
 
 This dictates how to react when a class is discovered ( or defined in the INI file )
@@ -81,46 +109,32 @@ instead.
 
 =cut
 
-has extra_files => (
-  is       => 'ro',
-  isa      => 'Str',
-);
-
-has extra_files_reader_class => (
-  isa => 'Dist::Zilla::Config',
-  is  => 'ro',
-  default => 'Dist::Zilla::Config::INI',
-);
-
-has inherit_version => (
-  isa => 'Bool',
-  is  => 'ro',
-  default => 1,
-);
-
 has inherit_missing => (
   isa => 'Bool',
   is  => 'ro',
   default => 1,
+  documentaiton => 'How to behave when we are trusting modules to have versions and one is missing one',
 );
 
 has _module_dirs => (
   is       => 'ro',
   isa      => 'ArrayRef',
   lazy_build => 1,
+  documentation => 'A list of files that are scanned for .pm files to process',
 );
-
 
 has _extra_files_reader => (
   isa => 'Object',
   is  => 'ro',
   lazy_build => 1,
+  documentation => 'An entity that is created to parse our configuration',
 );
 
 has _scan_list => (
   isa => 'ArrayRef',
   is  => 'ro',
   lazy_build => 1,
+  documentation => 'A list of files to attempt version/class extraction from',
 );
 
 sub _build__module_dirs {
