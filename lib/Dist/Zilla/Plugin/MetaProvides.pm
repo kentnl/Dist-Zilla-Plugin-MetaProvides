@@ -4,13 +4,13 @@ package Dist::Zilla::Plugin::MetaProvides;
 use Moose;
 with 'Dist::Zilla::Role::MetaProvider';
 
-use Class::Discover;
-use Module::Extract::Namespaces;
-use Module::Extract::VERSION;
-use Path::Class qw( dir file );
-use File::Find::Rule       ();
-use File::Find::Rule::Perl ();
-use Carp                   ();
+use Class::Discover             ();
+use Module::Extract::Namespaces ();
+use Module::Extract::VERSION    ();
+use File::Find::Rule            ();
+use File::Find::Rule::Perl      ();
+use Carp                        ();
+use Path::Class                 ( 'dir', 'file' );
 
 =head1 DESCRIPTION
 
