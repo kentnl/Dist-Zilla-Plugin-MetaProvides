@@ -25,24 +25,27 @@ sub _classes_for {
     files => [$filename],
     file  => $filename,
   };
-  return map {
+  my $to_record = sub {
     Record->new(
       module  => $_->keys->at(0),
       file    => $filename,
       version => $_->values->at(0)->{version},
       parent  => $self,
     );
-
-  } Class::Discover->_search_for_classes_in_file( $scanparams, \$content );
+  };
+  return [
+    Class::Discover->_search_for_classes_in_file( $scanparams, \$content ) ]
+    ->map($to_record)->flatten;
 }
 
 sub provides {
-  my $self = shift;
-  return $self->zilla->files->grep( sub { $_[0]->name =~ m{\.pm$} } )->map(
-    sub {
-      $self->_classes_for( $_[0]->name, $_[0]->content );
-    }
-  )->flatten;
+  my $self        = shift;
+  my $perl_module = sub { $_[0]->name =~ m{\.pm$} };
+  my $get_records = sub {
+    $self->_classes_for( $_[0]->name, $_[0]->content );
+  };
+
+  return $self->zilla->files->grep($perl_module)->map($get_records)->flatten;
 
 }
 

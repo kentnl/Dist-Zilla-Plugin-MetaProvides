@@ -18,24 +18,26 @@ with 'Dist::Zilla::Role::MetaProvider::Provider';
 
 sub _packages_for {
   my ( $self, $filename, $content ) = @_;
-  my $version = Version->parse_version_safely($filename);
-  return map {
+  my $version   = Version->parse_version_safely($filename);
+  my $to_record = sub {
     Record->new(
       module  => $_,
       file    => $filename,
       version => $version,
       parent  => $self,
-      )
-  } Namespaces->from_file($filename);
+    );
+  };
+  return [ Namespaces->from_file($filename) ]->map($to_record)->flatten;
 }
 
 sub provides {
-  my $self = shift;
-  return $self->zilla->files->grep( sub { $_[0]->name =~ m{\.pm$} } )->map(
-    sub {
-      $self->_packages_for( $_[0]->name, $_[0]->content );
-    }
-  )->flatten;
+  my $self        = shift;
+  my $perl_module = sub { $_[0]->name =~ m{\.pm$} };
+  my $get_records = sub {
+    $self->_packages_for( $_[0]->name, $_[0]->content );
+  };
+
+  return $self->zilla->files->grep($perl_module)->map($get_records)->flatten;
 }
 
 __PACKAGE__->meta->make_immutable;
