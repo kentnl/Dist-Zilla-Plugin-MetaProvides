@@ -9,8 +9,10 @@ use Test::Exception;
 use Dist::Zilla;
 my $dzil;
 
+chdir 't/eg/DZ2/';
+
 lives_ok {
-  $dzil = Dist::Zilla->from_config( { dist_root => 't/eg/DZ2', } );
+  $dzil = Dist::Zilla->from_config( {} );
 }
 'Create An Instance';
 
