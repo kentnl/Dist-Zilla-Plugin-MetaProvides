@@ -1,4 +1,4 @@
-package Dist::Zilla::Plugin::MetaProvides::Package;
+package Dist::Zilla::Plugin::MetaProvides::FromFile;
 
 # $Id:$
 use strict;
@@ -7,48 +7,35 @@ use Moose;
 use MooseX::Has::Sugar;
 use MooseX::Types::Moose (':all');
 use Moose::Autobox;
-use Module::Extract::VERSION    ();
-use Module::Extract::Namespaces ();
+use Carp                ();
+use Config::INI::Reader ();
+use aliased 'Dist::Zilla::MetaProvides::ProvideRecord' => 'Record', ();
+
 use namespace::autoclean;
 with 'Dist::Zilla::Role::MetaProvider::Provider';
 
-has _pm_files     => ( isa => ArrayRef, ro, lazy_build, );
-has _package_data => ( isa => ArrayRef, ro, lazy_build, );
+has file        => ( isa => Str,       ro, required, );
+has reader_name => ( isa => ClassName, ro, default => 'Config::INI::Reader', );
+has _reader     => ( isa => Object,    ro, lazy_build, );
 
-sub _build__pm_files {
-  shift->zilla->files->grep( sub { $_[0]->name =~ m{\.pm$} } );
-}
-
-sub _build__package_data {
-  my $self  = shift;
-  my @files = $self->_pm_files->flatten;
-  @files = map {
-    my ( $filename, $content ) = ( $_->name, $_->content );
-    $self->_packages_for( $filename, $content );
-  } @files;
-  \@files;
-}
-
-sub _packages_for {
-  my ( $self, $filename, $content ) = @_;
-  my $version = Module::Extract::VERSION->parse_version_safely($filename);
-  return
-    map { +{ module => $_, filename => $filename, version => $version, } }
-    Module::Extract::Namespaces->from_file($filename);
+sub _build__reader {
+  my ($self) = shift;
+  eval "require " . $self->reader_name . "; 1;" or die;
+  return $self->reader_name->new();
 }
 
 sub provides {
-  my ( $self, %discovered );
-  %discovered = ();
-  $self       = shift;
-
-  for ( $self->_package_data->flatten ) {
-    $discovered{ $_->{module} } = {
-      file => $_->{filename},
-      $self->_resolve_version( $_->{version} ),
-    };
-  }
-  return \%discovered;
+  my $self      = shift;
+  my $conf      = $self->_reader->read_file( $self->file );
+  my $to_record = sub {
+    Record->new(
+      module  => $_,
+      file    => $conf->{$_}->{file},
+      version => $conf->{$_}->{version},
+      parent  => $self,
+    );
+  };
+  return $conf->keys->map($to_record)->flatten;
 }
 
 __PACKAGE__->meta->make_immutable;
