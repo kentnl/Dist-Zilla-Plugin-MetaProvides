@@ -5,10 +5,12 @@ use strict;
 use warnings;
 use Moose;
 use MooseX::Has::Sugar;
-use MooseX::Types::Moose (':all');
+use MooseX::Types::Moose             (':all');
+use Dist::Zilla::MetaProvides::Types (':all');
 use Moose::Autobox;
-use Module::Extract::VERSION    ();
-use Module::Extract::Namespaces ();
+use aliased 'Module::Extract::VERSION'                 => 'Version',    ();
+use aliased 'Module::Extract::Namespaces'              => 'Namespaces', ();
+use aliased 'Dist::Zilla::MetaProvides::ProvideRecord' => 'Record',     ();
 use namespace::autoclean;
 with 'Dist::Zilla::Role::MetaProvider::Provider';
 
@@ -31,10 +33,15 @@ sub _build__package_data {
 
 sub _packages_for {
   my ( $self, $filename, $content ) = @_;
-  my $version = Module::Extract::VERSION->parse_version_safely($filename);
-  return
-    map { +{ module => $_, filename => $filename, version => $version, } }
-    Module::Extract::Namespaces->from_file($filename);
+  my $version = Version->parse_version_safely($filename);
+  return map {
+    Record->new(
+      module  => $_,
+      file    => $filename,
+      version => $version,
+      parent  => $self,
+      )
+  } Namespaces->from_file($filename);
 }
 
 sub provides {
@@ -43,10 +50,7 @@ sub provides {
   $self       = shift;
 
   for ( $self->_package_data->flatten ) {
-    $discovered{ $_->{module} } = {
-      file => $_->{filename},
-      $self->_resolve_version( $_->{version} ),
-    };
+    $_->copy_into( \%discovered );
   }
   return \%discovered;
 }
