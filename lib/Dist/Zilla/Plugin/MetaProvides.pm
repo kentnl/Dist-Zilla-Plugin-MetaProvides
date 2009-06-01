@@ -23,7 +23,7 @@ or
   extra_files = dist_provides_class.ini
 
   ; See Below for details
-  extra_files_reader_class = Dist::Zilla::Config::INI
+  extra_files_reader_class = Config::INI::Reader
   inherit_version = false
   inherit_missing = true
 
@@ -31,7 +31,7 @@ or
 
 =head2 extra_files
 
-With Dist::Zilla::Config::INI, the format is as follows.
+With Config::INI::Reader, the format is as follows.
 
   [Some::Package]
   file = /lib/Some/Package.pm
@@ -271,8 +271,7 @@ sub _build__extra_files_data {
   return {} unless $self->has_extra_files;
 
   # Load Configuration Here.
-  my $conf =
-    $self->_extra_files_reader->read_file( $self->extra_files );
+  my $conf  = $self->_extra_files_reader->read_file( $self->extra_files );
   my $cconf = {};
 
   # Filter/Validate Config
