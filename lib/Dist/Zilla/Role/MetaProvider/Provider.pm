@@ -72,7 +72,7 @@ sub _resolve_version {
 
 sub metadata {
   my ($self) = @_;
-  return { provides => $self->_provides };
+  return { provides => $self->provides };
 }
 
 no Moose;
