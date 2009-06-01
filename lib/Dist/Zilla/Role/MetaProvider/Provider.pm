@@ -9,7 +9,7 @@ use namespace::autoclean;
 
 with 'Dist::Zilla::Role::MetaProvider';
 
-requires '_provides';
+requires 'provides';
 
 =head2 inherit_version
 

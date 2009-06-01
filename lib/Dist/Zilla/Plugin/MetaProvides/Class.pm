@@ -50,7 +50,7 @@ sub _classes_for {
   return @results;
 }
 
-sub _provides {
+sub provides {
   my ( $self, %discovered );
   %discovered = ();
   $self       = shift;
