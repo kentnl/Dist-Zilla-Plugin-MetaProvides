@@ -1,10 +1,10 @@
 use strict;
 use warnings;
 use Test::More tests => 3;
-use Test::TempDir;
+#use Test::TempDir;
 use Test::Exception;
 
-my $test_tempdir = temp_root();
+#my $test_tempdir = temp_root();
 
 use Dist::Zilla;
 my $dzil;
@@ -16,7 +16,7 @@ lives_ok {
 
 lives_ok {
 
-  $dzil->build_archive('t/eg/DZ2/DZZ');
+  $dzil->build_in();
 }
 'Build It';
 
