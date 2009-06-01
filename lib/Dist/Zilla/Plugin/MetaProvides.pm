@@ -60,6 +60,7 @@ has extra_files => (
   isa           => 'Str',
   documentation => 'A name of a file to read supplementary version/package'
     . ' info from',
+  predicate => 'has_extra_files',
 );
 
 =head2 extra_files_reader_class
@@ -166,7 +167,27 @@ has _provides => (
   documentation => 'Aggregated Pool for provide data ',
 );
 
+sub logenter {
+  my $self = shift;
+  my (@call) = caller(1);
+  $self->log( '> ' . $call[3] . ' | ' . ( shift || '' ) );
+}
+
+sub logexit {
+  my $self = shift;
+  my (@call) = caller(1);
+  $self->log( '< ' . $call[3] . ' | ' . ( shift || '' ) );
+}
+
+sub logstate {
+  my $self = shift;
+  my (@call) = caller(1);
+  $self->log( '| ' . $call[3] . ' | ' . ( shift || '' ) );
+}
+
 sub _build__module_dirs {
+  my ($self) = shift;
+  $self->logstate('_build__module_dirs');
 
   # TODO : Ask Zilla about where these are.
   return [ 'lib', ];
@@ -176,7 +197,10 @@ sub _build__scan_list {
 
   # TODO : Ask Zilla for these.
   my ($self) = shift;
+  $self->logenter();
   my @files = File::Find::Rule->perl_module->in( @{ $self->_module_dirs } );
+  $self->logexit( join( ',', @files ) );
+  \@files;
 }
 
 sub _build__extra_files_reader {
@@ -187,34 +211,82 @@ sub _build__extra_files_reader {
   return $self->extra_files_reader_class->new();
 }
 
-sub _scan_file {
+sub _cd_scan_file {
   my ( $self, $file ) = @_;
-
-  # MX Family
-  my $discovered = Class::Discover->discover_classes( files => [$file] );
-  if ( scalar keys %{$discovered} > 0 ) {
-    return $discovered;
+  $self->logenter("$file");
+  my @discovered =
+    @{ Class::Discover->discover_classes( { files => [$file] } ) };
+  if ( not scalar @discovered ) {
+    $self->logexit("undef");
+    return undef;
   }
+  my %output = ();
+  for my $record (@discovered) {
+    my %record = %{$record};
+    for my $module ( keys %record ) {
+      $output{$module} = $record{$module};
 
-  # Everything else
-  my %namespaces =
-    map { $_ => 1 } Module::Extract::Namespaces->from_file($file);
-  my $version = Module::Extact::VERSION->parse_version_safely($file);
-  $discovered = {};
-  for my $namespace ( keys %namespaces ) {
-    $discovered->{$namespace} = { file => $file };
-    if ($version) {
-      $discovered->{$namespace}->{'version'} = $version;
+      # Class-Discover gives us too much
+      $output{$module}->{'file'} = $file;
+      $self->logstate("$module");
     }
   }
-  return $discovered;
+  $self->logexit("Data");
+  return \%output;
+}
+
+sub _extract_scan_file {
+  my ( $self, $file ) = @_;
+  $self->logenter("$file");
+  my %namespaces =
+    map { $_ => 1 } Module::Extract::Namespaces->from_file($file);
+  if ( not scalar keys %namespaces ) {
+    $self->logexit('undef');
+    return undef;
+  }
+  my $version = Module::Extract::VERSION->parse_version_safely($file);
+
+  my %output = ();
+  for ( keys %namespaces ) {
+    $self->logstate("$_");
+    $output{$_} = { file => $file };
+    if ( defined $version ) {
+      $output{$_}->{'version'} = $version;
+    }
+  }
+  $self->logexit();
+  return \%output;
+}
+
+sub _scan_file {
+  my ( $self, $file ) = @_;
+  $self->logenter("$file");
+
+  # MX Family
+  if ( my $d = $self->_cd_scan_file($file) ) {
+    $self->logstate( "Found: " . keys %{$d} );
+    $self->logexit("Class Discovered");
+    return $d;
+  }
+
+  if ( my $d = $self->_extract_scan_file($file) ) {
+    $self->logstate("Found: $d");
+    $self->logexit("Namespace Discovered");
+    return $d;
+  }
+
+  $self->logexit("undef");
+  return undef;
+
 }
 
 sub _build__scanned_data {
   my ($self) = shift;
+  $self->logenter();
   my %data = ();
   for my $file ( @{ $self->_scan_list } ) {
-    my %found = %{ $self->_scan_file($_) };
+    $self->logstate("$file");
+    my %found = %{ $self->_scan_file($file) };
 
     # TODO : Smells like WTF
     for my $class ( keys %found ) {
@@ -281,7 +353,7 @@ sub _build__provides {
 sub metadata {
   my ($self) = @_;
 
-  return { resources => $self->resources };
+  return { provides => $self->_provides };
 }
 
 =head1 IMPORTANT / BUGS

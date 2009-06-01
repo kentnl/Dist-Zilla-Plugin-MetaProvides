@@ -22,9 +22,4 @@ lives_ok {
 }
 'Build It';
 
-lives_ok {
 
-  $dzil->test;
-
-}
-'Passes Tests';
