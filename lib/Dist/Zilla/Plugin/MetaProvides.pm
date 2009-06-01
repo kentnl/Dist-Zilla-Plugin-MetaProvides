@@ -7,10 +7,7 @@ with 'Dist::Zilla::Role::MetaProvider';
 use Class::Discover             ();
 use Module::Extract::Namespaces ();
 use Module::Extract::VERSION    ();
-use File::Find::Rule            ();
-use File::Find::Rule::Perl      ();
 use Carp                        ();
-use Path::Class                 ( 'dir', 'file' );
 
 =head1 DESCRIPTION
 
@@ -125,13 +122,6 @@ has inherit_missing => (
     . ' missing one',
 );
 
-has _module_dirs => (
-  is            => 'ro',
-  isa           => 'ArrayRef',
-  lazy_build    => 1,
-  documentation => 'A list of files that are scanned for .pm files to process',
-);
-
 has _extra_files_reader => (
   isa           => 'Object',
   is            => 'ro',
@@ -167,39 +157,10 @@ has _provides => (
   documentation => 'Aggregated Pool for provide data ',
 );
 
-sub logenter {
-  my $self = shift;
-  my (@call) = caller(1);
-  $self->log( '> ' . $call[3] . ' | ' . ( shift || '' ) );
-}
-
-sub logexit {
-  my $self = shift;
-  my (@call) = caller(1);
-  $self->log( '< ' . $call[3] . ' | ' . ( shift || '' ) );
-}
-
-sub logstate {
-  my $self = shift;
-  my (@call) = caller(1);
-  $self->log( '| ' . $call[3] . ' | ' . ( shift || '' ) );
-}
-
-sub _build__module_dirs {
-  my ($self) = shift;
-  $self->logstate('_build__module_dirs');
-
-  # TODO : Ask Zilla about where these are.
-  return [ 'lib', ];
-}
-
 sub _build__scan_list {
 
-  # TODO : Ask Zilla for these.
   my ($self) = shift;
-  $self->logenter();
-  my @files = File::Find::Rule->perl_module->in( @{ $self->_module_dirs } );
-  $self->logexit( join( ',', @files ) );
+  my @files = grep { $_->name =~ m{\.pm$} } @{ $self->zilla->files };
   \@files;
 }
 
@@ -211,86 +172,94 @@ sub _build__extra_files_reader {
   return $self->extra_files_reader_class->new();
 }
 
-sub _cd_scan_file {
+sub _expand_file {
   my ( $self, $file ) = @_;
-  $self->logenter("$file");
-  my @discovered =
-    @{ Class::Discover->discover_classes( { files => [$file] } ) };
-  if ( not scalar @discovered ) {
-    $self->logexit("undef");
-    return undef;
-  }
-  my %output = ();
-  for my $record (@discovered) {
-    my %record = %{$record};
-    for my $module ( keys %record ) {
-      $output{$module} = $record{$module};
+  return ( $file->name, $file->content );
+}
 
-      # Class-Discover gives us too much
-      $output{$module}->{'file'} = $file;
-      $self->logstate("$module");
+sub _cd_scan_file {
+
+  # TODO : Get ASH to make Class::Discover support scalar-refs
+  my ( $self,     $file )    = @_;
+  my ( $filename, $content ) = $self->_expand_file($file);
+  my (%output);
+
+  # this is untill Class::Discover can take a scalar ref
+  my $scanparams = {
+    keywords => {
+      class => 1,
+      role  => 1,
+    },
+    files => [$filename],
+    file  => $filename,
+  };
+
+  # TODO : Delete this crap code when a better way exists
+  for my $entry (
+    Class::Discover->_search_for_classes_in_file( $scanparams, \$content ) )
+  {
+
+    $self->logstate($entry);
+
+    for my $module ( keys %{$entry} ) {
+      $output{$module}->{file} = $filename;
+      next unless exists $entry->{$module}->{version};
+      $output{$module}->{version} = $entry->{$module}->{version};
     }
   }
-  $self->logexit("Data");
-  return \%output;
+  return ( scalar keys %output ) ? \%output : undef;
 }
 
 sub _extract_scan_file {
-  my ( $self, $file ) = @_;
-  $self->logenter("$file");
+
+  # TODO : Support using \$content
+  # TODO : Get b d foy to let M:E:N and M:E:V to support scalar refs.
+
+  my ( $self,     $file )    = @_;
+  my ( $filename, $content ) = $self->_expand_file($file);
+
   my %namespaces =
-    map { $_ => 1 } Module::Extract::Namespaces->from_file($file);
-  if ( not scalar keys %namespaces ) {
-    $self->logexit('undef');
-    return undef;
-  }
-  my $version = Module::Extract::VERSION->parse_version_safely($file);
+    map { $_ => 1 } Module::Extract::Namespaces->from_file($filename);
+  $self->logstate(%namespaces);
+  return undef if ( not scalar keys %namespaces );
+
+  my $version = Module::Extract::VERSION->parse_version_safely($filename);
 
   my %output = ();
   for ( keys %namespaces ) {
     $self->logstate("$_");
-    $output{$_} = { file => $file };
+    $output{$_} = { file => $filename };
     if ( defined $version ) {
       $output{$_}->{'version'} = $version;
     }
   }
-  $self->logexit();
   return \%output;
 }
 
 sub _scan_file {
   my ( $self, $file ) = @_;
-  $self->logenter("$file");
 
   # MX Family
-  if ( my $d = $self->_cd_scan_file($file) ) {
-    $self->logstate( "Found: " . keys %{$d} );
-    $self->logexit("Class Discovered");
-    return $d;
-  }
+  my $d;
+  return $d if ( $d = $self->_cd_scan_file($file) );
 
-  if ( my $d = $self->_extract_scan_file($file) ) {
-    $self->logstate("Found: $d");
-    $self->logexit("Namespace Discovered");
-    return $d;
-  }
-
-  $self->logexit("undef");
+  # Everything Else
+  return $d if ( $d = $self->_extract_scan_file($file) );
   return undef;
-
 }
 
 sub _build__scanned_data {
   my ($self) = shift;
-  $self->logenter();
-  my %data = ();
+  my (%data);
+
   for my $file ( @{ $self->_scan_list } ) {
     $self->logstate("$file");
-    my %found = %{ $self->_scan_file($file) };
+    next unless my $found = $self->_scan_file($file);
 
     # TODO : Smells like WTF
-    for my $class ( keys %found ) {
-      $data{$class} = $found{$class};
+    # Hash Merge?
+    for my $class ( keys %{$found} ) {
+      $data{$class} = $found->{$class};
     }
   }
   return \%data;
@@ -352,9 +321,56 @@ sub _build__provides {
 
 sub metadata {
   my ($self) = @_;
-
   return { provides => $self->_provides };
 }
+
+my $d = 0;
+our $in;
+
+sub logstate {
+  use Data::Dumper;
+  shift->log( " " x $d . "\e[31m| \e[33m" . $in . "\e[0m|" . Dumper( \@_ ) );
+}
+
+around qw( _build__scan_list _build__extra_files_reader _cd_scan_file
+  _extract_scan_file _scan_file _build__scanned_data
+  _build__extra_files_data _build__provides metadata
+
+  ) => sub {
+  my $orig   = shift;
+  my $self   = shift;
+  my (@call) = caller(2);
+  use Data::Dumper;
+  local $Data::Dumper::Indent = 0;
+  local $Data::Dumper::Terse  = 1;
+  local $Data::Dumper::Useqq  = 1;
+  $call[3] =~ s/Dist::Zilla::Plugin:://g;
+  $self->log(
+    " " x $d . "\e[32m>> \e[33m" . $call[3] . "\e[0m |  " . Dumper( \@_ ) );
+  $d++;
+  local $in = $call[3];
+
+  if (wantarray) {
+    my @result = $self->$orig(@_);
+    $d--;
+    $self->log( " " x $d
+        . "\e[32m<< \e[33m"
+        . $call[3]
+        . "\e[0m | "
+        . Dumper( \@result ) );
+    return @result;
+  }
+  else {
+    my $result = $self->$orig(@_);
+    $d--;
+    $self->log( " " x $d
+        . "\e[32m<< \e[33m"
+        . $call[3]
+        . "\e[0m | "
+        . Dumper( \$result ) );
+    return $result;
+  }
+  };
 
 =head1 IMPORTANT / BUGS
 

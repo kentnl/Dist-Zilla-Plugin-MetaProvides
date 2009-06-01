@@ -1,7 +1,6 @@
 use strict;
 use warnings;
-use Test::More tests => 3;
-#use Test::TempDir;
+use Test::More tests => 2;
 use Test::Exception;
 
 #my $test_tempdir = temp_root();
