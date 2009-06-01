@@ -72,7 +72,11 @@ sub _resolve_version {
 
 sub metadata {
   my ($self) = @_;
-  return { provides => $self->provides };
+  my $discover = {};
+  for ( $self->provides ){
+      $_->copy_into( $discover );
+  }
+  return { provides => $discover };
 }
 
 no Moose;

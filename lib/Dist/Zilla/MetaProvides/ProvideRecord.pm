@@ -15,9 +15,9 @@ use namespace::autoclean;
 has version => ( isa => ModVersion, ro, required );
 has module  => ( isa => Str,        ro, required );
 has file    => ( isa => Str,        ro, required );
-has parent => ( ro, required,
+has parent => ( ro, required, weak_ref,
+  isa     => ProviderObject,
   handles => [ 'zilla', '_resolve_version', ],
-  isa     => 'Dist::Zilla::Role::MetaProvider::Provider',
 );
 
 sub copy_into {
