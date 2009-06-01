@@ -133,94 +133,6 @@ sub _expand_file {
   return ( $file->name, $file->content );
 }
 
-sub _cd_scan_file {
-
-  # TODO : Get ASH to make Class::Discover support scalar-refs
-  my ( $self,     $file )    = @_;
-  my ( $filename, $content ) = $self->_expand_file($file);
-  my (%output);
-
-  # this is untill Class::Discover can take a scalar ref
-  my $scanparams = {
-    keywords => {
-      class => 1,
-      role  => 1,
-    },
-    files => [$filename],
-    file  => $filename,
-  };
-
-  # TODO : Delete this crap code when a better way exists
-  for my $entry (
-    Class::Discover->_search_for_classes_in_file( $scanparams, \$content ) )
-  {
-
-    $self->logstate($entry);
-
-    for my $module ( keys %{$entry} ) {
-      $output{$module}->{file} = $filename;
-      next unless exists $entry->{$module}->{version};
-      $output{$module}->{version} = $entry->{$module}->{version};
-    }
-  }
-  return ( scalar keys %output ) ? \%output : undef;
-}
-
-sub _extract_scan_file {
-
-  # TODO : Support using \$content
-  # TODO : Get b d foy to let M:E:N and M:E:V to support scalar refs.
-
-  my ( $self,     $file )    = @_;
-  my ( $filename, $content ) = $self->_expand_file($file);
-
-  my %namespaces =
-    map { $_ => 1 } Module::Extract::Namespaces->from_file($filename);
-  $self->logstate(%namespaces);
-  return undef if ( not scalar keys %namespaces );
-
-  my $version = Module::Extract::VERSION->parse_version_safely($filename);
-
-  my %output = ();
-  for ( keys %namespaces ) {
-    $self->logstate("$_");
-    $output{$_} = { file => $filename };
-    if ( defined $version ) {
-      $output{$_}->{'version'} = $version;
-    }
-  }
-  return \%output;
-}
-
-sub _scan_file {
-  my ( $self, $file ) = @_;
-
-  # MX Family
-  my $d;
-  return $d if ( $d = $self->_cd_scan_file($file) );
-
-  # Everything Else
-  return $d if ( $d = $self->_extract_scan_file($file) );
-  return undef;
-}
-
-sub _build__scanned_data {
-  my ($self) = shift;
-  my (%data);
-
-  for my $file ( @{ $self->_scan_list } ) {
-    $self->logstate("$file");
-    next unless my $found = $self->_scan_file($file);
-
-    # TODO : Smells like WTF
-    # Hash Merge?
-    for my $class ( keys %{$found} ) {
-      $data{$class} = $found->{$class};
-    }
-  }
-  return \%data;
-}
-
 sub _build__extra_files_data {
   my ($self) = shift;
   return {} unless $self->has_extra_files;
@@ -240,43 +152,6 @@ sub _build__extra_files_data {
 
   }
   return $cconf;
-}
-
-sub _build__provides {
-  my ($self) = shift;
-
-  my $scanned        = $self->_scanned_data();
-  my $extrafilesdata = $self->_extra_files_data();
-
-  # Override scanned with specified data
-  for my $k ( keys %{$extrafilesdata} ) {
-    my $mod = $extrafilesdata->{$k};
-    $scanned->{$k} ||= {};
-    $scanned->{$k}{'file'} = $mod->{'file'} if exists $mod->{'file'};
-    $scanned->{$k}{'version'} = $mod->{'version'}
-      if exists $mod->{'version'};
-  }
-  if ( $self->inherit_version ) {
-
-    # Overwrite all scanned versions with zilla
-    for my $k ( keys %{$scanned} ) {
-      $scanned->{$k}->{'version'} = $self->zilla->version;
-    }
-  }
-  elsif ( $self->inherit_missing ) {
-
-    # Only Fill Gaps
-    for my $k ( keys %{$scanned} ) {
-      next if exists $scanned->{$k}->{'version'};
-      $scanned->{$k}->{'version'} = $self->zilla->version;
-    }
-  }
-  return $scanned;
-}
-
-sub metadata {
-  my ($self) = @_;
-  return { provides => $self->_provides };
 }
 
 #
