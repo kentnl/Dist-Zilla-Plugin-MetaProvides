@@ -3,7 +3,7 @@ package Dist::Zilla::Role::MetaProvider::Provider;
 # $Id:$
 use strict;
 use warnings;
-use Moose;
+use Moose::Role;
 
 use namespace::autoclean;
 
@@ -56,13 +56,25 @@ has inherit_missing => (
     . ' missing one',
 );
 
+sub _resolve_version {
+  my $self    = shift;
+  my $version = shift;
+  if ( $self->inherit_version
+    or ( $self->inherit_missing and not defined $version ) )
+  {
+    return ( 'version', $self->zilla->version );
+  }
+  if ( not defined $version ) {
+    return ();
+  }
+  return ( 'version', $version );
+}
+
 sub metadata {
   my ($self) = @_;
   return { provides => $self->_provides };
 }
 
 no Moose;
-
-__PACKAGE__->meta->make_immutable();
 1;
 
