@@ -8,6 +8,7 @@ use Class::Discover             ();
 use Module::Extract::Namespaces ();
 use Module::Extract::VERSION    ();
 use Carp                        ();
+use Config::INI::Reader         ();
 
 =head1 DESCRIPTION
 
@@ -64,14 +65,14 @@ has extra_files => (
 
 package to create an instance of to read the configuration.
 
-must perform L<Dist::Zilla::Config>
+must do ->read_file
 
 =cut
 
 has extra_files_reader_class => (
-  isa     => 'Dist::Zilla::Config',
+  isa     => 'ClassName',
   is      => 'ro',
-  default => 'Dist::Zilla::Config::INI',
+  default => 'Config::INI::Reader',
   documentation =>
     'The name of a class that can be instantiated to parse the file specified'
     . ' in extra_files',
@@ -81,12 +82,12 @@ has extra_files_reader_class => (
 
 This dictates how to report versions.
 
-Default behavior is set to true.
+Default behavior is set to 1.
 
-Setting this value to 'true' makes the version defined in C<dist.ini>
+Setting this value to '1' makes the version defined in C<dist.ini>
 the authority, and all versions discovered in packages are ignored.
 
-Setting this value to 'false' makes the version defined in the discovered class
+Setting this value to '0' makes the version defined in the discovered class
 the authority, and it is copied to the provides metadata.
 
 This option also controls data in the extra_files list.
@@ -105,10 +106,10 @@ has inherit_version => (
 This dictates how to react when a class is discovered ( or defined in the INI file )
 but a version is not specified.
 
-Setting this value to "false" results in the provides list having no specified version,
+Setting this value to "0" results in the provides list having no specified version,
 which is permissible.
 
-Setting this value to "true" ( the default ) results in dist.ini's version being used
+Setting this value to "1" ( the default ) results in dist.ini's version being used
 instead.
 
 =cut
@@ -271,7 +272,7 @@ sub _build__extra_files_data {
 
   # Load Configuration Here.
   my $conf =
-    $self->_extra_files_reader->read_file( $self->extra_files )->{plugins};
+    $self->_extra_files_reader->read_file( $self->extra_files );
   my $cconf = {};
 
   # Filter/Validate Config
@@ -324,6 +325,9 @@ sub metadata {
   return { provides => $self->_provides };
 }
 
+#
+# Logging Code, ignore, or disable. Your choice.
+#
 my $d = 0;
 our $in;
 
