@@ -1,4 +1,6 @@
 
+# ABSTRACT: Generating and Populating 'provides' in your META.yml
+
 =head1 NAME
 
 Dist::Zilla::Plugin::MetaProvides - Generating and Populating 'provides' in
