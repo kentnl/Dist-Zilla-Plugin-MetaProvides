@@ -1,5 +1,7 @@
 package Dist::Zilla::Plugin::MetaProvides::Package;
 
+# ABSTRACT: Extract namespaces/version from traditional packages for provides
+#
 # $Id:$
 use strict;
 use warnings;
@@ -39,6 +41,16 @@ sub provides {
 
   return $self->zilla->files->grep($perl_module)->map($get_records)->flatten;
 }
+
+=head1 SEE ALSO
+
+=over 4
+
+=item * L<Dist::Zilla::Plugin::MetaProvides>
+
+=back
+
+=cut
 
 __PACKAGE__->meta->make_immutable;
 1;

@@ -34,13 +34,19 @@ requires 'provides';
 
 This dictates how to report versions.
 
-Default behavior is set to 1.
+=head3 values
 
-Setting this value to '1' makes the version defined in C<dist.ini>
-the authority, and all versions discovered in packages are ignored.
+=over 4
 
-Setting this value to '0' makes the version defined in the discovered class
-the authority, and it is copied to the provides metadata.
+=item * Set to "1" B<[default]>
+The version defined by L<Dist::Zilla> is the authority, and all versions
+discovered in packages are ignored.
+
+=item * Set to "0"
+The version defined in the discovered class is the authority, and it is copied
+to the provides metadata.
+
+=back
 
 ( To use this feature in a performing class, see L</_resolve_version> )
 
@@ -55,14 +61,20 @@ has inherit_version => (
 
 =head2 inherit_missing
 
-This dictates how to react when a class is discovered ( or defined in the INI file )
-but a version is not specified.
+This dictates how to react when a class is discovered but a version is not
+specified.
 
-Setting this value to "0" results in the provides list having no specified version,
-which is permissible.
+=head3 values
 
-Setting this value to "1" ( the default ) results in dist.ini's version being used
-instead.
+=over 4
+
+=item * Set to "1" B<[default]>
+C<dist.ini>'s version turns up in the final metadata.
+
+=item * Set to "0".
+A C<provide> turns up in the final metadata without a version, which is permissible.
+
+=back
 
 ( To use this feature in a performing class, see L</_resolve_version> )
 
@@ -89,11 +101,11 @@ user requirements.
         $self->_resolve_version( $version );
     }
 
-is the suggested used.
+is the suggested use.
 
 Returns either an empty list, or a list with C<('version', $version )>;
 
-This is so C<{ version => undef }> does not occur in the YAML.
+This is so C<{ version =E<gt> undef }> does not occur in the YAML.
 
 =cut
 
@@ -116,7 +128,7 @@ sub _resolve_version {
 =head2 metadata
 
 Fullfills the requirement of L<Dist::Zilla::Role::MetaProvider> by processing
-results returned from C<$self->provides>.
+results returned from C<$self-E<gt>provides>.
 
 =cut
 
@@ -128,6 +140,20 @@ sub metadata {
   }
   return { provides => $discover };
 }
+
+=head1 SEE ALSO
+
+=over 4
+
+=item * L<Dist::Zilla::Role::MetaProvider>
+
+=item * L<Dist::Zilla::Plugin::MetaProvider>
+
+=item * L<Dist::Zilla::MetaProvider::ProvideRecord>
+
+=back
+
+=cut
 
 no Moose;
 1;

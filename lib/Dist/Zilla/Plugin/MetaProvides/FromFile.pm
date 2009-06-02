@@ -1,5 +1,7 @@
 package Dist::Zilla::Plugin::MetaProvides::FromFile;
 
+# ABSTRACT: In the event nothing else works, pull in hand-crafted metadata from a specified file.
+#
 # $Id:$
 use strict;
 use warnings;
@@ -37,6 +39,16 @@ sub provides {
   };
   return $conf->keys->map($to_record)->flatten;
 }
+
+=head1 SEE ALSO
+
+=over 4
+
+=item * L<Dist::Zilla::Plugin::MetaProvides>
+
+=back
+
+=cut
 
 __PACKAGE__->meta->make_immutable;
 1;

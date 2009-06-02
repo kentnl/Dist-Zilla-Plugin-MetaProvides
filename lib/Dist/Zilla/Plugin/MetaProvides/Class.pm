@@ -1,5 +1,7 @@
 package Dist::Zilla::Plugin::MetaProvides::Class;
 
+# ABSTRACT: Scans Dist::Zilla's .pm files and tries to identify classes using Class::Discover.
+
 # $Id:$
 use strict;
 use warnings;
@@ -48,6 +50,16 @@ sub provides {
   return $self->zilla->files->grep($perl_module)->map($get_records)->flatten;
 
 }
+
+=head1 SEE ALSO
+
+=over 4
+
+=item * L<Dist::Zilla::Plugin::MetaProvides>
+
+=back
+
+=cut
 
 __PACKAGE__->meta->make_immutable;
 1;
