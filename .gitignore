@@ -1,4 +1,2 @@
-Dist-Zilla-Plugin-*
 .build
 *.swp
-t/eg/DZ2/DZ2-?.*
