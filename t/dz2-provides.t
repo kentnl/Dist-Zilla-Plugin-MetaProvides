@@ -16,9 +16,10 @@ lives_ok {
 'Create An Instance';
 
 lives_ok {
-
   $dzil->build_in();
 }
-'Build It';
+'Build It'
+
+;
 
 

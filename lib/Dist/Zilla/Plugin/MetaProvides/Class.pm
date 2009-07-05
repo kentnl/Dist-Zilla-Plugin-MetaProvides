@@ -35,9 +35,7 @@ sub _classes_for {
       parent  => $self,
     );
   };
-  return [
-    Class::Discover->_search_for_classes_in_file( $scanparams, \$content ) ]
-    ->map($to_record)->flatten;
+  return [ Class::Discover->_search_for_classes_in_file( $scanparams, \$content ) ]->map($to_record)->flatten;
 }
 
 sub provides {
