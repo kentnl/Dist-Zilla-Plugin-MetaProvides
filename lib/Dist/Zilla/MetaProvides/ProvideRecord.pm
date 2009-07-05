@@ -49,8 +49,8 @@ and accessors from L<Dist::Zilla::Role::MetaProvider::Provider>
 =cut
 
 has parent => ( ro, required, weak_ref,
-  isa     => ProviderObject,
-  handles => [ 'zilla', '_resolve_version', ],
+    isa     => ProviderObject,
+    handles => [ 'zilla', '_resolve_version', ],
 );
 
 =head1 METHODS
@@ -64,7 +64,7 @@ This is called by the  L<Dist::Zilla::Role::MetaProvider::Provider> Role.
 This is very convenient if you have an array full of these objects, for you can just do
 
     my %discovered;
-    for ( @array ){
+    for ( @array ) {
        $_->copy_into( \%discovered );
     }
 
@@ -73,12 +73,12 @@ and C<%discovered> will be populated with relevant data.
 =cut
 
 sub copy_into {
-  my $self  = shift;
-  my $dlist = shift;
-  $dlist->{ $self->module } = {
-    file => $self->file,
-    $self->_resolve_version( $self->version ),
-  };
+    my $self  = shift;
+    my $dlist = shift;
+    $dlist->{ $self->module } = {
+        file => $self->file,
+        $self->_resolve_version( $self->version ),
+    };
 }
 
 1;
