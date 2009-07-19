@@ -1,5 +1,5 @@
 package Dist::Zilla::Plugin::MetaProvides::FromFile;
-our $VERSION = '1.092000';
+our $VERSION = '1.0920012';
 
 
 # ABSTRACT: In the event nothing else works, pull in hand-crafted metadata from a specified file.
@@ -57,7 +57,7 @@ Dist::Zilla::Plugin::MetaProvides::FromFile - In the event nothing else works, p
 
 =head1 VERSION
 
-version 1.092000
+version 1.0920012
 
 =head1 SEE ALSO
 

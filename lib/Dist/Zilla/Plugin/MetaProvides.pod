@@ -15,7 +15,7 @@ Dist::Zilla::Plugin::MetaProvides - Generating and Populating 'provides' in your
 
 =head1 VERSION
 
-version 1.092000
+version 1.0920012
 
 =head1 SYNOPSIS
 

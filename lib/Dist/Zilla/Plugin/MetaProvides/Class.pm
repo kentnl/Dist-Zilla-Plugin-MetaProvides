@@ -1,5 +1,5 @@
 package Dist::Zilla::Plugin::MetaProvides::Class;
-our $VERSION = '1.092000';
+our $VERSION = '1.0920012';
 
 
 # ABSTRACT: Scans Dist::Zilla's .pm files and tries to identify classes using Class::Discover.
@@ -22,12 +22,9 @@ with 'Dist::Zilla::Role::MetaProvider::Provider';
 sub _classes_for {
   my ( $self, $filename, $content ) = @_;
   my ($scanparams) = {
-    keywords => {
-      class => 1,
-      role  => 1,
-    },
-    files => [$filename],
-    file  => $filename,
+    keywords => { class => 1, role => 1, },
+    files    => [$filename],
+    file     => $filename,
   };
   my $to_record = sub {
     Record->new(
@@ -37,6 +34,8 @@ sub _classes_for {
       parent  => $self,
     );
   };
+
+  # I'm being bad and using a private function, but meh.
   return [ Class::Discover->_search_for_classes_in_file( $scanparams, \$content ) ]->map($to_record)->flatten;
 }
 
@@ -66,7 +65,7 @@ Dist::Zilla::Plugin::MetaProvides::Class - Scans Dist::Zilla's .pm files and tri
 
 =head1 VERSION
 
-version 1.092000
+version 1.0920012
 
 =head1 SEE ALSO
 

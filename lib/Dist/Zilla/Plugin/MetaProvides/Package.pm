@@ -1,5 +1,5 @@
 package Dist::Zilla::Plugin::MetaProvides::Package;
-our $VERSION = '1.092000';
+our $VERSION = '1.0920012';
 
 
 # ABSTRACT: Extract namespaces/version from traditional packages for provides
@@ -59,7 +59,7 @@ Dist::Zilla::Plugin::MetaProvides::Package - Extract namespaces/version from tra
 
 =head1 VERSION
 
-version 1.092000
+version 1.0920012
 
 =head1 SEE ALSO
 

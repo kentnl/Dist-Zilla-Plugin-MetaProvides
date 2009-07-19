@@ -1,5 +1,5 @@
 package Dist::Zilla::MetaProvides::Types;
-our $VERSION = '1.092000';
+our $VERSION = '1.0920012';
 
 
 # ABSTRACT: Utility Types for the MetaProvides Plugin
@@ -15,9 +15,7 @@ use MooseX::Types -declare => [ 'ModVersion', 'ProviderObject', ];
 subtype ModVersion, as Str | Undef;
 
 
-subtype ProviderObject, as Object, where {
-    $_->does('Dist::Zilla::Role::MetaProvider::Provider');
-};
+subtype ProviderObject, as Object, where { $_->does('Dist::Zilla::Role::MetaProvider::Provider') };
 
 
 1;
@@ -33,7 +31,7 @@ Dist::Zilla::MetaProvides::Types - Utility Types for the MetaProvides Plugin
 
 =head1 VERSION
 
-version 1.092000
+version 1.0920012
 
 =head1 SUBTYPES
 

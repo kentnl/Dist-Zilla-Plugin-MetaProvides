@@ -1,5 +1,5 @@
 package Dist::Zilla::MetaProvides::ProvideRecord;
-our $VERSION = '1.092000';
+our $VERSION = '1.0920012';
 
 
 # ABSTRACT: Data Management Record for MetaProvider::Provides Based Class
@@ -26,19 +26,16 @@ has module => ( isa => Str, ro, required );
 has file => ( isa => Str, ro, required );
 
 
-has parent => ( ro, required, weak_ref,
-    isa     => ProviderObject,
-    handles => [ 'zilla', '_resolve_version', ],
-);
+has parent => ( ro, required, weak_ref, isa => ProviderObject, handles => [ 'zilla', '_resolve_version', ], );
 
 
 sub copy_into {
-    my $self  = shift;
-    my $dlist = shift;
-    $dlist->{ $self->module } = {
-        file => $self->file,
-        $self->_resolve_version( $self->version ),
-    };
+  my $self  = shift;
+  my $dlist = shift;
+  $dlist->{ $self->module } = {
+    file => $self->file,
+    $self->_resolve_version( $self->version ),
+  };
 }
 
 1;
@@ -54,7 +51,7 @@ Dist::Zilla::MetaProvides::ProvideRecord - Data Management Record for MetaProvid
 
 =head1 VERSION
 
-version 1.092000
+version 1.0920012
 
 =head1 ATTRIBUTES
 
