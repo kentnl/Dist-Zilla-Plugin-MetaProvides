@@ -8,24 +8,46 @@ meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: Dist-Zilla-Plugin-MetaProvides
+provides:
+  Dist::Zilla::MetaProvides::ProvideRecord:
+    file: lib/Dist/Zilla/MetaProvides/ProvideRecord.pm
+    version: 1.0920015
+  Dist::Zilla::MetaProvides::Types:
+    file: lib/Dist/Zilla/MetaProvides/Types.pm
+    version: 1.0920015
+  Dist::Zilla::Plugin::MetaProvides:
+    file: lib/Dist/Zilla/Plugin/MetaProvides.pod
+    version: 1.0920015
+  Dist::Zilla::Plugin::MetaProvides::Class:
+    file: lib/Dist/Zilla/Plugin/MetaProvides/Class.pm
+    version: 1.0920015
+  Dist::Zilla::Plugin::MetaProvides::FromFile:
+    file: lib/Dist/Zilla/Plugin/MetaProvides/FromFile.pm
+    version: 1.0920015
+  Dist::Zilla::Plugin::MetaProvides::Package:
+    file: lib/Dist/Zilla/Plugin/MetaProvides/Package.pm
+    version: 1.0920015
+  Dist::Zilla::Role::MetaProvider::Provider:
+    file: lib/Dist/Zilla/Role/MetaProvider/Provider.pm
+    version: 1.0920015
 requires:
   Class::Discover: 1.000000
   Dist::Zilla: 0.091840
   File::Find::Rule: 0
   File::Find::Rule::Perl: 0
   FindBin: 0
-  List::MoreUtils: 0;
-  Module::Extract::Namespaces: 0;
-  Module::Extract::VERSION: 0;
+  List::MoreUtils: 0
+  Module::Extract::Namespaces: 0
+  Module::Extract::VERSION: 0
   Moose: 0.65
-  Moose::Autobox: 0;
-  MooseX::Has::Sugar: 0.0300;
-  MooseX::Types::Moose: 0;
+  Moose::Autobox: 0
+  MooseX::Has::Sugar: 0.0300
+  MooseX::Types::Moose: 0
   Path::Class::Dir: 0
   Path::Class::File: 0
   Test::More: 0
-  aliased: 0;
+  aliased: 0
   namespace::autoclean: 0
 resources:
   repository: http://github.com/kentfredric/dist-zilla-plugin-metaprovides
-version: 1.0920012
+version: 1.0920015

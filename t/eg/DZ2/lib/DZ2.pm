@@ -2,7 +2,7 @@ use strict;
 use warnings;
 
 package DZ2;
-our $VERSION = '1.0920012';
+our $VERSION = '1.0920015';
 
 
 # ABSTRACT: this is a sample package for testing Dist::Zilla;

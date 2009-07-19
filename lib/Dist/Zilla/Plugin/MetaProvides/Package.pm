@@ -1,5 +1,5 @@
 package Dist::Zilla::Plugin::MetaProvides::Package;
-our $VERSION = '1.0920012';
+our $VERSION = '1.0920015';
 
 
 # ABSTRACT: Extract namespaces/version from traditional packages for provides
@@ -36,7 +36,7 @@ sub _packages_for {
 
 sub provides {
   my $self        = shift;
-  my $perl_module = sub { $_->name =~ m{\.pm$} };
+  my $perl_module = sub { $_->name =~ m{^lib\/.*\.(pm|pod)$} };
   my $get_records = sub {
     $self->_packages_for( $_->name, $_->content );
   };
@@ -59,7 +59,7 @@ Dist::Zilla::Plugin::MetaProvides::Package - Extract namespaces/version from tra
 
 =head1 VERSION
 
-version 1.0920012
+version 1.0920015
 
 =head1 SEE ALSO
 

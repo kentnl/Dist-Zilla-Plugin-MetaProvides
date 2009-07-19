@@ -1,5 +1,5 @@
 package Dist::Zilla::MetaProvides::ProvideRecord;
-our $VERSION = '1.0920012';
+our $VERSION = '1.0920015';
 
 
 # ABSTRACT: Data Management Record for MetaProvider::Provides Based Class
@@ -51,7 +51,7 @@ Dist::Zilla::MetaProvides::ProvideRecord - Data Management Record for MetaProvid
 
 =head1 VERSION
 
-version 1.0920012
+version 1.0920015
 
 =head1 ATTRIBUTES
 

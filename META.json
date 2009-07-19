@@ -2,33 +2,63 @@
    "resources" : {
       "repository" : "http://github.com/kentfredric/dist-zilla-plugin-metaprovides"
    },
+   "generated_by" : "Dist::Zilla::Plugin::MetaJSON version 1.092000",
    "meta-spec" : {
       "version" : 1.4,
       "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
    },
-   "generated_by" : "Dist::Zilla::Plugin::MetaJSON version 1.092000",
-   "version" : "1.0920012",
+   "version" : "1.0920015",
    "name" : "Dist-Zilla-Plugin-MetaProvides",
    "author" : [
       "Kent Fredric <kentnl@cpan.org>"
    ],
    "license" : "perl",
+   "provides" : {
+      "Dist::Zilla::MetaProvides::Types" : {
+         "version" : "1.0920015",
+         "file" : "lib/Dist/Zilla/MetaProvides/Types.pm"
+      },
+      "Dist::Zilla::MetaProvides::ProvideRecord" : {
+         "version" : "1.0920015",
+         "file" : "lib/Dist/Zilla/MetaProvides/ProvideRecord.pm"
+      },
+      "Dist::Zilla::Plugin::MetaProvides::Package" : {
+         "version" : "1.0920015",
+         "file" : "lib/Dist/Zilla/Plugin/MetaProvides/Package.pm"
+      },
+      "Dist::Zilla::Plugin::MetaProvides" : {
+         "version" : "1.0920015",
+         "file" : "lib/Dist/Zilla/Plugin/MetaProvides.pod"
+      },
+      "Dist::Zilla::Role::MetaProvider::Provider" : {
+         "version" : "1.0920015",
+         "file" : "lib/Dist/Zilla/Role/MetaProvider/Provider.pm"
+      },
+      "Dist::Zilla::Plugin::MetaProvides::FromFile" : {
+         "version" : "1.0920015",
+         "file" : "lib/Dist/Zilla/Plugin/MetaProvides/FromFile.pm"
+      },
+      "Dist::Zilla::Plugin::MetaProvides::Class" : {
+         "version" : "1.0920015",
+         "file" : "lib/Dist/Zilla/Plugin/MetaProvides/Class.pm"
+      }
+   },
    "requires" : {
-      "MooseX::Has::Sugar" : "0.0300;",
-      "MooseX::Types::Moose" : "0;",
-      "Module::Extract::VERSION" : "0;",
+      "MooseX::Has::Sugar" : "0.0300",
+      "MooseX::Types::Moose" : "0",
+      "Module::Extract::VERSION" : "0",
       "FindBin" : "0",
-      "aliased" : "0;",
+      "aliased" : "0",
       "Class::Discover" : "1.000000",
       "Path::Class::File" : "0",
-      "List::MoreUtils" : "0;",
+      "List::MoreUtils" : "0",
       "Moose" : "0.65",
       "File::Find::Rule" : "0",
       "namespace::autoclean" : "0",
       "File::Find::Rule::Perl" : "0",
-      "Moose::Autobox" : "0;",
+      "Moose::Autobox" : "0",
       "Test::More" : "0",
-      "Module::Extract::Namespaces" : "0;",
+      "Module::Extract::Namespaces" : "0",
       "Dist::Zilla" : "0.091840",
       "Path::Class::Dir" : "0"
    },
