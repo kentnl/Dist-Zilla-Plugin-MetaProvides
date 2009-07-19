@@ -1,6 +1,10 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          Moved Documentation to a .pm
+              file to satisfy Module::Build
+
+1.0920015 2009-07-19 15:31:07 UTC
           Now eating own dog food.
           Scan *.pm|*.pod so that .pod files index properly
           Only scan lib/
