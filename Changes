@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          Now eating own dog food.
           Scan *.pm|*.pod so that .pod files index properly
           Only scan lib/
           Fixed Bug with META's having ; in them.
