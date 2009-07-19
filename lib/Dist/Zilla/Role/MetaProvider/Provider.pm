@@ -6,7 +6,8 @@ package Dist::Zilla::Role::MetaProvider::Provider;
 use strict;
 use warnings;
 use Moose::Role;
-
+use MooseX::Types::Moose (':all');
+use MooseX::Has::Sugar;
 use namespace::autoclean;
 
 =head1 PERFORMS ROLES
@@ -53,8 +54,8 @@ to the provides metadata.
 =cut
 
 has inherit_version => (
-  isa           => 'Bool',
-  is            => 'ro',
+  ro,
+  isa           => Bool,
   default       => 1,
   documentation => 'Whether or not to treat the global version as an authority',
 );
@@ -81,12 +82,10 @@ A C<provide> turns up in the final metadata without a version, which is permissi
 =cut
 
 has inherit_missing => (
-  isa     => 'Bool',
-  is      => 'ro',
-  default => 1,
-  documentation =>
-    'How to behave when we are trusting modules to have versions and one is'
-    . ' missing one',
+  ro,
+  isa           => Bool,
+  default       => 1,
+  documentation => 'How to behave when we are trusting modules to have versions and one is missing one',
 );
 
 =head1 PRIVATE METHODS
@@ -112,9 +111,7 @@ This is so C<{ version =E<gt> undef }> does not occur in the YAML.
 sub _resolve_version {
   my $self    = shift;
   my $version = shift;
-  if ( $self->inherit_version
-    or ( $self->inherit_missing and not defined $version ) )
-  {
+  if ( $self->inherit_version or ( $self->inherit_missing and not defined $version ) ) {
     return ( 'version', $self->zilla->version );
   }
   if ( not defined $version ) {

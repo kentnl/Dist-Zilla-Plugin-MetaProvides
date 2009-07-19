@@ -29,9 +29,7 @@ Just an easy to use Check that assures a given object performs a role.
 
 =cut
 
-subtype ProviderObject, as Object, where {
-    $_->does('Dist::Zilla::Role::MetaProvider::Provider');
-};
+subtype ProviderObject, as Object, where { $_->does('Dist::Zilla::Role::MetaProvider::Provider') };
 
 =head1 SEE ALSO
 

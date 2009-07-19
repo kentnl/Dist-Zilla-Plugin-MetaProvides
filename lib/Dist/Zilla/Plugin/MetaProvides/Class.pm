@@ -20,12 +20,9 @@ with 'Dist::Zilla::Role::MetaProvider::Provider';
 sub _classes_for {
   my ( $self, $filename, $content ) = @_;
   my ($scanparams) = {
-    keywords => {
-      class => 1,
-      role  => 1,
-    },
-    files => [$filename],
-    file  => $filename,
+    keywords => { class => 1, role => 1, },
+    files    => [$filename],
+    file     => $filename,
   };
   my $to_record = sub {
     Record->new(
@@ -35,6 +32,8 @@ sub _classes_for {
       parent  => $self,
     );
   };
+
+  # I'm being bad and using a private function, but meh.
   return [ Class::Discover->_search_for_classes_in_file( $scanparams, \$content ) ]->map($to_record)->flatten;
 }
 

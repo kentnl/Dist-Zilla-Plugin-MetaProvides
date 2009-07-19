@@ -48,10 +48,7 @@ and accessors from L<Dist::Zilla::Role::MetaProvider::Provider>
 
 =cut
 
-has parent => ( ro, required, weak_ref,
-    isa     => ProviderObject,
-    handles => [ 'zilla', '_resolve_version', ],
-);
+has parent => ( ro, required, weak_ref, isa => ProviderObject, handles => [ 'zilla', '_resolve_version', ], );
 
 =head1 METHODS
 
@@ -73,12 +70,12 @@ and C<%discovered> will be populated with relevant data.
 =cut
 
 sub copy_into {
-    my $self  = shift;
-    my $dlist = shift;
-    $dlist->{ $self->module } = {
-        file => $self->file,
-        $self->_resolve_version( $self->version ),
-    };
+  my $self  = shift;
+  my $dlist = shift;
+  $dlist->{ $self->module } = {
+    file => $self->file,
+    $self->_resolve_version( $self->version ),
+  };
 }
 
 1;
