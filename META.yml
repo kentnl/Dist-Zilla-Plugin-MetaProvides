@@ -11,25 +11,25 @@ name: Dist-Zilla-Plugin-MetaProvides
 provides:
   Dist::Zilla::MetaProvides::ProvideRecord:
     file: lib/Dist/Zilla/MetaProvides/ProvideRecord.pm
-    version: 1.0920015
+    version: 1.0920022
   Dist::Zilla::MetaProvides::Types:
     file: lib/Dist/Zilla/MetaProvides/Types.pm
-    version: 1.0920015
+    version: 1.0920022
   Dist::Zilla::Plugin::MetaProvides:
-    file: lib/Dist/Zilla/Plugin/MetaProvides.pod
-    version: 1.0920015
+    file: lib/Dist/Zilla/Plugin/MetaProvides.pm
+    version: 1.0920022
   Dist::Zilla::Plugin::MetaProvides::Class:
     file: lib/Dist/Zilla/Plugin/MetaProvides/Class.pm
-    version: 1.0920015
+    version: 1.0920022
   Dist::Zilla::Plugin::MetaProvides::FromFile:
     file: lib/Dist/Zilla/Plugin/MetaProvides/FromFile.pm
-    version: 1.0920015
+    version: 1.0920022
   Dist::Zilla::Plugin::MetaProvides::Package:
     file: lib/Dist/Zilla/Plugin/MetaProvides/Package.pm
-    version: 1.0920015
+    version: 1.0920022
   Dist::Zilla::Role::MetaProvider::Provider:
     file: lib/Dist/Zilla/Role/MetaProvider/Provider.pm
-    version: 1.0920015
+    version: 1.0920022
 requires:
   Class::Discover: 1.000000
   Dist::Zilla: 0.091840
@@ -50,4 +50,4 @@ requires:
   namespace::autoclean: 0
 resources:
   repository: http://github.com/kentfredric/dist-zilla-plugin-metaprovides
-version: 1.0920015
+version: 1.0920022

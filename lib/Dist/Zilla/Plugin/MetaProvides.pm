@@ -1,4 +1,6 @@
 package Dist::Zilla::Plugin::MetaProvides;
+our $VERSION = '1.0920022';
+
 
 # ABSTRACT: Generating and Populating 'provides' in your META.yml
 
@@ -15,7 +17,7 @@ Dist::Zilla::Plugin::MetaProvides - Generating and Populating 'provides' in your
 
 =head1 VERSION
 
-version 1.0920015
+version 1.0920022
 
 =head1 SYNOPSIS
 

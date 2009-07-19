@@ -1,5 +1,5 @@
 package Dist::Zilla::Role::MetaProvider::Provider;
-our $VERSION = '1.0920015';
+our $VERSION = '1.0920022';
 
 
 # ABSTRACT: A Role for Metadata providers specific to the 'provider' key.
@@ -72,7 +72,7 @@ Dist::Zilla::Role::MetaProvider::Provider - A Role for Metadata providers specif
 
 =head1 VERSION
 
-version 1.0920015
+version 1.0920022
 
 =head1 PERFORMS ROLES
 

@@ -8,7 +8,7 @@ Makefile.PL
 README
 lib/Dist/Zilla/MetaProvides/ProvideRecord.pm
 lib/Dist/Zilla/MetaProvides/Types.pm
-lib/Dist/Zilla/Plugin/MetaProvides.pod
+lib/Dist/Zilla/Plugin/MetaProvides.pm
 lib/Dist/Zilla/Plugin/MetaProvides/Class.pm
 lib/Dist/Zilla/Plugin/MetaProvides/FromFile.pm
 lib/Dist/Zilla/Plugin/MetaProvides/Package.pm

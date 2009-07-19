@@ -1,5 +1,5 @@
 package TestClean;
-our $VERSION = '1.0920015';
+our $VERSION = '1.0920022';
 
 
 # $Id:$

@@ -1,5 +1,5 @@
 package Dist::Zilla::Plugin::MetaProvides::Class;
-our $VERSION = '1.0920015';
+our $VERSION = '1.0920022';
 
 
 # ABSTRACT: Scans Dist::Zilla's .pm files and tries to identify classes using Class::Discover.
@@ -65,7 +65,7 @@ Dist::Zilla::Plugin::MetaProvides::Class - Scans Dist::Zilla's .pm files and tri
 
 =head1 VERSION
 
-version 1.0920015
+version 1.0920022
 
 =head1 SEE ALSO
 

@@ -1,5 +1,9 @@
 Revision history for Dist-Zilla-Plugin-MetaProvides
 
+1.0920022 2009-07-19 22:52:48 UTC
+          Moved Documentation to a .pm
+              file to satisfy Module::Build
+
 1.0920015 2009-07-19 15:31:07 UTC
           Now eating own dog food.
           Scan *.pm|*.pod so that .pod files index properly
