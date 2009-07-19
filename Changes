@@ -1,6 +1,9 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          Scan *.pm|*.pod so that .pod files index properly
+          Only scan lib/
+          Fixed Bug with META's having ; in them.
 
 1.0920012 2009-07-19 12:24:43 UTC
           First version.

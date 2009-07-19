@@ -34,7 +34,7 @@ sub _packages_for {
 
 sub provides {
   my $self        = shift;
-  my $perl_module = sub { $_->name =~ m{\.pm$} };
+  my $perl_module = sub { $_->name =~ m{^lib\/.*\.(pm|pod)$} };
   my $get_records = sub {
     $self->_packages_for( $_->name, $_->content );
   };
