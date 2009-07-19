@@ -1,10 +1,10 @@
+package Dist::Zilla::Plugin::MetaProvides;
 
 # ABSTRACT: Generating and Populating 'provides' in your META.yml
 
-=head1 NAME
+1;
 
-Dist::Zilla::Plugin::MetaProvides - Generating and Populating 'provides' in
-your META.yml
+__END__
 
 =head1 SYNOPSIS
 
@@ -83,13 +83,13 @@ to C<1>.
 
 =over 4
 
-=item * 0
+=item * C<< '0' >>
 
 Do not inherit version from C<Dist::Zilla>
 
-=item * 1
+=item * C<< '1' >> B<[default]>
 
-B<[default]> Inherit version from L<Dist::Zilla>
+Inherit version from L<Dist::Zilla>
 
 =back
 
@@ -106,13 +106,13 @@ C<inherit_version> will need to be turned off (C<0>) for this to be effective.
 
 =over 4
 
-=item * 0
+=item * C<< '0' >>
 
 Do not inherit version from C<Dist::Zilla> when one is missing.
 
-=item * 1
+=item * C<< '1' >> B<[default]>
 
-B<[default]> Inherit version from L<Dist::Zilla> when one is missing.
+Inherit version from L<Dist::Zilla> when one is missing.
 
 =back
 
@@ -150,9 +150,5 @@ that meets the following criteria.
     }}
 
 =back
-
-=head1 AUTHOR
-
-Kent Fredric (kentfredric@gmail.com)
 
 =cut
