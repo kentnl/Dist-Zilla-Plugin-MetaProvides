@@ -1,0 +1,23 @@
+---
+abstract: 'Utility Types for the MetaProvides Plugin'
+author:
+  - 'Kent Fredric <kentnl@cpan.org>'
+generated_by: 'Dist::Zilla::Plugin::MetaYAML version 1.091610'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Dist-Zilla-Plugin-MetaProvides
+requires:
+  Dist::Zilla: 0.091840
+  File::Find::Rule: 0
+  File::Find::Rule::Perl: 0
+  FindBin: 0
+  Moose: 0.65
+  Path::Class::Dir: 0
+  Path::Class::File: 0
+  Test::More: 0
+  namespace::autoclean: 0
+resources:
+  repository: http://github.com/kentfredric/dist-zilla-plugin-metaprovides
+version: 1.092000

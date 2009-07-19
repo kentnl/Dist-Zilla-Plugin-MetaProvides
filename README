@@ -1,0 +1,36 @@
+NAME
+    Dist::Zilla::MetaProvides::Types - Utility Types for the MetaProvides
+    Plugin
+
+VERSION
+    version 1.092000
+
+SUBTYPES
+  ModVersion
+    Module Versions can be either a string, or an undef.
+
+    In Dist::Zilla::MetaProvides::ProvideRecord and
+    Dist::Zilla::Role::MetaProvider::Provider, versions that have a value of
+    undef will be trimmed from output.
+
+  ProviderObject
+    Just an easy to use Check that assures a given object performs a role.
+
+SEE ALSO
+    *   MooseX::Types::Moose
+
+    *   Moose::Util::TypeConstraints
+
+    *   Dist::Zilla::MetaProvides::ProvideRecord
+
+    *   Dist::Zilla::Role::MetaProvider::Provider
+
+AUTHOR
+      Kent Fredric <kentnl@cpan.org>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2009 by Kent Fredric.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
