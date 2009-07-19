@@ -1,7 +1,3 @@
-NAME
-    Dist::Zilla::Plugin::MetaProvides - Generating and Populating 'provides'
-    in your META.yml
-
 SYNOPSIS
     In your projects dist.ini
 
@@ -67,11 +63,13 @@ OPTION SUMMARY
     set to 1.
 
    values
-    *   Do not inherit version from "Dist::Zilla"
+    *   '0'
 
-    *   1
+        Do not inherit version from "Dist::Zilla"
 
-        [default] Inherit version from Dist::Zilla
+    *   '1' [default]
+
+        Inherit version from Dist::Zilla
 
     "inherit_version" in Dist::Zilla::Role::MetaProvider::Provider
 
@@ -83,11 +81,13 @@ OPTION SUMMARY
     effective.
 
    values
-    *   Do not inherit version from "Dist::Zilla" when one is missing.
+    *   '0'
 
-    *   1
+        Do not inherit version from "Dist::Zilla" when one is missing.
 
-        [default] Inherit version from Dist::Zilla when one is missing.
+    *   '1' [default]
+
+        Inherit version from Dist::Zilla when one is missing.
 
     "inhert_missing" in Dist::Zilla::Role::MetaProvider::Provider
 
@@ -118,7 +118,4 @@ OPTION SUMMARY
                 'file' => '/path/to/file',
                 'version' => 0.1,
             }}
-
-AUTHOR
-    Kent Fredric (kentfredric@gmail.com)
 

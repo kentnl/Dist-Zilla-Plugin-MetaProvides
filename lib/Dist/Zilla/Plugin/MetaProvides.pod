@@ -1,19 +1,21 @@
+package Dist::Zilla::Plugin::MetaProvides;
 
 # ABSTRACT: Generating and Populating 'provides' in your META.yml
 
+1;
 
-__END__
+
+
 
 =pod
+
+=head1 NAME
+
+Dist::Zilla::Plugin::MetaProvides - Generating and Populating 'provides' in your META.yml
 
 =head1 VERSION
 
 version 1.092000
-
-=head1 NAME
-
-Dist::Zilla::Plugin::MetaProvides - Generating and Populating 'provides' in
-your META.yml
 
 =head1 SYNOPSIS
 
@@ -91,13 +93,13 @@ to C<1>.
 
 =over 4
 
-=item * 0
+=item * C<< '0' >>
 
 Do not inherit version from C<Dist::Zilla>
 
-=item * 1
+=item * C<< '1' >> B<[default]>
 
-B<[default]> Inherit version from L<Dist::Zilla>
+Inherit version from L<Dist::Zilla>
 
 =back
 
@@ -114,13 +116,13 @@ C<inherit_version> will need to be turned off (C<0>) for this to be effective.
 
 =over 4
 
-=item * 0
+=item * C<< '0' >>
 
 Do not inherit version from C<Dist::Zilla> when one is missing.
 
-=item * 1
+=item * C<< '1' >> B<[default]>
 
-B<[default]> Inherit version from L<Dist::Zilla> when one is missing.
+Inherit version from L<Dist::Zilla> when one is missing.
 
 =back
 
@@ -161,7 +163,7 @@ that meets the following criteria.
 
 =head1 AUTHOR
 
-Kent Fredric (kentfredric@gmail.com)
+  Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
@@ -172,4 +174,7 @@ the same terms as the Perl 5 programming language system itself.
 
 =cut
 
+
+
+__END__
 
