@@ -1,2 +1,2 @@
-dist.ini
-MANIFEST.SKIP
+^dist.ini
+^MANIFEST.SKIP
