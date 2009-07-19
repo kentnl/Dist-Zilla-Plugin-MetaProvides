@@ -16,6 +16,7 @@ lib/Dist/Zilla/Role/MetaProvider/Provider.pm
 t/author-01.whitespace.t
 t/author-02.clean_build.t
 t/dz2-provides.t
+t/eg/DZ2/dist.ini
 t/eg/DZ2/dist_meta_provides.ini
 t/eg/DZ2/lib/DZ2.pm
 t/eg/DZ2/lib/DZ2mx.pm
