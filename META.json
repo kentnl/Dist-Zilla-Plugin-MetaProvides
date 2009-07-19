@@ -6,7 +6,7 @@
       "version" : 1.4,
       "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
    },
-   "generated_by" : "Dist::Zilla::Plugin::MetaJSON version 1.091610",
+   "generated_by" : "Dist::Zilla::Plugin::MetaJSON version 1.092000",
    "version" : "1.092000",
    "name" : "Dist-Zilla-Plugin-MetaProvides",
    "author" : [
@@ -14,15 +14,16 @@
    ],
    "license" : "perl",
    "requires" : {
-      "Test::More" : "0",
       "File::Find::Rule" : "0",
       "namespace::autoclean" : "0",
       "FindBin" : "0",
-      "Path::Class::Dir" : "0",
-      "Dist::Zilla" : "0.091840",
       "File::Find::Rule::Perl" : "0",
+      "Class::Discover" : "1.000000",
+      "Test::More" : "0",
+      "Dist::Zilla" : "0.091840",
+      "Path::Class::Dir" : "0",
       "Path::Class::File" : "0",
       "Moose" : "0.65"
    },
-   "abstract" : "Utility Types for the MetaProvides Plugin"
+   "abstract" : "Generating and Populating 'provides' in your META.yml"
 }

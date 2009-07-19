@@ -1,14 +1,15 @@
 ---
-abstract: 'Utility Types for the MetaProvides Plugin'
+abstract: "Generating and Populating 'provides' in your META.yml"
 author:
   - 'Kent Fredric <kentnl@cpan.org>'
-generated_by: 'Dist::Zilla::Plugin::MetaYAML version 1.091610'
+generated_by: 'Dist::Zilla::Plugin::MetaYAML version 1.092000'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: Dist-Zilla-Plugin-MetaProvides
 requires:
+  Class::Discover: 1.000000
   Dist::Zilla: 0.091840
   File::Find::Rule: 0
   File::Find::Rule::Perl: 0
