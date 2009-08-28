@@ -1,5 +1,7 @@
+use strict;
+use warnings;
 package Dist::Zilla::Plugin::MetaProvides;
-our $VERSION = '1.0920022';
+our $VERSION = '1.10000417';
 
 
 # ABSTRACT: Generating and Populating 'provides' in your META.yml
@@ -17,7 +19,7 @@ Dist::Zilla::Plugin::MetaProvides - Generating and Populating 'provides' in your
 
 =head1 VERSION
 
-version 1.0920022
+version 1.10000417
 
 =head1 SYNOPSIS
 
@@ -103,7 +105,7 @@ Do not inherit version from C<Dist::Zilla>
 
 Inherit version from L<Dist::Zilla>
 
-=back
+=back 
 
 L<Dist::Zilla::Role::MetaProvider::Provider/inherit_version>
 
@@ -126,7 +128,7 @@ Do not inherit version from C<Dist::Zilla> when one is missing.
 
 Inherit version from L<Dist::Zilla> when one is missing.
 
-=back
+=back 
 
 L<Dist::Zilla::Role::MetaProvider::Provider/inhert_missing>
 
@@ -161,7 +163,9 @@ that meets the following criteria.
         'version' => 0.1,
     }}
 
-=back
+=back 
+
+
 
 =head1 AUTHOR
 
@@ -174,7 +178,7 @@ This software is copyright (c) 2009 by Kent Fredric.
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut
+=cut 
 
 
 

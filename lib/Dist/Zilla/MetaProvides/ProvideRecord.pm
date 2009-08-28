@@ -1,12 +1,12 @@
+use strict;
+use warnings;
 package Dist::Zilla::MetaProvides::ProvideRecord;
-our $VERSION = '1.0920022';
+our $VERSION = '1.10000417';
 
 
 # ABSTRACT: Data Management Record for MetaProvider::Provides Based Class
 
 # $Id:$
-use strict;
-use warnings;
 use Moose;
 use MooseX::Types::Moose             (':all');
 use Dist::Zilla::MetaProvides::Types (':all');
@@ -51,7 +51,7 @@ Dist::Zilla::MetaProvides::ProvideRecord - Data Management Record for MetaProvid
 
 =head1 VERSION
 
-version 1.0920022
+version 1.10000417
 
 =head1 ATTRIBUTES
 
@@ -59,19 +59,27 @@ version 1.0920022
 
 See L<Dist::Zilla::MetaProvides::Types/ModVersion>
 
+
+
 =head2 module
 
 The String Name of a fully qualified module to be reported as
 included in the distribution.
 
+
+
 =head2 file
 
 The String Name of the file as to be reported in the distribution.
+
+
 
 =head2 parent
 
 A L<Dist::Zilla::MetaProvides::Types/ProviderObject>, mostly to get Zilla information
 and accessors from L<Dist::Zilla::Role::MetaProvider::Provider>
+
+
 
 =head1 METHODS
 
@@ -90,6 +98,8 @@ This is very convenient if you have an array full of these objects, for you can 
 
 and C<%discovered> will be populated with relevant data.
 
+
+
 =head1 AUTHOR
 
   Kent Fredric <kentnl@cpan.org>
@@ -101,6 +111,6 @@ This software is copyright (c) 2009 by Kent Fredric.
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut
+=cut 
 
 

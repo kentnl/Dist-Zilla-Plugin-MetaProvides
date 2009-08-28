@@ -1,12 +1,12 @@
+use strict;
+use warnings;
 package Dist::Zilla::Plugin::MetaProvides::Package;
-our $VERSION = '1.0920022';
+our $VERSION = '1.10000417';
 
 
 # ABSTRACT: Extract namespaces/version from traditional packages for provides
 #
 # $Id:$
-use strict;
-use warnings;
 use Moose;
 use Moose::Autobox;
 use MooseX::Has::Sugar;
@@ -17,8 +17,21 @@ use aliased 'Module::Extract::VERSION'                 => 'Version',    ();
 use aliased 'Module::Extract::Namespaces'              => 'Namespaces', ();
 use aliased 'Dist::Zilla::MetaProvides::ProvideRecord' => 'Record',     ();
 
+
 use namespace::autoclean;
 with 'Dist::Zilla::Role::MetaProvider::Provider';
+
+
+sub provides {
+  my $self        = shift;
+  my $perl_module = sub { $_->name =~ m{^lib\/.*\.(pm|pod)$} };
+  my $get_records = sub {
+    $self->_packages_for( $_->name, $_->content );
+  };
+
+  return $self->zilla->files->grep($perl_module)->map($get_records)->flatten;
+}
+
 
 sub _packages_for {
   my ( $self, $filename, $content ) = @_;
@@ -32,16 +45,6 @@ sub _packages_for {
     );
   };
   return [ Namespaces->from_file($filename) ]->map($to_record)->flatten;
-}
-
-sub provides {
-  my $self        = shift;
-  my $perl_module = sub { $_->name =~ m{^lib\/.*\.(pm|pod)$} };
-  my $get_records = sub {
-    $self->_packages_for( $_->name, $_->content );
-  };
-
-  return $self->zilla->files->grep($perl_module)->map($get_records)->flatten;
 }
 
 
@@ -59,7 +62,35 @@ Dist::Zilla::Plugin::MetaProvides::Package - Extract namespaces/version from tra
 
 =head1 VERSION
 
-version 1.0920022
+version 1.10000417
+
+=head1 ROLES
+
+=head2 L<Dist::Zilla::Role::MetaProvider::Provider>
+
+
+
+=head1 ROLE SATISFYING METHODS
+
+=head2 provides
+
+A conformant function to the L<Dist::Zila::Role::MetaProvider::Provider> Role.
+
+=head3 signature: $plugin->provides()
+
+=head3 returns: Array of L<Dist::Zilla::MetaProvides::ProvideRecord>
+
+
+
+=head1 PRIVATE METHODS
+
+=head2 _packages_for
+
+=head3 signature: $plugin->_packages_for( $filename, $file_content )
+
+=head3 returns: Array of L<Dist::Zilla::MetaProvides::ProvideRecord>
+
+
 
 =head1 SEE ALSO
 
@@ -67,7 +98,9 @@ version 1.0920022
 
 =item * L<Dist::Zilla::Plugin::MetaProvides>
 
-=back
+=back 
+
+
 
 =head1 AUTHOR
 
@@ -80,6 +113,6 @@ This software is copyright (c) 2009 by Kent Fredric.
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut
+=cut 
 
 

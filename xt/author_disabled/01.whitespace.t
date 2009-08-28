@@ -1,11 +1,3 @@
-
-BEGIN {
-  unless ($ENV{AUTHOR_TESTING}) {
-    require Test::More;
-    Test::More::plan(skip_all => 'these tests are for testing by the author');
-  }
-}
-
 #
 # This test checks all files in the dist of interest for excess whitespace,
 # or bad whitespace
@@ -34,3 +26,4 @@ for (@files) {
   my $fn = file($_)->relative($dir)->stringify;
   is_clean($fn);
 }
+

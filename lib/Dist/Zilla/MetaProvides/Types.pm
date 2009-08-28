@@ -1,12 +1,12 @@
+use strict;
+use warnings;
 package Dist::Zilla::MetaProvides::Types;
-our $VERSION = '1.0920022';
+our $VERSION = '1.10000417';
 
 
 # ABSTRACT: Utility Types for the MetaProvides Plugin
 #
 # $Id:$
-use strict;
-use warnings;
 use Moose ();
 use MooseX::Types::Moose (':all');
 use MooseX::Types -declare => [ 'ModVersion', 'ProviderObject', ];
@@ -31,7 +31,7 @@ Dist::Zilla::MetaProvides::Types - Utility Types for the MetaProvides Plugin
 
 =head1 VERSION
 
-version 1.0920022
+version 1.10000417
 
 =head1 SUBTYPES
 
@@ -43,9 +43,13 @@ In L<Dist::Zilla::MetaProvides::ProvideRecord> and
 L<Dist::Zilla::Role::MetaProvider::Provider>, versions that have a value of
 undef will be trimmed from output.
 
+
+
 =head2 ProviderObject
 
 Just an easy to use Check that assures a given object performs a role.
+
+
 
 =head1 SEE ALSO
 
@@ -59,7 +63,9 @@ Just an easy to use Check that assures a given object performs a role.
 
 =item * L<Dist::Zilla::Role::MetaProvider::Provider>
 
-=back
+=back 
+
+
 
 =head1 AUTHOR
 
@@ -72,6 +78,6 @@ This software is copyright (c) 2009 by Kent Fredric.
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut
+=cut 
 
 
