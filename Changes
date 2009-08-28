@@ -1,6 +1,13 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          Moved the tests around.
+          More tests.
+          All versions now maxing out to encourage upgrading.
+          Moved to relative dating scheme
+          Tighter DogFeed Loopback in buildsystem.
+
+1.0920022 2009-07-19 22:52:48 UTC
           Moved Documentation to a .pm
               file to satisfy Module::Build
 
