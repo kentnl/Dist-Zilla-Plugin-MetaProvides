@@ -1,10 +1,10 @@
+use strict;
+use warnings;
 package Dist::Zilla::MetaProvides::ProvideRecord;
 
 # ABSTRACT: Data Management Record for MetaProvider::Provides Based Class
 
 # $Id:$
-use strict;
-use warnings;
 use Moose;
 use MooseX::Types::Moose             (':all');
 use Dist::Zilla::MetaProvides::Types (':all');

@@ -1,3 +1,5 @@
+use strict;
+use warnings;
 package Dist::Zilla::Plugin::MetaProvides;
 
 # ABSTRACT: Generating and Populating 'provides' in your META.yml

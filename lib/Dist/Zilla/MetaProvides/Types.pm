@@ -1,10 +1,10 @@
+use strict;
+use warnings;
 package Dist::Zilla::MetaProvides::Types;
 
 # ABSTRACT: Utility Types for the MetaProvides Plugin
 #
 # $Id:$
-use strict;
-use warnings;
 use Moose ();
 use MooseX::Types::Moose (':all');
 use MooseX::Types -declare => [ 'ModVersion', 'ProviderObject', ];

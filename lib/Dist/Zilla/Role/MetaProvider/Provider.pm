@@ -1,10 +1,10 @@
+use strict;
+use warnings;
 package Dist::Zilla::Role::MetaProvider::Provider;
 
 # ABSTRACT: A Role for Metadata providers specific to the 'provider' key.
 
 # $Id:$
-use strict;
-use warnings;
 use Moose::Role;
 use MooseX::Types::Moose (':all');
 use MooseX::Has::Sugar;
