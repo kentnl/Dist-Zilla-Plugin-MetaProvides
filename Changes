@@ -1,6 +1,10 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          Dropped the version dep on FindBin because it causes
+           problems for some. Apparently deping on something that 
+           may or may not be in core which may or may not be in core
+           later is a bad thing. 
 
 1.10000417 2009-08-28 04:52:32 UTC
           Moved the tests around.
