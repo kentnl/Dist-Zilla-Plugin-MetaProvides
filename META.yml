@@ -2,7 +2,7 @@
 abstract: "Generating and Populating 'provides' in your META.yml"
 author:
   - 'Kent Fredric <kentnl@cpan.org>'
-generated_by: 'Dist::Zilla::Plugin::MetaYAML version 1.092390'
+generated_by: 'Dist::Zilla::Plugin::MetaYAML version 1.092450'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -11,31 +11,31 @@ name: Dist-Zilla-Plugin-MetaProvides
 provides:
   Dist::Zilla::MetaProvides::ProvideRecord:
     file: lib/Dist/Zilla/MetaProvides/ProvideRecord.pm
-    version: 1.10000417
+    version: 1.10001919
   Dist::Zilla::MetaProvides::Types:
     file: lib/Dist/Zilla/MetaProvides/Types.pm
-    version: 1.10000417
+    version: 1.10001919
   Dist::Zilla::Plugin::MetaProvides:
     file: lib/Dist/Zilla/Plugin/MetaProvides.pm
-    version: 1.10000417
+    version: 1.10001919
   Dist::Zilla::Plugin::MetaProvides::Class:
     file: lib/Dist/Zilla/Plugin/MetaProvides/Class.pm
-    version: 1.10000417
+    version: 1.10001919
   Dist::Zilla::Plugin::MetaProvides::FromFile:
     file: lib/Dist/Zilla/Plugin/MetaProvides/FromFile.pm
-    version: 1.10000417
+    version: 1.10001919
   Dist::Zilla::Plugin::MetaProvides::Package:
     file: lib/Dist/Zilla/Plugin/MetaProvides/Package.pm
-    version: 1.10000417
+    version: 1.10001919
   Dist::Zilla::Role::MetaProvider::Provider:
     file: lib/Dist/Zilla/Role/MetaProvider/Provider.pm
-    version: 1.10000417
+    version: 1.10001919
 requires:
   Class::Discover: 1.000001
   Dist::Zilla: 0.092310
   File::Find::Rule: 0.30
   File::Find::Rule::Perl: 1.09
-  FindBin: 1.50
+  FindBin: 0
   List::MoreUtils: 0.22
   Module::Extract::Namespaces: 0.14
   Module::Extract::VERSION: 0.13
@@ -51,4 +51,4 @@ requires:
   namespace::autoclean: 0.08
 resources:
   repository: http://github.com/kentfredric/dist-zilla-plugin-metaprovides/tree
-version: 1.10000417
+version: 1.10001919

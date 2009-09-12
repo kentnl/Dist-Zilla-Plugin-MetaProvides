@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 package Dist::Zilla::MetaProvides::Types;
-our $VERSION = '1.10000417';
+our $VERSION = '1.10001919';
 
 
 # ABSTRACT: Utility Types for the MetaProvides Plugin
@@ -31,7 +31,7 @@ Dist::Zilla::MetaProvides::Types - Utility Types for the MetaProvides Plugin
 
 =head1 VERSION
 
-version 1.10000417
+version 1.10001919
 
 =head1 SUBTYPES
 

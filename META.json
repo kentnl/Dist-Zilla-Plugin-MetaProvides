@@ -2,12 +2,12 @@
    "resources" : {
       "repository" : "http://github.com/kentfredric/dist-zilla-plugin-metaprovides/tree"
    },
-   "generated_by" : "Dist::Zilla::Plugin::MetaJSON version 1.092390",
+   "generated_by" : "Dist::Zilla::Plugin::MetaJSON version 1.092450",
    "meta-spec" : {
       "version" : 1.4,
       "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
    },
-   "version" : "1.10000417",
+   "version" : "1.10001919",
    "name" : "Dist-Zilla-Plugin-MetaProvides",
    "author" : [
       "Kent Fredric <kentnl@cpan.org>"
@@ -15,31 +15,31 @@
    "license" : "perl",
    "provides" : {
       "Dist::Zilla::MetaProvides::Types" : {
-         "version" : "1.10000417",
+         "version" : "1.10001919",
          "file" : "lib/Dist/Zilla/MetaProvides/Types.pm"
       },
       "Dist::Zilla::MetaProvides::ProvideRecord" : {
-         "version" : "1.10000417",
+         "version" : "1.10001919",
          "file" : "lib/Dist/Zilla/MetaProvides/ProvideRecord.pm"
       },
       "Dist::Zilla::Plugin::MetaProvides::Package" : {
-         "version" : "1.10000417",
+         "version" : "1.10001919",
          "file" : "lib/Dist/Zilla/Plugin/MetaProvides/Package.pm"
       },
       "Dist::Zilla::Plugin::MetaProvides" : {
-         "version" : "1.10000417",
+         "version" : "1.10001919",
          "file" : "lib/Dist/Zilla/Plugin/MetaProvides.pm"
       },
       "Dist::Zilla::Role::MetaProvider::Provider" : {
-         "version" : "1.10000417",
+         "version" : "1.10001919",
          "file" : "lib/Dist/Zilla/Role/MetaProvider/Provider.pm"
       },
       "Dist::Zilla::Plugin::MetaProvides::FromFile" : {
-         "version" : "1.10000417",
+         "version" : "1.10001919",
          "file" : "lib/Dist/Zilla/Plugin/MetaProvides/FromFile.pm"
       },
       "Dist::Zilla::Plugin::MetaProvides::Class" : {
-         "version" : "1.10000417",
+         "version" : "1.10001919",
          "file" : "lib/Dist/Zilla/Plugin/MetaProvides/Class.pm"
       }
    },
@@ -47,7 +47,7 @@
       "MooseX::Types::Moose" : "0.19",
       "MooseX::Has::Sugar" : "0.0404",
       "Module::Extract::VERSION" : "0.13",
-      "FindBin" : "1.50",
+      "FindBin" : "0",
       "aliased" : "0.30",
       "Class::Discover" : "1.000001",
       "Path::Class::File" : "0.17",
