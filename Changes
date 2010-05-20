@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.10027518 2010-05-20 17:33:10 Pacific/Auckland
           Upgraded tests to Dist::Zilla 2.x. ( should resolve rt #56482 )
             ( Thanks to DAXIM/Lars Dɪᴇᴄᴋᴏᴡ 迪拉斯 for reporting )
           Upgraded dist.ini to Dist::Zilla 2.x
