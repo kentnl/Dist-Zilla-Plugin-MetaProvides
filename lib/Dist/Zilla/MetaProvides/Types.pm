@@ -1,8 +1,9 @@
 use strict;
 use warnings;
 package Dist::Zilla::MetaProvides::Types;
-our $VERSION = '1.10001919';
-
+BEGIN {
+  $Dist::Zilla::MetaProvides::Types::VERSION = '1.10027518';
+}
 
 # ABSTRACT: Utility Types for the MetaProvides Plugin
 #
@@ -22,7 +23,6 @@ subtype ProviderObject, as Object, where { $_->does('Dist::Zilla::Role::MetaProv
 
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -31,7 +31,7 @@ Dist::Zilla::MetaProvides::Types - Utility Types for the MetaProvides Plugin
 
 =head1 VERSION
 
-version 1.10001919
+version 1.10027518
 
 =head1 SUBTYPES
 
@@ -43,13 +43,9 @@ In L<Dist::Zilla::MetaProvides::ProvideRecord> and
 L<Dist::Zilla::Role::MetaProvider::Provider>, versions that have a value of
 undef will be trimmed from output.
 
-
-
 =head2 ProviderObject
 
 Just an easy to use Check that assures a given object performs a role.
-
-
 
 =head1 SEE ALSO
 
@@ -63,9 +59,7 @@ Just an easy to use Check that assures a given object performs a role.
 
 =item * L<Dist::Zilla::Role::MetaProvider::Provider>
 
-=back 
-
-
+=back
 
 =head1 AUTHOR
 
@@ -73,11 +67,10 @@ Just an easy to use Check that assures a given object performs a role.
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Kent Fredric.
+This software is copyright (c) 2010 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

@@ -1,8 +1,9 @@
 use strict;
 use warnings;
 package Dist::Zilla::Role::MetaProvider::Provider;
-our $VERSION = '1.10001919';
-
+BEGIN {
+  $Dist::Zilla::Role::MetaProvider::Provider::VERSION = '1.10027518';
+}
 
 # ABSTRACT: A Role for Metadata providers specific to the 'provider' key.
 
@@ -63,7 +64,6 @@ no Moose;
 
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -72,13 +72,11 @@ Dist::Zilla::Role::MetaProvider::Provider - A Role for Metadata providers specif
 
 =head1 VERSION
 
-version 1.10001919
+version 1.10027518
 
 =head1 PERFORMS ROLES
 
 L<Dist::Zilla::Role::MetaProvider>
-
-
 
 =head1 REQUIRED METHODS FOR PERFORMING ROLES
 
@@ -86,8 +84,6 @@ L<Dist::Zilla::Role::MetaProvider>
 
 Must return an array full of L<Dist::Zilla::MetaProvider::ProvideRecord>
 instances.
-
-
 
 =head1 ATTRIBUTES / PARAMETERS
 
@@ -107,11 +103,9 @@ discovered in packages are ignored.
 The version defined in the discovered class is the authority, and it is copied
 to the provides metadata.
 
-=back 
+=back
 
 ( To use this feature in a performing class, see L</_resolve_version> )
-
-
 
 =head2 inherit_missing
 
@@ -128,11 +122,9 @@ C<dist.ini>'s version turns up in the final metadata.
 =item * Set to "0".
 A C<provide> turns up in the final metadata without a version, which is permissible.
 
-=back 
+=back
 
 ( To use this feature in a performing class, see L</_resolve_version> )
-
-
 
 =head1 PRIVATE METHODS
 
@@ -152,16 +144,12 @@ Returns either an empty list, or a list with C<('version', $version )>;
 
 This is so C<{ version =E<gt> undef }> does not occur in the YAML.
 
-
-
 =head1 PUBLIC METHODS
 
 =head2 metadata
 
 Fullfills the requirement of L<Dist::Zilla::Role::MetaProvider> by processing
 results returned from C<$self-E<gt>provides>.
-
-
 
 =head1 SEE ALSO
 
@@ -173,9 +161,7 @@ results returned from C<$self-E<gt>provides>.
 
 =item * L<Dist::Zilla::MetaProvider::ProvideRecord>
 
-=back 
-
-
+=back
 
 =head1 AUTHOR
 
@@ -183,11 +169,10 @@ results returned from C<$self-E<gt>provides>.
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Kent Fredric.
+This software is copyright (c) 2010 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

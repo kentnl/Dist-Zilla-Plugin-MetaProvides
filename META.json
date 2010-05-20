@@ -1,67 +1,76 @@
 {
-   "resources" : {
-      "repository" : "http://github.com/kentfredric/dist-zilla-plugin-metaprovides/tree"
-   },
-   "generated_by" : "Dist::Zilla::Plugin::MetaJSON version 1.092450",
-   "meta-spec" : {
-      "version" : 1.4,
-      "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
-   },
-   "version" : "1.10001919",
-   "name" : "Dist-Zilla-Plugin-MetaProvides",
+   "abstract" : "Generating and Populating 'provides' in your META.yml",
    "author" : [
       "Kent Fredric <kentnl@cpan.org>"
    ],
+   "build_requires" : {
+      "Module::Build" : "0.3601"
+   },
+   "configure_requires" : {
+      "ExtUtils::MakeMaker" : "6.31",
+      "Module::Build" : "0.3601"
+   },
+   "generated_by" : "Dist::Zilla version 2.101310",
    "license" : "perl",
+   "meta-spec" : {
+      "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html",
+      "version" : 1.4
+   },
+   "name" : "Dist-Zilla-Plugin-MetaProvides",
    "provides" : {
-      "Dist::Zilla::MetaProvides::Types" : {
-         "version" : "1.10001919",
-         "file" : "lib/Dist/Zilla/MetaProvides/Types.pm"
-      },
       "Dist::Zilla::MetaProvides::ProvideRecord" : {
-         "version" : "1.10001919",
-         "file" : "lib/Dist/Zilla/MetaProvides/ProvideRecord.pm"
+         "file" : "lib/Dist/Zilla/MetaProvides/ProvideRecord.pm",
+         "version" : "1.10027518"
       },
-      "Dist::Zilla::Plugin::MetaProvides::Package" : {
-         "version" : "1.10001919",
-         "file" : "lib/Dist/Zilla/Plugin/MetaProvides/Package.pm"
+      "Dist::Zilla::MetaProvides::Types" : {
+         "file" : "lib/Dist/Zilla/MetaProvides/Types.pm",
+         "version" : "1.10027518"
       },
       "Dist::Zilla::Plugin::MetaProvides" : {
-         "version" : "1.10001919",
-         "file" : "lib/Dist/Zilla/Plugin/MetaProvides.pm"
-      },
-      "Dist::Zilla::Role::MetaProvider::Provider" : {
-         "version" : "1.10001919",
-         "file" : "lib/Dist/Zilla/Role/MetaProvider/Provider.pm"
-      },
-      "Dist::Zilla::Plugin::MetaProvides::FromFile" : {
-         "version" : "1.10001919",
-         "file" : "lib/Dist/Zilla/Plugin/MetaProvides/FromFile.pm"
+         "file" : "lib/Dist/Zilla/Plugin/MetaProvides.pm",
+         "version" : "1.10027518"
       },
       "Dist::Zilla::Plugin::MetaProvides::Class" : {
-         "version" : "1.10001919",
-         "file" : "lib/Dist/Zilla/Plugin/MetaProvides/Class.pm"
+         "file" : "lib/Dist/Zilla/Plugin/MetaProvides/Class.pm",
+         "version" : "1.10027518"
+      },
+      "Dist::Zilla::Plugin::MetaProvides::FromFile" : {
+         "file" : "lib/Dist/Zilla/Plugin/MetaProvides/FromFile.pm",
+         "version" : "1.10027518"
+      },
+      "Dist::Zilla::Plugin::MetaProvides::Package" : {
+         "file" : "lib/Dist/Zilla/Plugin/MetaProvides/Package.pm",
+         "version" : "1.10027518"
+      },
+      "Dist::Zilla::Role::MetaProvider::Provider" : {
+         "file" : "lib/Dist/Zilla/Role/MetaProvider/Provider.pm",
+         "version" : "1.10027518"
       }
    },
+   "recommends" : {},
    "requires" : {
-      "MooseX::Types::Moose" : "0.19",
-      "MooseX::Has::Sugar" : "0.0404",
-      "Module::Extract::VERSION" : "0.13",
-      "FindBin" : "0",
-      "aliased" : "0.30",
       "Class::Discover" : "1.000001",
-      "Path::Class::File" : "0.17",
-      "List::MoreUtils" : "0.22",
-      "Moose" : "0.89",
+      "Dist::Zilla" : "2.101310",
       "File::Find::Rule" : "0.30",
-      "namespace::autoclean" : "0.08",
       "File::Find::Rule::Perl" : "1.09",
-      "Moose::Autobox" : "0.09",
-      "Test::More" : "0.92",
+      "FindBin" : "0",
+      "List::MoreUtils" : "0.22",
       "Module::Extract::Namespaces" : "0.14",
+      "Module::Extract::VERSION" : "0.13",
+      "Moose" : "0.89",
+      "Moose::Autobox" : "0.09",
+      "MooseX::Has::Sugar" : "0.0404",
       "MooseX::Types" : "0.19",
-      "Dist::Zilla" : "0.092310",
-      "Path::Class::Dir" : "0.17"
+      "MooseX::Types::Moose" : "0.19",
+      "Path::Class::Dir" : "0.17",
+      "Path::Class::File" : "0.17",
+      "Test::More" : "0.92",
+      "aliased" : "0.30",
+      "namespace::autoclean" : "0.08"
    },
-   "abstract" : "Generating and Populating 'provides' in your META.yml"
+   "resources" : {
+      "repository" : "http://github.com/kentfredric/dist-zilla-plugin-metaprovides"
+   },
+   "version" : "1.10027518"
 }
+

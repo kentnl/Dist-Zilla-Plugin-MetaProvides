@@ -1,8 +1,9 @@
 use strict;
 use warnings;
 package Dist::Zilla::Plugin::MetaProvides::Package;
-our $VERSION = '1.10001919';
-
+BEGIN {
+  $Dist::Zilla::Plugin::MetaProvides::Package::VERSION = '1.10027518';
+}
 
 # ABSTRACT: Extract namespaces/version from traditional packages for provides
 #
@@ -53,7 +54,6 @@ __PACKAGE__->meta->make_immutable;
 
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -62,13 +62,11 @@ Dist::Zilla::Plugin::MetaProvides::Package - Extract namespaces/version from tra
 
 =head1 VERSION
 
-version 1.10001919
+version 1.10027518
 
 =head1 ROLES
 
 =head2 L<Dist::Zilla::Role::MetaProvider::Provider>
-
-
 
 =head1 ROLE SATISFYING METHODS
 
@@ -80,8 +78,6 @@ A conformant function to the L<Dist::Zila::Role::MetaProvider::Provider> Role.
 
 =head3 returns: Array of L<Dist::Zilla::MetaProvides::ProvideRecord>
 
-
-
 =head1 PRIVATE METHODS
 
 =head2 _packages_for
@@ -90,17 +86,13 @@ A conformant function to the L<Dist::Zila::Role::MetaProvider::Provider> Role.
 
 =head3 returns: Array of L<Dist::Zilla::MetaProvides::ProvideRecord>
 
-
-
 =head1 SEE ALSO
 
 =over 4
 
 =item * L<Dist::Zilla::Plugin::MetaProvides>
 
-=back 
-
-
+=back
 
 =head1 AUTHOR
 
@@ -108,11 +100,10 @@ A conformant function to the L<Dist::Zila::Role::MetaProvider::Provider> Role.
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Kent Fredric.
+This software is copyright (c) 2010 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

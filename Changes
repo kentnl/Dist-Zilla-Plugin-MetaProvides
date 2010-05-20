@@ -1,5 +1,10 @@
 Revision history for Dist-Zilla-Plugin-MetaProvides
 
+1.10027518 2010-05-20 17:33:10 Pacific/Auckland
+          Upgraded tests to Dist::Zilla 2.x. ( should resolve rt #56482 )
+            ( Thanks to DAXIM/Lars Dɪᴇᴄᴋᴏᴡ 迪拉斯 for reporting )
+          Upgraded dist.ini to Dist::Zilla 2.x
+
 1.10001919 2009-09-12 06:17:57 UTC
           Dropped the version dep on FindBin because it causes
            problems for some. Apparently deping on something that 

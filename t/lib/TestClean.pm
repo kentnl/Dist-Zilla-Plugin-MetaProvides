@@ -1,6 +1,4 @@
 package TestClean;
-our $VERSION = '1.10001919';
-
 
 # $Id:$
 my $CLASS = __PACKAGE__;
