@@ -1,6 +1,10 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          Upgraded tests to Dist::Zilla 2.x. ( should resolve rt #56482 )
+          Upgraded dist.ini to Dist::Zilla 2.x
+
+1.10001919 2009-09-12 06:17:57 UTC
           Dropped the version dep on FindBin because it causes
            problems for some. Apparently deping on something that 
            may or may not be in core which may or may not be in core

@@ -1,25 +1,13 @@
 use strict;
 use warnings;
-use Test::More tests => 2;
-use Test::Exception;
-
+use Test::More tests => 1;
 #my $test_tempdir = temp_root();
 
-use Dist::Zilla;
-my $dzil;
+use Dist::Zilla::App::Tester;
 
-chdir 't/eg/DZ2/';
+my $result = test_dzil('t/eg/DZ2', [qw( build ) ] );
 
-lives_ok {
-  $dzil = Dist::Zilla->from_config( {} );
-}
-'Create An Instance';
+is( $result->exit_code, 0, "Build test succeeded");
 
-lives_ok {
-  $dzil->build_in();
-}
-'Build It'
-
-;
 
 
