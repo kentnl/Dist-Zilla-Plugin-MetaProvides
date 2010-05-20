@@ -2,6 +2,7 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
           Upgraded tests to Dist::Zilla 2.x. ( should resolve rt #56482 )
+            ( Thanks to DAXIM/Lars Dɪᴇᴄᴋᴏᴡ 迪拉斯 for reporting )
           Upgraded dist.ini to Dist::Zilla 2.x
 
 1.10001919 2009-09-12 06:17:57 UTC
