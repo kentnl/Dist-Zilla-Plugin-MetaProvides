@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package Dist::Zilla::Plugin::MetaProvides::Class;
 BEGIN {
-  $Dist::Zilla::Plugin::MetaProvides::Class::VERSION = '1.10027518';
+  $Dist::Zilla::Plugin::MetaProvides::Class::VERSION = '1.10027802';
 }
 
 # ABSTRACT: Scans Dist::Zilla's .pm files and tries to identify classes using Class::Discover.
@@ -69,7 +69,7 @@ Dist::Zilla::Plugin::MetaProvides::Class - Scans Dist::Zilla's .pm files and tri
 
 =head1 VERSION
 
-version 1.10027518
+version 1.10027802
 
 =head1 ROLES
 

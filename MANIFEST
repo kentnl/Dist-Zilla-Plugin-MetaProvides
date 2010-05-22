@@ -4,7 +4,6 @@ LICENSE
 MANIFEST
 META.json
 META.yml
-Makefile.PL
 README
 dist.ini
 lib/Dist/Zilla/MetaProvides/ProvideRecord.pm
@@ -24,7 +23,6 @@ t/eg/DZ2/dist_meta_provides.ini
 t/eg/DZ2/lib/DZ2.pm
 t/eg/DZ2/lib/DZ2mx.pm
 t/lib/TestClean.pm
-t/release-distmeta.t
 t/release-pod-coverage.t
 t/release-pod-syntax.t
 xt/author_disabled/01.whitespace.t

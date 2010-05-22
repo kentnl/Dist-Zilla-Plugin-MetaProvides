@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package Dist::Zilla::MetaProvides::ProvideRecord;
 BEGIN {
-  $Dist::Zilla::MetaProvides::ProvideRecord::VERSION = '1.10027518';
+  $Dist::Zilla::MetaProvides::ProvideRecord::VERSION = '1.10027802';
 }
 
 # ABSTRACT: Data Management Record for MetaProvider::Provides Based Class
@@ -51,7 +51,7 @@ Dist::Zilla::MetaProvides::ProvideRecord - Data Management Record for MetaProvid
 
 =head1 VERSION
 
-version 1.10027518
+version 1.10027802
 
 =head1 ATTRIBUTES
 

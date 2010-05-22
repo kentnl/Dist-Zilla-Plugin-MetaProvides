@@ -1,5 +1,12 @@
 Revision history for Dist-Zilla-Plugin-MetaProvides
 
+1.10027802 2010-05-23 01:08:02 Pacific/Auckland
+          Replaced most of dist.ini with @KENTNL
+            ( Yeilding more accurate t/ depends )
+          Removed =inc::Dist style loopback in favour
+            of the more reliable and more generic
+            =inc::lib
+
 1.10027518 2010-05-20 17:33:10 Pacific/Auckland
           Upgraded tests to Dist::Zilla 2.x. ( should resolve rt #56482 )
             ( Thanks to DAXIM/Lars Dɪᴇᴄᴋᴏᴡ 迪拉斯 for reporting )

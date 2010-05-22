@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package Dist::Zilla::Role::MetaProvider::Provider;
 BEGIN {
-  $Dist::Zilla::Role::MetaProvider::Provider::VERSION = '1.10027518';
+  $Dist::Zilla::Role::MetaProvider::Provider::VERSION = '1.10027802';
 }
 
 # ABSTRACT: A Role for Metadata providers specific to the 'provider' key.
@@ -72,7 +72,7 @@ Dist::Zilla::Role::MetaProvider::Provider - A Role for Metadata providers specif
 
 =head1 VERSION
 
-version 1.10027518
+version 1.10027802
 
 =head1 PERFORMS ROLES
 

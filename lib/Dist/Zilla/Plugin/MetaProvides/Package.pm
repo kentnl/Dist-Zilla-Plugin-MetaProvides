@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package Dist::Zilla::Plugin::MetaProvides::Package;
 BEGIN {
-  $Dist::Zilla::Plugin::MetaProvides::Package::VERSION = '1.10027518';
+  $Dist::Zilla::Plugin::MetaProvides::Package::VERSION = '1.10027802';
 }
 
 # ABSTRACT: Extract namespaces/version from traditional packages for provides
@@ -62,7 +62,7 @@ Dist::Zilla::Plugin::MetaProvides::Package - Extract namespaces/version from tra
 
 =head1 VERSION
 
-version 1.10027518
+version 1.10027802
 
 =head1 ROLES
 

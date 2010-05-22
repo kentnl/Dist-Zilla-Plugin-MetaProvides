@@ -3,9 +3,21 @@ abstract: "Generating and Populating 'provides' in your META.yml"
 author:
   - 'Kent Fredric <kentnl@cpan.org>'
 build_requires:
+  Data::Dumper: 0
+  Dist::Zilla::App::Tester: 0
+  File::Find: 0
+  File::Find::Rule: 0.30
+  File::Find::Rule::Perl: 1.09
+  FindBin: 0
   Module::Build: 0.3601
+  MooseX::Declare: 0
+  Path::Class::Dir: 0.17
+  Path::Class::File: 0.17
+  Test::Builder::Module: 0
+  Test::Kwalitee: 0
+  Test::More: 0.92
+  Test::Perl::Critic: 0
 configure_requires:
-  ExtUtils::MakeMaker: 6.31
   Module::Build: 0.3601
 generated_by: 'Dist::Zilla version 2.101310'
 license: perl
@@ -16,45 +28,194 @@ name: Dist-Zilla-Plugin-MetaProvides
 provides:
   Dist::Zilla::MetaProvides::ProvideRecord:
     file: lib/Dist/Zilla/MetaProvides/ProvideRecord.pm
-    version: 1.10027518
+    version: 1.10027802
   Dist::Zilla::MetaProvides::Types:
     file: lib/Dist/Zilla/MetaProvides/Types.pm
-    version: 1.10027518
+    version: 1.10027802
   Dist::Zilla::Plugin::MetaProvides:
     file: lib/Dist/Zilla/Plugin/MetaProvides.pm
-    version: 1.10027518
+    version: 1.10027802
   Dist::Zilla::Plugin::MetaProvides::Class:
     file: lib/Dist/Zilla/Plugin/MetaProvides/Class.pm
-    version: 1.10027518
+    version: 1.10027802
   Dist::Zilla::Plugin::MetaProvides::FromFile:
     file: lib/Dist/Zilla/Plugin/MetaProvides/FromFile.pm
-    version: 1.10027518
+    version: 1.10027802
   Dist::Zilla::Plugin::MetaProvides::Package:
     file: lib/Dist/Zilla/Plugin/MetaProvides/Package.pm
-    version: 1.10027518
+    version: 1.10027802
   Dist::Zilla::Role::MetaProvider::Provider:
     file: lib/Dist/Zilla/Role/MetaProvider/Provider.pm
-    version: 1.10027518
+    version: 1.10027802
 recommends: {}
 requires:
+  Carp: 0
   Class::Discover: 1.000001
+  Config::INI::Reader: 0
   Dist::Zilla: 2.101310
-  File::Find::Rule: 0.30
-  File::Find::Rule::Perl: 1.09
-  FindBin: 0
+  Dist::Zilla::Role::MetaProvider: 0
   List::MoreUtils: 0.22
   Module::Extract::Namespaces: 0.14
   Module::Extract::VERSION: 0.13
   Moose: 0.89
   Moose::Autobox: 0.09
+  Moose::Role: 0
   MooseX::Has::Sugar: 0.0404
   MooseX::Types: 0.19
   MooseX::Types::Moose: 0.19
-  Path::Class::Dir: 0.17
-  Path::Class::File: 0.17
-  Test::More: 0.92
   aliased: 0.30
   namespace::autoclean: 0.08
 resources:
   repository: http://github.com/kentfredric/dist-zilla-plugin-metaprovides
-version: 1.10027518
+version: 1.10027802
+x_Dist_Zilla:
+  plugins:
+    -
+      class: inc::lib
+      name: inc::lib
+      version: ~
+    -
+      class: Dist::Zilla::Plugin::AutoVersion::Relative
+      name: '@KENTNL/AutoVersion::Relative'
+      version: 0.01006104
+    -
+      class: Dist::Zilla::Plugin::GatherDir
+      name: '@KENTNL/GatherDir'
+      version: 2.101310
+    -
+      class: Dist::Zilla::Plugin::MetaConfig
+      name: '@KENTNL/MetaConfig'
+      version: 2.101310
+    -
+      class: Dist::Zilla::Plugin::PruneCruft
+      name: '@KENTNL/PruneCruft'
+      version: 2.101310
+    -
+      class: Dist::Zilla::Plugin::Repository
+      name: '@KENTNL/Repository'
+      version: 0.11
+    -
+      class: Dist::Zilla::Plugin::License
+      name: '@KENTNL/License'
+      version: 2.101310
+    -
+      class: Dist::Zilla::Plugin::PkgVersion
+      name: '@KENTNL/PkgVersion'
+      version: 2.101310
+    -
+      class: Dist::Zilla::Plugin::PodWeaver
+      name: '@KENTNL/PodWeaver'
+      version: 3.093321
+    -
+      class: Dist::Zilla::Plugin::MetaProvides::Package
+      name: '@KENTNL/MetaProvides::Package'
+      version: ~
+    -
+      class: Dist::Zilla::Plugin::MetaJSON
+      name: '@KENTNL/MetaJSON'
+      version: 2.101310
+    -
+      class: Dist::Zilla::Plugin::MetaYAML
+      name: '@KENTNL/MetaYAML'
+      version: 2.101310
+    -
+      class: Dist::Zilla::Plugin::ModuleBuild
+      name: '@KENTNL/ModuleBuild'
+      version: 2.101310
+    -
+      class: Dist::Zilla::Plugin::ReadmeFromPod
+      name: '@KENTNL/ReadmeFromPod'
+      version: 0.04
+    -
+      class: Dist::Zilla::Plugin::ManifestSkip
+      name: '@KENTNL/ManifestSkip'
+      version: 2.101310
+    -
+      class: Dist::Zilla::Plugin::Manifest
+      name: '@KENTNL/Manifest'
+      version: 2.101310
+    -
+      class: Dist::Zilla::Plugin::AutoPrereq
+      name: '@KENTNL/AutoPrereq'
+      version: 2.101310
+    -
+      class: Dist::Zilla::Plugin::CompileTests
+      name: '@KENTNL/CompileTests'
+      version: 1.092870
+    -
+      class: Dist::Zilla::Plugin::PodCoverageTests
+      name: '@KENTNL/PodCoverageTests'
+      version: 2.101310
+    -
+      class: Dist::Zilla::Plugin::PodSyntaxTests
+      name: '@KENTNL/PodSyntaxTests'
+      version: 2.101310
+    -
+      class: Dist::Zilla::Plugin::ExtraTests
+      name: '@KENTNL/ExtraTests'
+      version: 2.101310
+    -
+      class: Dist::Zilla::Plugin::TestRelease
+      name: '@KENTNL/TestRelease'
+      version: 2.101310
+    -
+      class: Dist::Zilla::Plugin::ConfirmRelease
+      name: '@KENTNL/ConfirmRelease'
+      version: 2.101310
+    -
+      class: Dist::Zilla::Plugin::Git::Check
+      name: '@KENTNL/Git::Check'
+      version: 1.093410
+    -
+      class: Dist::Zilla::Plugin::NextRelease
+      name: '@KENTNL/NextRelease'
+      version: 2.101310
+    -
+      class: Dist::Zilla::Plugin::Git::Tag
+      name: '@KENTNL/Git::Tag'
+      version: 1.093410
+    -
+      class: Dist::Zilla::Plugin::Git::Commit
+      name: '@KENTNL/Git::Commit'
+      version: 1.093410
+    -
+      class: Dist::Zilla::Plugin::UploadToCPAN
+      name: '@KENTNL/UploadToCPAN'
+      version: 2.101310
+    -
+      class: Dist::Zilla::Plugin::Prereq
+      config:
+        Dist::Zilla::Plugin::Prereq:
+          phase: runtime
+          type: requires
+      name: RuntimeRequires
+      version: 2.101310
+    -
+      class: Dist::Zilla::Plugin::Prereq
+      config:
+        Dist::Zilla::Plugin::Prereq:
+          phase: build
+          type: requires
+      name: TestRequires
+      version: 2.101310
+    -
+      class: Dist::Zilla::Plugin::FinderCode
+      name: ':InstallModules'
+      version: 2.101310
+    -
+      class: Dist::Zilla::Plugin::FinderCode
+      name: ':TestFiles'
+      version: 2.101310
+    -
+      class: Dist::Zilla::Plugin::FinderCode
+      name: ':ExecFiles'
+      version: 2.101310
+    -
+      class: Dist::Zilla::Plugin::FinderCode
+      name: ':ShareFiles'
+      version: 2.101310
+  zilla:
+    class: Dist::Zilla
+    config:
+      is_trial: 0
+    version: 2.101310
