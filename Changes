@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.10027802 2010-05-23 01:08:02 Pacific/Auckland
           Replaced most of dist.ini with @KENTNL
             ( Yeilding more accurate t/ depends )
           Removed =inc::Dist style loopback in favour
