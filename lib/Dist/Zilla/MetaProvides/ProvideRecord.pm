@@ -1,8 +1,9 @@
 use strict;
 use warnings;
+
 package Dist::Zilla::MetaProvides::ProvideRecord;
 BEGIN {
-  $Dist::Zilla::MetaProvides::ProvideRecord::VERSION = '1.10034117';
+  $Dist::Zilla::MetaProvides::ProvideRecord::VERSION = '1.11034201';
 }
 
 # ABSTRACT: Data Management Record for MetaProvider::Provides Based Class
@@ -11,23 +12,20 @@ BEGIN {
 use Moose;
 use MooseX::Types::Moose             (':all');
 use Dist::Zilla::MetaProvides::Types (':all');
-use List::MoreUtils                  ('all');
-use Moose::Autobox;
-use MooseX::Has::Sugar;
 
 use namespace::autoclean;
 
 
-has version => ( isa => ModVersion, ro, required );
+has version => ( isa => ModVersion, is => 'ro', required => 1 );
 
 
-has module => ( isa => Str, ro, required );
+has module => ( isa => Str, is => 'ro', required => 1 );
 
 
-has file => ( isa => Str, ro, required );
+has file => ( isa => Str, is => 'ro', required => 1 );
 
 
-has parent => ( ro, required, weak_ref, isa => ProviderObject, handles => [ 'zilla', '_resolve_version', ], );
+has parent => ( is => 'ro', required => 1, weak_ref => 1, isa => ProviderObject, handles => [ 'zilla', '_resolve_version', ], );
 
 
 sub copy_into {
@@ -51,7 +49,7 @@ Dist::Zilla::MetaProvides::ProvideRecord - Data Management Record for MetaProvid
 
 =head1 VERSION
 
-version 1.10034117
+version 1.11034201
 
 =head1 ATTRIBUTES
 

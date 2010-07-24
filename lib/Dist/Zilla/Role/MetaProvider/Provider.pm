@@ -1,8 +1,9 @@
 use strict;
 use warnings;
+
 package Dist::Zilla::Role::MetaProvider::Provider;
 BEGIN {
-  $Dist::Zilla::Role::MetaProvider::Provider::VERSION = '1.10034117';
+  $Dist::Zilla::Role::MetaProvider::Provider::VERSION = '1.11034201';
 }
 
 # ABSTRACT: A Role for Metadata providers specific to the 'provider' key.
@@ -10,7 +11,6 @@ BEGIN {
 # $Id:$
 use Moose::Role;
 use MooseX::Types::Moose (':all');
-use MooseX::Has::Sugar;
 use namespace::autoclean;
 
 
@@ -21,7 +21,7 @@ requires 'provides';
 
 
 has inherit_version => (
-  ro,
+  is            => 'ro',
   isa           => Bool,
   default       => 1,
   documentation => 'Whether or not to treat the global version as an authority',
@@ -29,7 +29,7 @@ has inherit_version => (
 
 
 has inherit_missing => (
-  ro,
+  is            => 'ro',
   isa           => Bool,
   default       => 1,
   documentation => 'How to behave when we are trusting modules to have versions and one is missing one',
@@ -72,7 +72,7 @@ Dist::Zilla::Role::MetaProvider::Provider - A Role for Metadata providers specif
 
 =head1 VERSION
 
-version 1.10034117
+version 1.11034201
 
 =head1 PERFORMS ROLES
 

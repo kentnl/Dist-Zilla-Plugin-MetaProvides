@@ -1,5 +1,13 @@
 Revision history for Dist-Zilla-Plugin-MetaProvides
 
+1.11034201 2010-07-25 01:35:56 Pacific/Auckland
+          Forked into 4 smaller dists to reduce the installation overheads.
+          Mostly so that people who want Metaprovides::Package don't have to install MooseX::Declare and friends.
+            ::Plugin::MetaProvides
+            ::Plugin::MetaProvides::Package
+            ::Plugin::MetaProvides::Class
+            ::Plugin::MetaProvides::FromFile
+
 1.10034117 2010-07-24 17:37:49 Pacific/Auckland
 
           Dropped xt/author/kwalitee.t to avoid the needless dep.

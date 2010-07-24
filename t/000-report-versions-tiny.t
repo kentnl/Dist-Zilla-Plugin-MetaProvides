@@ -48,36 +48,16 @@ sub pmver {
     return sprintf('%-40s => %-10s%-15s%s', $module, $pmver, $wanted, "\n");
 }
 
-eval { $v .= pmver('Carp','any version') };
-eval { $v .= pmver('Class::Discover','1.000001') };
-eval { $v .= pmver('Config::INI::Reader','any version') };
-eval { $v .= pmver('Data::Dumper','any version') };
-eval { $v .= pmver('Dist::Zilla','2.101310') };
-eval { $v .= pmver('Dist::Zilla::App::Tester','any version') };
 eval { $v .= pmver('Dist::Zilla::Role::MetaProvider','any version') };
 eval { $v .= pmver('File::Find','any version') };
-eval { $v .= pmver('File::Find::Rule','0.30') };
-eval { $v .= pmver('File::Find::Rule::Perl','1.09') };
 eval { $v .= pmver('File::Temp','any version') };
-eval { $v .= pmver('FindBin','any version') };
-eval { $v .= pmver('List::MoreUtils','0.22') };
 eval { $v .= pmver('Module::Build','0.3601') };
-eval { $v .= pmver('Module::Extract::Namespaces','0.14') };
-eval { $v .= pmver('Module::Extract::VERSION','0.13') };
-eval { $v .= pmver('Moose','0.89') };
-eval { $v .= pmver('Moose::Autobox','0.09') };
+eval { $v .= pmver('Moose','any version') };
 eval { $v .= pmver('Moose::Role','any version') };
-eval { $v .= pmver('MooseX::Declare','any version') };
-eval { $v .= pmver('MooseX::Has::Sugar','0.0404') };
-eval { $v .= pmver('MooseX::Types','0.19') };
-eval { $v .= pmver('MooseX::Types::Moose','0.19') };
-eval { $v .= pmver('Path::Class::Dir','0.17') };
-eval { $v .= pmver('Path::Class::File','0.17') };
-eval { $v .= pmver('Test::Builder::Module','any version') };
-eval { $v .= pmver('Test::More','0.92') };
-eval { $v .= pmver('Test::Perl::Critic','any version') };
-eval { $v .= pmver('aliased','0.30') };
-eval { $v .= pmver('namespace::autoclean','0.08') };
+eval { $v .= pmver('MooseX::Types','any version') };
+eval { $v .= pmver('MooseX::Types::Moose','any version') };
+eval { $v .= pmver('Test::More','0.88') };
+eval { $v .= pmver('namespace::autoclean','any version') };
 
 
 

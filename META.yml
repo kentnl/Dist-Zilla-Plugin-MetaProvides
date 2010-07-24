@@ -3,20 +3,10 @@ abstract: "Generating and Populating 'provides' in your META.yml"
 author:
   - 'Kent Fredric <kentnl@cpan.org>'
 build_requires:
-  Data::Dumper: 0
-  Dist::Zilla::App::Tester: 0
   File::Find: 0
-  File::Find::Rule: 0.30
-  File::Find::Rule::Perl: 1.09
   File::Temp: 0
-  FindBin: 0
   Module::Build: 0.3601
-  MooseX::Declare: 0
-  Path::Class::Dir: 0.17
-  Path::Class::File: 0.17
-  Test::Builder::Module: 0
-  Test::More: 0.92
-  Test::Perl::Critic: 0
+  Test::More: 0.88
 configure_requires:
   Module::Build: 0.3601
 dynamic_config: 0
@@ -29,77 +19,38 @@ name: Dist-Zilla-Plugin-MetaProvides
 provides:
   Dist::Zilla::MetaProvides::ProvideRecord:
     file: lib/Dist/Zilla/MetaProvides/ProvideRecord.pm
-    version: 1.10034117
+    version: 1.11034201
   Dist::Zilla::MetaProvides::Types:
     file: lib/Dist/Zilla/MetaProvides/Types.pm
-    version: 1.10034117
+    version: 1.11034201
   Dist::Zilla::Plugin::MetaProvides:
     file: lib/Dist/Zilla/Plugin/MetaProvides.pm
-    version: 1.10034117
-  Dist::Zilla::Plugin::MetaProvides::Class:
-    file: lib/Dist/Zilla/Plugin/MetaProvides/Class.pm
-    version: 1.10034117
-  Dist::Zilla::Plugin::MetaProvides::FromFile:
-    file: lib/Dist/Zilla/Plugin/MetaProvides/FromFile.pm
-    version: 1.10034117
-  Dist::Zilla::Plugin::MetaProvides::Package:
-    file: lib/Dist/Zilla/Plugin/MetaProvides/Package.pm
-    version: 1.10034117
+    version: 1.11034201
   Dist::Zilla::Role::MetaProvider::Provider:
     file: lib/Dist/Zilla/Role/MetaProvider/Provider.pm
-    version: 1.10034117
+    version: 1.11034201
 requires:
-  Carp: 0
-  Class::Discover: 1.000001
-  Config::INI::Reader: 0
-  Dist::Zilla: 2.101310
   Dist::Zilla::Role::MetaProvider: 0
-  List::MoreUtils: 0.22
-  Module::Extract::Namespaces: 0.14
-  Module::Extract::VERSION: 0.13
-  Moose: 0.89
-  Moose::Autobox: 0.09
+  Moose: 0
   Moose::Role: 0
-  MooseX::Has::Sugar: 0.0404
-  MooseX::Types: 0.19
-  MooseX::Types::Moose: 0.19
-  aliased: 0.30
-  namespace::autoclean: 0.08
+  MooseX::Types: 0
+  MooseX::Types::Moose: 0
+  namespace::autoclean: 0
 resources:
   homepage: http://github.com/kentfredric/dist-zilla-plugin-metaprovides/tree
   repository: git://github.com/kentfredric/dist-zilla-plugin-metaprovides.git
-version: 1.10034117
+version: 1.11034201
 x_BuiltWith:
   modules:
-    Carp: 1.16
-    Class::Discover: 1.000001
-    Config::INI::Reader: 0.014
-    Data::Dumper: 2.125
-    Dist::Zilla: 4.101900
-    Dist::Zilla::App::Tester: 4.101900
     Dist::Zilla::Role::MetaProvider: 4.101900
     File::Find: 1.15
-    File::Find::Rule: 0.32
-    File::Find::Rule::Perl: 1.09
     File::Temp: 0.22
-    FindBin: 1.50
-    List::MoreUtils: 0.22
     Module::Build: 0.3607
-    Module::Extract::Namespaces: 0.14
-    Module::Extract::VERSION: 0.13
     Moose: 1.08
-    Moose::Autobox: 0.11
     Moose::Role: 1.08
-    MooseX::Declare: 0.33
-    MooseX::Has::Sugar: 0.0405
     MooseX::Types: 0.22
     MooseX::Types::Moose: 0.22
-    Path::Class::Dir: 0.19
-    Path::Class::File: 0.19
-    Test::Builder::Module: 0.94
     Test::More: 0.94
-    Test::Perl::Critic: 1.02
-    aliased: 0.30
     namespace::autoclean: 0.11
   perl: 5.012001
   platform: linux
@@ -140,7 +91,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::MetaProvides::Package
       name: '@KENTNL/MetaProvides::Package'
-      version: ~
+      version: 1.10027802
     -
       class: Dist::Zilla::Plugin::MetaJSON
       name: '@KENTNL/MetaJSON'

@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package Dist::Zilla::Plugin::MetaProvides;
 BEGIN {
-  $Dist::Zilla::Plugin::MetaProvides::VERSION = '1.10034117';
+  $Dist::Zilla::Plugin::MetaProvides::VERSION = '1.11034201';
 }
 
 # ABSTRACT: Generating and Populating 'provides' in your META.yml
@@ -19,7 +19,7 @@ Dist::Zilla::Plugin::MetaProvides - Generating and Populating 'provides' in your
 
 =head1 VERSION
 
-version 1.10034117
+version 1.11034201
 
 =head1 SYNOPSIS
 
