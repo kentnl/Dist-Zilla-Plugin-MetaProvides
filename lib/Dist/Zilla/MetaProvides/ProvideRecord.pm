@@ -9,8 +9,6 @@ package Dist::Zilla::MetaProvides::ProvideRecord;
 use Moose;
 use MooseX::Types::Moose             (':all');
 use Dist::Zilla::MetaProvides::Types (':all');
-use List::MoreUtils                  ('all');
-use Moose::Autobox;
 
 use namespace::autoclean;
 
