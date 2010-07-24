@@ -1,5 +1,6 @@
 use strict;
 use warnings;
+
 package Dist::Zilla::MetaProvides::ProvideRecord;
 
 # ABSTRACT: Data Management Record for MetaProvider::Provides Based Class
@@ -10,7 +11,6 @@ use MooseX::Types::Moose             (':all');
 use Dist::Zilla::MetaProvides::Types (':all');
 use List::MoreUtils                  ('all');
 use Moose::Autobox;
-use MooseX::Has::Sugar;
 
 use namespace::autoclean;
 
@@ -22,7 +22,7 @@ See L<Dist::Zilla::MetaProvides::Types/ModVersion>
 
 =cut
 
-has version => ( isa => ModVersion, ro, required );
+has version => ( isa => ModVersion, is => 'ro', required => 1 );
 
 =head2 module
 
@@ -31,7 +31,7 @@ included in the distribution.
 
 =cut
 
-has module => ( isa => Str, ro, required );
+has module => ( isa => Str, is => 'ro', required => 1 );
 
 =head2 file
 
@@ -39,7 +39,7 @@ The String Name of the file as to be reported in the distribution.
 
 =cut
 
-has file => ( isa => Str, ro, required );
+has file => ( isa => Str, is => 'ro', required => 1 );
 
 =head2 parent
 
@@ -48,7 +48,7 @@ and accessors from L<Dist::Zilla::Role::MetaProvider::Provider>
 
 =cut
 
-has parent => ( ro, required, weak_ref, isa => ProviderObject, handles => [ 'zilla', '_resolve_version', ], );
+has parent => ( is => 'ro', required => 1, weak_ref => 1, isa => ProviderObject, handles => [ 'zilla', '_resolve_version', ], );
 
 =head1 METHODS
 

@@ -1,5 +1,6 @@
 use strict;
 use warnings;
+
 package Dist::Zilla::Role::MetaProvider::Provider;
 
 # ABSTRACT: A Role for Metadata providers specific to the 'provider' key.
@@ -7,7 +8,6 @@ package Dist::Zilla::Role::MetaProvider::Provider;
 # $Id:$
 use Moose::Role;
 use MooseX::Types::Moose (':all');
-use MooseX::Has::Sugar;
 use namespace::autoclean;
 
 =head1 PERFORMS ROLES
@@ -54,7 +54,7 @@ to the provides metadata.
 =cut
 
 has inherit_version => (
-  ro,
+  is            => 'ro',
   isa           => Bool,
   default       => 1,
   documentation => 'Whether or not to treat the global version as an authority',
@@ -82,7 +82,7 @@ A C<provide> turns up in the final metadata without a version, which is permissi
 =cut
 
 has inherit_missing => (
-  ro,
+  is            => 'ro',
   isa           => Bool,
   default       => 1,
   documentation => 'How to behave when we are trusting modules to have versions and one is missing one',
