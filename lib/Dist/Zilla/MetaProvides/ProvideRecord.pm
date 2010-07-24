@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package Dist::Zilla::MetaProvides::ProvideRecord;
 BEGIN {
-  $Dist::Zilla::MetaProvides::ProvideRecord::VERSION = '1.10027802';
+  $Dist::Zilla::MetaProvides::ProvideRecord::VERSION = '1.10034117';
 }
 
 # ABSTRACT: Data Management Record for MetaProvider::Provides Based Class
@@ -51,7 +51,7 @@ Dist::Zilla::MetaProvides::ProvideRecord - Data Management Record for MetaProvid
 
 =head1 VERSION
 
-version 1.10027802
+version 1.10034117
 
 =head1 ATTRIBUTES
 
@@ -92,7 +92,7 @@ and C<%discovered> will be populated with relevant data.
 
 =head1 AUTHOR
 
-  Kent Fredric <kentnl@cpan.org>
+Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

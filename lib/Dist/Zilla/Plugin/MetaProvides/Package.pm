@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package Dist::Zilla::Plugin::MetaProvides::Package;
 BEGIN {
-  $Dist::Zilla::Plugin::MetaProvides::Package::VERSION = '1.10027802';
+  $Dist::Zilla::Plugin::MetaProvides::Package::VERSION = '1.10034117';
 }
 
 # ABSTRACT: Extract namespaces/version from traditional packages for provides
@@ -62,7 +62,7 @@ Dist::Zilla::Plugin::MetaProvides::Package - Extract namespaces/version from tra
 
 =head1 VERSION
 
-version 1.10027802
+version 1.10034117
 
 =head1 ROLES
 
@@ -96,7 +96,7 @@ A conformant function to the L<Dist::Zila::Role::MetaProvider::Provider> Role.
 
 =head1 AUTHOR
 
-  Kent Fredric <kentnl@cpan.org>
+Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

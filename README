@@ -3,7 +3,7 @@ NAME
     in your META.yml
 
 VERSION
-    version 1.10027802
+    version 1.10034117
 
 SYNOPSIS
     In your projects dist.ini
@@ -127,7 +127,7 @@ OPTION SUMMARY
             }}
 
 AUTHOR
-      Kent Fredric <kentnl@cpan.org>
+    Kent Fredric <kentnl@cpan.org>
 
 COPYRIGHT AND LICENSE
     This software is copyright (c) 2010 by Kent Fredric.

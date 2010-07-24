@@ -4,6 +4,7 @@ use warnings;
 
 use Module::Build 0.3601;
 
+
 my %module_build_args = (
   'build_requires' => {
     'Data::Dumper' => '0',
@@ -11,13 +12,13 @@ my %module_build_args = (
     'File::Find' => '0',
     'File::Find::Rule' => '0.30',
     'File::Find::Rule::Perl' => '1.09',
+    'File::Temp' => '0',
     'FindBin' => '0',
     'Module::Build' => '0.3601',
     'MooseX::Declare' => '0',
     'Path::Class::Dir' => '0.17',
     'Path::Class::File' => '0.17',
     'Test::Builder::Module' => '0',
-    'Test::Kwalitee' => '0',
     'Test::More' => '0.92',
     'Test::Perl::Critic' => '0'
   },
@@ -29,10 +30,11 @@ my %module_build_args = (
     'Kent Fredric <kentnl@cpan.org>'
   ],
   'dist_name' => 'Dist-Zilla-Plugin-MetaProvides',
-  'dist_version' => '1.10027802',
+  'dist_version' => '1.10034117',
   'license' => 'perl',
   'module_name' => 'Dist::Zilla::Plugin::MetaProvides',
   'recommends' => {},
+  'recursive_test_files' => 1,
   'requires' => {
     'Carp' => '0',
     'Class::Discover' => '1.000001',

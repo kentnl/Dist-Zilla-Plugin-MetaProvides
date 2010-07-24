@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package Dist::Zilla::MetaProvides::Types;
 BEGIN {
-  $Dist::Zilla::MetaProvides::Types::VERSION = '1.10027802';
+  $Dist::Zilla::MetaProvides::Types::VERSION = '1.10034117';
 }
 
 # ABSTRACT: Utility Types for the MetaProvides Plugin
@@ -31,7 +31,7 @@ Dist::Zilla::MetaProvides::Types - Utility Types for the MetaProvides Plugin
 
 =head1 VERSION
 
-version 1.10027802
+version 1.10034117
 
 =head1 SUBTYPES
 
@@ -63,7 +63,7 @@ Just an easy to use Check that assures a given object performs a role.
 
 =head1 AUTHOR
 
-  Kent Fredric <kentnl@cpan.org>
+Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

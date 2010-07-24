@@ -1,5 +1,10 @@
 Revision history for Dist-Zilla-Plugin-MetaProvides
 
+1.10034117 2010-07-24 17:37:49 Pacific/Auckland
+
+          Dropped xt/author/kwalitee.t to avoid the needless dep.
+           ( Kwalitee Test plugin doesn't have this issue )
+
 1.10027802 2010-05-23 01:08:02 Pacific/Auckland
           Replaced most of dist.ini with @KENTNL
             ( Yeilding more accurate t/ depends )
