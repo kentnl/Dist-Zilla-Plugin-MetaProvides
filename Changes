@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          Upgrade to recent @KENTNL changes ( remove inc/ and xt/ from source tree, relocate perlcritic.rc )
 
 1.11034201 2010-07-25 01:35:56 Pacific/Auckland
           Forked into 4 smaller dists to reduce the installation overheads.
