@@ -5,9 +5,6 @@ package # PAUSE
   Dist::Zilla::Plugin::FakePlugin;
 
 use Moose;
-use Moose::Autobox;
-use Carp                ();
-use Config::INI::Reader ();
 use Dist::Zilla::MetaProvides::ProvideRecord;
 
 with 'Dist::Zilla::Role::MetaProvider::Provider';

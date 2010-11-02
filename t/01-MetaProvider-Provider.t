@@ -8,7 +8,6 @@ use Test::Fatal;
 use lib 't/lib';
 
 use TZil;
-use Data::Dump qw( dump );
 
 sub make_plugin {
   my @args = @_;
