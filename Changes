@@ -1,7 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
-          Nuking a few silly things that are depends but I don't need them.
+          Drop silly extra depends that sneaked in. It was hobbitses, and they are pesky.
 
 1.11044404 2010-11-03 05:25:56 Pacific/Auckland
           Upgrade to recent @KENTNL changes ( remove inc/ and xt/ from source tree, relocate perlcritic.rc )
