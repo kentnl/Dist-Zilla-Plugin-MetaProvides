@@ -110,10 +110,10 @@ to not be provided in the metadata.
 =cut
 
 has meta_noindex => (
-  is 		=> 'ro',
-  isa 		=> Bool,
-  default	=> 0,
-  documentation	=> 'Scan for the meta_noindex metadata key and do not add provides records for things in it',
+  is            => 'ro',
+  isa           => Bool,
+  default       => 0,
+  documentation => 'Scan for the meta_noindex metadata key and do not add provides records for things in it',
 );
 
 =head1 PRIVATE METHODS
