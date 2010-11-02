@@ -88,6 +88,34 @@ has inherit_missing => (
   documentation => 'How to behave when we are trusting modules to have versions and one is missing one',
 );
 
+=head2 meta_noindex
+
+This dictates how to behave when a discovered class is also present in the C<no_index> META field.
+
+=head3 values
+
+=over 4
+
+=item * Set to "0" B<[default]>
+
+C<no_index> META field will be ignored
+
+=item * Set to "1"
+
+C<no_index> META field will be recognised and things found in it will cause respective packages
+to not be provided in the metadata.
+
+=back
+
+=cut
+
+has meta_noindex => (
+  is 		=> 'ro',
+  isa 		=> Bool,
+  default	=> 0,
+  documentation	=> 'Scan for the meta_noindex metadata key and do not add provides records for things in it',
+);
+
 =head1 PRIVATE METHODS
 
 =head2 _resolve_version
@@ -118,6 +146,94 @@ sub _resolve_version {
     return ();
   }
   return ( 'version', $version );
+}
+
+=head2 _try_regen_metadata
+
+This is a nasty hack really, to work around the way L<< C<Dist::Zilla>|Dist::Zilla >> handles
+metaproviders, which result in meta-data being inaccessabile to metadata Plugins.
+
+  my $meta  = $object->_try_regen_metadata()
+
+This at present returns metadata provided by either L<< C<MetaNoIndex>|Dist::Zilla::Plugin::MetaNoIndex >>
+or L<< C<MetaResources>|Dist::Zilla::Plugin::MetaResources >> plugins.
+
+=cut
+sub _try_regen_metadata {
+  my ( $self ) = @_;
+
+  # This is a list of modules known to create the meta_noindex key.  Re-call these by hand.
+  my @scanfor = qw(
+    MetaNoIndex
+    MetaResources
+  );
+  # Collect the plugins that look like they work
+  my @discovered;
+  for my $plugin ( $self->zilla->plugins_with('-MetaProvider') ) {
+    for my $scan ( @scanfor ){
+      push @discovered, $plugin  if $plugin->ISA( $scan );
+    }
+  }
+  return { } unless @discovered;
+
+  # emulate Dist::Zilla, aggregate, and return.
+
+  my $meta = {};
+  require Hash::Merge::Simple;
+  $meta = Hash::Merge::Simple::merge($meta, $_->metadata)
+    for @discovered;
+  return $meta;
+}
+
+=head2 _apply_meta_noindex
+
+This is a utility method to make performing classes life easier in skipping no_index entries.
+
+  my @filtered_provides = $self->_apply_meta_noindex( @provides )
+
+is the suggested use.
+
+Returns either an empty list, or a list of ProvideRecord's
+
+=cut
+
+sub _apply_meta_noindex {
+  my ( $self, @items ) = @_;
+
+  # meta_noindex application is disabled
+  if ( not $self->meta_noindex ) {
+    return @items;
+  }
+
+  my $meta = $self->_try_regen_metadata;
+
+  if ( not keys %$meta  or not exists $meta->{no_index} ){
+    require Carp;
+    Carp::carp("No no_index attribute found while trying to apply meta_noindex for" . $self->plugin_name);
+    return @items;
+  }
+
+  my $noindex = $meta->{'no_index'};
+  my ( $files, $dirs, $packages, $namespaces ) = ( [], [], [] , [] );
+  $files       = $noindex->{'file'}      if exists $noindex->{'file'};
+  $dirs        = $noindex->{'dir'}       if exists $noindex->{'dir'};
+  $dirs        = $noindex->{'directory'} if exists $noindex->{'directory'};
+  $packages    = $noindex->{'package'}   if exists $noindex->{'package'};
+  $namespaces  = $noindex->{'namespace'} if exists $noindex->{'namespace'};
+
+  for my $file ( @$files ){
+    @items = grep { $_->file ne $file } @items;
+  }
+  for my $module ( @$packages ){
+    @items = grep { $_->module ne $module } @items;
+  }
+  for my $dir ( @$dirs ) {
+    @items = grep { $_->file !~ qr{^\Q$dir\E($|/)} } @items;
+  }
+  for my $namespace ( @$namespaces ){
+    @items = grep { $_->module !~ qr{^\Q$namespace\E($|::)} } @items;
+  }
+  return @items;
 }
 
 =head1 PUBLIC METHODS
