@@ -156,7 +156,9 @@ metaproviders, which result in meta-data being inaccessabile to metadata Plugins
   my $meta  = $object->_try_regen_metadata()
 
 This at present returns metadata provided by  L<< C<MetaNoIndex>|Dist::Zilla::Plugin::MetaNoIndex >> ( if present )
-but will be expanded as needed.q
+but will be expanded as needed.
+
+If you have a module you think should be in this list, contact me, or file a bug, I'll do my best =)
 
 =cut
 sub _try_regen_metadata {

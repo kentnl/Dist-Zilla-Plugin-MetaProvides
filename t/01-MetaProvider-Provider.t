@@ -119,8 +119,95 @@ subtest '_try_regen_metadata tests' => sub {
     my $plugin = make_plugin_metanoindex ( {fakeplugin => {}, noindex => { file => [ 'foo.pl'] }} );
     my $metadata = {};
     is( exception { $metadata = $plugin->_try_regen_metadata() }, undef , 'regenerting metadata manually does not fail' );
-    is_deeply( $metadata, { no_index => { file => ['foo.pl'] } }, 'Metadata is empty' );
+    is_deeply( $metadata, { no_index => { file => ['foo.pl'] } }, 'NoIndex params arrive' );
   };
+};
+
+subtest '_apply_meta_noindex tests' => sub {
+  my $rules = {
+    file => ['foo.pl'],
+    dir  => ['ignoreme', 'ignoreme/too'],
+    package => ['Test::YouShouldNot::SeeThis'],
+    namespace => ['Test::ThisIsAlso' ],
+  };
+  my ( $normal_plugin, $noindex_plugin );
+  is( exception {
+    $normal_plugin= make_plugin_metanoindex ( {fakeplugin => { meta_noindex => 0 }, noindex => $rules });
+    $noindex_plugin = make_plugin_metanoindex ( {fakeplugin => { meta_noindex => 1 }, noindex => $rules } );
+  }, undef, 'object construction is successful' );
+  my $example_items;
+  is ( exception {
+    require Dist::Zilla::MetaProvides::ProvideRecord;
+    $example_items->{A} = Dist::Zilla::MetaProvides::ProvideRecord->new(
+      file => 'foo.pl',
+      module => '_THISDOESNOTMATTER',
+      version => 1.0,
+      parent => $normal_plugin,
+    );
+    $example_items->{B} = Dist::Zilla::MetaProvides::ProvideRecord->new(
+      file => 'bar.pl',
+      module => '_THISDOESNOTMATTER',
+      version => 1.0,
+      parent => $normal_plugin,
+    );
+    $example_items->{C} = Dist::Zilla::MetaProvides::ProvideRecord->new(
+      file => 'ignoreme/quux.pl',
+      module => '_THISDOESNOTMATTER',
+      version => 1.0,
+      parent => $normal_plugin,
+    );
+    $example_items->{D} = Dist::Zilla::MetaProvides::ProvideRecord->new(
+      file => 'dontignoreme/quux.pl',
+      module => '_THISDOESNOTMATTER',
+      version => 1.0,
+      parent => $normal_plugin,
+    );
+    $example_items->{E} = Dist::Zilla::MetaProvides::ProvideRecord->new(
+      file => 'ignoreme/too/quux.pl',
+      module => '_THISDOESNOTMATTER',
+      version => 1.0,
+      parent => $normal_plugin,
+    );
+    $example_items->{F} = Dist::Zilla::MetaProvides::ProvideRecord->new(
+      file => 'dontignoreme/too/quux.pl',
+      module => '_THISDOESNOTMATTER',
+      version => 1.0,
+      parent => $normal_plugin,
+    );
+    $example_items->{G} = Dist::Zilla::MetaProvides::ProvideRecord->new(
+      file => '_THISDOESNOTMATTER',
+      module => 'Test::YouShouldNot::SeeThis',
+      version => 1.0,
+      parent => $normal_plugin,
+    );
+    $example_items->{H} = Dist::Zilla::MetaProvides::ProvideRecord->new(
+      file => '_THISDOESNOTMATTER',
+      module => 'Test::YouShould::SeeThis',
+      version => 1.0,
+      parent => $normal_plugin,
+    );
+    $example_items->{I} = Dist::Zilla::MetaProvides::ProvideRecord->new(
+      file => '_THISDOESNOTMATTER',
+      module => 'Test::YouShouldNot::SeeThis::ActuallyYouShould',
+      version => 1.0,
+      parent => $normal_plugin,
+    );
+    $example_items->{J} = Dist::Zilla::MetaProvides::ProvideRecord->new(
+      file => '_THISDOESNOTMATTER',
+      module => 'Test::ThisIsAlso::Forbidden',
+      version => 1.0,
+      parent => $normal_plugin,
+    );
+    $example_items->{K} = Dist::Zilla::MetaProvides::ProvideRecord->new(
+      file => '_THISDOESNOTMATTER',
+      module => 'Test::ThisIsAlso::ATest',
+      version => 1.0,
+      parent => $normal_plugin,
+    );
+  }, undef, 'Test item construction does not die in a fire');
+  my %items = %{$example_items};
+  is_deeply( [ $normal_plugin->_apply_meta_noindex( @items{qw( A B C D E F G H I J K )} ) ], [@items{qw( A B C D E F G H I J K )}] , 'Normal ignorance works still' );
+  is_deeply( [ $noindex_plugin->_apply_meta_noindex( @items{qw( A B C D E F G H I J K )} ) ], [@items{qw( B D F H I )}] , 'NoIndex Filtering application works' );
 };
 
 done_testing;
