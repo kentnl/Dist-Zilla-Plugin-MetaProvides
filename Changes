@@ -1,5 +1,12 @@
 Revision history for Dist-Zilla-Plugin-MetaProvides
 
+1.11044404 2010-11-03 05:25:56 Pacific/Auckland
+          Upgrade to recent @KENTNL changes ( remove inc/ and xt/ from source tree, relocate perlcritic.rc )
+          Now have a convenience function, usable by all consuming roles that permit filtering packages
+            that match criteira added to MetaNoIndex. Once your role uses this function, the attribute
+            also bolted on by this change ( meta_noindex = 1 ) will control this behaviour.
+            Thanks to xdg/David Golden for this suggestion.
+
 1.11034201 2010-07-25 01:35:56 Pacific/Auckland
           Forked into 4 smaller dists to reduce the installation overheads.
           Mostly so that people who want Metaprovides::Package don't have to install MooseX::Declare and friends.
