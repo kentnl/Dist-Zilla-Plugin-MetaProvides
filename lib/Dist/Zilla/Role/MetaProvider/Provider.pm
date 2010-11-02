@@ -155,8 +155,8 @@ metaproviders, which result in meta-data being inaccessabile to metadata Plugins
 
   my $meta  = $object->_try_regen_metadata()
 
-This at present returns metadata provided by either L<< C<MetaNoIndex>|Dist::Zilla::Plugin::MetaNoIndex >>
-or L<< C<MetaResources>|Dist::Zilla::Plugin::MetaResources >> plugins.
+This at present returns metadata provided by  L<< C<MetaNoIndex>|Dist::Zilla::Plugin::MetaNoIndex >> ( if present )
+but will be expanded as needed.q
 
 =cut
 sub _try_regen_metadata {
@@ -165,17 +165,19 @@ sub _try_regen_metadata {
   # This is a list of modules known to create the meta_noindex key.  Re-call these by hand.
   my @scanfor = qw(
     MetaNoIndex
-    MetaResources
   );
   # Collect the plugins that look like they work
   my @discovered;
-  for my $plugin ( $self->zilla->plugins_with('-MetaProvider') ) {
+  for my $plugin ( @{ $self->zilla->plugins_with('-MetaProvider') } ) {
     for my $scan ( @scanfor ){
-      push @discovered, $plugin  if $plugin->ISA( $scan );
+      push @discovered, $plugin  if $plugin->isa( "Dist::Zilla::Plugin::${scan}" );
     }
   }
-  return { } unless @discovered;
-
+  if ( not @discovered ){
+    $self->log('No suitable plugins discovered');
+    return {};
+  }
+  $self->log(length @discovered . " plugins found");
   # emulate Dist::Zilla, aggregate, and return.
 
   my $meta = {};
