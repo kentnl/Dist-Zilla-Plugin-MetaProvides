@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.11044405 2010-11-03 06:04:51 Pacific/Auckland
           Drop silly extra depends that sneaked in. It was hobbitses, and they are pesky.
 
 1.11044404 2010-11-03 05:25:56 Pacific/Auckland
