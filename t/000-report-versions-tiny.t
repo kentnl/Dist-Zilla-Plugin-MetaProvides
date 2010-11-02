@@ -49,8 +49,6 @@ sub pmver {
 }
 
 eval { $v .= pmver('Carp','any version') };
-eval { $v .= pmver('Config::INI::Reader','any version') };
-eval { $v .= pmver('Data::Dump','any version') };
 eval { $v .= pmver('Dist::Zilla::PluginBundle::KENTNL','0.01017119') };
 eval { $v .= pmver('Dist::Zilla::PluginBundle::KENTNL::Lite','0.01009803') };
 eval { $v .= pmver('Dist::Zilla::Role::MetaProvider','any version') };
@@ -61,7 +59,6 @@ eval { $v .= pmver('File::Temp','any version') };
 eval { $v .= pmver('Hash::Merge::Simple','any version') };
 eval { $v .= pmver('Module::Build','0.3601') };
 eval { $v .= pmver('Moose','any version') };
-eval { $v .= pmver('Moose::Autobox','any version') };
 eval { $v .= pmver('Moose::Role','any version') };
 eval { $v .= pmver('MooseX::Types','any version') };
 eval { $v .= pmver('MooseX::Types::Moose','any version') };

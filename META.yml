@@ -3,14 +3,11 @@ abstract: "Generating and Populating 'provides' in your META.yml"
 author:
   - 'Kent Fredric <kentnl@cpan.org>'
 build_requires:
-  Config::INI::Reader: 0
-  Data::Dump: 0
   Dist::Zilla::Tester: 0
   English: 0
   File::Find: 0
   File::Temp: 0
   Module::Build: 0.3601
-  Moose::Autobox: 0
   Params::Util: 0
   Sub::Exporter: 0
   Test::Fatal: 0
@@ -28,16 +25,16 @@ name: Dist-Zilla-Plugin-MetaProvides
 provides:
   Dist::Zilla::MetaProvides::ProvideRecord:
     file: lib/Dist/Zilla/MetaProvides/ProvideRecord.pm
-    version: 1.11044404
+    version: 1.11044405
   Dist::Zilla::MetaProvides::Types:
     file: lib/Dist/Zilla/MetaProvides/Types.pm
-    version: 1.11044404
+    version: 1.11044405
   Dist::Zilla::Plugin::MetaProvides:
     file: lib/Dist/Zilla/Plugin/MetaProvides.pm
-    version: 1.11044404
+    version: 1.11044405
   Dist::Zilla::Role::MetaProvider::Provider:
     file: lib/Dist/Zilla/Role/MetaProvider/Provider.pm
-    version: 1.11044404
+    version: 1.11044405
 requires:
   Carp: 0
   Dist::Zilla::Role::MetaProvider: 0
@@ -50,7 +47,7 @@ requires:
 resources:
   homepage: http://github.com/kentfredric/dist-zilla-plugin-metaprovides/tree
   repository: git://github.com/kentfredric/dist-zilla-plugin-metaprovides.git
-version: 1.11044404
+version: 1.11044405
 x_BuiltWith:
   modules: {}
   perl: 5.012002

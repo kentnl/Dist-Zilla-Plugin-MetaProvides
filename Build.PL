@@ -7,14 +7,11 @@ use Module::Build 0.3601;
 
 my %module_build_args = (
   'build_requires' => {
-    'Config::INI::Reader' => '0',
-    'Data::Dump' => '0',
     'Dist::Zilla::Tester' => '0',
     'English' => '0',
     'File::Find' => '0',
     'File::Temp' => '0',
     'Module::Build' => '0.3601',
-    'Moose::Autobox' => '0',
     'Params::Util' => '0',
     'Sub::Exporter' => '0',
     'Test::Fatal' => '0',
@@ -29,7 +26,7 @@ my %module_build_args = (
     'Kent Fredric <kentnl@cpan.org>'
   ],
   'dist_name' => 'Dist-Zilla-Plugin-MetaProvides',
-  'dist_version' => '1.11044404',
+  'dist_version' => '1.11044405',
   'license' => 'perl',
   'module_name' => 'Dist::Zilla::Plugin::MetaProvides',
   'recommends' => {},
