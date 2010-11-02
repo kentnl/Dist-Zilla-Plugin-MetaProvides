@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.11044404 2010-11-03 05:25:56 Pacific/Auckland
           Upgrade to recent @KENTNL changes ( remove inc/ and xt/ from source tree, relocate perlcritic.rc )
           Now have a convenience function, usable by all consuming roles that permit filtering packages
             that match criteira added to MetaNoIndex. Once your role uses this function, the attribute
