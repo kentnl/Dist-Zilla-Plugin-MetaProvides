@@ -7,7 +7,7 @@ use Test::Fatal;
 
 use lib 't/lib';
 
-use Dist::Zilla::Util::Test::KENTNL qw( test_config );
+use Dist::Zilla::Util::Test::KENTNL 0.01000004 qw( test_config );
 
 sub make_plugin {
   my @args = @_;
