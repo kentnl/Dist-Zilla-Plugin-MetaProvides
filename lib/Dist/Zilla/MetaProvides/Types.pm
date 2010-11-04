@@ -1,5 +1,6 @@
 use strict;
 use warnings;
+
 package Dist::Zilla::MetaProvides::Types;
 
 # ABSTRACT: Utility Types for the MetaProvides Plugin

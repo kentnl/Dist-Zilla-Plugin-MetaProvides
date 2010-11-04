@@ -162,12 +162,15 @@ but will be expanded as needed.
 If you have a module you think should be in this list, contact me, or file a bug, I'll do my best =)
 
 =cut
+
 sub _try_regen_metadata {
-  my ( $self ) = @_;
-  return get_metadata({
-    zilla => $self->zilla ,
-    isa => [qw( =MetaNoIndex )]
-  });
+  my ($self) = @_;
+  return get_metadata(
+    {
+      zilla => $self->zilla,
+      isa   => [qw( =MetaNoIndex )]
+    }
+  );
 }
 
 =head2 _apply_meta_noindex
@@ -192,30 +195,30 @@ sub _apply_meta_noindex {
 
   my $meta = $self->_try_regen_metadata;
 
-  if ( not keys %$meta  or not exists $meta->{no_index} ){
+  if ( not keys %$meta or not exists $meta->{no_index} ) {
     require Carp;
-    Carp::carp("No no_index attribute found while trying to apply meta_noindex for" . $self->plugin_name);
+    Carp::carp( "No no_index attribute found while trying to apply meta_noindex for" . $self->plugin_name );
     return @items;
   }
 
   my $noindex = $meta->{'no_index'};
-  my ( $files, $dirs, $packages, $namespaces ) = ( [], [], [] , [] );
-  $files       = $noindex->{'file'}      if exists $noindex->{'file'};
-  $dirs        = $noindex->{'dir'}       if exists $noindex->{'dir'};
-  $dirs        = $noindex->{'directory'} if exists $noindex->{'directory'};
-  $packages    = $noindex->{'package'}   if exists $noindex->{'package'};
-  $namespaces  = $noindex->{'namespace'} if exists $noindex->{'namespace'};
+  my ( $files, $dirs, $packages, $namespaces ) = ( [], [], [], [] );
+  $files      = $noindex->{'file'}      if exists $noindex->{'file'};
+  $dirs       = $noindex->{'dir'}       if exists $noindex->{'dir'};
+  $dirs       = $noindex->{'directory'} if exists $noindex->{'directory'};
+  $packages   = $noindex->{'package'}   if exists $noindex->{'package'};
+  $namespaces = $noindex->{'namespace'} if exists $noindex->{'namespace'};
 
-  for my $file ( @$files ){
+  for my $file (@$files) {
     @items = grep { $_->file ne $file } @items;
   }
-  for my $module ( @$packages ){
+  for my $module (@$packages) {
     @items = grep { $_->module ne $module } @items;
   }
-  for my $dir ( @$dirs ) {
+  for my $dir (@$dirs) {
     @items = grep { $_->file !~ qr{^\Q$dir\E($|/)} } @items;
   }
-  for my $namespace ( @$namespaces ){
+  for my $namespace (@$namespaces) {
     @items = grep { $_->module !~ qr{^\Q$namespace\E($|::)} } @items;
   }
   return @items;
