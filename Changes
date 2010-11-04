@@ -1,5 +1,15 @@
 Revision history for Dist-Zilla-Plugin-MetaProvides
 
+1.12044518 2010-11-04 19:32:54 Pacific/Auckland
+          Spliced Test deps into its own module.
+          Shipped work behind _try_regen_metadata to Dist::Zilla::Util::EmulatePhase
+          meta_noindex is now *ON* by default. This behavioural change is reason for Bumping the minor to 12.
+          Rationale:
+            If you're using MetaNoIndex and this module, then you want things to get skipped.
+            With provides =>, cpan won't do any indexing itself, so no_index in the data does nothing.
+            So, this module brings that power back to life by implementing it manually.
+          Add thanks while I remember.
+
 1.11044405 2010-11-03 06:04:51 Pacific/Auckland
           Drop silly extra depends that sneaked in. It was hobbitses, and they are pesky.
 

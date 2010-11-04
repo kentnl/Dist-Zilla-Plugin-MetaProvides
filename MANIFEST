@@ -18,7 +18,6 @@ t/000-report-versions-tiny.t
 t/01-MetaProvider-Provider.t
 t/author-critic.t
 t/lib/Dist/Zilla/Plugin/FakePlugin.pm
-t/lib/TZil.pm
 t/release-distmeta.t
 t/release-eol.t
 t/release-kwalitee.t

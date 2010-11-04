@@ -3,7 +3,7 @@ use warnings;
 
 package Dist::Zilla::Role::MetaProvider::Provider;
 BEGIN {
-  $Dist::Zilla::Role::MetaProvider::Provider::VERSION = '1.11044405';
+  $Dist::Zilla::Role::MetaProvider::Provider::VERSION = '1.12044518';
 }
 
 # ABSTRACT: A Role for Metadata providers specific to the 'provider' key.
@@ -11,6 +11,7 @@ BEGIN {
 # $Id:$
 use Moose::Role;
 use MooseX::Types::Moose (':all');
+use Dist::Zilla::Util::EmulatePhase 0.01000101 qw( get_metadata );
 use namespace::autoclean;
 
 
@@ -39,7 +40,7 @@ has inherit_missing => (
 has meta_noindex => (
   is            => 'ro',
   isa           => Bool,
-  default       => 0,
+  default       => 1,
   documentation => 'Scan for the meta_noindex metadata key and do not add provides records for things in it',
 );
 
@@ -56,32 +57,15 @@ sub _resolve_version {
   return ( 'version', $version );
 }
 
+
 sub _try_regen_metadata {
-  my ( $self ) = @_;
-
-  # This is a list of modules known to create the meta_noindex key.  Re-call these by hand.
-  my @scanfor = qw(
-    MetaNoIndex
-  );
-  # Collect the plugins that look like they work
-  my @discovered;
-  for my $plugin ( @{ $self->zilla->plugins_with('-MetaProvider') } ) {
-    for my $scan ( @scanfor ){
-      push @discovered, $plugin  if $plugin->isa( "Dist::Zilla::Plugin::${scan}" );
+  my ($self) = @_;
+  return get_metadata(
+    {
+      zilla => $self->zilla,
+      isa   => [qw( =MetaNoIndex )]
     }
-  }
-  if ( not @discovered ){
-    $self->log('No suitable plugins discovered');
-    return {};
-  }
-  $self->log(length @discovered . " plugins found");
-  # emulate Dist::Zilla, aggregate, and return.
-
-  my $meta = {};
-  require Hash::Merge::Simple;
-  $meta = Hash::Merge::Simple::merge($meta, $_->metadata)
-    for @discovered;
-  return $meta;
+  );
 }
 
 
@@ -95,30 +79,32 @@ sub _apply_meta_noindex {
 
   my $meta = $self->_try_regen_metadata;
 
-  if ( not keys %$meta  or not exists $meta->{no_index} ){
-    require Carp;
-    Carp::carp("No no_index attribute found while trying to apply meta_noindex for" . $self->plugin_name);
+  if ( not keys %$meta or not exists $meta->{no_index} ) {
+    $self->log_debug( "No no_index attribute found while trying to apply meta_noindex for" . $self->plugin_name );
     return @items;
+  }
+  else {
+    $self->log_debug("no_index found in metadata, will apply rules");
   }
 
   my $noindex = $meta->{'no_index'};
-  my ( $files, $dirs, $packages, $namespaces ) = ( [], [], [] , [] );
-  $files       = $noindex->{'file'}      if exists $noindex->{'file'};
-  $dirs        = $noindex->{'dir'}       if exists $noindex->{'dir'};
-  $dirs        = $noindex->{'directory'} if exists $noindex->{'directory'};
-  $packages    = $noindex->{'package'}   if exists $noindex->{'package'};
-  $namespaces  = $noindex->{'namespace'} if exists $noindex->{'namespace'};
+  my ( $files, $dirs, $packages, $namespaces ) = ( [], [], [], [] );
+  $files      = $noindex->{'file'}      if exists $noindex->{'file'};
+  $dirs       = $noindex->{'dir'}       if exists $noindex->{'dir'};
+  $dirs       = $noindex->{'directory'} if exists $noindex->{'directory'};
+  $packages   = $noindex->{'package'}   if exists $noindex->{'package'};
+  $namespaces = $noindex->{'namespace'} if exists $noindex->{'namespace'};
 
-  for my $file ( @$files ){
+  for my $file (@$files) {
     @items = grep { $_->file ne $file } @items;
   }
-  for my $module ( @$packages ){
+  for my $module (@$packages) {
     @items = grep { $_->module ne $module } @items;
   }
-  for my $dir ( @$dirs ) {
+  for my $dir (@$dirs) {
     @items = grep { $_->file !~ qr{^\Q$dir\E($|/)} } @items;
   }
-  for my $namespace ( @$namespaces ){
+  for my $namespace (@$namespaces) {
     @items = grep { $_->module !~ qr{^\Q$namespace\E($|::)} } @items;
   }
   return @items;
@@ -148,7 +134,7 @@ Dist::Zilla::Role::MetaProvider::Provider - A Role for Metadata providers specif
 
 =head1 VERSION
 
-version 1.11044405
+version 1.12044518
 
 =head1 PERFORMS ROLES
 
@@ -277,6 +263,15 @@ results returned from C<$self-E<gt>provides>.
 =item * L<Dist::Zilla::Plugin::MetaProvider>
 
 =item * L<Dist::Zilla::MetaProvider::ProvideRecord>
+
+=back
+
+=head1 THANKS
+
+=over 4
+
+=item * Thanks to David Golden ( xdg / DAGOLDEN ) for the suggestion of the no_index feature
+for compatibility with MetaNoIndex plugin.
 
 =back
 
