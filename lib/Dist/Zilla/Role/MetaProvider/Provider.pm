@@ -199,6 +199,9 @@ sub _apply_meta_noindex {
     $self->log_debug( "No no_index attribute found while trying to apply meta_noindex for" . $self->plugin_name );
     return @items;
   }
+  else {
+    $self->log_debug("no_index found in metadata, will apply rules");
+  }
 
   my $noindex = $meta->{'no_index'};
   my ( $files, $dirs, $packages, $namespaces ) = ( [], [], [], [] );
