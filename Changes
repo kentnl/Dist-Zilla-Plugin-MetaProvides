@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.12044518 2010-11-04 19:32:54 Pacific/Auckland
           Spliced Test deps into its own module.
           Shipped work behind _try_regen_metadata to Dist::Zilla::Util::EmulatePhase
           meta_noindex is now *ON* by default. This behavioural change is reason for Bumping the minor to 12.
