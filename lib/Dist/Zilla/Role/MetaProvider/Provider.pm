@@ -8,6 +8,7 @@ package Dist::Zilla::Role::MetaProvider::Provider;
 # $Id:$
 use Moose::Role;
 use MooseX::Types::Moose (':all');
+use Dist::Zilla::Util::EmulatePhase 0.01000101 qw( get_metadata );
 use namespace::autoclean;
 
 =head1 PERFORMS ROLES
@@ -112,7 +113,7 @@ to not be provided in the metadata.
 has meta_noindex => (
   is            => 'ro',
   isa           => Bool,
-  default       => 0,
+  default       => 1,
   documentation => 'Scan for the meta_noindex metadata key and do not add provides records for things in it',
 );
 
@@ -163,30 +164,10 @@ If you have a module you think should be in this list, contact me, or file a bug
 =cut
 sub _try_regen_metadata {
   my ( $self ) = @_;
-
-  # This is a list of modules known to create the meta_noindex key.  Re-call these by hand.
-  my @scanfor = qw(
-    MetaNoIndex
-  );
-  # Collect the plugins that look like they work
-  my @discovered;
-  for my $plugin ( @{ $self->zilla->plugins_with('-MetaProvider') } ) {
-    for my $scan ( @scanfor ){
-      push @discovered, $plugin  if $plugin->isa( "Dist::Zilla::Plugin::${scan}" );
-    }
-  }
-  if ( not @discovered ){
-    $self->log('No suitable plugins discovered');
-    return {};
-  }
-  $self->log(length @discovered . " plugins found");
-  # emulate Dist::Zilla, aggregate, and return.
-
-  my $meta = {};
-  require Hash::Merge::Simple;
-  $meta = Hash::Merge::Simple::merge($meta, $_->metadata)
-    for @discovered;
-  return $meta;
+  return get_metadata({
+    zilla => $self->zilla ,
+    isa => [qw( =MetaNoIndex )]
+  });
 }
 
 =head2 _apply_meta_noindex
