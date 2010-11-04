@@ -196,8 +196,7 @@ sub _apply_meta_noindex {
   my $meta = $self->_try_regen_metadata;
 
   if ( not keys %$meta or not exists $meta->{no_index} ) {
-    require Carp;
-    Carp::carp( "No no_index attribute found while trying to apply meta_noindex for" . $self->plugin_name );
+    $self->log_debug( "No no_index attribute found while trying to apply meta_noindex for" . $self->plugin_name );
     return @items;
   }
 
