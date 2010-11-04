@@ -256,6 +256,15 @@ sub metadata {
 
 =back
 
+=head1 THANKS
+
+=over 4
+
+=item * Thanks to David Golden ( xdg / DAGOLDEN ) for the suggestion of the no_index feature
+for compatibility with MetaNoIndex plugin.
+
+=back
+
 =cut
 
 no Moose;

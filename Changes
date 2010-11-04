@@ -8,6 +8,7 @@ Revision history for {{$dist->name}}
             If you're using MetaNoIndex and this module, then you want things to get skipped.
             With provides =>, cpan won't do any indexing itself, so no_index in the data does nothing.
             So, this module brings that power back to life by implementing it manually.
+          Add thanks while I remember.
 
 1.11044405 2010-11-03 06:04:51 Pacific/Auckland
           Drop silly extra depends that sneaked in. It was hobbitses, and they are pesky.
