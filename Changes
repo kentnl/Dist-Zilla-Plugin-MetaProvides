@@ -1,6 +1,9 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          A little bit more testing of the codebase,
+            tests should be now comprehensive enough to 
+            detect most change-bugs.
 
 1.12044803 2010-11-07 04:26:58 Pacific/Auckland
           Build ourself using MetaNoIndex to hide corpus/ crap.
