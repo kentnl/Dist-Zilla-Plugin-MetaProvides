@@ -1,6 +1,10 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          Build ourself using MetaNoIndex to hide corpus/ crap.
+          Add MetaNoIndex to suggest lists.
+          Fix tests not to fail when there is no MetaNoIndex.
+          PerlTidy allover.
 
 1.12044518 2010-11-04 19:32:54 Pacific/Auckland
           Spliced Test deps into its own module.
