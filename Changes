@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.12044803 2010-11-07 04:26:58 Pacific/Auckland
           Build ourself using MetaNoIndex to hide corpus/ crap.
           Add MetaNoIndex to suggest lists.
           Fix tests not to fail when there is no MetaNoIndex.
