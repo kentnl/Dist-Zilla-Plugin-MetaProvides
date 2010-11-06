@@ -12,6 +12,7 @@ my %module_build_args = (
     'File::Find' => '0',
     'File::Temp' => '0',
     'Module::Build' => '0.3601',
+    'Scalar::Util' => '0',
     'Test::Fatal' => '0',
     'Test::More' => '0.88'
   },
@@ -23,7 +24,7 @@ my %module_build_args = (
     'Kent Fredric <kentnl@cpan.org>'
   ],
   'dist_name' => 'Dist-Zilla-Plugin-MetaProvides',
-  'dist_version' => '1.12044803',
+  'dist_version' => '1.12044806',
   'license' => 'perl',
   'module_name' => 'Dist::Zilla::Plugin::MetaProvides',
   'recommends' => {},

@@ -16,6 +16,8 @@ perlcritic.rc
 t/00-compile.t
 t/000-report-versions-tiny.t
 t/01-MetaProvider-Provider.t
+t/02-MetaProvides-ProvideRecord.t
+t/03-Types.t
 t/author-critic.t
 t/lib/Dist/Zilla/Plugin/FakePlugin.pm
 t/release-distmeta.t

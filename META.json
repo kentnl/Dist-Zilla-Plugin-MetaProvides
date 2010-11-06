@@ -63,6 +63,7 @@
             "English" : 0,
             "File::Find" : 0,
             "File::Temp" : 0,
+            "Scalar::Util" : 0,
             "Test::Fatal" : 0,
             "Test::More" : "0.88"
          },
@@ -74,19 +75,19 @@
    "provides" : {
       "Dist::Zilla::MetaProvides::ProvideRecord" : {
          "file" : "lib/Dist/Zilla/MetaProvides/ProvideRecord.pm",
-         "version" : "1.12044803"
+         "version" : "1.12044806"
       },
       "Dist::Zilla::MetaProvides::Types" : {
          "file" : "lib/Dist/Zilla/MetaProvides/Types.pm",
-         "version" : "1.12044803"
+         "version" : "1.12044806"
       },
       "Dist::Zilla::Plugin::MetaProvides" : {
          "file" : "lib/Dist/Zilla/Plugin/MetaProvides.pm",
-         "version" : "1.12044803"
+         "version" : "1.12044806"
       },
       "Dist::Zilla::Role::MetaProvider::Provider" : {
          "file" : "lib/Dist/Zilla/Role/MetaProvider/Provider.pm",
-         "version" : "1.12044803"
+         "version" : "1.12044806"
       }
    },
    "release_status" : "stable",
@@ -98,7 +99,7 @@
          "web" : "http://github.com/kentfredric/dist-zilla-plugin-metaprovides/tree"
       }
    },
-   "version" : "1.12044803",
+   "version" : "1.12044806",
    "x_BuiltWith" : {
       "modules" : {
          "Dist::Zilla::Plugin::Bootstrap::lib" : "0.01000003",
@@ -114,6 +115,7 @@
          "Moose::Role" : "1.17",
          "MooseX::Types" : "0.24",
          "MooseX::Types::Moose" : "0.24",
+         "Scalar::Util" : "1.23",
          "Test::Fatal" : "0.003",
          "Test::More" : "0.96",
          "namespace::autoclean" : "0.11"
