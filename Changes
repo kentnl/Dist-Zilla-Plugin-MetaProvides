@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.12044806 2010-11-07 07:20:55 Pacific/Auckland
           A little bit more testing of the codebase,
             tests should be now comprehensive enough to
             detect most change-bugs.
