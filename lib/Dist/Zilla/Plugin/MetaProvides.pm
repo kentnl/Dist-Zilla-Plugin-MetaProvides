@@ -7,8 +7,6 @@ package Dist::Zilla::Plugin::MetaProvides;
 
 1;
 
-__END__
-
 =head1 SYNOPSIS
 
 In your projects dist.ini
@@ -134,12 +132,12 @@ File Must exist.
 
 ( L<Dist::Zilla::Plugin::MetaProvides::FromFile> )
 
-This parameter is by default L<Config::INI::Reader>, but it can be infact anything
+This parameter is by default L<Config::INI::Reader>, but it can be in fact anything
 that meets the following criteria.
 
 =over 4
 
-=item * Can be initalized an instance of
+=item * Can be initialized an instance of
 
 =item * has a read_file method on the instance
 

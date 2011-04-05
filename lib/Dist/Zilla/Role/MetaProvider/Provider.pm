@@ -152,7 +152,7 @@ sub _resolve_version {
 =head2 _try_regen_metadata
 
 This is a nasty hack really, to work around the way L<< C<Dist::Zilla>|Dist::Zilla >> handles
-metaproviders, which result in meta-data being inaccessabile to metadata Plugins.
+metaproviders, which result in meta-data being inaccessible to metadata Plugins.
 
   my $meta  = $object->_try_regen_metadata()
 
@@ -195,12 +195,12 @@ sub _apply_meta_noindex {
 
   my $meta = $self->_try_regen_metadata;
 
-  if ( not keys %$meta or not exists $meta->{no_index} ) {
-    $self->log_debug( "No no_index attribute found while trying to apply meta_noindex for" . $self->plugin_name );
+  if ( not keys %{$meta} or not exists $meta->{no_index} ) {
+    $self->log_debug( q{No no_index attribute found while trying to apply meta_noindex for} . $self->plugin_name );
     return @items;
   }
   else {
-    $self->log_debug("no_index found in metadata, will apply rules");
+    $self->log_debug(q{no_index found in metadata, will apply rules});
   }
 
   my $noindex = $meta->{'no_index'};
@@ -211,16 +211,18 @@ sub _apply_meta_noindex {
   $packages   = $noindex->{'package'}   if exists $noindex->{'package'};
   $namespaces = $noindex->{'namespace'} if exists $noindex->{'namespace'};
 
-  for my $file (@$files) {
+  for my $file (@{$files}) {
     @items = grep { $_->file ne $file } @items;
   }
-  for my $module (@$packages) {
+  for my $module (@{$packages}) {
     @items = grep { $_->module ne $module } @items;
   }
-  for my $dir (@$dirs) {
+  for my $dir (@{$dirs}) {
+    ## no critic (RegularExpressions ProhibitPunctuationVars)
     @items = grep { $_->file !~ qr{^\Q$dir\E($|/)} } @items;
   }
-  for my $namespace (@$namespaces) {
+  for my $namespace (@{$namespaces}) {
+    ## no critic (RegularExpressions ProhibitPunctuationVars)
     @items = grep { $_->module !~ qr{^\Q$namespace\E($|::)} } @items;
   }
   return @items;
@@ -230,7 +232,7 @@ sub _apply_meta_noindex {
 
 =head2 metadata
 
-Fullfills the requirement of L<Dist::Zilla::Role::MetaProvider> by processing
+Fulfills the requirement of L<Dist::Zilla::Role::MetaProvider> by processing
 results returned from C<$self-E<gt>provides>.
 
 =cut
@@ -267,6 +269,7 @@ for compatibility with MetaNoIndex plugin.
 
 =cut
 
-no Moose;
+no Moose::Role;
+
 1;
 

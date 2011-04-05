@@ -74,7 +74,11 @@ sub copy_into {
     file => $self->file,
     $self->_resolve_version( $self->version ),
   };
+  return 1;
 }
+
+__PACKAGE__->meta->make_immutable;
+no Moose;
 
 1;
 
