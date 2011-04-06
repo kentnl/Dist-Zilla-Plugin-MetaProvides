@@ -1,6 +1,25 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+ [Dependencies:Development]
+ - @KENTNL -> @Author::KENTNL
+
+ [Documentation]
+ - Many miscelany spelling mistakes fixed.
+
+ [Features:Minor/API]
+ - copy_into now returns '1' when done.
+ - ProvideRecord Plugin is now immutablized.
+ - Type libraries no longer erroneously import Moose.
+
+ [Packaging]
+ - Moved to @Author::KENTNL
+ - Reworked Changes to CPAN::Changes spec.
+ - Made critic happy and stricter.
+
+ [Tests]
+ - add CPAN::Changes tests.
+ - remove portability tests.
 
 1.12044806 2010-11-06T18:20:55Z
  - A little bit more testing of the codebase, tests should be now
