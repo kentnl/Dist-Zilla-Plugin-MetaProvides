@@ -20,9 +20,10 @@ t/02-MetaProvides-ProvideRecord.t
 t/03-Types.t
 t/author-critic.t
 t/lib/Dist/Zilla/Plugin/FakePlugin.pm
+t/release-cpan-changes.t
 t/release-distmeta.t
 t/release-eol.t
 t/release-kwalitee.t
 t/release-pod-coverage.t
 t/release-pod-syntax.t
-t/release-portability.t
+weaver.ini

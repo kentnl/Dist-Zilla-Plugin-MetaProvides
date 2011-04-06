@@ -3,7 +3,7 @@ use warnings;
 
 package Dist::Zilla::Plugin::MetaProvides;
 BEGIN {
-  $Dist::Zilla::Plugin::MetaProvides::VERSION = '1.12044806';
+  $Dist::Zilla::Plugin::MetaProvides::VERSION = '1.12060212';
 }
 
 # ABSTRACT: Generating and Populating 'provides' in your META.yml
@@ -11,7 +11,7 @@ BEGIN {
 1;
 
 
-
+__END__
 =pod
 
 =head1 NAME
@@ -20,7 +20,7 @@ Dist::Zilla::Plugin::MetaProvides - Generating and Populating 'provides' in your
 
 =head1 VERSION
 
-version 1.12044806
+version 1.12060212
 
 =head1 SYNOPSIS
 
@@ -146,12 +146,12 @@ File Must exist.
 
 ( L<Dist::Zilla::Plugin::MetaProvides::FromFile> )
 
-This parameter is by default L<Config::INI::Reader>, but it can be infact anything
+This parameter is by default L<Config::INI::Reader>, but it can be in fact anything
 that meets the following criteria.
 
 =over 4
 
-=item * Can be initalized an instance of
+=item * Can be initialized an instance of
 
 =item * has a read_file method on the instance
 
@@ -172,13 +172,10 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Kent Fredric.
+This software is copyright (c) 2011 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__
 

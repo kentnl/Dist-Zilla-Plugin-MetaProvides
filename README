@@ -3,7 +3,7 @@ NAME
     in your META.yml
 
 VERSION
-    version 1.12044806
+    version 1.12060212
 
 SYNOPSIS
     In your projects dist.ini
@@ -110,10 +110,10 @@ OPTION SUMMARY
   reader_name
     ( Dist::Zilla::Plugin::MetaProvides::FromFile )
 
-    This parameter is by default Config::INI::Reader, but it can be infact
+    This parameter is by default Config::INI::Reader, but it can be in fact
     anything that meets the following criteria.
 
-    *   Can be initalized an instance of
+    *   Can be initialized an instance of
 
     *   has a read_file method on the instance
 
@@ -130,7 +130,7 @@ AUTHOR
     Kent Fredric <kentnl@cpan.org>
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2010 by Kent Fredric.
+    This software is copyright (c) 2011 by Kent Fredric.
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.

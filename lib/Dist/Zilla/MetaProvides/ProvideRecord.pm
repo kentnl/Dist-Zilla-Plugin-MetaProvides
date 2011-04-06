@@ -3,7 +3,7 @@ use warnings;
 
 package Dist::Zilla::MetaProvides::ProvideRecord;
 BEGIN {
-  $Dist::Zilla::MetaProvides::ProvideRecord::VERSION = '1.12044806';
+  $Dist::Zilla::MetaProvides::ProvideRecord::VERSION = '1.12060212';
 }
 
 # ABSTRACT: Data Management Record for MetaProvider::Provides Based Class
@@ -35,7 +35,11 @@ sub copy_into {
     file => $self->file,
     $self->_resolve_version( $self->version ),
   };
+  return 1;
 }
+
+__PACKAGE__->meta->make_immutable;
+no Moose;
 
 1;
 
@@ -49,7 +53,7 @@ Dist::Zilla::MetaProvides::ProvideRecord - Data Management Record for MetaProvid
 
 =head1 VERSION
 
-version 1.12044806
+version 1.12060212
 
 =head1 ATTRIBUTES
 
@@ -94,7 +98,7 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Kent Fredric.
+This software is copyright (c) 2011 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
