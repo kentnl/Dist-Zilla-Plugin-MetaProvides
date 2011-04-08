@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.12060501 2011-04-08T13:44:56Z
  [BugFix]
  - rt#67325 : Should now depend on Test::More 0.96 to solve tests failing
    on earlier versions.
