@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-use Test::More;
+use Test::More 0.96;
 use lib 't/lib';
 
 use Dist::Zilla::Util::Test::KENTNL qw( test_config );

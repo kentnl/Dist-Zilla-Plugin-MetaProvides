@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+ [BugFix]
+ - rt#67325 : Should now depend on Test::More 0.96 to solve tests failing on earlier versions.
 
 1.12060212 2011-04-06T00:17:21Z
  [Dependencies:Development]
