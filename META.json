@@ -65,7 +65,7 @@
             "File::Temp" : 0,
             "Scalar::Util" : 0,
             "Test::Fatal" : 0,
-            "Test::More" : "0.88"
+            "Test::More" : "0.96"
          },
          "suggests" : {
             "Dist::Zilla::Plugin::MetaNoIndex" : 0
@@ -75,19 +75,19 @@
    "provides" : {
       "Dist::Zilla::MetaProvides::ProvideRecord" : {
          "file" : "lib/Dist/Zilla/MetaProvides/ProvideRecord.pm",
-         "version" : "1.12060212"
+         "version" : "1.12060501"
       },
       "Dist::Zilla::MetaProvides::Types" : {
          "file" : "lib/Dist/Zilla/MetaProvides/Types.pm",
-         "version" : "1.12060212"
+         "version" : "1.12060501"
       },
       "Dist::Zilla::Plugin::MetaProvides" : {
          "file" : "lib/Dist/Zilla/Plugin/MetaProvides.pm",
-         "version" : "1.12060212"
+         "version" : "1.12060501"
       },
       "Dist::Zilla::Role::MetaProvider::Provider" : {
          "file" : "lib/Dist/Zilla/Role/MetaProvider/Provider.pm",
-         "version" : "1.12060212"
+         "version" : "1.12060501"
       }
    },
    "release_status" : "stable",
@@ -99,7 +99,7 @@
          "web" : "http://github.com/kentfredric/dist-zilla-plugin-metaprovides/tree"
       }
    },
-   "version" : "1.12060212",
+   "version" : "1.12060501",
    "x_BuiltWith" : {
       "modules" : {
          "Dist::Zilla::Plugin::Bootstrap::lib" : "0.01023600",
@@ -108,7 +108,7 @@
          "Dist::Zilla::PluginBundle::Author::KENTNL::Lite" : "NA(possibly not installed)",
          "Dist::Zilla::Role::MetaProvider" : "4.200004",
          "Dist::Zilla::Util::EmulatePhase" : "0.01003312",
-         "Dist::Zilla::Util::Test::KENTNL" : "0.01000510",
+         "Dist::Zilla::Util::Test::KENTNL" : "0.01015821",
          "File::Temp" : "0.22",
          "Module::Build" : "0.38",
          "Moose" : "1.9906",
@@ -193,7 +193,7 @@
          {
             "class" : "Dist::Zilla::Plugin::MetaProvides::Package",
             "name" : "@Author::KENTNL/MetaProvides::Package",
-            "version" : "1.12044908"
+            "version" : "1.12060213"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaJSON",

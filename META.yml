@@ -10,7 +10,7 @@ build_requires:
   Module::Build: 0.3601
   Scalar::Util: 0
   Test::Fatal: 0
-  Test::More: 0.88
+  Test::More: 0.96
 configure_requires:
   Module::Build: 0.3601
 dynamic_config: 0
@@ -27,16 +27,16 @@ no_index:
 provides:
   Dist::Zilla::MetaProvides::ProvideRecord:
     file: lib/Dist/Zilla/MetaProvides/ProvideRecord.pm
-    version: 1.12060212
+    version: 1.12060501
   Dist::Zilla::MetaProvides::Types:
     file: lib/Dist/Zilla/MetaProvides/Types.pm
-    version: 1.12060212
+    version: 1.12060501
   Dist::Zilla::Plugin::MetaProvides:
     file: lib/Dist/Zilla/Plugin/MetaProvides.pm
-    version: 1.12060212
+    version: 1.12060501
   Dist::Zilla::Role::MetaProvider::Provider:
     file: lib/Dist/Zilla/Role/MetaProvider/Provider.pm
-    version: 1.12060212
+    version: 1.12060501
 requires:
   Dist::Zilla::Role::MetaProvider: 0
   Dist::Zilla::Util::EmulatePhase: 0.01000101
@@ -48,7 +48,7 @@ requires:
 resources:
   homepage: http://github.com/kentfredric/dist-zilla-plugin-metaprovides/tree
   repository: git://github.com/kentfredric/dist-zilla-plugin-metaprovides.git
-version: 1.12060212
+version: 1.12060501
 x_BuiltWith:
   modules:
     Dist::Zilla::Plugin::Bootstrap::lib: 0.01023600
@@ -57,7 +57,7 @@ x_BuiltWith:
     Dist::Zilla::PluginBundle::Author::KENTNL::Lite: 'NA(possibly not installed)'
     Dist::Zilla::Role::MetaProvider: 4.200004
     Dist::Zilla::Util::EmulatePhase: 0.01003312
-    Dist::Zilla::Util::Test::KENTNL: 0.01000510
+    Dist::Zilla::Util::Test::KENTNL: 0.01015821
     File::Temp: 0.22
     Module::Build: 0.38
     Moose: 1.9906
@@ -127,7 +127,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::MetaProvides::Package
       name: '@Author::KENTNL/MetaProvides::Package'
-      version: 1.12044908
+      version: 1.12060213
     -
       class: Dist::Zilla::Plugin::MetaJSON
       name: '@Author::KENTNL/MetaJSON'
