@@ -1,5 +1,10 @@
 Revision history for Dist-Zilla-Plugin-MetaProvides
 
+1.13000001 2012-02-04T09:04:53Z
+ [Documentation]
+ - Improve documentation of skip_underscores and meta_noindex at the more
+   foward-facing sites.
+
 1.13000000 2012-02-04T07:35:05Z
  [Features]
  - Add a provisional filter that eliminates X::_y form namespaces ( a

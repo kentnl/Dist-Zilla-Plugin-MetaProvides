@@ -6,7 +6,7 @@ BEGIN {
   $Dist::Zilla::MetaProvides::ProvideRecord::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Dist::Zilla::MetaProvides::ProvideRecord::VERSION = '1.13000000';
+  $Dist::Zilla::MetaProvides::ProvideRecord::VERSION = '1.13000001';
 }
 
 # ABSTRACT: Data Management Record for MetaProvider::Provides Based Class
@@ -62,7 +62,7 @@ Dist::Zilla::MetaProvides::ProvideRecord - Data Management Record for MetaProvid
 
 =head1 VERSION
 
-version 1.13000000
+version 1.13000001
 
 =head1 ATTRIBUTES
 

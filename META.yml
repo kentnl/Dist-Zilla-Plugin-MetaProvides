@@ -26,16 +26,16 @@ no_index:
 provides:
   Dist::Zilla::MetaProvides::ProvideRecord:
     file: lib/Dist/Zilla/MetaProvides/ProvideRecord.pm
-    version: 1.13000000
+    version: 1.13000001
   Dist::Zilla::MetaProvides::Types:
     file: lib/Dist/Zilla/MetaProvides/Types.pm
-    version: 1.13000000
+    version: 1.13000001
   Dist::Zilla::Plugin::MetaProvides:
     file: lib/Dist/Zilla/Plugin/MetaProvides.pm
-    version: 1.13000000
+    version: 1.13000001
   Dist::Zilla::Role::MetaProvider::Provider:
     file: lib/Dist/Zilla/Role/MetaProvider/Provider.pm
-    version: 1.13000000
+    version: 1.13000001
 requires:
   Dist::Zilla::Role::MetaProvider: 0
   Dist::Zilla::Util::EmulatePhase: 0.01000101
@@ -50,7 +50,7 @@ requires:
 resources:
   homepage: https://github.com/kentfredric/dist-zilla-plugin-metaprovides
   repository: https://github.com/kentfredric/dist-zilla-plugin-metaprovides.git
-version: 1.13000000
+version: 1.13000001
 x_BuiltWith:
   modules:
     Dist::Zilla::Plugin::Bootstrap::lib: 0.01023601

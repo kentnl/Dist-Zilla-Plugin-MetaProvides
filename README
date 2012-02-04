@@ -3,7 +3,7 @@ NAME
     in your META.yml
 
 VERSION
-    version 1.13000000
+    version 1.13000001
 
 SYNOPSIS
     In your projects dist.ini
@@ -11,16 +11,22 @@ SYNOPSIS
         [MetaProvides::Class]
         inherit_version = 0    ;optional flag
         inherit_missing = 0    ;optional flag
+        meta_noindex    = 1    ;optional flag
+        skip_underscore = 1    ;optional flag
 
         [MetaProvides::Package]
         inherit_version = 0    ;optional flag
         inherit_missing = 0    ;optional flag
+        meta_noindex    = 1    ;optional flag
+        skip_underscore = 1    ;optional flag
 
         [MetaProvides::FromFile]
         inherit_version = 0     ;optional flag
         inherit_missing = 0     ;optional flag
         file = some_file.ini    ;mandatory flag
         reader_name = Config::INI::Reader ;optional flag
+        meta_noindex    = 1     ;optional and useless flag
+        skip_underscore = 1     ;its there as an option, but its probably stupid.
 
     And then in some_file.ini
 
@@ -97,6 +103,41 @@ OPTION SUMMARY
         Inherit version from Dist::Zilla when one is missing.
 
     "inhert_missing" in Dist::Zilla::Role::MetaProvider::Provider
+
+  meta_noindex
+    This dictates how to behave when a discovered class is also present in
+    the "no_index" META field.
+
+   values
+    *   '0' [default]
+
+        "no_index" META field will be ignored
+
+    *   '1'
+
+        "no_index" META field will be recognised and things found in it will
+        cause respective packages to not be provided in the metadata.
+
+    "meta_noindex" in Dist::Zilla::Role::MetaProvider::Provider
+
+  skip_underscore
+    Filter out detected namespaces with a token with a leading "_", ie:
+
+        Foo::Bar::_internal::Baz;
+
+    This is a convenience to provide sane defaults. For more controlled
+    exclusion of namespaces, see Dist::Zilla::Plugin::MetaNoIndex
+
+   values
+    *   '0'
+
+        *underscore*'d namespaces will be included.
+
+    *   '1' [default]
+
+        *underscore*'d namespaces will not be included.
+
+    "skip_underscore" in Dist::Zilla::Role::MetaProvider::Provider
 
   file
     ( Dist::Zilla::Plugin::MetaProvides::FromFile )
