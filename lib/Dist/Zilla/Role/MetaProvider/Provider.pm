@@ -145,7 +145,7 @@ has skip_underscore => (
   is            => 'ro',
   isa           => Bool,
   default       => 1,
-  documentation => "Skip packages with a leading _ , ie: Foo::_internal::baz",
+  documentation => 'Skip packages with a leading _ , ie: Foo::_internal::baz',
 );
 
 =head1 PRIVATE METHODS
@@ -274,7 +274,7 @@ sub metadata {
   my ($self) = @_;
   my $discover = {};
   for ( $self->provides ) {
-    if ( $self->skip_underscore and $_->module =~ /(^_|::_)/ ) {
+    if ( $self->skip_underscore and $_->module =~ /(\A_|::_)/msx ) {
       $self->log_debug( 'Skipping ' . $_->module . ' due to /skip_underscore = true ' );
       next;
     }
