@@ -14,16 +14,23 @@ In your projects dist.ini
     [MetaProvides::Class]
     inherit_version = 0    ;optional flag
     inherit_missing = 0    ;optional flag
+    meta_noindex    = 1    ;optional flag
+    skip_underscore = 1    ;optional flag
 
     [MetaProvides::Package]
     inherit_version = 0    ;optional flag
     inherit_missing = 0    ;optional flag
+    meta_noindex    = 1    ;optional flag
+    skip_underscore = 1    ;optional flag
 
     [MetaProvides::FromFile]
     inherit_version = 0     ;optional flag
     inherit_missing = 0     ;optional flag
     file = some_file.ini    ;mandatory flag
     reader_name = Config::INI::Reader ;optional flag
+    meta_noindex    = 1     ;optional and useless flag
+    skip_underscore = 1     ;its there as an option, but its probably stupid.
+
 
 And then in some_file.ini
 
@@ -118,6 +125,52 @@ Inherit version from L<Dist::Zilla> when one is missing.
 =back
 
 L<Dist::Zilla::Role::MetaProvider::Provider/inhert_missing>
+
+=head2 meta_noindex
+
+
+This dictates how to behave when a discovered class is also present in the C<no_index> META field.
+
+=head3 values
+
+=over 4
+
+=item * C<< '0' >> B<[default]>
+
+C<no_index> META field will be ignored
+
+=item * C<< '1' >>
+
+C<no_index> META field will be recognised and things found in it will cause respective packages
+to not be provided in the metadata.
+
+=back
+
+L<Dist::Zilla::Role::MetaProvider::Provider/meta_noindex>
+
+=head2 skip_underscore
+
+Filter out detected namespaces with a token with a leading C<_>, ie:
+
+    Foo::Bar::_internal::Baz;
+
+This is a convenience to provide sane defaults. For more controlled exclusion of namespaces, see L<Dist::Zilla::Plugin::MetaNoIndex>
+
+=head3 values
+
+=over 4
+
+=item * C<< '0' >>
+
+I<underscore>'d namespaces will be included.
+
+=item * C<< '1' >> B<[default]>
+
+I<underscore>'d namespaces will not be included.
+
+=back
+
+L<Dist::Zilla::Role::MetaProvider::Provider/skip_underscore>
 
 =head2 file
 
