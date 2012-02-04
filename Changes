@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.13000001 2012-02-04T09:04:53Z
  [Documentation]
  - Improve documentation of skip_underscores and meta_noindex at the more
    foward-facing sites.
