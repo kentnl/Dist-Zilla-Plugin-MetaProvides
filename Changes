@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.13000000 2012-02-04T07:35:05Z
  [Features]
  - Add a provisional filter that eliminates X::_y form namespaces ( a
    hiding convention ), enabled by default. Toggle skip_underscore to
