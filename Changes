@@ -1,6 +1,10 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+ [Features]
+ - Add a provisional filter that eliminates X::_y form namespaces ( a
+   hiding convention ), enabled by default. Toggle skip_underscore to
+   change. Thanks XDG/David Golden for reporting this in rt#74675.
 
 1.12060502 2012-02-04T00:39:26Z
  - Maintenance Release
