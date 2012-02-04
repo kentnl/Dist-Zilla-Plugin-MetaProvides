@@ -46,7 +46,13 @@ and accessors from L<Dist::Zilla::Role::MetaProvider::Provider>
 
 =cut
 
-has parent => ( is => 'ro', required => 1, weak_ref => 1, isa => ProviderObject, handles => [ 'zilla', '_resolve_version', ], );
+has parent => (
+  is       => 'ro',
+  required => 1,
+  weak_ref => 1,
+  isa      => ProviderObject,
+  handles  => [ 'zilla', '_resolve_version', ],
+);
 
 =head1 METHODS
 

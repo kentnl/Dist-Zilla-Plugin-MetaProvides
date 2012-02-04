@@ -110,7 +110,6 @@ to not be provided in the metadata.
 
 =cut
 
-
 has meta_noindex => (
   is            => 'ro',
   isa           => Bool,
@@ -143,10 +142,10 @@ I<underscore>'d namespaces will not be included.
 =cut
 
 has skip_underscore => (
-    is => 'ro',
-    isa => Bool,
-    default => 1,
-    documentation => "Skip packages with a leading _ , ie: Foo::_internal::baz",
+  is            => 'ro',
+  isa           => Bool,
+  default       => 1,
+  documentation => "Skip packages with a leading _ , ie: Foo::_internal::baz",
 );
 
 =head1 PRIVATE METHODS
@@ -172,7 +171,9 @@ This is so C<{ version =E<gt> undef }> does not occur in the YAML.
 sub _resolve_version {
   my $self    = shift;
   my $version = shift;
-  if ( $self->inherit_version or ( $self->inherit_missing and not defined $version ) ) {
+  if ( $self->inherit_version
+    or ( $self->inherit_missing and not defined $version ) )
+  {
     return ( 'version', $self->zilla->version );
   }
   if ( not defined $version ) {
@@ -243,17 +244,17 @@ sub _apply_meta_noindex {
   $packages   = $noindex->{'package'}   if exists $noindex->{'package'};
   $namespaces = $noindex->{'namespace'} if exists $noindex->{'namespace'};
 
-  for my $file (@{$files}) {
+  for my $file ( @{$files} ) {
     @items = grep { $_->file ne $file } @items;
   }
-  for my $module (@{$packages}) {
+  for my $module ( @{$packages} ) {
     @items = grep { $_->module ne $module } @items;
   }
-  for my $dir (@{$dirs}) {
+  for my $dir ( @{$dirs} ) {
     ## no critic (RegularExpressions ProhibitPunctuationVars)
     @items = grep { $_->file !~ qr{^\Q$dir\E($|/)} } @items;
   }
-  for my $namespace (@{$namespaces}) {
+  for my $namespace ( @{$namespaces} ) {
     ## no critic (RegularExpressions ProhibitPunctuationVars)
     @items = grep { $_->module !~ qr{^\Q$namespace\E($|::)} } @items;
   }
@@ -274,8 +275,8 @@ sub metadata {
   my $discover = {};
   for ( $self->provides ) {
     if ( $self->skip_underscore and $_->module =~ /(^_|::_)/ ) {
-        $self->log_debug('Skipping ' . $_->module . ' due to /skip_underscore = true ' );
-        next;
+      $self->log_debug( 'Skipping ' . $_->module . ' due to /skip_underscore = true ' );
+      next;
     }
     $_->copy_into($discover);
   }
