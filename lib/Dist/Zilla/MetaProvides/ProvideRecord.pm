@@ -6,7 +6,7 @@ BEGIN {
   $Dist::Zilla::MetaProvides::ProvideRecord::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Dist::Zilla::MetaProvides::ProvideRecord::VERSION = '1.12060502';
+  $Dist::Zilla::MetaProvides::ProvideRecord::VERSION = '1.13000000';
 }
 
 # ABSTRACT: Data Management Record for MetaProvider::Provides Based Class
@@ -28,7 +28,13 @@ has module => ( isa => Str, is => 'ro', required => 1 );
 has file => ( isa => Str, is => 'ro', required => 1 );
 
 
-has parent => ( is => 'ro', required => 1, weak_ref => 1, isa => ProviderObject, handles => [ 'zilla', '_resolve_version', ], );
+has parent => (
+  is       => 'ro',
+  required => 1,
+  weak_ref => 1,
+  isa      => ProviderObject,
+  handles  => [ 'zilla', '_resolve_version', ],
+);
 
 
 sub copy_into {
@@ -56,7 +62,7 @@ Dist::Zilla::MetaProvides::ProvideRecord - Data Management Record for MetaProvid
 
 =head1 VERSION
 
-version 1.12060502
+version 1.13000000
 
 =head1 ATTRIBUTES
 

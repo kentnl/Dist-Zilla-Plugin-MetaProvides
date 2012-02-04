@@ -77,19 +77,19 @@
    "provides" : {
       "Dist::Zilla::MetaProvides::ProvideRecord" : {
          "file" : "lib/Dist/Zilla/MetaProvides/ProvideRecord.pm",
-         "version" : "1.12060502"
+         "version" : "1.13000000"
       },
       "Dist::Zilla::MetaProvides::Types" : {
          "file" : "lib/Dist/Zilla/MetaProvides/Types.pm",
-         "version" : "1.12060502"
+         "version" : "1.13000000"
       },
       "Dist::Zilla::Plugin::MetaProvides" : {
          "file" : "lib/Dist/Zilla/Plugin/MetaProvides.pm",
-         "version" : "1.12060502"
+         "version" : "1.13000000"
       },
       "Dist::Zilla::Role::MetaProvider::Provider" : {
          "file" : "lib/Dist/Zilla/Role/MetaProvider/Provider.pm",
-         "version" : "1.12060502"
+         "version" : "1.13000000"
       }
    },
    "release_status" : "stable",
@@ -101,7 +101,7 @@
          "web" : "https://github.com/kentfredric/dist-zilla-plugin-metaprovides"
       }
    },
-   "version" : "1.12060502",
+   "version" : "1.13000000",
    "x_BuiltWith" : {
       "modules" : {
          "Dist::Zilla::Plugin::Bootstrap::lib" : "0.01023601",
@@ -110,7 +110,7 @@
          "Dist::Zilla::PluginBundle::Author::KENTNL::Lite" : "NA(possibly not installed)",
          "Dist::Zilla::Role::MetaProvider" : "4.300007",
          "Dist::Zilla::Util::EmulatePhase" : "0.01025801",
-         "Dist::Zilla::Util::Test::KENTNL" : "0.01015822",
+         "Dist::Zilla::Util::Test::KENTNL" : "0.01015823",
          "File::Find" : "1.19",
          "File::Temp" : "0.22",
          "Module::Build" : "0.38",

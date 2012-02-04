@@ -6,7 +6,7 @@ BEGIN {
   $Dist::Zilla::Role::MetaProvider::Provider::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Dist::Zilla::Role::MetaProvider::Provider::VERSION = '1.12060502';
+  $Dist::Zilla::Role::MetaProvider::Provider::VERSION = '1.13000000';
 }
 
 # ABSTRACT: A Role for Metadata providers specific to the 'provider' key.
@@ -48,10 +48,20 @@ has meta_noindex => (
 );
 
 
+has skip_underscore => (
+  is            => 'ro',
+  isa           => Bool,
+  default       => 1,
+  documentation => 'Skip packages with a leading _ , ie: Foo::_internal::baz',
+);
+
+
 sub _resolve_version {
   my $self    = shift;
   my $version = shift;
-  if ( $self->inherit_version or ( $self->inherit_missing and not defined $version ) ) {
+  if ( $self->inherit_version
+    or ( $self->inherit_missing and not defined $version ) )
+  {
     return ( 'version', $self->zilla->version );
   }
   if ( not defined $version ) {
@@ -98,17 +108,17 @@ sub _apply_meta_noindex {
   $packages   = $noindex->{'package'}   if exists $noindex->{'package'};
   $namespaces = $noindex->{'namespace'} if exists $noindex->{'namespace'};
 
-  for my $file (@{$files}) {
+  for my $file ( @{$files} ) {
     @items = grep { $_->file ne $file } @items;
   }
-  for my $module (@{$packages}) {
+  for my $module ( @{$packages} ) {
     @items = grep { $_->module ne $module } @items;
   }
-  for my $dir (@{$dirs}) {
+  for my $dir ( @{$dirs} ) {
     ## no critic (RegularExpressions ProhibitPunctuationVars)
     @items = grep { $_->file !~ qr{^\Q$dir\E($|/)} } @items;
   }
-  for my $namespace (@{$namespaces}) {
+  for my $namespace ( @{$namespaces} ) {
     ## no critic (RegularExpressions ProhibitPunctuationVars)
     @items = grep { $_->module !~ qr{^\Q$namespace\E($|::)} } @items;
   }
@@ -120,6 +130,10 @@ sub metadata {
   my ($self) = @_;
   my $discover = {};
   for ( $self->provides ) {
+    if ( $self->skip_underscore and $_->module =~ /(\A_|::_)/msx ) {
+      $self->log_debug( 'Skipping ' . $_->module . ' due to /skip_underscore = true ' );
+      next;
+    }
     $_->copy_into($discover);
   }
   return { provides => $discover };
@@ -140,7 +154,7 @@ Dist::Zilla::Role::MetaProvider::Provider - A Role for Metadata providers specif
 
 =head1 VERSION
 
-version 1.12060502
+version 1.13000000
 
 =head1 PERFORMS ROLES
 
@@ -210,6 +224,28 @@ C<no_index> META field will be ignored
 
 C<no_index> META field will be recognised and things found in it will cause respective packages
 to not be provided in the metadata.
+
+=back
+
+=head2 skip_underscore
+
+Filter out detected namespaces with a token with a leading C<_>, ie:
+
+    Foo::Bar::_internal::Baz;
+
+This is a convenience to provide sane defaults. For more controlled exclusion of namespaces, see L<Dist::Zilla::Plugin::MetaNoIndex>
+
+=head3 values
+
+=over 4
+
+=item * Set to "0"
+
+I<underscore>'d namespaces will be included.
+
+=item * Set to "1" B<[default]>
+
+I<underscore>'d namespaces will not be included.
 
 =back
 

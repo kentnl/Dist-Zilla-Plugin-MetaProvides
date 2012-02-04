@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-package # PAUSE
+package    # PAUSE
   Dist::Zilla::Plugin::FakePlugin;
 
 use Moose;
@@ -12,10 +12,10 @@ with 'Dist::Zilla::Role::MetaProvider::Provider';
 sub provides {
   my $self = shift;
   return Dist::Zilla::MetaProvides::ProvideRecord->new(
-    module => 'FakeModule',
-    file => 'C:\temp\notevenonwindows.pl',
+    module  => 'FakeModule',
+    file    => 'C:\temp\notevenonwindows.pl',
     version => '3.1414',
-    parent => $self,
+    parent  => $self,
   );
 }
 

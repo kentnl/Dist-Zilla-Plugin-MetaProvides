@@ -1,5 +1,11 @@
 Revision history for Dist-Zilla-Plugin-MetaProvides
 
+1.13000000 2012-02-04T07:35:05Z
+ [Features]
+ - Add a provisional filter that eliminates X::_y form namespaces ( a
+   hiding convention ), enabled by default. Toggle skip_underscore to
+   change. Thanks XDG/David Golden for reporting this in rt#74675.
+
 1.12060502 2012-02-04T00:39:26Z
  - Maintenance Release
 
