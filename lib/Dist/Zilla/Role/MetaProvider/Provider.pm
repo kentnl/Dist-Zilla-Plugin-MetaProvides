@@ -110,11 +110,43 @@ to not be provided in the metadata.
 
 =cut
 
+
 has meta_noindex => (
   is            => 'ro',
   isa           => Bool,
   default       => 1,
   documentation => 'Scan for the meta_noindex metadata key and do not add provides records for things in it',
+);
+
+=head2 skip_underscore
+
+Filter out detected namespaces with a token with a leading C<_>, ie:
+
+    Foo::Bar::_internal::Baz;
+
+This is a convenience to provide sane defaults. For more controlled exclusion of namespaces, see L<Dist::Zilla::Plugin::MetaNoIndex>
+
+=head3 values
+
+=over 4
+
+=item * Set to "0"
+
+I<underscore>'d namespaces will be included.
+
+=item * Set to "1" B<[default]>
+
+I<underscore>'d namespaces will not be included.
+
+=back
+
+=cut
+
+has skip_underscore => (
+    is => 'ro',
+    isa => Bool,
+    default => 1,
+    documentation => "Skip packages with a leading _ , ie: Foo::_internal::baz",
 );
 
 =head1 PRIVATE METHODS
@@ -241,6 +273,10 @@ sub metadata {
   my ($self) = @_;
   my $discover = {};
   for ( $self->provides ) {
+    if ( $self->skip_underscore and $_->module =~ /(^_|::_)/ ) {
+        $self->log_debug('Skipping ' . $_->module . ' due to /skip_underscore = true ' );
+        next;
+    }
     $_->copy_into($discover);
   }
   return { provides => $discover };
