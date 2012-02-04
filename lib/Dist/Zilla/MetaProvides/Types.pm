@@ -3,7 +3,10 @@ use warnings;
 
 package Dist::Zilla::MetaProvides::Types;
 BEGIN {
-  $Dist::Zilla::MetaProvides::Types::VERSION = '1.12060501';
+  $Dist::Zilla::MetaProvides::Types::AUTHORITY = 'cpan:KENTNL';
+}
+{
+  $Dist::Zilla::MetaProvides::Types::VERSION = '1.12060502';
 }
 
 # ABSTRACT: Utility Types for the MetaProvides Plugin
@@ -32,7 +35,7 @@ Dist::Zilla::MetaProvides::Types - Utility Types for the MetaProvides Plugin
 
 =head1 VERSION
 
-version 1.12060501
+version 1.12060502
 
 =head1 SUBTYPES
 
@@ -68,7 +71,7 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Kent Fredric.
+This software is copyright (c) 2012 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

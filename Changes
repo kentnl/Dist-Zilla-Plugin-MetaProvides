@@ -1,5 +1,31 @@
 Revision history for Dist-Zilla-Plugin-MetaProvides
 
+1.12060502 2012-02-04T00:39:26Z
+ - Maintenance Release
+
+ [Dependencies::Changed]
+ - develop suggests : Dist::Zilla::PluginBundle::Author::KENTNL v1.0.0 ->
+   v1.2.0
+
+ [Dependencies::New]
+ - runtime requires : perl 5.006
+ - runtime requires : strict
+ - runtime requires : warnings
+
+ [Dependencies::Removed]
+ - test requires : English
+
+ [Internals]
+ - added $AUTHORITY to all namespaces
+ - moved $VERSION out of BEGIN in all namespaces
+
+ [Packaging]
+ - update LICENSE ( Year, Address, Indent )
+ - move extra tests to xt/
+ - move git URLs to https://
+ - export x_authority in metadata.
+ - move to git versions
+
 1.12060501 2011-04-08T13:44:56Z
  [BugFix]
  - rt#67325 : Should now depend on Test::More 0.96 to solve tests failing

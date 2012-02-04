@@ -3,7 +3,10 @@ use warnings;
 
 package Dist::Zilla::MetaProvides::ProvideRecord;
 BEGIN {
-  $Dist::Zilla::MetaProvides::ProvideRecord::VERSION = '1.12060501';
+  $Dist::Zilla::MetaProvides::ProvideRecord::AUTHORITY = 'cpan:KENTNL';
+}
+{
+  $Dist::Zilla::MetaProvides::ProvideRecord::VERSION = '1.12060502';
 }
 
 # ABSTRACT: Data Management Record for MetaProvider::Provides Based Class
@@ -53,7 +56,7 @@ Dist::Zilla::MetaProvides::ProvideRecord - Data Management Record for MetaProvid
 
 =head1 VERSION
 
-version 1.12060501
+version 1.12060502
 
 =head1 ATTRIBUTES
 
@@ -98,7 +101,7 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Kent Fredric.
+This software is copyright (c) 2012 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

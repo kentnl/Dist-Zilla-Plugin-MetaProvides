@@ -3,7 +3,10 @@ use warnings;
 
 package Dist::Zilla::Plugin::MetaProvides;
 BEGIN {
-  $Dist::Zilla::Plugin::MetaProvides::VERSION = '1.12060501';
+  $Dist::Zilla::Plugin::MetaProvides::AUTHORITY = 'cpan:KENTNL';
+}
+{
+  $Dist::Zilla::Plugin::MetaProvides::VERSION = '1.12060502';
 }
 
 # ABSTRACT: Generating and Populating 'provides' in your META.yml
@@ -20,7 +23,7 @@ Dist::Zilla::Plugin::MetaProvides - Generating and Populating 'provides' in your
 
 =head1 VERSION
 
-version 1.12060501
+version 1.12060502
 
 =head1 SYNOPSIS
 
@@ -172,7 +175,7 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Kent Fredric.
+This software is copyright (c) 2012 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
