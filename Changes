@@ -1,6 +1,9 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+ [Features]
+ - Reverted all non-documentation changes since 1.13x. Handling this in the
+   role level was a dumb idea anyway.
 
 1.13000001 2012-02-04T09:04:53Z
  [Documentation]
