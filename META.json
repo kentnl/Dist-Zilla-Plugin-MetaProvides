@@ -4,7 +4,7 @@
       "Kent Fredric <kentnl@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300007, CPAN::Meta::Converter version 2.113640",
+   "generated_by" : "Dist::Zilla version 4.300007, CPAN::Meta::Converter version 2.120351",
    "license" : [
       "perl_5"
    ],
@@ -35,9 +35,9 @@
             "Dist::Zilla::PluginBundle::Author::KENTNL::Lite" : "0.01009803"
          },
          "requires" : {
-            "Dist::Zilla::Plugin::Bootstrap::lib" : 0,
-            "Dist::Zilla::Plugin::MetaNoIndex" : 0,
-            "Dist::Zilla::PluginBundle::Author::KENTNL::Lite" : 0
+            "Dist::Zilla::Plugin::Bootstrap::lib" : "0",
+            "Dist::Zilla::Plugin::MetaNoIndex" : "0",
+            "Dist::Zilla::PluginBundle::Author::KENTNL::Lite" : "0"
          },
          "suggests" : {
             "Dist::Zilla::PluginBundle::Author::KENTNL" : "v1.2.0"
@@ -45,51 +45,51 @@
       },
       "runtime" : {
          "requires" : {
-            "Dist::Zilla::Role::MetaProvider" : 0,
+            "Dist::Zilla::Role::MetaProvider" : "0",
             "Dist::Zilla::Util::EmulatePhase" : "0.01000101",
-            "Moose" : 0,
-            "Moose::Role" : 0,
-            "MooseX::Types" : 0,
-            "MooseX::Types::Moose" : 0,
-            "namespace::autoclean" : 0,
+            "Moose" : "0",
+            "Moose::Role" : "0",
+            "MooseX::Types" : "0",
+            "MooseX::Types::Moose" : "0",
+            "namespace::autoclean" : "0",
             "perl" : "5.006",
-            "strict" : 0,
-            "warnings" : 0
+            "strict" : "0",
+            "warnings" : "0"
          },
          "suggests" : {
-            "Dist::Zilla::Plugin::MetaNoIndex" : 0
+            "Dist::Zilla::Plugin::MetaNoIndex" : "0"
          }
       },
       "test" : {
          "requires" : {
             "Dist::Zilla::Util::Test::KENTNL" : "0.01000004",
-            "File::Find" : 0,
-            "File::Temp" : 0,
-            "Scalar::Util" : 0,
-            "Test::Fatal" : 0,
+            "File::Find" : "0",
+            "File::Temp" : "0",
+            "Scalar::Util" : "0",
+            "Test::Fatal" : "0",
             "Test::More" : "0.96"
          },
          "suggests" : {
-            "Dist::Zilla::Plugin::MetaNoIndex" : 0
+            "Dist::Zilla::Plugin::MetaNoIndex" : "0"
          }
       }
    },
    "provides" : {
       "Dist::Zilla::MetaProvides::ProvideRecord" : {
          "file" : "lib/Dist/Zilla/MetaProvides/ProvideRecord.pm",
-         "version" : "1.13000001"
+         "version" : "1.14000000"
       },
       "Dist::Zilla::MetaProvides::Types" : {
          "file" : "lib/Dist/Zilla/MetaProvides/Types.pm",
-         "version" : "1.13000001"
+         "version" : "1.14000000"
       },
       "Dist::Zilla::Plugin::MetaProvides" : {
          "file" : "lib/Dist/Zilla/Plugin/MetaProvides.pm",
-         "version" : "1.13000001"
+         "version" : "1.14000000"
       },
       "Dist::Zilla::Role::MetaProvider::Provider" : {
          "file" : "lib/Dist/Zilla/Role/MetaProvider/Provider.pm",
-         "version" : "1.13000001"
+         "version" : "1.14000000"
       }
    },
    "release_status" : "stable",
@@ -101,7 +101,7 @@
          "web" : "https://github.com/kentfredric/dist-zilla-plugin-metaprovides"
       }
    },
-   "version" : "1.13000001",
+   "version" : "1.14000000",
    "x_BuiltWith" : {
       "modules" : {
          "Dist::Zilla::Plugin::Bootstrap::lib" : "0.01023601",
@@ -114,8 +114,8 @@
          "File::Find" : "1.19",
          "File::Temp" : "0.22",
          "Module::Build" : "0.38",
-         "Moose" : "2.0401",
-         "Moose::Role" : "2.0401",
+         "Moose" : "2.0402",
+         "Moose::Role" : "2.0402",
          "MooseX::Types" : "0.31",
          "MooseX::Types::Moose" : "0.31",
          "Scalar::Util" : "1.23",
@@ -143,7 +143,7 @@
          {
             "class" : "Dist::Zilla::Plugin::Git::NextVersion",
             "name" : "@Author::KENTNL/Git::NextVersion",
-            "version" : "1.113560"
+            "version" : "1.120370"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaConfig",
@@ -158,7 +158,7 @@
          {
             "class" : "Dist::Zilla::Plugin::MetaProvides::Package",
             "name" : "@Author::KENTNL/MetaProvides::Package",
-            "version" : "1.12060501"
+            "version" : "1.12060502"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaData::BuiltWith",
@@ -357,27 +357,27 @@
          {
             "class" : "Dist::Zilla::Plugin::Git::Check",
             "name" : "@Author::KENTNL/Git::Check",
-            "version" : "1.113560"
+            "version" : "1.120370"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Tag",
             "name" : "@Author::KENTNL/Git::Tag/tag_master",
-            "version" : "1.113560"
+            "version" : "1.120370"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Commit",
             "name" : "@Author::KENTNL/Git::Commit",
-            "version" : "1.113560"
+            "version" : "1.120370"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::CommitBuild",
             "name" : "@Author::KENTNL/Git::CommitBuild",
-            "version" : "1.113560"
+            "version" : "1.120370"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Tag",
             "name" : "@Author::KENTNL/Git::Tag/tag_release",
-            "version" : "1.113560"
+            "version" : "1.120370"
          },
          {
             "class" : "Dist::Zilla::Plugin::UploadToCPAN",
