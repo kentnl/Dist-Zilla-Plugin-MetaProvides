@@ -1,6 +1,6 @@
 Revision history for Dist-Zilla-Plugin-MetaProvides
 
-1.14000001 2012-07-26T16:14:47Z
+1.14000001 2012-07-26T16:16:03Z
  [BugFix]
  - Defer version constraints to as late as possible to allow more circular
    things to happen, avoiding compile-time failure in bootstrap.

@@ -14,7 +14,8 @@ BEGIN {
 # $Id:$
 use Moose::Role;
 use MooseX::Types::Moose (':all');
-use constant MIN_EMULATE_PHASE_VERSION => 0.01000101;
+use Readonly;
+Readonly my $MIN_EMULATE_PHASE_VERSION => 0.01000101;
 use namespace::autoclean;
 
 
@@ -68,7 +69,7 @@ sub _try_regen_metadata {
 
   require Dist::Zilla::Util::EmulatePhase;
   if ( defined $Dist::Zilla::Util::EmulatePhase::VERSION ) {
-    Dist::Zilla::Util::EmulatePhase->VERSION(MIN_EMULATE_PHASE_VERSION);
+    Dist::Zilla::Util::EmulatePhase->VERSION($MIN_EMULATE_PHASE_VERSION);
   }
   return Dist::Zilla::Util::EmulatePhase::get_metadata(
     {
