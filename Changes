@@ -1,9 +1,20 @@
-Revision history for {{$dist->name}}
+﻿Revision history for {{$dist->name}}
 
 {{$NEXT}}
  [BugFix]
  - Defer version constraints to as late as possible to allow more circular
    things to happen, avoiding compile-time failure in bootstrap.
+ 
+ [Dependencies::Changed]
+ - build requires : Module-Build 0.3601 -> 0.4001
+ - configure requires : Module-Build 0.3601 -> 0.4001
+ - develop recommends : Dist::Zilla::PluginBundle::Author::KENTNL::Lite 0.01009803 -> v1.3.0
+ - develop suggests : Dist::Zilla::PluginBundle::Author::KENTNL v1.2.0 -> v1.4.2
+ - test requires : Test::More 0.96 -> 0.98
+ 
+ [Dependencies::New]
+ - runtime requires : Readonly
+
 
 1.14000000 2012-02-07T08:45:13Z
  [Features]
