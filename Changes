@@ -1,6 +1,9 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+ [BugFix]
+ - Defer version constraints to as late as possible to allow more circular
+   things to happen, avoiding compile-time failure in bootstrap.
 
 1.14000000 2012-02-07T08:45:13Z
  [Features]
