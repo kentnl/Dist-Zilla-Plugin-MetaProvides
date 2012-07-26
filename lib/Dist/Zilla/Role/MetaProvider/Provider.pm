@@ -66,8 +66,11 @@ sub _resolve_version {
 
 sub _try_regen_metadata {
   my ($self) = @_;
+
   require Dist::Zilla::Util::EmulatePhase;
-  Dist::Zilla::Util::EmulatePhase->VERSION(0.01000101);
+  if ( defined $Dist::Zilla::Util::EmulatePhase::VERSION ) {
+    Dist::Zilla::Util::EmulatePhase->VERSION(0.01000101);
+  }
  
   return Dist::Zilla::Util::EmulatePhase::get_metadata(
     {
