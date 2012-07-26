@@ -14,9 +14,7 @@ BEGIN {
 # $Id:$
 use Moose::Role;
 use MooseX::Types::Moose (':all');
-#use Dist::Zilla::Util::EmulatePhase; 0.01000101 qw( get_metadata );
 use namespace::autoclean;
-
 
 
 with 'Dist::Zilla::Role::MetaProvider';
@@ -71,7 +69,6 @@ sub _try_regen_metadata {
   if ( defined $Dist::Zilla::Util::EmulatePhase::VERSION ) {
     Dist::Zilla::Util::EmulatePhase->VERSION(0.01000101);
   }
- 
   return Dist::Zilla::Util::EmulatePhase::get_metadata(
     {
       zilla => $self->zilla,
