@@ -35,6 +35,7 @@ my %module_build_args = (
     "Moose::Role" => 0,
     "MooseX::Types" => 0,
     "MooseX::Types::Moose" => 0,
+    "constant" => 0,
     "namespace::autoclean" => 0,
     "perl" => "5.006",
     "strict" => 0,

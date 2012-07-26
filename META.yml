@@ -43,6 +43,7 @@ requires:
   Moose::Role: 0
   MooseX::Types: 0
   MooseX::Types::Moose: 0
+  constant: 0
   namespace::autoclean: 0
   perl: 5.006
   strict: 0
@@ -70,6 +71,7 @@ x_BuiltWith:
     Scalar::Util: 1.25
     Test::Fatal: 0.010
     Test::More: 0.98
+    constant: 1.23
     namespace::autoclean: 0.13
     perl: 'NA(skipped: perl)'
     strict: 1.07
