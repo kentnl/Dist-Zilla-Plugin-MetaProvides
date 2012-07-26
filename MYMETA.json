@@ -4,7 +4,7 @@
       "Kent Fredric <kentnl@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300020, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "Module::Build version 0.4001, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "perl_5"
    ],
@@ -22,25 +22,18 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "Module::Build" : "0.4001"
+            "Dist::Zilla::Util::Test::KENTNL" : "0.01000004",
+            "File::Find" : "0",
+            "File::Temp" : "0",
+            "Module::Build" : "0.4001",
+            "Scalar::Util" : "0",
+            "Test::Fatal" : "0",
+            "Test::More" : "0.98"
          }
       },
       "configure" : {
          "requires" : {
             "Module::Build" : "0.4001"
-         }
-      },
-      "develop" : {
-         "recommends" : {
-            "Dist::Zilla::PluginBundle::Author::KENTNL::Lite" : "v1.3.0"
-         },
-         "requires" : {
-            "Dist::Zilla::Plugin::Bootstrap::lib" : "0",
-            "Dist::Zilla::Plugin::MetaNoIndex" : "0",
-            "Dist::Zilla::PluginBundle::Author::KENTNL::Lite" : "0"
-         },
-         "suggests" : {
-            "Dist::Zilla::PluginBundle::Author::KENTNL" : "v1.4.2"
          }
       },
       "runtime" : {
@@ -56,22 +49,6 @@
             "perl" : "5.006",
             "strict" : "0",
             "warnings" : "0"
-         },
-         "suggests" : {
-            "Dist::Zilla::Plugin::MetaNoIndex" : "0"
-         }
-      },
-      "test" : {
-         "requires" : {
-            "Dist::Zilla::Util::Test::KENTNL" : "0.01000004",
-            "File::Find" : "0",
-            "File::Temp" : "0",
-            "Scalar::Util" : "0",
-            "Test::Fatal" : "0",
-            "Test::More" : "0.98"
-         },
-         "suggests" : {
-            "Dist::Zilla::Plugin::MetaNoIndex" : "0"
          }
       }
    },
@@ -97,9 +74,7 @@
    "resources" : {
       "homepage" : "https://github.com/kentfredric/dist-zilla-plugin-metaprovides",
       "repository" : {
-         "type" : "git",
-         "url" : "https://github.com/kentfredric/dist-zilla-plugin-metaprovides.git",
-         "web" : "https://github.com/kentfredric/dist-zilla-plugin-metaprovides"
+         "url" : "https://github.com/kentfredric/dist-zilla-plugin-metaprovides.git"
       }
    },
    "version" : "1.14000001",
@@ -130,11 +105,11 @@
       },
       "perl" : {
          "original" : "v5.16.0",
-         "qv" : 1,
+         "qv" : "1",
          "version" : [
-            5,
-            16,
-            0
+            "5",
+            "16",
+            "0"
          ]
       },
       "perl-config" : {
@@ -492,4 +467,3 @@
    },
    "x_authority" : "cpan:KENTNL"
 }
-
