@@ -1,0 +1,159 @@
+Revision history for Dist-Zilla-Plugin-MetaProvides
+
+1.14000001 2012-07-26T15:59:27Z
+
+1.14000000 2012-02-07T08:45:13Z
+ [Features]
+ - Reverted all non-documentation changes since 1.13x. Handling this in the
+   role level was a dumb idea anyway.
+
+1.13000001 2012-02-04T09:04:53Z
+ [Documentation]
+ - Improve documentation of skip_underscores and meta_noindex at the more
+   foward-facing sites.
+
+1.13000000 2012-02-04T07:35:05Z
+ [Features]
+ - Add a provisional filter that eliminates X::_y form namespaces ( a
+   hiding convention ), enabled by default. Toggle skip_underscore to
+   change. Thanks XDG/David Golden for reporting this in rt#74675.
+
+1.12060502 2012-02-04T00:39:26Z
+ - Maintenance Release
+
+ [Dependencies::Changed]
+ - develop suggests : Dist::Zilla::PluginBundle::Author::KENTNL v1.0.0 ->
+   v1.2.0
+
+ [Dependencies::New]
+ - runtime requires : perl 5.006
+ - runtime requires : strict
+ - runtime requires : warnings
+
+ [Dependencies::Removed]
+ - test requires : English
+
+ [Internals]
+ - added $AUTHORITY to all namespaces
+ - moved $VERSION out of BEGIN in all namespaces
+
+ [Packaging]
+ - update LICENSE ( Year, Address, Indent )
+ - move extra tests to xt/
+ - move git URLs to https://
+ - export x_authority in metadata.
+ - move to git versions
+
+1.12060501 2011-04-08T13:44:56Z
+ [BugFix]
+ - rt#67325 : Should now depend on Test::More 0.96 to solve tests failing
+   on earlier versions.
+
+ [Dependencies:Tests]
+ - Test::More is now 0.96, not 0.88
+
+1.12060212 2011-04-06T00:17:21Z
+ [Dependencies:Development]
+ - @KENTNL -> @Author::KENTNL
+
+ [Documentation]
+ - Many miscelany spelling mistakes fixed.
+
+ [Features:Minor/API]
+ - copy_into now returns '1' when done.
+ - ProvideRecord Plugin is now immutablized.
+ - Type libraries no longer erroneously import Moose.
+
+ [Packaging]
+ - Moved to @Author::KENTNL
+ - Reworked Changes to CPAN::Changes spec.
+ - Made critic happy and stricter.
+
+ [Tests]
+ - add CPAN::Changes tests.
+ - remove portability tests.
+
+1.12044806 2010-11-06T18:20:55Z
+ - A little bit more testing of the codebase, tests should be now
+   comprehensive enough to detect most change-bugs.
+
+1.12044803 2010-11-06T15:26:58Z
+ - Build ourself using MetaNoIndex to hide corpus/ crap.
+ - Add MetaNoIndex to suggest lists.
+ - Fix tests not to fail when there is no MetaNoIndex.
+ - PerlTidy allover.
+
+1.12044518 2010-11-04T06:32:54Z
+ - Spliced Test deps into its own module.
+ - Shipped work behind _try_regen_metadata to
+   Dist::Zilla::Util::EmulatePhase
+ - meta_noindex is now *ON* by default. This behavioural change is reason
+   for Bumping the minor to 12. Rationale: If you're using MetaNoIndex and
+   this module, then you want things to get skipped. With provides =>, cpan
+   won't do any indexing itself, so no_index in the data does nothing. So,
+   this module brings that power back to life by implementing it manually.
+ - Add thanks while I remember.
+
+1.11044405 2010-11-02T17:04:51Z
+ - Drop silly extra depends that sneaked in. It was hobbitses, and they are
+   pesky.
+
+1.11044404 2010-11-02T16:25:56Z
+ - Upgrade to recent @KENTNL changes ( remove inc/ and xt/ from source
+   tree, relocate perlcritic.rc )
+ - Now have a convenience function, usable by all consuming roles that
+   permit filtering packages that match criteira added to MetaNoIndex. Once
+   your role uses this function, the attribute also bolted on by this
+   change ( meta_noindex = 1 ) will control this behaviour. Thanks to
+   xdg/David Golden for this suggestion.
+
+1.11034201 2010-07-24T13:35:56Z
+ - Forked into 4 smaller dists to reduce the installation overheads.
+ - Mostly so that people who want Metaprovides::Package don't have to
+   install MooseX::Declare and friends. ::Plugin::MetaProvides,
+   ::Plugin::MetaProvides::Package, ::Plugin::MetaProvides::Class,
+   ::Plugin::MetaProvides::FromFile
+
+1.10034117 2010-07-24T05:37:49Z
+ - Dropped xt/author/kwalitee.t to avoid the needless dep. ( Kwalitee Test
+   plugin doesn't have this issue )
+
+1.10027802 2010-05-22T13:08:02Z
+ - Replaced most of dist.ini with @KENTNL ( Yeilding more accurate t/
+   depends )
+ - Removed =inc::Dist style loopback in favour of the more reliable and
+   more generic =inc::lib
+
+1.10027518 2010-05-20T05:33:10Z
+ - Upgraded tests to Dist::Zilla 2.x. ( should resolve rt #56482 ) ( Thanks
+   to DAXIM/Lars Dɪᴇᴄᴋᴏᴡ 迪拉斯 for reporting )
+ - Upgraded dist.ini to Dist::Zilla 2.x
+
+1.10001919 2009-09-12T06:17:57Z
+ - Dropped the version dep on FindBin because it causes problems for some.
+   Apparently deping on something that may or may not be in core which may
+   or may not be in core later is a bad thing.
+ - Added CompileTests
+ - Add dist.ini to release for diagnostic reasons.
+
+1.10000417 2009-08-28T04:52:32Z
+ - Moved the tests around.
+ - More tests.
+ - All versions now maxing out to encourage upgrading.
+ - Moved to relative dating scheme
+ - Tighter DogFeed Loopback in buildsystem.
+ - Critic'd.
+ - Documentation Upped on the plugs.
+
+1.0920022 2009-07-19T22:52:48Z
+ - Moved Documentation to a .pm file to satisfy Module::Build
+
+1.0920015 2009-07-19T15:31:07Z
+ - Now eating own dog food.
+ - Scan *.pm|*.pod so that .pod files index properly
+ - Only scan lib/
+ - Fixed Bug with META's having ; in them.
+
+1.0920012 2009-07-19T12:24:43Z
+ - First version.
+
