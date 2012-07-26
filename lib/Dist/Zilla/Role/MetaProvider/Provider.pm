@@ -8,6 +8,8 @@ package Dist::Zilla::Role::MetaProvider::Provider;
 # $Id:$
 use Moose::Role;
 use MooseX::Types::Moose (':all');
+use Readonly;
+Readonly my $MIN_EMULATE_PHASE_VERSION => 0.01000101;
 use namespace::autoclean;
 
 =head1 PERFORMS ROLES
@@ -169,7 +171,7 @@ sub _try_regen_metadata {
 
   require Dist::Zilla::Util::EmulatePhase;
   if ( defined $Dist::Zilla::Util::EmulatePhase::VERSION ) {
-    Dist::Zilla::Util::EmulatePhase->VERSION(0.01000101);
+    Dist::Zilla::Util::EmulatePhase->VERSION($MIN_EMULATE_PHASE_VERSION);
   }
   return Dist::Zilla::Util::EmulatePhase::get_metadata(
     {
