@@ -1,16 +1,10 @@
 ﻿Revision history for Dist-Zilla-Plugin-MetaProvides
 
-1.15000000 2013-09-21T06:58:54Z
+1.15000000 2013-09-21T07:00:27Z
  [00 Minor Important Changes]
  - now exports dump_config data
 
- [Documentation]
- - Retroactively normalise Changes.
- - Add README.mkdn
- - Update Copyright year
- - Add MetaPOD stuff
-
-  [Dependencies::Added / develop requires]
+ [Dependencies::Added / develop requires]
  - Pod::Coverage::TrustPod
  - Test::CPAN::Changes 0.19
  - Test::CPAN::Meta
@@ -36,8 +30,15 @@
  [Dependencies::Removed / test requires]
  - File::Find
 
+ [Documentation]
+ - Retroactively normalise Changes.
+ - Add README.mkdn
+ - Update Copyright year
+ - Add MetaPOD stuff
+
  [Meta]
  - Bug tracker to github
+ - Github URI now Camel/UC firsted
 
  [Packaging]
  - use Module::Build 0.4007 w/ test_requires
