@@ -42,6 +42,12 @@ The initial reason for this is due to stuff that uses [MooseX::Declare](http://s
 style class definitions not being parseable by many tools upstream, so this
 is here to cover this problem by defining it in the metadata.
 
+{
+    "namespace":"Dist::Zilla::Plugin::MetaProvides"
+}
+
+
+
 # COMPONENT SUMMARY
 
 ## ::Class

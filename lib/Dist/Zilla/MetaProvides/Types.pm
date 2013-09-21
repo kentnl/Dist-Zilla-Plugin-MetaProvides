@@ -4,9 +4,19 @@ use warnings;
 package Dist::Zilla::MetaProvides::Types;
 
 # ABSTRACT: Utility Types for the MetaProvides Plugin
-#
-# $Id:$
-# use Moose ();
+
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Dist::Zilla::MetaProvides::Types",
+    "interface":"exporter",
+    "inherits":"MooseX::Types::Base"
+}
+
+=end MetaPOD::JSON
+
+=cut
+
 use MooseX::Types::Moose (':all');
 use MooseX::Types -declare => [ 'ModVersion', 'ProviderObject', ];
 

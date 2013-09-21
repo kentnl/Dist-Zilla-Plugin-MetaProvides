@@ -5,6 +5,7 @@
  - Retroactively normalise Changes.
  - Add README.mkdn
  - Update Copyright year
+ - Add MetaPOD stuff
 
   [Dependencies::Added / develop requires]
  - Pod::Coverage::TrustPod
@@ -36,7 +37,7 @@
  - Bug tracker to github
 
  [Packaging]
- - use Module::Build 0.4007 w/ test_requires 
+ - use Module::Build 0.4007 w/ test_requires
 
  [Tests]
  - Update compile and kwalitee tests

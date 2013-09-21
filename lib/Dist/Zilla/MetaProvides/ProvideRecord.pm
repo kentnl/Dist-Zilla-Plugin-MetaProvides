@@ -5,12 +5,23 @@ package Dist::Zilla::MetaProvides::ProvideRecord;
 
 # ABSTRACT: Data Management Record for MetaProvider::Provides Based Class
 
-# $Id:$
 use Moose;
 use MooseX::Types::Moose             (':all');
 use Dist::Zilla::MetaProvides::Types (':all');
 
 use namespace::autoclean;
+
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Dist::Zilla::MetaProvides::ProvideRecord",
+    "interface":"class",
+    "inherits":"Moose::Object"
+}
+
+=end MetaPOD::JSON
+
+=cut
 
 =head1 ATTRIBUTES
 

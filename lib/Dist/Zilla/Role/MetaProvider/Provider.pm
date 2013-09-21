@@ -5,12 +5,23 @@ package Dist::Zilla::Role::MetaProvider::Provider;
 
 # ABSTRACT: A Role for Metadata providers specific to the 'provider' key.
 
-# $Id:$
 use Moose::Role;
 use MooseX::Types::Moose (':all');
 use Readonly;
 Readonly my $MIN_EMULATE_PHASE_VERSION => 0.01000101;
 use namespace::autoclean;
+
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Dist::Zilla::Role::MetaProvider::Provider",
+    "interface":"role",
+    "does":"Dist::Zilla::Role::MetaProvider"
+}
+
+=end MetaPOD::JSON
+
+=cut
 
 =head1 PERFORMS ROLES
 

@@ -5,6 +5,16 @@ package Dist::Zilla::Plugin::MetaProvides;
 
 # ABSTRACT: Generating and Populating 'provides' in your META.yml
 
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Dist::Zilla::Plugin::MetaProvides"
+}
+
+=end MetaPOD::JSON
+
+=cut
+
 1;
 
 =head1 SYNOPSIS
