@@ -105,13 +105,13 @@
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com/kentfredric/dist-zilla-plugin-metaprovides/issues"
+         "web" : "https://github.com/kentfredric/Dist-Zilla-Plugin-MetaProvides/issues"
       },
-      "homepage" : "https://github.com/kentfredric/dist-zilla-plugin-metaprovides",
+      "homepage" : "https://github.com/kentfredric/Dist-Zilla-Plugin-MetaProvides",
       "repository" : {
          "type" : "git",
-         "url" : "https://github.com/kentfredric/dist-zilla-plugin-metaprovides.git",
-         "web" : "https://github.com/kentfredric/dist-zilla-plugin-metaprovides"
+         "url" : "https://github.com/kentfredric/Dist-Zilla-Plugin-MetaProvides.git",
+         "web" : "https://github.com/kentfredric/Dist-Zilla-Plugin-MetaProvides"
       }
    },
    "version" : "1.15000000",

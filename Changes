@@ -1,6 +1,9 @@
 ﻿Revision history for Dist-Zilla-Plugin-MetaProvides
 
-1.15000000 2013-09-21T06:52:07Z
+1.15000000 2013-09-21T06:58:54Z
+ [00 Minor Important Changes]
+ - now exports dump_config data
+
  [Documentation]
  - Retroactively normalise Changes.
  - Add README.mkdn

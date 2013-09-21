@@ -51,9 +51,9 @@ requires:
   strict: 0
   warnings: 0
 resources:
-  bugtracker: https://github.com/kentfredric/dist-zilla-plugin-metaprovides/issues
-  homepage: https://github.com/kentfredric/dist-zilla-plugin-metaprovides
-  repository: https://github.com/kentfredric/dist-zilla-plugin-metaprovides.git
+  bugtracker: https://github.com/kentfredric/Dist-Zilla-Plugin-MetaProvides/issues
+  homepage: https://github.com/kentfredric/Dist-Zilla-Plugin-MetaProvides
+  repository: https://github.com/kentfredric/Dist-Zilla-Plugin-MetaProvides.git
 version: 1.15000000
 x_BuiltWith:
   modules:
