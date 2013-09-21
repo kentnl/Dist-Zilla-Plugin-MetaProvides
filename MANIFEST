@@ -9,6 +9,8 @@ README
 corpus/dist/DZT/lib/DZT/Sample.pm
 corpus/dist/DZT/t/basic.t
 dist.ini
+layout/self_structure.dot
+layout/self_structure.png
 lib/Dist/Zilla/MetaProvides/ProvideRecord.pm
 lib/Dist/Zilla/MetaProvides/Types.pm
 lib/Dist/Zilla/Plugin/MetaProvides.pm
