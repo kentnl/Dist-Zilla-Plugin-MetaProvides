@@ -40,7 +40,6 @@ provides:
     version: 1.15000001
 requires:
   Dist::Zilla::Role::MetaProvider: 0
-  Dist::Zilla::Util::EmulatePhase: 0.01000101
   Hash::Merge::Simple: 0
   Moose: 0
   Moose::Role: 0
@@ -63,7 +62,6 @@ x_BuiltWith:
     Dist::Zilla::PluginBundle::Author::KENTNL: 1.8.3
     Dist::Zilla::PluginBundle::Author::KENTNL::Lite: 1.7.2
     Dist::Zilla::Role::MetaProvider: 4.300039
-    Dist::Zilla::Util::EmulatePhase: 0.01025802
     Dist::Zilla::Util::Test::KENTNL: 0.01015823
     File::Spec: 3.44
     Hash::Merge::Simple: 0.051
@@ -370,14 +368,6 @@ x_Dist_Zilla:
             - Dist::Zilla::PluginBundle::Author::KENTNL
       name: '@Author::KENTNL/Prereqs::MatchInstalled'
       version: 0.1.2
-    -
-      class: Dist::Zilla::Plugin::Prereqs
-      config:
-        Dist::Zilla::Plugin::Prereqs:
-          phase: runtime
-          type: requires
-      name: RuntimeRequires
-      version: 4.300039
     -
       class: Dist::Zilla::Plugin::Prereqs
       config:
