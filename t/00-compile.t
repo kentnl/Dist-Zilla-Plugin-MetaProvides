@@ -1,73 +1,116 @@
-#!perl
-
 use strict;
 use warnings;
 
-use Test::More;
+# this test was generated with Dist::Zilla::Plugin::Test::Compile 2.032
+
+use Test::More  tests => 4 + ($ENV{AUTHOR_TESTING} ? 1 : 0);
 
 
 
-use File::Find;
-use File::Temp qw{ tempdir };
-
-my @modules;
-find(
-  sub {
-    return if $File::Find::name !~ /\.pm\z/;
-    my $found = $File::Find::name;
-    $found =~ s{^lib/}{};
-    $found =~ s{[/\\]}{::}g;
-    $found =~ s/\.pm$//;
-    # nothing to skip
-    push @modules, $found;
-  },
-  'lib',
+my @module_files = (
+    'Dist/Zilla/MetaProvides/ProvideRecord.pm',
+    'Dist/Zilla/MetaProvides/Types.pm',
+    'Dist/Zilla/Plugin/MetaProvides.pm',
+    'Dist/Zilla/Role/MetaProvider/Provider.pm'
 );
 
-sub _find_scripts {
-    my $dir = shift @_;
 
-    my @found_scripts = ();
-    find(
-      sub {
-        return unless -f;
-        my $found = $File::Find::name;
-        # nothing to skip
-        open my $FH, '<', $_ or do {
-          note( "Unable to open $found in ( $! ), skipping" );
-          return;
-        };
-        my $shebang = <$FH>;
-        return unless $shebang =~ /^#!.*?\bperl\b\s*$/;
-        push @found_scripts, $found;
-      },
-      $dir,
+
+# no fake home requested
+
+my @warnings;
+for my $lib (@module_files)
+{
+    my ($stdout, $stderr, $exit_code) = _capture(
+        sub {
+            system($^X, '-Mblib', '-e', "require q[$lib]");
+        }
     );
 
-    return @found_scripts;
+    is($exit_code >> 8, 0, "$lib loaded ok");
+
+    if (my @_warnings = split /\n/, $stderr)
+    {
+        warn @_warnings;
+        push @warnings, @_warnings;
+    }
 }
 
-my @scripts;
-do { push @scripts, _find_scripts($_) if -d $_ }
-    for qw{ bin script scripts };
 
-my $plan = scalar(@modules) + scalar(@scripts);
-$plan ? (plan tests => $plan) : (plan skip_all => "no tests to run");
 
-{
-    # fake home for cpan-testers
-    # no fake requested ## local $ENV{HOME} = tempdir( CLEANUP => 1 );
+is(scalar(@warnings), 0, 'no warnings found') if $ENV{AUTHOR_TESTING};
 
-    like( qx{ $^X -Ilib -e "require $_; print '$_ ok'" }, qr/^\s*$_ ok/s, "$_ loaded ok" )
-        for sort @modules;
 
-    SKIP: {
-        eval "use Test::Script 1.05; 1;";
-        skip "Test::Script needed to test script compilation", scalar(@scripts) if $@;
-        foreach my $file ( @scripts ) {
-            my $script = $file;
-            $script =~ s!.*/!!;
-            script_compiles( $file, "$script script compiles" );
-        }
+
+#--------------------------------------------------------------------------#
+# Capture::Tinier, courtesy of David Golden (see L<Capture::Tiny>)
+#--------------------------------------------------------------------------#
+
+use IO::Handle;
+use Carp;
+use File::Temp;
+
+my $IS_WIN32 = $^O eq 'MSWin32';
+
+sub _open {
+    open $_[0], $_[1] or Carp::confess "Error from open(" . join( q{, }, @_ ) . "): $!";
+}
+
+sub _close {
+    close $_[0] or Carp::confess "Error from close(" . join( q{, }, @_ ) . "): $!";
+}
+
+sub _copy_std {
+    my %handles;
+    for my $h (qw/stdout stderr stdin/) {
+        next if $h eq 'stdin' && !$IS_WIN32; # WIN32 hangs on tee without STDIN copied
+        my $redir = $h eq 'stdin' ? "<&" : ">&";
+        _open $handles{$h} = IO::Handle->new(), $redir . uc($h); # ">&STDOUT" or "<&STDIN"
     }
+    return \%handles;
+}
+
+# In some cases we open all (prior to forking) and in others we only open
+# the output handles (setting up redirection)
+sub _open_std {
+    my ($handles) = @_;
+    _open \*STDIN,  "<&" . fileno $handles->{stdin}  if defined $handles->{stdin};
+    _open \*STDOUT, ">&" . fileno $handles->{stdout} if defined $handles->{stdout};
+    _open \*STDERR, ">&" . fileno $handles->{stderr} if defined $handles->{stderr};
+}
+
+sub _slurp {
+    my ( $name, $stash ) = @_;
+    my $fh = $stash->{new}{$name};
+    seek( $fh, 0, 0 ) or die "Couldn't seek on capture handle for $name\n";
+    my $text = do { local $/; scalar readline $fh };
+    return defined($text) ? $text : "";
+}
+
+sub _capture {
+    my ($code) = @_;
+    my $stash;
+    $stash->{old} = _copy_std();
+    $stash->{new} = { %{ $stash->{old} } }; # default to originals
+    for (qw/stdout stderr/) {
+        $stash->{new}{$_} = File::Temp->new;
+    }
+    _open_std( $stash->{new} );
+    my ( $exit_code, $inner_error, $outer_error, @result );
+    {
+        local $@;
+        eval { @result = $code->(); $inner_error = $@ };
+        $exit_code   = $?;                  # save this for later
+        $outer_error = $@;                  # save this for later
+    }
+    _open_std( $stash->{old} );
+    _close($_) for values %{ $stash->{old} }; # don't leak fds
+    my %got;
+    for (qw/stdout stderr/) {
+        $got{$_} = _slurp( $_, $stash );
+    }
+    $? = $exit_code;
+    $@ = $inner_error if $inner_error;
+    die $outer_error if $outer_error;
+    return ( $got{stdout}, $got{stderr}, @result );
 }

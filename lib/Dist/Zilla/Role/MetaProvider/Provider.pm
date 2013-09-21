@@ -6,17 +6,17 @@ BEGIN {
   $Dist::Zilla::Role::MetaProvider::Provider::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Dist::Zilla::Role::MetaProvider::Provider::VERSION = '1.14000001';
+  $Dist::Zilla::Role::MetaProvider::Provider::VERSION = '1.15000000';
 }
 
 # ABSTRACT: A Role for Metadata providers specific to the 'provider' key.
 
-# $Id:$
 use Moose::Role;
 use MooseX::Types::Moose (':all');
 use Readonly;
 Readonly my $MIN_EMULATE_PHASE_VERSION => 0.01000101;
 use namespace::autoclean;
+
 
 
 with 'Dist::Zilla::Role::MetaProvider';
@@ -123,6 +123,24 @@ sub _apply_meta_noindex {
   return @items;
 }
 
+around dump_config => sub {
+  my ( $orig, $self, @args ) = @_;
+  my $config    = $self->$orig(@args);
+  my $localconf = {};
+  for my $var (qw( inherit_version inherit_missing meta_noindex )) {
+    my $pred = 'has_' . $var;
+    if ( $self->can($pred) ) {
+      next unless $self->$pred();
+    }
+    if ( $self->can($var) ) {
+      $localconf->{$var} = $self->$var();
+    }
+  }
+  $config->{ q{} . __PACKAGE__ } = $localconf;
+  return $config;
+
+};
+
 
 sub metadata {
   my ($self) = @_;
@@ -138,8 +156,8 @@ no Moose::Role;
 
 1;
 
-
 __END__
+
 =pod
 
 =head1 NAME
@@ -148,7 +166,18 @@ Dist::Zilla::Role::MetaProvider::Provider - A Role for Metadata providers specif
 
 =head1 VERSION
 
-version 1.14000001
+version 1.15000000
+
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Dist::Zilla::Role::MetaProvider::Provider",
+    "interface":"role",
+    "does":"Dist::Zilla::Role::MetaProvider"
+}
+
+
+=end MetaPOD::JSON
 
 =head1 PERFORMS ROLES
 
@@ -295,10 +324,9 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Kent Fredric.
+This software is copyright (c) 2013 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

@@ -10,7 +10,7 @@ allow_includes = 1
 [CodeLayout::ProhibitTrailingWhitespace]
 
 [Documentation::PodSpelling]
-stop_words = Zilla accessors MetaProvides Plugin ModVersion undef ProviderObject yml ini metadata mungers hashref plugins parseable YAML metaproviders Plugins ProvideRecord's xdg DAGOLDEN MetaNoIndex plugin
+stop_words = Zilla accessors MetaProvides Plugin ModVersion undef ProviderObject yml ini metadata mungers hashref plugins parseable YAML metaproviders Plugins ProvideRecord's xdg DAGOLDEN MetaNoIndex plugin SUBTYPES recognised
 
 [Subroutines::ProhibitUnusedPrivateSubroutines]
 private_name_regex = _(?!build_)\w

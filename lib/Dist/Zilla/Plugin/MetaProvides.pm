@@ -6,15 +6,16 @@ BEGIN {
   $Dist::Zilla::Plugin::MetaProvides::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Dist::Zilla::Plugin::MetaProvides::VERSION = '1.14000001';
+  $Dist::Zilla::Plugin::MetaProvides::VERSION = '1.15000000';
 }
 
 # ABSTRACT: Generating and Populating 'provides' in your META.yml
 
+
 1;
 
-
 __END__
+
 =pod
 
 =head1 NAME
@@ -23,7 +24,7 @@ Dist::Zilla::Plugin::MetaProvides - Generating and Populating 'provides' in your
 
 =head1 VERSION
 
-version 1.14000001
+version 1.15000000
 
 =head1 SYNOPSIS
 
@@ -60,6 +61,15 @@ populating the C<META.yml> that is built with your distribution.
 The initial reason for this is due to stuff that uses L<MooseX::Declare>
 style class definitions not being parseable by many tools upstream, so this
 is here to cover this problem by defining it in the metadata.
+
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Dist::Zilla::Plugin::MetaProvides"
+}
+
+
+=end MetaPOD::JSON
 
 =head1 COMPONENT SUMMARY
 
@@ -199,10 +209,9 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Kent Fredric.
+This software is copyright (c) 2013 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

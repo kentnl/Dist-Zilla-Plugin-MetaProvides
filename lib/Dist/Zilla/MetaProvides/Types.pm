@@ -6,13 +6,12 @@ BEGIN {
   $Dist::Zilla::MetaProvides::Types::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Dist::Zilla::MetaProvides::Types::VERSION = '1.14000001';
+  $Dist::Zilla::MetaProvides::Types::VERSION = '1.15000000';
 }
 
 # ABSTRACT: Utility Types for the MetaProvides Plugin
-#
-# $Id:$
-# use Moose ();
+
+
 use MooseX::Types::Moose (':all');
 use MooseX::Types -declare => [ 'ModVersion', 'ProviderObject', ];
 
@@ -25,8 +24,8 @@ subtype ProviderObject, as Object, where { $_->does('Dist::Zilla::Role::MetaProv
 
 1;
 
-
 __END__
+
 =pod
 
 =head1 NAME
@@ -35,7 +34,18 @@ Dist::Zilla::MetaProvides::Types - Utility Types for the MetaProvides Plugin
 
 =head1 VERSION
 
-version 1.14000001
+version 1.15000000
+
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Dist::Zilla::MetaProvides::Types",
+    "interface":"exporter",
+    "inherits":"MooseX::Types::Base"
+}
+
+
+=end MetaPOD::JSON
 
 =head1 SUBTYPES
 
@@ -71,10 +81,9 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Kent Fredric.
+This software is copyright (c) 2013 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
