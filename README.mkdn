@@ -4,7 +4,7 @@ Dist::Zilla::Plugin::MetaProvides - Generating and Populating 'provides' in your
 
 # VERSION
 
-version 1.15000000
+version 1.15000001
 
 # SYNOPSIS
 
