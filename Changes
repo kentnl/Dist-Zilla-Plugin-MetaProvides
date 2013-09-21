@@ -1,23 +1,68 @@
 ﻿Revision history for {{$dist->name}}
 
 {{$NEXT}}
+ [Documentation]
+ - Retroactively normalise Changes.
+ - Add README.mkdn
+ - Update Copyright year
+
+  [Dependencies::Added / develop requires]
+ - Pod::Coverage::TrustPod
+ - Test::CPAN::Changes 0.19
+ - Test::CPAN::Meta
+ - Test::Kwalitee 1.08
+ - Test::Pod 1.41
+ - Test::Pod::Coverage 1.08
+ - version 0.9901
+
+ [Dependencies::Added / test requires]
+ - Carp
+ - IO::Handle
+ - lib
+
+ [Dependencies::Changed / build requires]
+ - Module::Build 0.4001 → 0.4007
+
+ [Dependencies::Changed / configure requires]
+ - Module::Build 0.4001 → 0.4007
+
+ [Dependencies::Changed / develop suggests]
+ - Dist::Zilla::PluginBundle::Author::KENTNL v1.4.2 → v1.8.3
+
+ [Dependencies::Removed / test requires]
+ - File::Find
+
+ [Meta]
+ - Bug tracker to github
+
+ [Packaging]
+ - use Module::Build 0.4007 w/ test_requires 
+
+ [Tests]
+ - Update compile and kwalitee tests
 
 1.14000001 2012-07-26T16:24:41Z
  [BugFix]
  - Defer version constraints to as late as possible to allow more circular
    things to happen, avoiding compile-time failure in bootstrap.
 
- [Dependencies::Changed]
- - build requires : Module-Build 0.3601 -> 0.4001
- - configure requires : Module-Build 0.3601 -> 0.4001
- - develop recommends : Dist::Zilla::PluginBundle::Author::KENTNL::Lite
-   0.01009803 -> v1.3.0
- - develop suggests : Dist::Zilla::PluginBundle::Author::KENTNL
-   v1.2.0 -> v1.4.2
- - test requires : Test::More 0.96 -> 0.98
+ [Dependencies::Added / runtime requires]
+ - Readonly
 
- [Dependencies::New]
- - runtime requires : Readonly
+ [Dependencies::Changed / build requires]
+ - Module::Build 0.3601 → 0.4001
+
+ [Dependencies::Changed / configure requires]
+ - Module::Build 0.3601 → 0.4001
+
+ [Dependencies::Changed / develop recommends]
+ - Dist::Zilla::PluginBundle::Author::KENTNL::Lite 0.01009803 → v1.3.0
+
+ [Dependencies::Changed / develop suggests]
+ - Dist::Zilla::PluginBundle::Author::KENTNL v1.2.0 → v1.4.2
+
+ [Dependencies::Changed / test requires]
+ - Test::More 0.96 → 0.98
 
 1.14000000 2012-02-07T08:45:13Z
  [Features]
@@ -38,17 +83,16 @@
 1.12060502 2012-02-04T00:39:26Z
  - Maintenance Release
 
- [Dependencies::Changed]
- - develop suggests : Dist::Zilla::PluginBundle::Author::KENTNL v1.0.0 ->
-   v1.2.0
+ [Dependencies::Added / runtime requires]
+ - perl 5.006
+ - strict
+ - warnings
 
- [Dependencies::New]
- - runtime requires : perl 5.006
- - runtime requires : strict
- - runtime requires : warnings
+ [Dependencies::Changed / develop suggests]
+ - Dist::Zilla::PluginBundle::Author::KENTNL v1.0.0 → v1.2.0
 
- [Dependencies::Removed]
- - test requires : English
+ [Dependencies::Removed / test requires]
+ - English
 
  [Internals]
  - added $AUTHORITY to all namespaces
@@ -66,12 +110,27 @@
  - rt#67325 : Should now depend on Test::More 0.96 to solve tests failing
    on earlier versions.
 
- [Dependencies:Tests]
- - Test::More is now 0.96, not 0.88
+ [Dependencies::Changed / test requires]
+ - Test::More 0.88 → 0.96
 
 1.12060212 2011-04-06T00:17:21Z
- [Dependencies:Development]
- - @KENTNL -> @Author::KENTNL
+ [Dependencies::Added / develop recommends]
+ - Dist::Zilla::PluginBundle::Author::KENTNL::Lite 0.01009803
+
+ [Dependencies::Added / develop requires]
+ - Dist::Zilla::PluginBundle::Author::KENTNL::Lite
+
+ [Dependencies::Added / develop suggests]
+ - Dist::Zilla::PluginBundle::Author::KENTNL v1.0.0
+
+ [Dependencies::Removed / develop recommends]
+ - Dist::Zilla::PluginBundle::KENTNL::Lite 0.01009803
+
+ [Dependencies::Removed / develop requires]
+ - Dist::Zilla::PluginBundle::KENTNL::Lite
+
+ [Dependencies::Removed / develop suggests]
+ - Dist::Zilla::PluginBundle::KENTNL 0.01017119
 
  [Documentation]
  - Many miscelany spelling mistakes fixed.
@@ -94,11 +153,24 @@
  - A little bit more testing of the codebase, tests should be now
    comprehensive enough to detect most change-bugs.
 
+ [Dependencies::Added / test requires]
+ - Scalar::Util
+
 1.12044803 2010-11-06T15:26:58Z
  - Build ourself using MetaNoIndex to hide corpus/ crap.
  - Add MetaNoIndex to suggest lists.
  - Fix tests not to fail when there is no MetaNoIndex.
  - PerlTidy allover.
+
+ [Dependencies::Added / develop requires]
+ - Dist::Zilla::Plugin::Bootstrap::lib
+ - Dist::Zilla::Plugin::MetaNoIndex
+
+ [Dependencies::Added / runtime suggests]
+ - Dist::Zilla::Plugin::MetaNoIndex
+
+ [Dependencies::Added / test suggests]
+ - Dist::Zilla::Plugin::MetaNoIndex
 
 1.12044518 2010-11-04T06:32:54Z
  - Spliced Test deps into its own module.
@@ -111,9 +183,30 @@
    this module brings that power back to life by implementing it manually.
  - Add thanks while I remember.
 
+ [Dependencies::Added / runtime requires]
+ - Dist::Zilla::Util::EmulatePhase 0.01000101
+
+ [Dependencies::Added / test requires]
+ - Dist::Zilla::Util::Test::KENTNL 0.01000004
+
+ [Dependencies::Removed / runtime requires]
+ - Carp
+ - Hash::Merge::Simple
+
+ [Dependencies::Removed / test requires]
+ - Dist::Zilla::Tester
+ - Params::Util
+ - Sub::Exporter
+ - Try::Tiny
+
 1.11044405 2010-11-02T17:04:51Z
  - Drop silly extra depends that sneaked in. It was hobbitses, and they are
    pesky.
+
+ [Dependencies::Removed / test requires]
+ - Config::INI::Reader
+ - Data::Dump
+ - Moose::Autobox
 
 1.11044404 2010-11-02T16:25:56Z
  - Upgrade to recent @KENTNL changes ( remove inc/ and xt/ from source
@@ -124,12 +217,69 @@
    change ( meta_noindex = 1 ) will control this behaviour. Thanks to
    xdg/David Golden for this suggestion.
 
+ [Dependencies::Added / develop recommends]
+ - Dist::Zilla::PluginBundle::KENTNL::Lite 0.01009803
+
+ [Dependencies::Added / develop requires]
+ - Dist::Zilla::PluginBundle::KENTNL::Lite
+
+ [Dependencies::Added / develop suggests]
+ - Dist::Zilla::PluginBundle::KENTNL 0.01017119
+
+ [Dependencies::Added / runtime requires]
+ - Carp
+ - Hash::Merge::Simple
+
+ [Dependencies::Added / test requires]
+ - Config::INI::Reader
+ - Data::Dump
+ - Dist::Zilla::Tester
+ - English
+ - Moose::Autobox
+ - Params::Util
+ - Sub::Exporter
+ - Test::Fatal
+ - Try::Tiny
+
 1.11034201 2010-07-24T13:35:56Z
  - Forked into 4 smaller dists to reduce the installation overheads.
  - Mostly so that people who want Metaprovides::Package don't have to
    install MooseX::Declare and friends. ::Plugin::MetaProvides,
    ::Plugin::MetaProvides::Package, ::Plugin::MetaProvides::Class,
    ::Plugin::MetaProvides::FromFile
+
+ [Dependencies::Changed / runtime requires]
+ - Moose 0.89 → 0
+ - MooseX::Types 0.19 → 0
+ - MooseX::Types::Moose 0.19 → 0
+ - namespace::autoclean 0.08 → 0
+
+ [Dependencies::Changed / test requires]
+ - Test::More 0.92 → 0.88
+
+ [Dependencies::Removed / runtime requires]
+ - Carp
+ - Class::Discover 1.000001
+ - Config::INI::Reader
+ - Dist::Zilla 2.101310
+ - List::MoreUtils 0.22
+ - Module::Extract::Namespaces 0.14
+ - Module::Extract::VERSION 0.13
+ - Moose::Autobox 0.09
+ - MooseX::Has::Sugar 0.0404
+ - aliased 0.30
+
+ [Dependencies::Removed / test requires]
+ - Data::Dumper
+ - Dist::Zilla::App::Tester
+ - File::Find::Rule 0.30
+ - File::Find::Rule::Perl 1.09
+ - FindBin
+ - MooseX::Declare
+ - Path::Class::Dir 0.17
+ - Path::Class::File 0.17
+ - Test::Builder::Module
+ - Test::Perl::Critic
 
 1.10034117 2010-07-24T05:37:49Z
  - Dropped xt/author/kwalitee.t to avoid the needless dep. ( Kwalitee Test
