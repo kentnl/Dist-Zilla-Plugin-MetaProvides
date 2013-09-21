@@ -247,6 +247,24 @@ sub _apply_meta_noindex {
   return @items;
 }
 
+around dump_config => sub {
+  my ( $orig, $self, @args ) = @_;
+  my $config    = $self->$orig(@args);
+  my $localconf = {};
+  for my $var (qw( inherit_version inherit_missing meta_noindex )) {
+    my $pred = 'has_' . $var;
+    if ( $self->can($pred) ) {
+      next unless $self->$pred();
+    }
+    if ( $self->can($var) ) {
+      $localconf->{$var} = $self->$var();
+    }
+  }
+  $config->{ q{} . __PACKAGE__ } = $localconf;
+  return $config;
+
+};
+
 =head1 PUBLIC METHODS
 
 =head2 metadata
