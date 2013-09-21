@@ -11,12 +11,12 @@ BEGIN {
 
 # ABSTRACT: Data Management Record for MetaProvider::Provides Based Class
 
-# $Id:$
 use Moose;
 use MooseX::Types::Moose             (':all');
 use Dist::Zilla::MetaProvides::Types (':all');
 
 use namespace::autoclean;
+
 
 
 has version => ( isa => ModVersion, is => 'ro', required => 1 );
@@ -63,6 +63,17 @@ Dist::Zilla::MetaProvides::ProvideRecord - Data Management Record for MetaProvid
 =head1 VERSION
 
 version 1.15000000
+
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Dist::Zilla::MetaProvides::ProvideRecord",
+    "interface":"class",
+    "inherits":"Moose::Object"
+}
+
+
+=end MetaPOD::JSON
 
 =head1 ATTRIBUTES
 

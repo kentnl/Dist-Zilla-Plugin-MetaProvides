@@ -10,9 +10,8 @@ BEGIN {
 }
 
 # ABSTRACT: Utility Types for the MetaProvides Plugin
-#
-# $Id:$
-# use Moose ();
+
+
 use MooseX::Types::Moose (':all');
 use MooseX::Types -declare => [ 'ModVersion', 'ProviderObject', ];
 
@@ -36,6 +35,17 @@ Dist::Zilla::MetaProvides::Types - Utility Types for the MetaProvides Plugin
 =head1 VERSION
 
 version 1.15000000
+
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Dist::Zilla::MetaProvides::Types",
+    "interface":"exporter",
+    "inherits":"MooseX::Types::Base"
+}
+
+
+=end MetaPOD::JSON
 
 =head1 SUBTYPES
 

@@ -11,6 +11,7 @@ BEGIN {
 
 # ABSTRACT: Generating and Populating 'provides' in your META.yml
 
+
 1;
 
 __END__
@@ -60,6 +61,15 @@ populating the C<META.yml> that is built with your distribution.
 The initial reason for this is due to stuff that uses L<MooseX::Declare>
 style class definitions not being parseable by many tools upstream, so this
 is here to cover this problem by defining it in the metadata.
+
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Dist::Zilla::Plugin::MetaProvides"
+}
+
+
+=end MetaPOD::JSON
 
 =head1 COMPONENT SUMMARY
 
