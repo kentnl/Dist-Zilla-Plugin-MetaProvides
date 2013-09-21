@@ -6,7 +6,7 @@ BEGIN {
   $Dist::Zilla::MetaProvides::ProvideRecord::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Dist::Zilla::MetaProvides::ProvideRecord::VERSION = '1.14000001';
+  $Dist::Zilla::MetaProvides::ProvideRecord::VERSION = '1.15000000';
 }
 
 # ABSTRACT: Data Management Record for MetaProvider::Provides Based Class
@@ -52,8 +52,8 @@ no Moose;
 
 1;
 
-
 __END__
+
 =pod
 
 =head1 NAME
@@ -62,7 +62,7 @@ Dist::Zilla::MetaProvides::ProvideRecord - Data Management Record for MetaProvid
 
 =head1 VERSION
 
-version 1.14000001
+version 1.15000000
 
 =head1 ATTRIBUTES
 
@@ -107,10 +107,9 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Kent Fredric.
+This software is copyright (c) 2013 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
