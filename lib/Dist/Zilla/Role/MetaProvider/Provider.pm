@@ -67,16 +67,14 @@ sub _resolve_version {
 sub _try_regen_metadata {
   my ($self) = @_;
 
-  require Dist::Zilla::Util::EmulatePhase;
-  if ( defined $Dist::Zilla::Util::EmulatePhase::VERSION ) {
-    Dist::Zilla::Util::EmulatePhase->VERSION($MIN_EMULATE_PHASE_VERSION);
+  my $meta = {};
+
+  for my $plugin ( @{ $self->zilla->plugins } ) {
+    next unless $plugin->isa('Dist::Zilla::Plugin::MetaNoIndex');
+    require Hash::Merge::Simple;
+    $meta = Hash::Merge::Simple::merge( $meta, $plugin->metadata );
   }
-  return Dist::Zilla::Util::EmulatePhase::get_metadata(
-    {
-      zilla => $self->zilla,
-      isa   => [qw( =MetaNoIndex )]
-    }
-  );
+  return $meta;
 }
 
 

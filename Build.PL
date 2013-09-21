@@ -25,6 +25,7 @@ my %module_build_args = (
   "requires" => {
     "Dist::Zilla::Role::MetaProvider" => 0,
     "Dist::Zilla::Util::EmulatePhase" => "0.01000101",
+    "Hash::Merge::Simple" => 0,
     "Moose" => 0,
     "Moose::Role" => 0,
     "MooseX::Types" => 0,

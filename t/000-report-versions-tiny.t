@@ -56,6 +56,7 @@ eval { $v .= pmver('Dist::Zilla::Role::MetaProvider','any version') };
 eval { $v .= pmver('Dist::Zilla::Util::EmulatePhase','0.01000101') };
 eval { $v .= pmver('Dist::Zilla::Util::Test::KENTNL','0.01000004') };
 eval { $v .= pmver('File::Spec','any version') };
+eval { $v .= pmver('Hash::Merge::Simple','any version') };
 eval { $v .= pmver('IO::Handle','any version') };
 eval { $v .= pmver('IPC::Open3','any version') };
 eval { $v .= pmver('Module::Build','0.4007') };
