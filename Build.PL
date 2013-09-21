@@ -17,7 +17,7 @@ my %module_build_args = (
     "Kent Fredric <kentnl\@cpan.org>"
   ],
   "dist_name" => "Dist-Zilla-Plugin-MetaProvides",
-  "dist_version" => "1.15000000",
+  "dist_version" => "1.15000001",
   "license" => "perl",
   "module_name" => "Dist::Zilla::Plugin::MetaProvides",
   "recommends" => {},
@@ -37,10 +37,10 @@ my %module_build_args = (
   },
   "script_files" => [],
   "test_requires" => {
-    "Carp" => 0,
     "Dist::Zilla::Util::Test::KENTNL" => "0.01000004",
-    "File::Temp" => 0,
+    "File::Spec" => 0,
     "IO::Handle" => 0,
+    "IPC::Open3" => 0,
     "Scalar::Util" => 0,
     "Test::Fatal" => 0,
     "Test::More" => "0.98",

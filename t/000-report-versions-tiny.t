@@ -48,7 +48,6 @@ sub pmver {
     return sprintf('%-45s => %-10s%-15s%s', $module, $pmver, $wanted, "\n");
 }
 
-eval { $v .= pmver('Carp','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::Bootstrap::lib','any version') };
 eval { $v .= pmver('Dist::Zilla::Plugin::MetaNoIndex','any version') };
 eval { $v .= pmver('Dist::Zilla::PluginBundle::Author::KENTNL','v1.8.3') };
@@ -56,8 +55,9 @@ eval { $v .= pmver('Dist::Zilla::PluginBundle::Author::KENTNL::Lite','v1.3.0') }
 eval { $v .= pmver('Dist::Zilla::Role::MetaProvider','any version') };
 eval { $v .= pmver('Dist::Zilla::Util::EmulatePhase','0.01000101') };
 eval { $v .= pmver('Dist::Zilla::Util::Test::KENTNL','0.01000004') };
-eval { $v .= pmver('File::Temp','any version') };
+eval { $v .= pmver('File::Spec','any version') };
 eval { $v .= pmver('IO::Handle','any version') };
+eval { $v .= pmver('IPC::Open3','any version') };
 eval { $v .= pmver('Module::Build','0.4007') };
 eval { $v .= pmver('Moose','any version') };
 eval { $v .= pmver('Moose::Role','any version') };

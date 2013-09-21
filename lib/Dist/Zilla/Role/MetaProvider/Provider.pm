@@ -6,7 +6,7 @@ BEGIN {
   $Dist::Zilla::Role::MetaProvider::Provider::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Dist::Zilla::Role::MetaProvider::Provider::VERSION = '1.15000000';
+  $Dist::Zilla::Role::MetaProvider::Provider::VERSION = '1.15000001';
 }
 
 # ABSTRACT: A Role for Metadata providers specific to the 'provider' key.
@@ -166,7 +166,7 @@ Dist::Zilla::Role::MetaProvider::Provider - A Role for Metadata providers specif
 
 =head1 VERSION
 
-version 1.15000000
+version 1.15000001
 
 =begin MetaPOD::JSON v1.1.0
 
