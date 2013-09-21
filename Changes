@@ -1,13 +1,10 @@
 ﻿Revision history for {{$dist->name}}
 
 {{$NEXT}}
- [Documentation]
- - Retroactively normalise Changes.
- - Add README.mkdn
- - Update Copyright year
- - Add MetaPOD stuff
+ [00 Minor Important Changes]
+ - now exports dump_config data
 
-  [Dependencies::Added / develop requires]
+ [Dependencies::Added / develop requires]
  - Pod::Coverage::TrustPod
  - Test::CPAN::Changes 0.19
  - Test::CPAN::Meta
@@ -33,8 +30,15 @@
  [Dependencies::Removed / test requires]
  - File::Find
 
+ [Documentation]
+ - Retroactively normalise Changes.
+ - Add README.mkdn
+ - Update Copyright year
+ - Add MetaPOD stuff
+
  [Meta]
  - Bug tracker to github
+ - Github URI now Camel/UC firsted
 
  [Packaging]
  - use Module::Build 0.4007 w/ test_requires
