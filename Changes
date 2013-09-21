@@ -1,8 +1,22 @@
 ﻿Revision history for Dist-Zilla-Plugin-MetaProvides
 
-1.15000001 2013-09-21T15:02:01Z
+1.15000001 2013-09-21T15:04:37Z
  [00 Minor Important Changes]
  - Remove dependency on EmulatePhase
+
+ [Dependencies::Added / runtime requires]
+ - Hash::Merge::Simple
+
+ [Dependencies::Added / test requires]
+ - File::Spec
+ - IPC::Open3
+
+ [Dependencies::Removed / runtime requires]
+ - Dist::Zilla::Util::EmulatePhase 0.01000101
+
+ [Dependencies::Removed / test requires]
+ - Carp
+ - File::Temp
 
 1.15000000 2013-09-21T07:07:03Z
  [00 Minor Important Changes]
