@@ -33,7 +33,7 @@ with 'Dist::Zilla::Role::MetaProvider';
 
 =head1 REQUIRED METHODS FOR PERFORMING ROLES
 
-=head2 provides
+=head2 C<provides>
 
 Must return an array full of L<Dist::Zilla::MetaProvider::ProvideRecord>
 instances.
@@ -44,7 +44,7 @@ requires 'provides';
 
 =head1 ATTRIBUTES / PARAMETERS
 
-=head2 inherit_version
+=head2 C<inherit_version>
 
 This dictates how to report versions.
 
@@ -73,7 +73,7 @@ has inherit_version => (
   documentation => 'Whether or not to treat the global version as an authority',
 );
 
-=head2 inherit_missing
+=head2 C<inherit_missing>
 
 This dictates how to react when a class is discovered but a version is not
 specified.
@@ -101,7 +101,7 @@ has inherit_missing => (
   documentation => 'How to behave when we are trusting modules to have versions and one is missing one',
 );
 
-=head2 meta_noindex
+=head2 C<meta_noindex>
 
 This dictates how to behave when a discovered class is also present in the C<no_index> META field.
 
@@ -131,7 +131,7 @@ has meta_noindex => (
 
 =head1 PRIVATE METHODS
 
-=head2 _resolve_version
+=head2 C<_resolve_version>
 
 This is a utility method to make performing classes life easier in adhering to
 user requirements.
@@ -163,7 +163,7 @@ sub _resolve_version {
   return ( 'version', $version );
 }
 
-=head2 _try_regen_metadata
+=head2 C<_try_regen_metadata>
 
 This is a nasty hack really, to work around the way L<< C<Dist::Zilla>|Dist::Zilla >> handles
 metaproviders, which result in meta-data being inaccessible to metadata Plugins.
@@ -190,7 +190,7 @@ sub _try_regen_metadata {
   return $meta;
 }
 
-=head2 _apply_meta_noindex
+=head2 C<_apply_meta_noindex>
 
 This is a utility method to make performing classes life easier in skipping no_index entries.
 
@@ -198,7 +198,7 @@ This is a utility method to make performing classes life easier in skipping no_i
 
 is the suggested use.
 
-Returns either an empty list, or a list of ProvideRecord's
+Returns either an empty list, or a list of C<ProvideRecord>'s
 
 =cut
 
@@ -265,7 +265,7 @@ around dump_config => sub {
 
 =head1 PUBLIC METHODS
 
-=head2 metadata
+=head2 C<metadata>
 
 Fulfills the requirement of L<Dist::Zilla::Role::MetaProvider> by processing
 results returned from C<$self-E<gt>provides>.
