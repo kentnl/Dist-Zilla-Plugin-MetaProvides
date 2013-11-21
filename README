@@ -40,27 +40,27 @@ DESCRIPTION
     this is here to cover this problem by defining it in the metadata.
 
 COMPONENT SUMMARY
-  ::Class
+  "::Class"
     Scans Dist::Zilla's ".pm" files and tries to identify classes using
     Class::Discover.
 
     Dist::Zilla::Plugin::MetaProvides::Class
 
-  ::Package
+  "::Package"
     Scans Dist::Zilla's ".pm" files and tries to identify more traditional
     packages using a combination of Module::Extract::VERSION and
     Module::Extact::Namespaces.
 
     Dist::Zilla::Plugin::MetaProvides::Package
 
-  ::FromFile
+  "::FromFile"
     In the event both of the above don't work for your needs, pull in
     hand-crafted metadata from a specified file.
 
     Dist::Zilla::Plugin::MetaProvides::FromFile
 
 OPTION SUMMARY
-  inherit_version
+  "inherit_version"
     At the time this plugin runs to collect metadata from files, the mungers
     won't have run yet to inject custom versions into files in the various
     locations.
@@ -72,7 +72,7 @@ OPTION SUMMARY
     IE: Generally, if you are using version munging, you WILL want this flag
     set to 1.
 
-   values
+   "values"
     *   '0'
 
         Do not inherit version from "Dist::Zilla"
@@ -83,7 +83,7 @@ OPTION SUMMARY
 
     "inherit_version" in Dist::Zilla::Role::MetaProvider::Provider
 
-  inherit_missing
+  "inherit_missing"
     If for whatever reason you want to actually use the versions found in
     the modules where present, and fall back to the value from Dist::Zilla.
 
@@ -101,7 +101,7 @@ OPTION SUMMARY
 
     "inhert_missing" in Dist::Zilla::Role::MetaProvider::Provider
 
-  meta_noindex
+  "meta_noindex"
     This dictates how to behave when a discovered class is also present in
     the "no_index" META field.
 
@@ -117,7 +117,7 @@ OPTION SUMMARY
 
     "meta_noindex" in Dist::Zilla::Role::MetaProvider::Provider
 
-  file
+  "file"
     ( Dist::Zilla::Plugin::MetaProvides::FromFile )
 
     This is a mandatory parameter that points to the file that contains
@@ -126,7 +126,7 @@ OPTION SUMMARY
 
     File Must exist.
 
-  reader_name
+  "reader_name"
     ( Dist::Zilla::Plugin::MetaProvides::FromFile )
 
     This parameter is by default Config::INI::Reader, but it can be in fact
