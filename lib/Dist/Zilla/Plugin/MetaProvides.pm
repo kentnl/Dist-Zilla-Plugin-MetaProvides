@@ -6,7 +6,7 @@ BEGIN {
   $Dist::Zilla::Plugin::MetaProvides::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Dist::Zilla::Plugin::MetaProvides::VERSION = '1.15000000';
+  $Dist::Zilla::Plugin::MetaProvides::VERSION = '1.15000100';
 }
 
 # ABSTRACT: Generating and Populating 'provides' in your META.yml
@@ -24,7 +24,7 @@ Dist::Zilla::Plugin::MetaProvides - Generating and Populating 'provides' in your
 
 =head1 VERSION
 
-version 1.15000000
+version 1.15000100
 
 =head1 SYNOPSIS
 
@@ -73,14 +73,14 @@ is here to cover this problem by defining it in the metadata.
 
 =head1 COMPONENT SUMMARY
 
-=head2 ::Class
+=head2 C<::Class>
 
 Scans L<Dist::Zilla>'s C<.pm> files and tries to identify classes using
 L<Class::Discover>.
 
 L<Dist::Zilla::Plugin::MetaProvides::Class>
 
-=head2 ::Package
+=head2 C<::Package>
 
 Scans L<Dist::Zilla>'s C<.pm> files and tries to identify more traditional
 packages using a combination of L<Module::Extract::VERSION> and
@@ -88,7 +88,7 @@ L<Module::Extact::Namespaces>.
 
 L<Dist::Zilla::Plugin::MetaProvides::Package>
 
-=head2 ::FromFile
+=head2 C<::FromFile>
 
 In the event both of the above don't work for your needs, pull in
 hand-crafted metadata from a specified file.
@@ -97,7 +97,7 @@ L<Dist::Zilla::Plugin::MetaProvides::FromFile>
 
 =head1 OPTION SUMMARY
 
-=head2 inherit_version
+=head2 C<inherit_version>
 
 At the time this plugin runs to collect metadata from files,
 the mungers won't have run yet to inject custom versions into files in the various
@@ -110,7 +110,7 @@ state.
 IE: Generally, if you are using version munging, you B<WILL> want this flag set
 to C<1>.
 
-=head3 values
+=head3 C<values>
 
 =over 4
 
@@ -126,7 +126,7 @@ Inherit version from L<Dist::Zilla>
 
 L<Dist::Zilla::Role::MetaProvider::Provider/inherit_version>
 
-=head2 inherit_missing
+=head2 C<inherit_missing>
 
 If for whatever reason you want to actually use the versions found in the modules
 where present, and fall back to the value from L<Dist::Zilla>.
@@ -149,7 +149,7 @@ Inherit version from L<Dist::Zilla> when one is missing.
 
 L<Dist::Zilla::Role::MetaProvider::Provider/inhert_missing>
 
-=head2 meta_noindex
+=head2 C<meta_noindex>
 
 This dictates how to behave when a discovered class is also present in the C<no_index> META field.
 
@@ -170,7 +170,7 @@ to not be provided in the metadata.
 
 L<Dist::Zilla::Role::MetaProvider::Provider/meta_noindex>
 
-=head2 file
+=head2 C<file>
 
 ( L<Dist::Zilla::Plugin::MetaProvides::FromFile> )
 
@@ -179,7 +179,7 @@ This is a mandatory parameter that points to the file that contains manually
 
 File Must exist.
 
-=head2 reader_name
+=head2 C<reader_name>
 
 ( L<Dist::Zilla::Plugin::MetaProvides::FromFile> )
 
