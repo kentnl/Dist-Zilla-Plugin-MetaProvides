@@ -183,14 +183,14 @@ L<Dist::Zilla::Role::MetaProvider>
 
 =head1 REQUIRED METHODS FOR PERFORMING ROLES
 
-=head2 provides
+=head2 C<provides>
 
 Must return an array full of L<Dist::Zilla::MetaProvider::ProvideRecord>
 instances.
 
 =head1 ATTRIBUTES / PARAMETERS
 
-=head2 inherit_version
+=head2 C<inherit_version>
 
 This dictates how to report versions.
 
@@ -210,7 +210,7 @@ to the provides metadata.
 
 ( To use this feature in a performing class, see L</_resolve_version> )
 
-=head2 inherit_missing
+=head2 C<inherit_missing>
 
 This dictates how to react when a class is discovered but a version is not
 specified.
@@ -229,7 +229,7 @@ A C<provide> turns up in the final metadata without a version, which is permissi
 
 ( To use this feature in a performing class, see L</_resolve_version> )
 
-=head2 meta_noindex
+=head2 C<meta_noindex>
 
 This dictates how to behave when a discovered class is also present in the C<no_index> META field.
 
@@ -250,7 +250,7 @@ to not be provided in the metadata.
 
 =head1 PRIVATE METHODS
 
-=head2 _resolve_version
+=head2 C<_resolve_version>
 
 This is a utility method to make performing classes life easier in adhering to
 user requirements.
@@ -266,7 +266,7 @@ Returns either an empty list, or a list with C<('version', $version )>;
 
 This is so C<{ version =E<gt> undef }> does not occur in the YAML.
 
-=head2 _try_regen_metadata
+=head2 C<_try_regen_metadata>
 
 This is a nasty hack really, to work around the way L<< C<Dist::Zilla>|Dist::Zilla >> handles
 metaproviders, which result in meta-data being inaccessible to metadata Plugins.
@@ -278,7 +278,7 @@ but will be expanded as needed.
 
 If you have a module you think should be in this list, contact me, or file a bug, I'll do my best =)
 
-=head2 _apply_meta_noindex
+=head2 C<_apply_meta_noindex>
 
 This is a utility method to make performing classes life easier in skipping no_index entries.
 
@@ -286,11 +286,11 @@ This is a utility method to make performing classes life easier in skipping no_i
 
 is the suggested use.
 
-Returns either an empty list, or a list of ProvideRecord's
+Returns either an empty list, or a list of C<ProvideRecord>'s
 
 =head1 PUBLIC METHODS
 
-=head2 metadata
+=head2 C<metadata>
 
 Fulfills the requirement of L<Dist::Zilla::Role::MetaProvider> by processing
 results returned from C<$self-E<gt>provides>.
