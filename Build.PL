@@ -7,10 +7,10 @@ use Module::Build 0.3601;
 
 my %module_build_args = (
   "build_requires" => {
-    "Module::Build" => "0.4007"
+    "Module::Build" => "0.4202"
   },
   "configure_requires" => {
-    "Module::Build" => "0.4007"
+    "Module::Build" => "0.4202"
   },
   "dist_abstract" => "Generating and Populating 'provides' in your META.yml",
   "dist_author" => [
@@ -38,28 +38,27 @@ my %module_build_args = (
   "script_files" => [],
   "test_requires" => {
     "Dist::Zilla::Util::Test::KENTNL" => "0.01000004",
-    "File::Spec" => 0,
-    "IO::Handle" => 0,
-    "IPC::Open3" => 0,
     "Scalar::Util" => 0,
     "Test::Fatal" => 0,
-    "Test::More" => "0.98",
+    "Test::More" => "1.001002",
     "lib" => 0
   }
 );
 
 
+my %fallback_build_requires = (
+  "Dist::Zilla::Util::Test::KENTNL" => "0.01000004",
+  "Module::Build" => "0.4202",
+  "Scalar::Util" => 0,
+  "Test::Fatal" => 0,
+  "Test::More" => "1.001002",
+  "lib" => 0
+);
+
+
 unless ( eval { Module::Build->VERSION(0.4004) } ) {
-  my $tr = delete $module_build_args{test_requires};
-  my $br = $module_build_args{build_requires};
-  for my $mod ( keys %$tr ) {
-    if ( exists $br->{$mod} ) {
-      $br->{$mod} = $tr->{$mod} if $tr->{$mod} > $br->{$mod};
-    }
-    else {
-      $br->{$mod} = $tr->{$mod};
-    }
-  }
+  delete $module_build_args{test_requires};
+  $module_build_args{build_requires} = \%fallback_build_requires;
 }
 
 my $build = Module::Build->new(%module_build_args);
