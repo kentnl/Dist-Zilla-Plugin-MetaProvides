@@ -25,16 +25,16 @@ no_index:
 provides:
   Dist::Zilla::MetaProvides::ProvideRecord:
     file: lib/Dist/Zilla/MetaProvides/ProvideRecord.pm
-    version: 1.15000001
+    version: 1.15000100
   Dist::Zilla::MetaProvides::Types:
     file: lib/Dist/Zilla/MetaProvides/Types.pm
-    version: 1.15000001
+    version: 1.15000100
   Dist::Zilla::Plugin::MetaProvides:
     file: lib/Dist/Zilla/Plugin/MetaProvides.pm
-    version: 1.15000001
+    version: 1.15000100
   Dist::Zilla::Role::MetaProvider::Provider:
     file: lib/Dist/Zilla/Role/MetaProvider/Provider.pm
-    version: 1.15000001
+    version: 1.15000100
 requires:
   Dist::Zilla::Role::MetaProvider: 0
   Hash::Merge::Simple: 0
@@ -51,7 +51,7 @@ resources:
   bugtracker: https://github.com/kentfredric/Dist-Zilla-Plugin-MetaProvides/issues
   homepage: https://github.com/kentfredric/Dist-Zilla-Plugin-MetaProvides
   repository: https://github.com/kentfredric/Dist-Zilla-Plugin-MetaProvides.git
-version: 1.15000001
+version: 1.15000100
 x_BuiltWith:
   modules:
     Dist::Zilla::Plugin::Author::KENTNL::MinimumPerl: 2.002001
