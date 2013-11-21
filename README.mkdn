@@ -38,7 +38,7 @@ And then in some\_file.ini
 This Distribution Contains a small bundle of plugins for various ways of
 populating the `META.yml` that is built with your distribution.
 
-The initial reason for this is due to stuff that uses [MooseX::Declare](http://search.cpan.org/perldoc?MooseX::Declare)
+The initial reason for this is due to stuff that uses [MooseX::Declare](https://metacpan.org/pod/MooseX::Declare)
 style class definitions not being parseable by many tools upstream, so this
 is here to cover this problem by defining it in the metadata.
 
@@ -52,25 +52,25 @@ is here to cover this problem by defining it in the metadata.
 
 ## ::Class
 
-Scans [Dist::Zilla](http://search.cpan.org/perldoc?Dist::Zilla)'s `.pm` files and tries to identify classes using
-[Class::Discover](http://search.cpan.org/perldoc?Class::Discover).
+Scans [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla)'s `.pm` files and tries to identify classes using
+[Class::Discover](https://metacpan.org/pod/Class::Discover).
 
-[Dist::Zilla::Plugin::MetaProvides::Class](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::MetaProvides::Class)
+[Dist::Zilla::Plugin::MetaProvides::Class](https://metacpan.org/pod/Dist::Zilla::Plugin::MetaProvides::Class)
 
 ## ::Package
 
-Scans [Dist::Zilla](http://search.cpan.org/perldoc?Dist::Zilla)'s `.pm` files and tries to identify more traditional
-packages using a combination of [Module::Extract::VERSION](http://search.cpan.org/perldoc?Module::Extract::VERSION) and
-[Module::Extact::Namespaces](http://search.cpan.org/perldoc?Module::Extact::Namespaces).
+Scans [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla)'s `.pm` files and tries to identify more traditional
+packages using a combination of [Module::Extract::VERSION](https://metacpan.org/pod/Module::Extract::VERSION) and
+[Module::Extact::Namespaces](https://metacpan.org/pod/Module::Extact::Namespaces).
 
-[Dist::Zilla::Plugin::MetaProvides::Package](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::MetaProvides::Package)
+[Dist::Zilla::Plugin::MetaProvides::Package](https://metacpan.org/pod/Dist::Zilla::Plugin::MetaProvides::Package)
 
 ## ::FromFile
 
 In the event both of the above don't work for your needs, pull in
 hand-crafted metadata from a specified file.
 
-[Dist::Zilla::Plugin::MetaProvides::FromFile](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::MetaProvides::FromFile)
+[Dist::Zilla::Plugin::MetaProvides::FromFile](https://metacpan.org/pod/Dist::Zilla::Plugin::MetaProvides::FromFile)
 
 # OPTION SUMMARY
 
@@ -95,14 +95,14 @@ to `1`.
 
 - `'1'` __\[default\]__
 
-    Inherit version from [Dist::Zilla](http://search.cpan.org/perldoc?Dist::Zilla)
+    Inherit version from [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla)
 
-["inherit\_version" in Dist::Zilla::Role::MetaProvider::Provider](http://search.cpan.org/perldoc?Dist::Zilla::Role::MetaProvider::Provider#inherit\_version)
+["inherit_version" in Dist::Zilla::Role::MetaProvider::Provider](https://metacpan.org/pod/Dist::Zilla::Role::MetaProvider::Provider#inherit_version)
 
 ## inherit\_missing
 
 If for whatever reason you want to actually use the versions found in the modules
-where present, and fall back to the value from [Dist::Zilla](http://search.cpan.org/perldoc?Dist::Zilla).
+where present, and fall back to the value from [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla).
 
 `inherit_version` will need to be turned off (`0`) for this to be effective.
 
@@ -114,9 +114,9 @@ where present, and fall back to the value from [Dist::Zilla](http://search.cpan.
 
 - `'1'` __\[default\]__
 
-    Inherit version from [Dist::Zilla](http://search.cpan.org/perldoc?Dist::Zilla) when one is missing.
+    Inherit version from [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla) when one is missing.
 
-["inhert\_missing" in Dist::Zilla::Role::MetaProvider::Provider](http://search.cpan.org/perldoc?Dist::Zilla::Role::MetaProvider::Provider#inhert\_missing)
+["inhert_missing" in Dist::Zilla::Role::MetaProvider::Provider](https://metacpan.org/pod/Dist::Zilla::Role::MetaProvider::Provider#inhert_missing)
 
 ## meta\_noindex
 
@@ -133,11 +133,11 @@ This dictates how to behave when a discovered class is also present in the `no_i
     `no_index` META field will be recognised and things found in it will cause respective packages
     to not be provided in the metadata.
 
-["meta\_noindex" in Dist::Zilla::Role::MetaProvider::Provider](http://search.cpan.org/perldoc?Dist::Zilla::Role::MetaProvider::Provider#meta\_noindex)
+["meta_noindex" in Dist::Zilla::Role::MetaProvider::Provider](https://metacpan.org/pod/Dist::Zilla::Role::MetaProvider::Provider#meta_noindex)
 
 ## file
 
-( [Dist::Zilla::Plugin::MetaProvides::FromFile](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::MetaProvides::FromFile) )
+( [Dist::Zilla::Plugin::MetaProvides::FromFile](https://metacpan.org/pod/Dist::Zilla::Plugin::MetaProvides::FromFile) )
 
 This is a mandatory parameter that points to the file that contains manually
 ( or otherwise ) crafted metadata to be integrated into your final META.yml
@@ -146,9 +146,9 @@ File Must exist.
 
 ## reader\_name
 
-( [Dist::Zilla::Plugin::MetaProvides::FromFile](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::MetaProvides::FromFile) )
+( [Dist::Zilla::Plugin::MetaProvides::FromFile](https://metacpan.org/pod/Dist::Zilla::Plugin::MetaProvides::FromFile) )
 
-This parameter is by default [Config::INI::Reader](http://search.cpan.org/perldoc?Config::INI::Reader), but it can be in fact anything
+This parameter is by default [Config::INI::Reader](https://metacpan.org/pod/Config::INI::Reader), but it can be in fact anything
 that meets the following criteria.
 
 - Can be initialized an instance of
