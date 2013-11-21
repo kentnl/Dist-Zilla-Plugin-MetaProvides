@@ -50,14 +50,14 @@ is here to cover this problem by defining it in the metadata.
 
 # COMPONENT SUMMARY
 
-## ::Class
+## `::Class`
 
 Scans [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla)'s `.pm` files and tries to identify classes using
 [Class::Discover](https://metacpan.org/pod/Class::Discover).
 
 [Dist::Zilla::Plugin::MetaProvides::Class](https://metacpan.org/pod/Dist::Zilla::Plugin::MetaProvides::Class)
 
-## ::Package
+## `::Package`
 
 Scans [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla)'s `.pm` files and tries to identify more traditional
 packages using a combination of [Module::Extract::VERSION](https://metacpan.org/pod/Module::Extract::VERSION) and
@@ -65,7 +65,7 @@ packages using a combination of [Module::Extract::VERSION](https://metacpan.org/
 
 [Dist::Zilla::Plugin::MetaProvides::Package](https://metacpan.org/pod/Dist::Zilla::Plugin::MetaProvides::Package)
 
-## ::FromFile
+## `::FromFile`
 
 In the event both of the above don't work for your needs, pull in
 hand-crafted metadata from a specified file.
@@ -74,7 +74,7 @@ hand-crafted metadata from a specified file.
 
 # OPTION SUMMARY
 
-## inherit\_version
+## `inherit_version`
 
 At the time this plugin runs to collect metadata from files,
 the mungers won't have run yet to inject custom versions into files in the various
@@ -87,7 +87,7 @@ state.
 IE: Generally, if you are using version munging, you __WILL__ want this flag set
 to `1`.
 
-### values
+### `values`
 
 - `'0'`
 
@@ -99,7 +99,7 @@ to `1`.
 
 ["inherit_version" in Dist::Zilla::Role::MetaProvider::Provider](https://metacpan.org/pod/Dist::Zilla::Role::MetaProvider::Provider#inherit_version)
 
-## inherit\_missing
+## `inherit_missing`
 
 If for whatever reason you want to actually use the versions found in the modules
 where present, and fall back to the value from [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla).
@@ -118,7 +118,7 @@ where present, and fall back to the value from [Dist::Zilla](https://metacpan.or
 
 ["inhert_missing" in Dist::Zilla::Role::MetaProvider::Provider](https://metacpan.org/pod/Dist::Zilla::Role::MetaProvider::Provider#inhert_missing)
 
-## meta\_noindex
+## `meta_noindex`
 
 This dictates how to behave when a discovered class is also present in the `no_index` META field.
 
@@ -135,7 +135,7 @@ This dictates how to behave when a discovered class is also present in the `no_i
 
 ["meta_noindex" in Dist::Zilla::Role::MetaProvider::Provider](https://metacpan.org/pod/Dist::Zilla::Role::MetaProvider::Provider#meta_noindex)
 
-## file
+## `file`
 
 ( [Dist::Zilla::Plugin::MetaProvides::FromFile](https://metacpan.org/pod/Dist::Zilla::Plugin::MetaProvides::FromFile) )
 
@@ -144,7 +144,7 @@ This is a mandatory parameter that points to the file that contains manually
 
 File Must exist.
 
-## reader\_name
+## `reader_name`
 
 ( [Dist::Zilla::Plugin::MetaProvides::FromFile](https://metacpan.org/pod/Dist::Zilla::Plugin::MetaProvides::FromFile) )
 
