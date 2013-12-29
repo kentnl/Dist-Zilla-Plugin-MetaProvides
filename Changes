@@ -1,6 +1,8 @@
 ﻿Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.15000200 2013-12-29T08:37:43Z
  [Bugfix]
  - Avoid bug with Dzil being gc'd
 
