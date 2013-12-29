@@ -1,6 +1,6 @@
 ﻿Revision history for Dist-Zilla-Plugin-MetaProvides
 
-1.15000200 2013-12-29T08:36:45Z
+1.15000200 2013-12-29T08:37:43Z
  [Bugfix]
  - Avoid bug with Dzil being gc'd
 
