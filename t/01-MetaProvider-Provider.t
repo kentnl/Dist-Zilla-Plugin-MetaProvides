@@ -9,9 +9,11 @@ use lib 't/lib';
 
 use Dist::Zilla::Util::Test::KENTNL 0.01000004 qw( test_config );
 
+my $config;
+
 sub make_plugin {
   my @args = @_;
-  return test_config(
+  $config = test_config(
     {
       dist_root           => 'corpus/dist/DZT',
       ini                 => [ 'GatherDir', [ 'Prereqs' => { 'Test::Simple' => '0.88' } ], [ 'FakePlugin' => {@args} ], ],
@@ -19,29 +21,29 @@ sub make_plugin {
         my $config = shift;
         die $config->{error} if $config->{error};
       },
-      find_plugin => 'FakePlugin',
     }
   );
+  return $config->plugin_named('FakePlugin');
 }
 
 sub make_plugin_metanoindex {
-  my $config = shift;
-  return test_config(
+  my $iconfig = shift;
+  $config = test_config(
     {
       dist_root => 'corpus/dist/DZT',
       ini       => [
         'GatherDir',
         [ 'Prereqs'     => { 'Test::Simple' => '0.88' } ],
-        [ 'FakePlugin'  => $config->{fakeplugin} ],
-        [ 'MetaNoIndex' => $config->{noindex} ],
+        [ 'FakePlugin'  => $iconfig->{fakeplugin} ],
+        [ 'MetaNoIndex' => $iconfig->{noindex} ],
       ],
       post_build_callback => sub {
-        my $config = shift;
-        die $config->{error} if $config->{error};
+        my $xconfig = shift;
+        die $xconfig->{error} if $xconfig->{error};
       },
-      find_plugin => 'FakePlugin',
     }
   );
+  return $config->plugin_named('FakePlugin');
 }
 
 subtest 'boolean attribute tests' => sub {
