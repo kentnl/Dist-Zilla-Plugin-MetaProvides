@@ -122,19 +122,19 @@
    "provides" : {
       "Dist::Zilla::MetaProvides::ProvideRecord" : {
          "file" : "lib/Dist/Zilla/MetaProvides/ProvideRecord.pm",
-         "version" : "1.15000101"
+         "version" : "10.10000000"
       },
       "Dist::Zilla::MetaProvides::Types" : {
          "file" : "lib/Dist/Zilla/MetaProvides/Types.pm",
-         "version" : "1.15000101"
+         "version" : "10.10000000"
       },
       "Dist::Zilla::Plugin::MetaProvides" : {
          "file" : "lib/Dist/Zilla/Plugin/MetaProvides.pm",
-         "version" : "1.15000101"
+         "version" : "10.10000000"
       },
       "Dist::Zilla::Role::MetaProvider::Provider" : {
          "file" : "lib/Dist/Zilla/Role/MetaProvider/Provider.pm",
-         "version" : "1.15000101"
+         "version" : "10.10000000"
       }
    },
    "release_status" : "stable",
@@ -149,7 +149,7 @@
          "web" : "https://github.com/kentfredric/Dist-Zilla-Plugin-MetaProvides"
       }
    },
-   "version" : "1.15000101",
+   "version" : "10.10000000",
    "x_BuiltWith" : {
       "modules" : {
          "Dist::Zilla::Plugin::Authority" : "1.006",

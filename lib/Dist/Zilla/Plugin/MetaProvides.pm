@@ -6,7 +6,7 @@ BEGIN {
   $Dist::Zilla::Plugin::MetaProvides::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Dist::Zilla::Plugin::MetaProvides::VERSION = '1.15000101';
+  $Dist::Zilla::Plugin::MetaProvides::VERSION = '10.10000000';
 }
 
 # ABSTRACT: Generating and Populating 'provides' in your META.yml
@@ -24,7 +24,7 @@ Dist::Zilla::Plugin::MetaProvides - Generating and Populating 'provides' in your
 
 =head1 VERSION
 
-version 1.15000101
+version 10.10000000
 
 =head1 SYNOPSIS
 
