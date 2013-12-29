@@ -6,7 +6,7 @@ BEGIN {
   $Dist::Zilla::MetaProvides::Types::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Dist::Zilla::MetaProvides::Types::VERSION = '10.10000000';
+  $Dist::Zilla::MetaProvides::Types::VERSION = '1.15000101';
 }
 
 # ABSTRACT: Utility Types for the MetaProvides Plugin
@@ -34,7 +34,7 @@ Dist::Zilla::MetaProvides::Types - Utility Types for the MetaProvides Plugin
 
 =head1 VERSION
 
-version 10.10000000
+version 1.15000101
 
 =begin MetaPOD::JSON v1.1.0
 

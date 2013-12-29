@@ -3,7 +3,7 @@ NAME
     in your META.yml
 
 VERSION
-    version 10.10000000
+    version 1.15000101
 
 SYNOPSIS
     In your projects dist.ini
