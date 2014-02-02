@@ -36,6 +36,7 @@ undef will be trimmed from output.
 
 =cut
 
+## no critic (Bangs::ProhibitBitwiseOperators)
 subtype ModVersion, as Str | Undef;
 
 =head2 ProviderObject
