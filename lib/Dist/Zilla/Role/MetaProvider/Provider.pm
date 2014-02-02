@@ -257,13 +257,13 @@ around dump_config => sub {
   my ( $orig, $self, @args ) = @_;
   my $config    = $self->$orig(@args);
   my $localconf = {};
-  for my $var (qw( inherit_version inherit_missing meta_noindex )) {
-    my $pred = 'has_' . $var;
+  for my $attribute (qw( inherit_version inherit_missing meta_noindex )) {
+    my $pred = 'has_' . $attribute;
     if ( $self->can($pred) ) {
       next unless $self->$pred();
     }
-    if ( $self->can($var) ) {
-      $localconf->{$var} = $self->$var();
+    if ( $self->can($attribute) ) {
+      $localconf->{$attribute} = $self->$attribute();
     }
   }
   $config->{ q{} . __PACKAGE__ } = $localconf;
