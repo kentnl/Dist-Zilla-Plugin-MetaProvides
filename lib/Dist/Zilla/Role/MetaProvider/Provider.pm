@@ -181,7 +181,7 @@ metaproviders, which result in meta-data being inaccessible to metadata Plugins.
 This at present returns metadata provided by  L<< C<MetaNoIndex>|Dist::Zilla::Plugin::MetaNoIndex >> ( if present )
 but will be expanded as needed.
 
-If you have a module you think should be in this list, contact me, or file a bug, I'll do my best =)
+If you have a module you think should be in this list, contact me, or file a bug, I'll do my best ☺
 
 =cut
 
