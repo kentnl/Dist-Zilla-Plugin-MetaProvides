@@ -1,9 +1,13 @@
+use 5.008; # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Dist::Zilla::Role::MetaProvider::Provider;
 $Dist::Zilla::Role::MetaProvider::Provider::VERSION = '1.15000201';
 # ABSTRACT: A Role for Metadata providers specific to the 'provider' key.
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 use Moose::Role;
 use MooseX::Types::Moose (':all');
