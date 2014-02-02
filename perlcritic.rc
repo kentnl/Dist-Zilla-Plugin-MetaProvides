@@ -25,3 +25,8 @@ equivalent_modules = Moose
 [TestingAndDebugging::RequireUseWarnings]
 equivalent_modules = Moose
 
+[Tics::ProhibitLongLines]
+
+base_max = 130
+
+
