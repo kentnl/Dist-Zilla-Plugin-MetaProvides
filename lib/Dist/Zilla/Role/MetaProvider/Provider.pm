@@ -1,4 +1,4 @@
-use 5.008; # utf8
+use 5.008;    # utf8
 use strict;
 use warnings;
 use utf8;
@@ -9,9 +9,9 @@ $Dist::Zilla::Role::MetaProvider::Provider::VERSION = '2.000000';
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
-use Moose::Role;
-use MooseX::Types::Moose (':all');
-use Readonly;
+use Moose::Role          (qw( with requires has around ));
+use MooseX::Types::Moose (qw( Bool ));
+use Readonly             (qw( Readonly ));
 Readonly my $MIN_EMULATE_PHASE_VERSION => 0.01000101;
 use namespace::autoclean;
 
