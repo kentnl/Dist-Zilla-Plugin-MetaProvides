@@ -2,13 +2,7 @@ use strict;
 use warnings;
 
 package Dist::Zilla::MetaProvides::ProvideRecord;
-BEGIN {
-  $Dist::Zilla::MetaProvides::ProvideRecord::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Dist::Zilla::MetaProvides::ProvideRecord::VERSION = '1.15000200';
-}
-
+$Dist::Zilla::MetaProvides::ProvideRecord::VERSION = '1.15000201';
 # ABSTRACT: Data Management Record for MetaProvider::Provides Based Class
 
 use Moose;
@@ -19,13 +13,48 @@ use namespace::autoclean;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 has version => ( isa => ModVersion, is => 'ro', required => 1 );
+
+
+
+
+
+
 
 
 has module => ( isa => Str, is => 'ro', required => 1 );
 
 
+
+
+
+
+
 has file => ( isa => Str, is => 'ro', required => 1 );
+
+
+
+
+
+
 
 
 has parent => (
@@ -35,6 +64,24 @@ has parent => (
   isa      => ProviderObject,
   handles  => [ 'zilla', '_resolve_version', ],
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 sub copy_into {
@@ -62,7 +109,7 @@ Dist::Zilla::MetaProvides::ProvideRecord - Data Management Record for MetaProvid
 
 =head1 VERSION
 
-version 1.15000200
+version 1.15000201
 
 =begin MetaPOD::JSON v1.1.0
 
@@ -118,7 +165,7 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric.
+This software is copyright (c) 2014 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

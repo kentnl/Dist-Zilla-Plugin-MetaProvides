@@ -2,13 +2,7 @@ use strict;
 use warnings;
 
 package Dist::Zilla::Role::MetaProvider::Provider;
-BEGIN {
-  $Dist::Zilla::Role::MetaProvider::Provider::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Dist::Zilla::Role::MetaProvider::Provider::VERSION = '1.15000200';
-}
-
+$Dist::Zilla::Role::MetaProvider::Provider::VERSION = '1.15000201';
 # ABSTRACT: A Role for Metadata providers specific to the 'provider' key.
 
 use Moose::Role;
@@ -19,10 +13,57 @@ use namespace::autoclean;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 with 'Dist::Zilla::Role::MetaProvider';
 
 
+
+
+
+
+
+
+
+
 requires 'provides';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 has inherit_version => (
@@ -33,6 +74,26 @@ has inherit_version => (
 );
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 has inherit_missing => (
   is            => 'ro',
   isa           => Bool,
@@ -41,12 +102,51 @@ has inherit_missing => (
 );
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 has meta_noindex => (
   is            => 'ro',
   isa           => Bool,
   default       => 1,
   documentation => 'Scan for the meta_noindex metadata key and do not add provides records for things in it',
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 sub _resolve_version {
@@ -64,6 +164,19 @@ sub _resolve_version {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 sub _try_regen_metadata {
   my ($self) = @_;
 
@@ -76,6 +189,17 @@ sub _try_regen_metadata {
   }
   return $meta;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 sub _apply_meta_noindex {
@@ -140,6 +264,14 @@ around dump_config => sub {
 };
 
 
+
+
+
+
+
+
+
+
 sub metadata {
   my ($self) = @_;
   my $discover = {};
@@ -148,6 +280,28 @@ sub metadata {
   }
   return { provides => $discover };
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 no Moose::Role;
@@ -164,7 +318,7 @@ Dist::Zilla::Role::MetaProvider::Provider - A Role for Metadata providers specif
 
 =head1 VERSION
 
-version 1.15000200
+version 1.15000201
 
 =begin MetaPOD::JSON v1.1.0
 
@@ -322,7 +476,7 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric.
+This software is copyright (c) 2014 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
