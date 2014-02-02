@@ -22,6 +22,7 @@ if ( env_is( 'TRAVIS_BRANCH', 'master' ) and env_is( 'TRAVIS_PERL_VERSION', '5.8
 }
 if ( env_is( 'TRAVIS_BRANCH', 'master' ) ) {
   $ENV{HARNESS_OPTIONS} = 'j100:c';
+  $ENV{PERL5OPT}        = '-MDevel::Confess';
   safe_exec( 'dzil', 'test', '--release' );
 }
 else {
