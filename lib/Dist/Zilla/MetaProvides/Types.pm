@@ -21,8 +21,8 @@ package Dist::Zilla::MetaProvides::Types;
 
 =cut
 
-use MooseX::Types::Moose (':all');
-use MooseX::Types -declare => [ 'ModVersion', 'ProviderObject', ];
+use MooseX::Types::Moose qw( Str Undef Object );
+use MooseX::Types -declare => [qw( ModVersion ProviderObject )];
 
 =head1 SUBTYPES
 

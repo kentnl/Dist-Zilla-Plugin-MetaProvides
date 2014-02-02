@@ -9,9 +9,9 @@ package Dist::Zilla::MetaProvides::ProvideRecord;
 
 # AUTHORITY
 
-use Moose;
-use MooseX::Types::Moose             (':all');
-use Dist::Zilla::MetaProvides::Types (':all');
+use Moose qw( has );
+use MooseX::Types::Moose qw( Str );
+use Dist::Zilla::MetaProvides::Types qw( ModVersion ProviderObject );
 
 use namespace::autoclean;
 
