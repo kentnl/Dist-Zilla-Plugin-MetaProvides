@@ -1,9 +1,13 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Dist::Zilla::MetaProvides::ProvideRecord;
 $Dist::Zilla::MetaProvides::ProvideRecord::VERSION = '1.15000201';
 # ABSTRACT: Data Management Record for MetaProvider::Provides Based Class
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 use Moose;
 use MooseX::Types::Moose             (':all');
