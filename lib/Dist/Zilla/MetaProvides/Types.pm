@@ -36,6 +36,7 @@ use MooseX::Types -declare => [qw( ModVersion ProviderObject )];
 
 
 
+## no critic (Bangs::ProhibitBitwiseOperators)
 subtype ModVersion, as Str | Undef;
 
 
