@@ -130,19 +130,19 @@
    "provides" : {
       "Dist::Zilla::MetaProvides::ProvideRecord" : {
          "file" : "lib/Dist/Zilla/MetaProvides/ProvideRecord.pm",
-         "version" : "1.15000201"
+         "version" : "2.000000"
       },
       "Dist::Zilla::MetaProvides::Types" : {
          "file" : "lib/Dist/Zilla/MetaProvides/Types.pm",
-         "version" : "1.15000201"
+         "version" : "2.000000"
       },
       "Dist::Zilla::Plugin::MetaProvides" : {
          "file" : "lib/Dist/Zilla/Plugin/MetaProvides.pm",
-         "version" : "1.15000201"
+         "version" : "2.000000"
       },
       "Dist::Zilla::Role::MetaProvider::Provider" : {
          "file" : "lib/Dist/Zilla/Role/MetaProvider/Provider.pm",
-         "version" : "1.15000201"
+         "version" : "2.000000"
       }
    },
    "release_status" : "stable",
@@ -157,7 +157,7 @@
          "web" : "https://github.com/kentfredric/Dist-Zilla-Plugin-MetaProvides"
       }
    },
-   "version" : "1.15000201",
+   "version" : "2.000000",
    "x_BuiltWith" : {
       "modules" : {
          "CPAN::Meta" : "2.133380",
@@ -273,7 +273,7 @@
             "class" : "Dist::Zilla::Plugin::Git::NextVersion::Sanitized",
             "config" : {
                "Dist::Zilla::Role::Version::Sanitize" : {
-                  "mantissa" : "8",
+                  "mantissa" : "6",
                   "normal_form" : "numify"
                }
             },

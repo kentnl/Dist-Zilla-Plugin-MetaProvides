@@ -4,7 +4,7 @@ use warnings;
 use utf8;
 
 package Dist::Zilla::MetaProvides::ProvideRecord;
-$Dist::Zilla::MetaProvides::ProvideRecord::VERSION = '1.15000201';
+$Dist::Zilla::MetaProvides::ProvideRecord::VERSION = '2.000000';
 # ABSTRACT: Data Management Record for MetaProvider::Provides Based Class
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -113,7 +113,7 @@ Dist::Zilla::MetaProvides::ProvideRecord - Data Management Record for MetaProvid
 
 =head1 VERSION
 
-version 1.15000201
+version 2.000000
 
 =begin MetaPOD::JSON v1.1.0
 
