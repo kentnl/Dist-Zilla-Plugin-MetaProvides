@@ -1,4 +1,38 @@
-1.15000200
+2.000000
+ [Added / configure recommends]
+ - ExtUtils::MakeMaker 6.88
+
+ [Added / configure requires]
+ - ExtUtils::MakeMaker 6.30
+
+ [Added / runtime requires]
+ - utf8
+
+ [Added / test recommends]
+ - CPAN::Meta
+ - CPAN::Meta::Requirements 2.120900
+ - ExtUtils::MakeMaker 6.88
+ - Test::More 1.001002
+
+ [Added / test requires]
+ - ExtUtils::MakeMaker
+ - File::Spec::Functions
+ - List::Util
+ - version
+
+ [Changed / runtime requires]
+ - perl 5.006 → 5.008
+
+ [Changed / test requires]
+ - Test::More 1.001002 → 0.96
+
+ [Removed / build requires]
+ - Module::Build 0.4203
+
+ [Removed / configure requires]
+ - Module::Build 0.4203
+
+1.15000200 2013-12-29T08:37:43Z
  [Changed / build requires]
  - Module::Build 0.4202 → 0.4203
 
