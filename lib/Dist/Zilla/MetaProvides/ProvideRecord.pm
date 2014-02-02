@@ -1,31 +1,64 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Dist::Zilla::MetaProvides::ProvideRecord;
-BEGIN {
-  $Dist::Zilla::MetaProvides::ProvideRecord::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Dist::Zilla::MetaProvides::ProvideRecord::VERSION = '1.15000200';
-}
-
+$Dist::Zilla::MetaProvides::ProvideRecord::VERSION = '2.000000';
 # ABSTRACT: Data Management Record for MetaProvider::Provides Based Class
 
-use Moose;
-use MooseX::Types::Moose             (':all');
-use Dist::Zilla::MetaProvides::Types (':all');
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
+
+use Moose qw( has );
+use MooseX::Types::Moose qw( Str );
+use Dist::Zilla::MetaProvides::Types qw( ModVersion ProviderObject );
 
 use namespace::autoclean;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 has version => ( isa => ModVersion, is => 'ro', required => 1 );
 
 
+
+
+
+
+
+
 has module => ( isa => Str, is => 'ro', required => 1 );
 
 
+
+
+
+
+
 has file => ( isa => Str, is => 'ro', required => 1 );
+
+
+
+
+
+
 
 
 has parent => (
@@ -35,6 +68,24 @@ has parent => (
   isa      => ProviderObject,
   handles  => [ 'zilla', '_resolve_version', ],
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 sub copy_into {
@@ -56,13 +107,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Dist::Zilla::MetaProvides::ProvideRecord - Data Management Record for MetaProvider::Provides Based Class
 
 =head1 VERSION
 
-version 1.15000200
+version 2.000000
 
 =begin MetaPOD::JSON v1.1.0
 
@@ -118,7 +171,7 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric.
+This software is copyright (c) 2014 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

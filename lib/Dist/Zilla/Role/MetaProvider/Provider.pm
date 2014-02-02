@@ -1,28 +1,73 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Dist::Zilla::Role::MetaProvider::Provider;
-BEGIN {
-  $Dist::Zilla::Role::MetaProvider::Provider::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Dist::Zilla::Role::MetaProvider::Provider::VERSION = '1.15000200';
-}
-
+$Dist::Zilla::Role::MetaProvider::Provider::VERSION = '2.000000';
 # ABSTRACT: A Role for Metadata providers specific to the 'provider' key.
 
-use Moose::Role;
-use MooseX::Types::Moose (':all');
-use Readonly;
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
+
+use Moose::Role qw( with requires has around );
+use MooseX::Types::Moose qw( Bool );
+use Readonly qw( Readonly );
 Readonly my $MIN_EMULATE_PHASE_VERSION => 0.01000101;
 use namespace::autoclean;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 with 'Dist::Zilla::Role::MetaProvider';
 
 
+
+
+
+
+
+
+
+
 requires 'provides';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 has inherit_version => (
@@ -33,20 +78,83 @@ has inherit_version => (
 );
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 has inherit_missing => (
   is            => 'ro',
   isa           => Bool,
   default       => 1,
-  documentation => 'How to behave when we are trusting modules to have versions and one is missing one',
+  documentation => <<'DOC',
+How to behave when we are trusting modules to have versions and one is missing one
+DOC
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 has meta_noindex => (
   is            => 'ro',
   isa           => Bool,
   default       => 1,
-  documentation => 'Scan for the meta_noindex metadata key and do not add provides records for things in it',
+  documentation => <<'DOC',
+Scan for the meta_noindex metadata key and do not add provides records for things in it
+DOC
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 sub _resolve_version {
@@ -64,6 +172,19 @@ sub _resolve_version {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 sub _try_regen_metadata {
   my ($self) = @_;
 
@@ -76,6 +197,17 @@ sub _try_regen_metadata {
   }
   return $meta;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 sub _apply_meta_noindex {
@@ -125,19 +257,27 @@ around dump_config => sub {
   my ( $orig, $self, @args ) = @_;
   my $config    = $self->$orig(@args);
   my $localconf = {};
-  for my $var (qw( inherit_version inherit_missing meta_noindex )) {
-    my $pred = 'has_' . $var;
+  for my $attribute (qw( inherit_version inherit_missing meta_noindex )) {
+    my $pred = 'has_' . $attribute;
     if ( $self->can($pred) ) {
       next unless $self->$pred();
     }
-    if ( $self->can($var) ) {
-      $localconf->{$var} = $self->$var();
+    if ( $self->can($attribute) ) {
+      $localconf->{$attribute} = $self->$attribute();
     }
   }
   $config->{ q{} . __PACKAGE__ } = $localconf;
   return $config;
 
 };
+
+
+
+
+
+
+
+
 
 
 sub metadata {
@@ -150,6 +290,28 @@ sub metadata {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 no Moose::Role;
 
 1;
@@ -158,13 +320,15 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Dist::Zilla::Role::MetaProvider::Provider - A Role for Metadata providers specific to the 'provider' key.
 
 =head1 VERSION
 
-version 1.15000200
+version 2.000000
 
 =begin MetaPOD::JSON v1.1.0
 
@@ -276,7 +440,7 @@ metaproviders, which result in meta-data being inaccessible to metadata Plugins.
 This at present returns metadata provided by  L<< C<MetaNoIndex>|Dist::Zilla::Plugin::MetaNoIndex >> ( if present )
 but will be expanded as needed.
 
-If you have a module you think should be in this list, contact me, or file a bug, I'll do my best =)
+If you have a module you think should be in this list, contact me, or file a bug, I'll do my best ☺
 
 =head2 C<_apply_meta_noindex>
 
@@ -322,7 +486,7 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric.
+This software is copyright (c) 2014 by Kent Fredric.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

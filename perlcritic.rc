@@ -1,5 +1,5 @@
 severity = 1
-exclude = RequireTidyCode RequirePodSections ProhibitPostfixControls RequireRcsKeywords RequireExplicitPackage RequirePodLinksIncludeText
+exclude = RequireTidyCode RequirePodSections ProhibitPostfixControls RequireRcsKeywords RequireExplicitPackage RequirePodLinksIncludeText Editor::RequireEmacsFileVariables CodeLayout::ProhibitHashBarewords Modules::RequireExplicitInclusion Documentation::RequirePODUseEncodingUTF8 Compatibility::PodMinimumVersion CodeLayout::RequireASCII
 include = Moose::ProhibitMultipleWiths Moose::ProhibitNewMethod Moose::RequireCleanNamespace Moose::RequireMakeImmutable
 color = 1
 verbose = 9
@@ -10,7 +10,11 @@ allow_includes = 1
 [CodeLayout::ProhibitTrailingWhitespace]
 
 [Documentation::PodSpelling]
+spell_command = aspell list --lang en_US
 stop_words = Zilla accessors MetaProvides Plugin ModVersion undef ProviderObject yml ini metadata mungers hashref plugins parseable YAML metaproviders Plugins ProvideRecord's xdg DAGOLDEN MetaNoIndex plugin SUBTYPES recognised
+
+[Subroutines::ProhibitCallsToUndeclaredSubs]
+exempt_subs = MooseX::Types::subtype MooseX::Types::where MooseX::Types::as MooseX::Types::ModVersion MooseX::Types::ProviderObject
 
 [Subroutines::ProhibitUnusedPrivateSubroutines]
 private_name_regex = _(?!build_)\w
@@ -21,3 +25,6 @@ equivalent_modules = Moose
 [TestingAndDebugging::RequireUseWarnings]
 equivalent_modules = Moose
 
+[Tics::ProhibitLongLines]
+
+base_max = 130
