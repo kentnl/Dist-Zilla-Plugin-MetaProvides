@@ -1,6 +1,11 @@
 ﻿Revision history for {{$dist->name}}
 
 {{$NEXT}}
+ [00 Major]
+ - Moving to EUMM ( May break non-cpan toolchains that work by HAND )
+ - Mantissa length shortening to 6 for more boring versions.
+ - Dependencies on EUMM/Test::More downgraded to recommends where possible.
+
 
 1.15000200 2013-12-29T08:37:43Z
  [Bugfix]
