@@ -1,11 +1,18 @@
 ﻿Revision history for Dist-Zilla-Plugin-MetaProvides
 
-2.000000 2014-02-02T01:47:11Z
+2.000000 2014-02-02T01:58:38Z
  [00 Major]
  - Moving to EUMM ( May break non-cpan toolchains that work by HAND )
- - Mantissa length shortening to 6 for more boring versions.
+ - Mantissa length shortening to 6 for more boring versions. ( Primary
+   reason for 1 → 2 )
  - Dependencies on EUMM/Test::More downgraded to recommends where possible.
  - 5.008 minimum
+
+ [Dependencies::Aggregate]
+ - 5.8 : Before = 205, After = 204
+ - 5.10 : Before = 183, After = 183
+ - 5.19 : Before = 169, After = 167
+ - Will be less when Dzil drops Path::Class (somehow)
 
  [Dependencies::Stats]
  - Dependencies changed since 1.15000200, see Changes.deps{,.all,.dev} for
