@@ -102,7 +102,9 @@ has inherit_missing => (
   is            => 'ro',
   isa           => Bool,
   default       => 1,
-  documentation => 'How to behave when we are trusting modules to have versions and one is missing one',
+  documentation => <<'DOC',
+How to behave when we are trusting modules to have versions and one is missing one
+DOC
 );
 
 =head2 C<meta_noindex>
@@ -130,7 +132,9 @@ has meta_noindex => (
   is            => 'ro',
   isa           => Bool,
   default       => 1,
-  documentation => 'Scan for the meta_noindex metadata key and do not add provides records for things in it',
+  documentation => <<'DOC',
+Scan for the meta_noindex metadata key and do not add provides records for things in it
+DOC
 );
 
 =head1 PRIVATE METHODS
