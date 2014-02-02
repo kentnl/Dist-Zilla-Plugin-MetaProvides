@@ -7,6 +7,8 @@ package Dist::Zilla::MetaProvides::Types;
 
 # ABSTRACT: Utility Types for the MetaProvides Plugin
 
+# AUTHORITY
+
 =begin MetaPOD::JSON v1.1.0
 
 {

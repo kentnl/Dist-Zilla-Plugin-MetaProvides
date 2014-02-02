@@ -7,6 +7,8 @@ package Dist::Zilla::Plugin::MetaProvides;
 
 # ABSTRACT: Generating and Populating 'provides' in your META.yml
 
+# AUTHORITY
+
 =begin MetaPOD::JSON v1.1.0
 
 {

@@ -7,6 +7,8 @@ package Dist::Zilla::MetaProvides::ProvideRecord;
 
 # ABSTRACT: Data Management Record for MetaProvider::Provides Based Class
 
+# AUTHORITY
+
 use Moose;
 use MooseX::Types::Moose             (':all');
 use Dist::Zilla::MetaProvides::Types (':all');
