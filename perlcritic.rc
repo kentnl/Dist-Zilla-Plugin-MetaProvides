@@ -13,7 +13,7 @@ allow_includes = 1
 stop_words = Zilla accessors MetaProvides Plugin ModVersion undef ProviderObject yml ini metadata mungers hashref plugins parseable YAML metaproviders Plugins ProvideRecord's xdg DAGOLDEN MetaNoIndex plugin SUBTYPES recognised
 
 [Subroutines::ProhibitCallsToUndeclaredSubs]
-exempt_subs = MooseX::Types::subtype MooseX::Types::where MooseX::Types::as
+exempt_subs = MooseX::Types::subtype MooseX::Types::where MooseX::Types::as MooseX::Types::ModVersion MooseX::Types::ProviderObject
 
 [Subroutines::ProhibitUnusedPrivateSubroutines]
 private_name_regex = _(?!build_)\w
