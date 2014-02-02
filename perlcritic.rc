@@ -10,7 +10,7 @@ allow_includes = 1
 [CodeLayout::ProhibitTrailingWhitespace]
 
 [Documentation::PodSpelling]
-spell_command = aspell list --lang en_US 
+spell_command = aspell list --lang en_US
 stop_words = Zilla accessors MetaProvides Plugin ModVersion undef ProviderObject yml ini metadata mungers hashref plugins parseable YAML metaproviders Plugins ProvideRecord's xdg DAGOLDEN MetaNoIndex plugin SUBTYPES recognised
 
 [Subroutines::ProhibitCallsToUndeclaredSubs]

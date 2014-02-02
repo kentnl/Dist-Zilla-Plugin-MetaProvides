@@ -1,6 +1,6 @@
 ﻿Revision history for Dist-Zilla-Plugin-MetaProvides
 
-2.000000 2014-02-02T02:00:11Z
+2.000000 2014-02-02T05:04:36Z
  [00 Major]
  - Moving to EUMM ( May break non-cpan toolchains that work by HAND )
  - Mantissa length shortening to 6 for more boring versions. ( Primary
