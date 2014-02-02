@@ -1,4 +1,21 @@
-1.15000200
+2.000000
+ [Added / develop requires]
+ - Dist::Zilla::Plugin::Git::NextRelease
+ - Dist::Zilla::Plugin::MakeMaker
+ - Dist::Zilla::Plugin::Prereqs::Recommend::MatchInstalled
+ - Dist::Zilla::Plugin::Test::ReportPrereqs
+
+ [Changed / develop requires]
+ - Dist::Zilla::PluginBundle::Author::KENTNL 2.007000 → 2.012000
+
+ [Removed / develop requires]
+ - Dist::Zilla::Plugin::ModuleBuild
+ - Dist::Zilla::Plugin::NextRelease
+ - Dist::Zilla::Plugin::Prereqs::MatchInstalled
+ - Dist::Zilla::Plugin::ReportVersions::Tiny
+ - version 0.9901
+
+1.15000200 2013-12-29T08:37:43Z
  [Added / develop requires]
  - Dist::Zilla::Plugin::Git::NextVersion::Sanitized
  - Dist::Zilla::Plugin::MinimumPerl
