@@ -316,6 +316,8 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Dist::Zilla::Role::MetaProvider::Provider - A Role for Metadata providers specific to the 'provider' key.

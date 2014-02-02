@@ -25,6 +25,8 @@ __END__
 
 =pod
 
+=encoding UTF-8
+
 =head1 NAME
 
 Dist::Zilla::Plugin::MetaProvides - Generating and Populating 'provides' in your META.yml
