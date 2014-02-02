@@ -21,8 +21,8 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 
-use MooseX::Types::Moose (':all');
-use MooseX::Types -declare => [ 'ModVersion', 'ProviderObject', ];
+use MooseX::Types::Moose (qw( Str Undef Object ));
+use MooseX::Types -declare => [ 'ModVersion', 'ProviderObject', ], qw( subtype where as );
 
 
 

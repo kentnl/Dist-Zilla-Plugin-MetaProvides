@@ -9,9 +9,9 @@ $Dist::Zilla::MetaProvides::ProvideRecord::VERSION = '2.000000';
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
-use Moose qw( has );
-use MooseX::Types::Moose             ('Str',);
-use Dist::Zilla::MetaProvides::Types ('ModVersion','ProviderObject');
+use Moose                            (qw( has ));
+use MooseX::Types::Moose             (qw( Str ));
+use Dist::Zilla::MetaProvides::Types (qw( ModVersion ProviderObject ));
 
 use namespace::autoclean;
 
