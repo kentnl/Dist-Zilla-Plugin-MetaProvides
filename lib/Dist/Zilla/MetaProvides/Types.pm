@@ -21,8 +21,8 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 
-use MooseX::Types::Moose (qw( Str Undef Object ));
-use MooseX::Types -declare => [ 'ModVersion', 'ProviderObject', ];
+use MooseX::Types::Moose qw( Str Undef Object );
+use MooseX::Types -declare => [qw( ModVersion ProviderObject )];
 
 
 
@@ -36,6 +36,7 @@ use MooseX::Types -declare => [ 'ModVersion', 'ProviderObject', ];
 
 
 
+## no critic (Subroutines::ProhibitCallsToUndeclaredSubs)
 subtype ModVersion, as Str | Undef;
 
 
