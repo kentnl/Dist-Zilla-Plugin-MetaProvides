@@ -1,4 +1,6 @@
-2.000000
+2.000001
+
+2.000000 2014-02-02T05:17:53Z
  [Added / develop requires]
  - Dist::Zilla::Plugin::Git::NextRelease
  - Dist::Zilla::Plugin::MakeMaker

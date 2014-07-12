@@ -4,7 +4,7 @@ use warnings;
 use utf8;
 
 package Dist::Zilla::Plugin::MetaProvides;
-$Dist::Zilla::Plugin::MetaProvides::VERSION = '2.000000';
+$Dist::Zilla::Plugin::MetaProvides::VERSION = '2.000001';
 # ABSTRACT: Generating and Populating 'provides' in your META.yml
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -33,7 +33,7 @@ Dist::Zilla::Plugin::MetaProvides - Generating and Populating 'provides' in your
 
 =head1 VERSION
 
-version 2.000000
+version 2.000001
 
 =head1 SYNOPSIS
 
