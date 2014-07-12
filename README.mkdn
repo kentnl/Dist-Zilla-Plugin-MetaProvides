@@ -4,7 +4,7 @@ Dist::Zilla::Plugin::MetaProvides - Generating and Populating 'provides' in your
 
 # VERSION
 
-version 2.000000
+version 2.000001
 
 # SYNOPSIS
 
@@ -42,12 +42,6 @@ The initial reason for this is due to stuff that uses [MooseX::Declare](https://
 style class definitions not being parseable by many tools upstream, so this
 is here to cover this problem by defining it in the metadata.
 
-{
-    "namespace":"Dist::Zilla::Plugin::MetaProvides"
-}
-
-
-
 # COMPONENT SUMMARY
 
 ## `::Class`
@@ -84,7 +78,7 @@ If you want the versions reported in the `provides` list to be consistent with
 the ones actually in the files, you will need to use this option in its enabled
 state.
 
-IE: Generally, if you are using version munging, you __WILL__ want this flag set
+IE: Generally, if you are using version munging, you **WILL** want this flag set
 to `1`.
 
 ### `values`
@@ -93,11 +87,11 @@ to `1`.
 
     Do not inherit version from `Dist::Zilla`
 
-- `'1'` __\[default\]__
+- `'1'` **\[default\]**
 
     Inherit version from [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla)
 
-["inherit_version" in Dist::Zilla::Role::MetaProvider::Provider](https://metacpan.org/pod/Dist::Zilla::Role::MetaProvider::Provider#inherit_version)
+["inherit\_version" in Dist::Zilla::Role::MetaProvider::Provider](https://metacpan.org/pod/Dist::Zilla::Role::MetaProvider::Provider#inherit_version)
 
 ## `inherit_missing`
 
@@ -112,11 +106,11 @@ where present, and fall back to the value from [Dist::Zilla](https://metacpan.or
 
     Do not inherit version from `Dist::Zilla` when one is missing.
 
-- `'1'` __\[default\]__
+- `'1'` **\[default\]**
 
     Inherit version from [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla) when one is missing.
 
-["inhert_missing" in Dist::Zilla::Role::MetaProvider::Provider](https://metacpan.org/pod/Dist::Zilla::Role::MetaProvider::Provider#inhert_missing)
+["inhert\_missing" in Dist::Zilla::Role::MetaProvider::Provider](https://metacpan.org/pod/Dist::Zilla::Role::MetaProvider::Provider#inhert_missing)
 
 ## `meta_noindex`
 
@@ -124,7 +118,7 @@ This dictates how to behave when a discovered class is also present in the `no_i
 
 ### values
 
-- `'0'` __\[default\]__
+- `'0'` **\[default\]**
 
     `no_index` META field will be ignored
 
@@ -133,7 +127,7 @@ This dictates how to behave when a discovered class is also present in the `no_i
     `no_index` META field will be recognised and things found in it will cause respective packages
     to not be provided in the metadata.
 
-["meta_noindex" in Dist::Zilla::Role::MetaProvider::Provider](https://metacpan.org/pod/Dist::Zilla::Role::MetaProvider::Provider#meta_noindex)
+["meta\_noindex" in Dist::Zilla::Role::MetaProvider::Provider](https://metacpan.org/pod/Dist::Zilla::Role::MetaProvider::Provider#meta_noindex)
 
 ## `file`
 
