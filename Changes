@@ -1,10 +1,13 @@
 ﻿Revision history for {{$dist->name}}
 
 {{$NEXT}}
+ [00 Trivial]
+ - Misc packaging cleanups.
+
  [Dependencies::Stats]
  - Dependencies changed since 2.000000, see misc/*.deps* for details
  - configure: (recommends: ↑1)
- - develop: -1 (suggests: +2 -1)
+ - develop: +3 -3 (suggests: +2 -1)
  - test: (recommends: ↑2)
 
 2.000000 2014-02-02T05:17:53Z
