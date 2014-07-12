@@ -10,13 +10,16 @@ fallback  = 0
 
 
 [@Author::KENTNL]
-:version = 2.012000
+:version = 2.016000
 git_versions = 1
 twitter_hash_tags = #perl #cpan
 normal_form = numify
 mantissa = 6
 toolkit  = eumm
 toolkit_hardness = soft
+bumpversions = 1
+copyfiles    = LICENSE
+srcreadme    = mkdn
 ;version_major = 1
 ;version_minor = 12
 ;version_rel_year  = 2009
