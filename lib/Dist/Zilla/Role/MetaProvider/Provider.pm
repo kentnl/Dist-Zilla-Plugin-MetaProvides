@@ -4,7 +4,9 @@ use warnings;
 use utf8;
 
 package Dist::Zilla::Role::MetaProvider::Provider;
-$Dist::Zilla::Role::MetaProvider::Provider::VERSION = '2.000000';
+
+our $VERSION = '2.000001';
+
 # ABSTRACT: A Role for Metadata providers specific to the 'provider' key.
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -328,7 +330,7 @@ Dist::Zilla::Role::MetaProvider::Provider - A Role for Metadata providers specif
 
 =head1 VERSION
 
-version 2.000000
+version 2.000001
 
 =begin MetaPOD::JSON v1.1.0
 
