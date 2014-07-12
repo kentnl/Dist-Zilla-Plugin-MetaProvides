@@ -86,7 +86,7 @@ allow_includes = 1
 
 [CodeLayout::RequireTrailingCommas]
 
-[-CodeLayout::RequireUseUTF8]
+[CodeLayout::RequireUseUTF8]
 
 [Compatibility::ConstantLeadingUnderscore]
 
@@ -156,7 +156,7 @@ stop_words = Zilla accessors MetaProvides Plugin ModVersion undef ProviderObject
 
 [Documentation::RequirePodAtEnd]
 
-[Documentation::RequirePodLinksIncludeText]
+[-Documentation::RequirePodLinksIncludeText]
 
 [-Documentation::RequirePodSections]
 
