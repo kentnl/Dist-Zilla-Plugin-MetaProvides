@@ -4,7 +4,9 @@ use warnings;
 use utf8;
 
 package Dist::Zilla::Role::MetaProvider::Provider;
-$Dist::Zilla::Role::MetaProvider::Provider::VERSION = '2.000001';
+
+our $VERSION = '2.000001';
+
 # ABSTRACT: A Role for Metadata providers specific to the 'provider' key.
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY

@@ -1,4 +1,20 @@
 2.000001
+ [Added / develop suggests]
+ - Dist::Zilla::App::Command::bakeini 0.001000
+ - Dist::Zilla::PluginBundle::Author::KENTNL 2.016001
+
+ [Changed / configure recommends]
+ - ExtUtils::MakeMaker 6.88 → 6.98
+
+ [Changed / test recommends]
+ - ExtUtils::MakeMaker 6.88 → 6.98
+ - Test::More 1.001002 → 1.001003
+
+ [Removed / develop requires]
+ - Dist::Zilla::PluginBundle::Author::KENTNL 2.012000
+
+ [Removed / develop suggests]
+ - Dist::Zilla::PluginBundle::Author::KENTNL::Lite v1.3.0
 
 2.000000 2014-02-02T05:17:53Z
  [Added / configure recommends]

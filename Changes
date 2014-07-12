@@ -1,12 +1,16 @@
 ﻿Revision history for Dist-Zilla-Plugin-MetaProvides
 
-2.000001 2014-07-12T19:12:12Z
+2.000001 2014-07-12T19:21:01Z
+ [Dependencies::Stats]
+ - Dependencies changed since 2.000000, see misc/*.deps* for details
+ - configure: (recommends: ↑1)
+ - develop: -1 (suggests: +2 -1)
+ - test: (recommends: ↑2)
 
 2.000000 2014-02-02T05:17:53Z
  [00 Major]
  - Moving to EUMM ( May break non-cpan toolchains that work by HAND )
- - Mantissa length shortening to 6 for more boring versions. ( Primary
-   reason for 1 → 2 )
+ - Mantissa length shortening to 6 for more boring versions. ( Primary reason for 1 → 2 )
  - Dependencies on EUMM/Test::More downgraded to recommends where possible.
  - 5.008 minimum
 
@@ -17,8 +21,7 @@
  - Will be less when Dzil drops Path::Class (somehow)
 
  [Dependencies::Stats]
- - Dependencies changed since 1.15000200, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 1.15000200, see misc/*.deps* for details
  - build: -1
  - configure: +1 -1 (recommends: +1)
  - develop: +4 ↑1 -5
@@ -33,8 +36,7 @@
  - Module::Build 0.4202 → 0.4203
 
  [Dependencies::Stats]
- - Dependencies changed since 1.15000100, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 1.15000100, see misc/*.deps* for details
  - build: ↑1
  - configure: ↑1
  - develop: +3 ↑1 -4
@@ -49,8 +51,7 @@
  - Test::More 0.98 → 1.001002
 
  [Dependencies::Stats]
- - Dependencies changed since 1.15000000, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 1.15000000, see misc/*.deps* for details
  - build: ↑1
  - configure: ↑1
  - develop: +43 ↑1 -1 (recommends: -1, suggests: +1 -1)
@@ -73,8 +74,7 @@
  - now exports dump_config data
 
  [Dependencies::Stats]
- - Dependencies changed since 1.14000001, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 1.14000001, see misc/*.deps* for details
  - build: ↑1
  - configure: ↑1
  - develop: +7 (suggests: ↑1)
@@ -98,12 +98,11 @@
 
 1.14000001 2012-07-26T16:24:41Z
  [BugFix]
- - Defer version constraints to as late as possible to allow more circular
-   things to happen, avoiding compile-time failure in bootstrap.
+ - Defer version constraints to as late as possible to allow more circular things to happen, avoiding compile-time
+   failure in bootstrap.
 
  [Dependencies::Stats]
- - Dependencies changed since 1.14000000, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 1.14000000, see misc/*.deps* for details
  - build: ↑1
  - configure: ↑1
  - develop: (recommends: ↑1, suggests: ↑1)
@@ -112,26 +111,22 @@
 
 1.14000000 2012-02-07T08:45:13Z
  [Features]
- - Reverted all non-documentation changes since 1.13x. Handling this in the
-   role level was a dumb idea anyway.
+ - Reverted all non-documentation changes since 1.13x. Handling this in the role level was a dumb idea anyway.
 
 1.13000001 2012-02-04T09:04:53Z
  [Documentation]
- - Improve documentation of skip_underscores and meta_noindex at the more
-   foward-facing sites.
+ - Improve documentation of skip_underscores and meta_noindex at the more foward-facing sites.
 
 1.13000000 2012-02-04T07:35:05Z
  [Features]
- - Add a provisional filter that eliminates X::_y form namespaces ( a
-   hiding convention ), enabled by default. Toggle skip_underscore to
-   change. Thanks XDG/David Golden for reporting this in rt#74675.
+ - Add a provisional filter that eliminates X::_y form namespaces ( a hiding convention ), enabled by default. Toggle
+   skip_underscore to change. Thanks XDG/David Golden for reporting this in rt#74675.
 
 1.12060502 2012-02-04T00:39:26Z
  - Maintenance Release
 
  [Dependencies::Stats]
- - Dependencies changed since 1.12060501, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 1.12060501, see misc/*.deps* for details
  - develop: (suggests: ↑1)
  - runtime: +3
  - test: -1
@@ -149,18 +144,15 @@
 
 1.12060501 2011-04-08T13:44:56Z
  [BugFix]
- - rt#67325 : Should now depend on Test::More 0.96 to solve tests failing
-   on earlier versions.
+ - rt#67325 : Should now depend on Test::More 0.96 to solve tests failing on earlier versions.
 
  [Dependencies::Stats]
- - Dependencies changed since 1.12060212, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 1.12060212, see misc/*.deps* for details
  - test: ↑1
 
 1.12060212 2011-04-06T00:17:21Z
  [Dependencies::Stats]
- - Dependencies changed since 1.12044806, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 1.12044806, see misc/*.deps* for details
  - develop: +1 -1 (recommends: +1 -1, suggests: +1 -1)
 
  [Documentation]
@@ -181,12 +173,10 @@
  - remove portability tests.
 
 1.12044806 2010-11-06T18:20:55Z
- - A little bit more testing of the codebase, tests should be now
-   comprehensive enough to detect most change-bugs.
+ - A little bit more testing of the codebase, tests should be now comprehensive enough to detect most change-bugs.
 
  [Dependencies::Stats]
- - Dependencies changed since 1.12044803, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 1.12044803, see misc/*.deps* for details
  - test: +1
 
 1.12044803 2010-11-06T15:26:58Z
@@ -196,112 +186,91 @@
  - PerlTidy allover.
 
  [Dependencies::Stats]
- - Dependencies changed since 1.12044518, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 1.12044518, see misc/*.deps* for details
  - develop: +2
  - runtime: (suggests: +1)
  - test: (suggests: +1)
 
 1.12044518 2010-11-04T06:32:54Z
  - Spliced Test deps into its own module.
- - Shipped work behind _try_regen_metadata to
-   Dist::Zilla::Util::EmulatePhase
- - meta_noindex is now *ON* by default. This behavioural change is reason
-   for Bumping the minor to 12. Rationale: If you're using MetaNoIndex and
-   this module, then you want things to get skipped. With provides =>, cpan
-   won't do any indexing itself, so no_index in the data does nothing. So,
-   this module brings that power back to life by implementing it manually.
+ - Shipped work behind _try_regen_metadata to Dist::Zilla::Util::EmulatePhase
+ - meta_noindex is now *ON* by default. This behavioural change is reason for Bumping the minor to 12. Rationale: If
+   you're using MetaNoIndex and this module, then you want things to get skipped. With provides =>, cpan won't do any
+   indexing itself, so no_index in the data does nothing. So, this module brings that power back to life by
+   implementing it manually.
  - Add thanks while I remember.
 
  [Dependencies::Stats]
- - Dependencies changed since 1.11044405, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 1.11044405, see misc/*.deps* for details
  - runtime: +1 -2
  - test: +1 -4
 
 1.11044405 2010-11-02T17:04:51Z
- - Drop silly extra depends that sneaked in. It was hobbitses, and they are
-   pesky.
+ - Drop silly extra depends that sneaked in. It was hobbitses, and they are pesky.
 
  [Dependencies::Stats]
- - Dependencies changed since 1.11044404, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 1.11044404, see misc/*.deps* for details
  - test: -3
 
 1.11044404 2010-11-02T16:25:56Z
- - Upgrade to recent @KENTNL changes ( remove inc/ and xt/ from source
-   tree, relocate perlcritic.rc )
- - Now have a convenience function, usable by all consuming roles that
-   permit filtering packages that match criteira added to MetaNoIndex. Once
-   your role uses this function, the attribute also bolted on by this
-   change ( meta_noindex = 1 ) will control this behaviour. Thanks to
-   xdg/David Golden for this suggestion.
+ - Upgrade to recent @KENTNL changes ( remove inc/ and xt/ from source tree, relocate perlcritic.rc )
+ - Now have a convenience function, usable by all consuming roles that permit filtering packages that match criteira
+   added to MetaNoIndex. Once your role uses this function, the attribute also bolted on by this change ( meta_noindex
+   = 1 ) will control this behaviour. Thanks to xdg/David Golden for this suggestion.
 
  [Dependencies::Stats]
- - Dependencies changed since 1.11034201, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 1.11034201, see misc/*.deps* for details
  - develop: +1 (recommends: +1, suggests: +1)
  - runtime: +2
  - test: +9
 
 1.11034201 2010-07-24T13:35:56Z
  - Forked into 4 smaller dists to reduce the installation overheads.
- - Mostly so that people who want Metaprovides::Package don't have to
-   install MooseX::Declare and friends. ::Plugin::MetaProvides,
-   ::Plugin::MetaProvides::Package, ::Plugin::MetaProvides::Class,
+ - Mostly so that people who want Metaprovides::Package don't have to install MooseX::Declare and friends.
+   ::Plugin::MetaProvides, ::Plugin::MetaProvides::Package, ::Plugin::MetaProvides::Class,
    ::Plugin::MetaProvides::FromFile
 
  [Dependencies::Stats]
- - Dependencies changed since 1.10034117, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 1.10034117, see misc/*.deps* for details
  - runtime: ↓4 -10
  - test: ↓1 -10
 
 1.10034117 2010-07-24T05:37:49Z
- - Dropped xt/author/kwalitee.t to avoid the needless dep. ( Kwalitee Test
-   plugin doesn't have this issue )
+ - Dropped xt/author/kwalitee.t to avoid the needless dep. ( Kwalitee Test plugin doesn't have this issue )
 
  [Dependencies::Stats]
- - Dependencies changed since 1.10027802, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 1.10027802, see misc/*.deps* for details
  - build: -13
  - test: +13
 
 1.10027802 2010-05-22T13:08:02Z
- - Replaced most of dist.ini with @KENTNL ( Yeilding more accurate t/
-   depends )
- - Removed =inc::Dist style loopback in favour of the more reliable and
-   more generic =inc::lib
+ - Replaced most of dist.ini with @KENTNL ( Yeilding more accurate t/ depends )
+ - Removed =inc::Dist style loopback in favour of the more reliable and more generic =inc::lib
 
  [Dependencies::Stats]
- - Dependencies changed since 1.10027518, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 1.10027518, see misc/*.deps* for details
  - build: +13
  - configure: -1
  - runtime: +4 -6
 
 1.10027518 2010-05-20T05:33:10Z
- - Upgraded tests to Dist::Zilla 2.x. ( should resolve rt #56482 ) ( Thanks
-   to DAXIM/Lars Dɪᴇᴄᴋᴏᴡ 迪拉斯 for reporting )
+ - Upgraded tests to Dist::Zilla 2.x. ( should resolve rt #56482 ) ( Thanks to DAXIM/Lars Dɪᴇᴄᴋᴏᴡ 迪拉斯 for reporting )
  - Upgraded dist.ini to Dist::Zilla 2.x
 
  [Dependencies::Stats]
- - Dependencies changed since 1.10001919, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 1.10001919, see misc/*.deps* for details
  - build: +1
  - configure: +2
  - runtime: ↑1
 
 1.10001919 2009-09-12T06:17:57Z
- - Dropped the version dep on FindBin because it causes problems for some.
-   Apparently deping on something that may or may not be in core which may
-   or may not be in core later is a bad thing.
+ - Dropped the version dep on FindBin because it causes problems for some. Apparently deping on something that may or
+   may not be in core which may or may not be in core later is a bad thing.
  - Added CompileTests
  - Add dist.ini to release for diagnostic reasons.
 
  [Dependencies::Stats]
- - Dependencies changed since 1.10000417, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 1.10000417, see misc/*.deps* for details
  - runtime: ↓1
 
 1.10000417 2009-08-28T04:52:32Z
@@ -314,8 +283,7 @@
  - Documentation Upped on the plugs.
 
  [Dependencies::Stats]
- - Dependencies changed since 1.0920022, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 1.0920022, see misc/*.deps* for details
  - runtime: +1 ↑17
 
 1.0920022 2009-07-19T22:52:48Z

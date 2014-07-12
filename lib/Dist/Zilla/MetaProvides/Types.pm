@@ -4,7 +4,9 @@ use warnings;
 use utf8;
 
 package Dist::Zilla::MetaProvides::Types;
-$Dist::Zilla::MetaProvides::Types::VERSION = '2.000001';
+
+our $VERSION = '2.000001';
+
 # ABSTRACT: Utility Types for the MetaProvides Plugin
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY

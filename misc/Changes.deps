@@ -1,20 +1,11 @@
 2.000001
 
 2.000000 2014-02-02T05:17:53Z
- [Added / configure recommends]
- - ExtUtils::MakeMaker 6.88
-
  [Added / configure requires]
  - ExtUtils::MakeMaker 6.30
 
  [Added / runtime requires]
  - utf8
-
- [Added / test recommends]
- - CPAN::Meta
- - CPAN::Meta::Requirements 2.120900
- - ExtUtils::MakeMaker 6.88
- - Test::More 1.001002
 
  [Added / test requires]
  - ExtUtils::MakeMaker
@@ -116,11 +107,6 @@
  - Scalar::Util
 
 1.12044803 2010-11-06T15:26:58Z
- [Added / runtime suggests]
- - Dist::Zilla::Plugin::MetaNoIndex
-
- [Added / test suggests]
- - Dist::Zilla::Plugin::MetaNoIndex
 
 1.12044518 2010-11-04T06:32:54Z
  [Added / runtime requires]
