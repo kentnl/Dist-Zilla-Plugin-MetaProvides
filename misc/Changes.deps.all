@@ -1,4 +1,9 @@
 2.000001
+ [Added / develop requires]
+ - Dist::Zilla::Plugin::BumpVersionAfterRelease
+ - Dist::Zilla::Plugin::CopyFilesFromBuild
+ - Dist::Zilla::Plugin::RewriteVersion::Sanitized
+
  [Added / develop suggests]
  - Dist::Zilla::App::Command::bakeini 0.001000
  - Dist::Zilla::PluginBundle::Author::KENTNL 2.016001
@@ -11,6 +16,8 @@
  - Test::More 1.001002 → 1.001003
 
  [Removed / develop requires]
+ - Dist::Zilla::Plugin::Git::NextVersion::Sanitized
+ - Dist::Zilla::Plugin::PkgVersion
  - Dist::Zilla::PluginBundle::Author::KENTNL 2.012000
 
  [Removed / develop suggests]
