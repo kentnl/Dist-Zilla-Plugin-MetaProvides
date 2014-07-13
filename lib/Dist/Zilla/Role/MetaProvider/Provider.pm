@@ -351,7 +351,7 @@ L<Dist::Zilla::Role::MetaProvider>
 
 =head2 C<provides>
 
-Must return an array full of L<Dist::Zilla::MetaProviders::ProvideRecord>
+Must return an array full of L<Dist::Zilla::MetaProvides::ProvideRecord>
 instances.
 
 =head1 ATTRIBUTES / PARAMETERS
@@ -469,7 +469,7 @@ results returned from C<$self-E<gt>provides>.
 
 =item * L<Dist::Zilla::Plugin::MetaProvider>
 
-=item * L<Dist::Zilla::MetaProviders::ProvideRecord>
+=item * L<Dist::Zilla::MetaProvides::ProvideRecord>
 
 =back
 

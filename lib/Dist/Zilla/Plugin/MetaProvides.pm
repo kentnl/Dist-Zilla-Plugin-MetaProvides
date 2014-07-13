@@ -95,7 +95,7 @@ L<Dist::Zilla::Plugin::MetaProvides::Class>
 
 Scans L<Dist::Zilla>'s C<.pm> files and tries to identify more traditional
 packages using a combination of L<Module::Extract::VERSION> and
-L<Module::Extact::Namespaces>.
+L<Module::Extract::Namespaces>.
 
 L<Dist::Zilla::Plugin::MetaProvides::Package>
 

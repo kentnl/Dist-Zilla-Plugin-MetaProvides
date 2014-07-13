@@ -575,10 +575,6 @@ x_Dist_Zilla:
       name: '@Author::KENTNL/::Role::BundleDeps'
       version: '5.019'
     -
-      class: Dist::Zilla::Plugin::Test::Pod::No404s
-      name: Test::Pod::No404s
-      version: '1.001'
-    -
       class: Dist::Zilla::Plugin::Prereqs
       config:
         Dist::Zilla::Plugin::Prereqs:
