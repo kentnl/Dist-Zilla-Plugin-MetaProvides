@@ -1,6 +1,8 @@
 ﻿Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+2.000002 2014-07-13T12:27:14Z
  [00 Trivial]
  - Documentation/Spelling errors ( closes #2 )
 

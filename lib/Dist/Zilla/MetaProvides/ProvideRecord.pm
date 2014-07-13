@@ -5,7 +5,7 @@ use utf8;
 
 package Dist::Zilla::MetaProvides::ProvideRecord;
 
-our $VERSION = '2.000002';
+our $VERSION = '2.000003';
 
 # ABSTRACT: Data Management Record for MetaProvider::Provides Based Class
 
