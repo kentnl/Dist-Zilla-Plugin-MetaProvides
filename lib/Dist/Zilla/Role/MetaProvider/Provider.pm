@@ -41,7 +41,7 @@ with 'Dist::Zilla::Role::MetaProvider';
 
 =head2 C<provides>
 
-Must return an array full of L<Dist::Zilla::MetaProvider::ProvideRecord>
+Must return an array full of L<Dist::Zilla::MetaProvides::ProvideRecord>
 instances.
 
 =cut
@@ -299,7 +299,7 @@ sub metadata {
 
 =item * L<Dist::Zilla::Plugin::MetaProvider>
 
-=item * L<Dist::Zilla::MetaProvider::ProvideRecord>
+=item * L<Dist::Zilla::MetaProvides::ProvideRecord>
 
 =back
 

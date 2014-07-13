@@ -55,7 +55,7 @@ Scans [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla)'s `.pm` files and trie
 
 Scans [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla)'s `.pm` files and tries to identify more traditional
 packages using a combination of [Module::Extract::VERSION](https://metacpan.org/pod/Module::Extract::VERSION) and
-[Module::Extact::Namespaces](https://metacpan.org/pod/Module::Extact::Namespaces).
+[Module::Extract::Namespaces](https://metacpan.org/pod/Module::Extract::Namespaces).
 
 [Dist::Zilla::Plugin::MetaProvides::Package](https://metacpan.org/pod/Dist::Zilla::Plugin::MetaProvides::Package)
 
