@@ -5,7 +5,7 @@ use utf8;
 
 package Dist::Zilla::Plugin::MetaProvides;
 
-our $VERSION = '2.000001';
+our $VERSION = '2.000002';
 
 # ABSTRACT: Generating and Populating 'provides' in your META.yml
 
@@ -35,7 +35,7 @@ Dist::Zilla::Plugin::MetaProvides - Generating and Populating 'provides' in your
 
 =head1 VERSION
 
-version 2.000001
+version 2.000002
 
 =head1 SYNOPSIS
 
@@ -95,7 +95,7 @@ L<Dist::Zilla::Plugin::MetaProvides::Class>
 
 Scans L<Dist::Zilla>'s C<.pm> files and tries to identify more traditional
 packages using a combination of L<Module::Extract::VERSION> and
-L<Module::Extact::Namespaces>.
+L<Module::Extract::Namespaces>.
 
 L<Dist::Zilla::Plugin::MetaProvides::Package>
 

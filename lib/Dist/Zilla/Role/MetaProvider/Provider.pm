@@ -5,7 +5,7 @@ use utf8;
 
 package Dist::Zilla::Role::MetaProvider::Provider;
 
-our $VERSION = '2.000001';
+our $VERSION = '2.000002';
 
 # ABSTRACT: A Role for Metadata providers specific to the 'provider' key.
 
@@ -330,7 +330,7 @@ Dist::Zilla::Role::MetaProvider::Provider - A Role for Metadata providers specif
 
 =head1 VERSION
 
-version 2.000001
+version 2.000002
 
 =begin MetaPOD::JSON v1.1.0
 
@@ -351,7 +351,7 @@ L<Dist::Zilla::Role::MetaProvider>
 
 =head2 C<provides>
 
-Must return an array full of L<Dist::Zilla::MetaProvider::ProvideRecord>
+Must return an array full of L<Dist::Zilla::MetaProvides::ProvideRecord>
 instances.
 
 =head1 ATTRIBUTES / PARAMETERS
@@ -469,7 +469,7 @@ results returned from C<$self-E<gt>provides>.
 
 =item * L<Dist::Zilla::Plugin::MetaProvider>
 
-=item * L<Dist::Zilla::MetaProvider::ProvideRecord>
+=item * L<Dist::Zilla::MetaProvides::ProvideRecord>
 
 =back
 

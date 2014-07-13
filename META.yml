@@ -28,16 +28,16 @@ no_index:
 provides:
   Dist::Zilla::MetaProvides::ProvideRecord:
     file: lib/Dist/Zilla/MetaProvides/ProvideRecord.pm
-    version: '2.000001'
+    version: '2.000002'
   Dist::Zilla::MetaProvides::Types:
     file: lib/Dist/Zilla/MetaProvides/Types.pm
-    version: '2.000001'
+    version: '2.000002'
   Dist::Zilla::Plugin::MetaProvides:
     file: lib/Dist/Zilla/Plugin/MetaProvides.pm
-    version: '2.000001'
+    version: '2.000002'
   Dist::Zilla::Role::MetaProvider::Provider:
     file: lib/Dist/Zilla/Role/MetaProvider/Provider.pm
-    version: '2.000001'
+    version: '2.000002'
 requires:
   Dist::Zilla::Role::MetaProvider: '0'
   Hash::Merge::Simple: '0'
@@ -55,12 +55,12 @@ resources:
   bugtracker: https://github.com/kentfredric/Dist-Zilla-Plugin-MetaProvides/issues
   homepage: https://github.com/kentfredric/Dist-Zilla-Plugin-MetaProvides
   repository: https://github.com/kentfredric/Dist-Zilla-Plugin-MetaProvides.git
-version: '2.000001'
+version: '2.000002'
 x_BuiltWith:
   modules:
     CPAN::Meta: '2.141520'
     CPAN::Meta::Requirements: '2.125'
-    Dist::Zilla::App::Command::bakeini: '0.001000'
+    Dist::Zilla::App::Command::bakeini: '0.001001'
     Dist::Zilla::Plugin::Authority: '1.006'
     Dist::Zilla::Plugin::AutoPrereqs: '5.019'
     Dist::Zilla::Plugin::Bootstrap::lib: '1.000001'
@@ -105,7 +105,7 @@ x_BuiltWith:
     Dist::Zilla::Plugin::TestRelease: '5.019'
     Dist::Zilla::Plugin::Twitter: '0.025'
     Dist::Zilla::Plugin::UploadToCPAN: '5.019'
-    Dist::Zilla::PluginBundle::Author::KENTNL: '2.016001'
+    Dist::Zilla::PluginBundle::Author::KENTNL: '2.016002'
     Dist::Zilla::Role::MetaProvider: '5.019'
     Dist::Zilla::Util::Test::KENTNL: '1.000000'
     ExtUtils::MakeMaker: '6.98'
@@ -462,7 +462,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
           signed: 0
-          tag: 2.000001-source
+          tag: 2.000002-source
           tag_format: '%v-source'
           tag_message: v%v
           time_zone: local
@@ -516,7 +516,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: releases
           signed: 0
-          tag: '2.000001'
+          tag: '2.000002'
           tag_format: '%v'
           tag_message: v%v
           time_zone: local

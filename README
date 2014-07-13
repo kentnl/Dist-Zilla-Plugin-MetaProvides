@@ -3,7 +3,7 @@ NAME
     in your META.yml
 
 VERSION
-    version 2.000001
+    version 2.000002
 
 SYNOPSIS
     In your projects dist.ini
@@ -49,7 +49,7 @@ COMPONENT SUMMARY
   "::Package"
     Scans Dist::Zilla's ".pm" files and tries to identify more traditional
     packages using a combination of Module::Extract::VERSION and
-    Module::Extact::Namespaces.
+    Module::Extract::Namespaces.
 
     Dist::Zilla::Plugin::MetaProvides::Package
 
