@@ -4,6 +4,9 @@
  [00 Trivial]
  - Documentation/Spelling errors ( closes #2 )
 
+ [Dependencies::Stats]
+ - Dependencies changed since 2.000001, see misc/*.deps* for details
+ - develop: (suggests: ↑2)
 
 2.000001 2014-07-12T19:31:53Z
  [00 Trivial]
