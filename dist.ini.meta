@@ -28,6 +28,8 @@ srcreadme    = mkdn
 ;version_rel_hour  = 0
 ;version_rel_time_zone = Pacific/Auckland
 
+[Test::Pod::No404s]
+
 [Prereqs / RuntimeSuggests]
 Dist::Zilla::Plugin::MetaNoIndex = 0
 

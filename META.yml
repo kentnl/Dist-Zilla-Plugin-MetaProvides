@@ -60,7 +60,7 @@ x_BuiltWith:
   modules:
     CPAN::Meta: '2.141520'
     CPAN::Meta::Requirements: '2.125'
-    Dist::Zilla::App::Command::bakeini: '0.001000'
+    Dist::Zilla::App::Command::bakeini: '0.001001'
     Dist::Zilla::Plugin::Authority: '1.006'
     Dist::Zilla::Plugin::AutoPrereqs: '5.019'
     Dist::Zilla::Plugin::Bootstrap::lib: '1.000001'
@@ -105,7 +105,7 @@ x_BuiltWith:
     Dist::Zilla::Plugin::TestRelease: '5.019'
     Dist::Zilla::Plugin::Twitter: '0.025'
     Dist::Zilla::Plugin::UploadToCPAN: '5.019'
-    Dist::Zilla::PluginBundle::Author::KENTNL: '2.016001'
+    Dist::Zilla::PluginBundle::Author::KENTNL: '2.016002'
     Dist::Zilla::Role::MetaProvider: '5.019'
     Dist::Zilla::Util::Test::KENTNL: '1.000000'
     ExtUtils::MakeMaker: '6.98'
@@ -574,6 +574,10 @@ x_Dist_Zilla:
           type: requires
       name: '@Author::KENTNL/::Role::BundleDeps'
       version: '5.019'
+    -
+      class: Dist::Zilla::Plugin::Test::Pod::No404s
+      name: Test::Pod::No404s
+      version: '1.001'
     -
       class: Dist::Zilla::Plugin::Prereqs
       config:
