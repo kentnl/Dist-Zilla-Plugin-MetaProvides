@@ -5,13 +5,14 @@ author:
 build_requires:
   Dist::Zilla::Util::Test::KENTNL: '0.01000004'
   ExtUtils::MakeMaker: '0'
+  File::Spec: '0'
   File::Spec::Functions: '0'
   List::Util: '0'
   Scalar::Util: '0'
   Test::Fatal: '0'
   Test::More: '0.96'
   lib: '0'
-  version: '0'
+  version: '0.77'
 configure_requires:
   ExtUtils::MakeMaker: '6.30'
 dynamic_config: 0
@@ -52,18 +53,19 @@ requires:
   utf8: '0'
   warnings: '0'
 resources:
-  bugtracker: https://github.com/kentfredric/Dist-Zilla-Plugin-MetaProvides/issues
-  homepage: https://github.com/kentfredric/Dist-Zilla-Plugin-MetaProvides
-  repository: https://github.com/kentfredric/Dist-Zilla-Plugin-MetaProvides.git
+  bugtracker: https://github.com/kentnl/Dist-Zilla-Plugin-MetaProvides/issues
+  homepage: https://github.com/kentnl/Dist-Zilla-Plugin-MetaProvides
+  repository: https://github.com/kentnl/Dist-Zilla-Plugin-MetaProvides.git
 version: '2.000003'
 x_BuiltWith:
   modules:
     CPAN::Meta: '2.141520'
+    CPAN::Meta::Prereqs: '2.141520'
     CPAN::Meta::Requirements: '2.125'
     Dist::Zilla::App::Command::bakeini: '0.001001'
     Dist::Zilla::Plugin::Authority: '1.006'
     Dist::Zilla::Plugin::AutoPrereqs: '5.019'
-    Dist::Zilla::Plugin::Bootstrap::lib: '1.000001'
+    Dist::Zilla::Plugin::Bootstrap::lib: '1.000003'
     Dist::Zilla::Plugin::BumpVersionAfterRelease: '0.002'
     Dist::Zilla::Plugin::ConfirmRelease: '5.019'
     Dist::Zilla::Plugin::CopyFilesFromBuild: '0.103510'
@@ -72,7 +74,7 @@ x_BuiltWith:
     Dist::Zilla::Plugin::Git::Commit: '2.023'
     Dist::Zilla::Plugin::Git::CommitBuild: '2.023'
     Dist::Zilla::Plugin::Git::GatherDir: '2.023'
-    Dist::Zilla::Plugin::Git::NextRelease: '0.002010'
+    Dist::Zilla::Plugin::Git::NextRelease: '0.002011'
     Dist::Zilla::Plugin::Git::Tag: '2.023'
     Dist::Zilla::Plugin::GithubMeta: '0.46'
     Dist::Zilla::Plugin::License: '5.019'
@@ -80,10 +82,10 @@ x_BuiltWith:
     Dist::Zilla::Plugin::Manifest: '5.019'
     Dist::Zilla::Plugin::ManifestSkip: '5.019'
     Dist::Zilla::Plugin::MetaConfig: '5.019'
-    Dist::Zilla::Plugin::MetaData::BuiltWith: '1.000000'
+    Dist::Zilla::Plugin::MetaData::BuiltWith: '1.000001'
     Dist::Zilla::Plugin::MetaJSON: '5.019'
     Dist::Zilla::Plugin::MetaNoIndex: '5.019'
-    Dist::Zilla::Plugin::MetaProvides::Package: '2.000001'
+    Dist::Zilla::Plugin::MetaProvides::Package: '2.000002'
     Dist::Zilla::Plugin::MetaTests: '5.019'
     Dist::Zilla::Plugin::MetaYAML: '5.019'
     Dist::Zilla::Plugin::MinimumPerl: '1.003'
@@ -91,24 +93,25 @@ x_BuiltWith:
     Dist::Zilla::Plugin::PodSyntaxTests: '5.019'
     Dist::Zilla::Plugin::PodWeaver: '4.005'
     Dist::Zilla::Plugin::Prereqs: '5.019'
-    Dist::Zilla::Plugin::Prereqs::Recommend::MatchInstalled: '0.001000'
+    Dist::Zilla::Plugin::Prereqs::Recommend::MatchInstalled: '0.002000'
     Dist::Zilla::Plugin::ReadmeAnyFromPod: '0.141760'
     Dist::Zilla::Plugin::ReadmeFromPod: '0.21'
-    Dist::Zilla::Plugin::RewriteVersion::Sanitized: '0.001000'
-    Dist::Zilla::Plugin::RunExtraTests: '0.021'
+    Dist::Zilla::Plugin::RewriteVersion::Sanitized: '0.001001'
+    Dist::Zilla::Plugin::RunExtraTests: '0.022'
     Dist::Zilla::Plugin::Test::CPAN::Changes: '0.008'
-    Dist::Zilla::Plugin::Test::Compile::PerFile: '0.002000'
+    Dist::Zilla::Plugin::Test::Compile::PerFile: '0.002001'
     Dist::Zilla::Plugin::Test::Kwalitee: '2.07'
     Dist::Zilla::Plugin::Test::MinimumVersion: '2.000005'
     Dist::Zilla::Plugin::Test::Perl::Critic: '2.112410'
-    Dist::Zilla::Plugin::Test::ReportPrereqs: '0.013'
+    Dist::Zilla::Plugin::Test::ReportPrereqs: '0.014'
     Dist::Zilla::Plugin::TestRelease: '5.019'
     Dist::Zilla::Plugin::Twitter: '0.025'
     Dist::Zilla::Plugin::UploadToCPAN: '5.019'
-    Dist::Zilla::PluginBundle::Author::KENTNL: '2.016002'
+    Dist::Zilla::PluginBundle::Author::KENTNL: '2.016004'
     Dist::Zilla::Role::MetaProvider: '5.019'
-    Dist::Zilla::Util::Test::KENTNL: '1.000000'
+    Dist::Zilla::Util::Test::KENTNL: '1.000001'
     ExtUtils::MakeMaker: '6.98'
+    File::Spec: '3.48'
     File::Spec::Functions: '3.48'
     Hash::Merge::Simple: '0.051'
     List::Util: '1.39'
@@ -122,10 +125,10 @@ x_BuiltWith:
     Test::CPAN::Changes: '0.28'
     Test::CPAN::Meta: '0.23'
     Test::Fatal: '0.013'
-    Test::Kwalitee: '1.18'
+    Test::Kwalitee: '1.19'
     Test::More: '1.001003'
     Test::Pod: '1.48'
-    Test::Pod::Coverage: '1.08'
+    Test::Pod::Coverage: '1.10'
     lib: '0.63'
     namespace::autoclean: '0.19'
     strict: '1.08'
@@ -158,7 +161,7 @@ x_Dist_Zilla:
           try_built: '1'
           try_built_method: mtime
       name: Bootstrap::lib
-      version: '1.000001'
+      version: '1.000003'
     -
       class: Dist::Zilla::Plugin::MetaConfig
       name: '@Author::KENTNL/MetaConfig'
@@ -181,7 +184,7 @@ x_Dist_Zilla:
           inherit_version: '1'
           meta_noindex: '1'
       name: '@Author::KENTNL/MetaProvides::Package'
-      version: '2.000001'
+      version: '2.000002'
     -
       class: Dist::Zilla::Plugin::MetaData::BuiltWith
       config:
@@ -198,7 +201,7 @@ x_Dist_Zilla:
               - -i
             uname_call: uname
       name: '@Author::KENTNL/MetaData::BuiltWith'
-      version: '1.000000'
+      version: '1.000001'
     -
       class: Dist::Zilla::Plugin::Git::GatherDir
       config:
@@ -243,7 +246,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Test::ReportPrereqs
       name: '@Author::KENTNL/Test::ReportPrereqs'
-      version: '0.013'
+      version: '0.014'
     -
       class: Dist::Zilla::Plugin::Test::Kwalitee
       name: '@Author::KENTNL/Test::Kwalitee'
@@ -275,7 +278,7 @@ x_Dist_Zilla:
           test_template: 01-basic.t.tpl
           xt_mode: ~
       name: '@Author::KENTNL/Test::Compile::PerFile'
-      version: '0.002000'
+      version: '0.002001'
     -
       class: Dist::Zilla::Plugin::Test::Perl::Critic
       name: '@Author::KENTNL/Test::Perl::Critic'
@@ -291,7 +294,7 @@ x_Dist_Zilla:
           mantissa: '6'
           normal_form: numify
       name: '@Author::KENTNL/RewriteVersion::Sanitized'
-      version: '0.001000'
+      version: '0.001001'
     -
       class: Dist::Zilla::Plugin::PodWeaver
       config:
@@ -415,7 +418,7 @@ x_Dist_Zilla:
         Dist::Zilla::Role::TestRunner:
           default_jobs: '10'
       name: '@Author::KENTNL/RunExtraTests'
-      version: '0.021'
+      version: '0.022'
     -
       class: Dist::Zilla::Plugin::TestRelease
       name: '@Author::KENTNL/TestRelease'
@@ -473,7 +476,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Git::NextRelease
       name: '@Author::KENTNL/Git::NextRelease'
-      version: '0.002010'
+      version: '0.002011'
     -
       class: Dist::Zilla::Plugin::BumpVersionAfterRelease
       name: '@Author::KENTNL/BumpVersionAfterRelease'
@@ -552,7 +555,7 @@ x_Dist_Zilla:
             - ExtUtils::MakeMaker
             - Test::More
       name: '@Author::KENTNL/Prereqs::Recommend::MatchInstalled'
-      version: '0.001000'
+      version: '0.002000'
     -
       class: Dist::Zilla::Plugin::Prereqs::Recommend::MatchInstalled
       config:
@@ -565,7 +568,7 @@ x_Dist_Zilla:
             - Dist::Zilla::PluginBundle::Author::KENTNL
             - Dist::Zilla::App::Command::bakeini
       name: '@Author::KENTNL/always_latest_develop_bundle'
-      version: '0.001000'
+      version: '0.002000'
     -
       class: Dist::Zilla::Plugin::Prereqs
       config:

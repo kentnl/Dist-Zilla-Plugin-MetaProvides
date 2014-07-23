@@ -35,13 +35,14 @@ my %WriteMakefileArgs = (
   "TEST_REQUIRES" => {
     "Dist::Zilla::Util::Test::KENTNL" => "0.01000004",
     "ExtUtils::MakeMaker" => 0,
+    "File::Spec" => 0,
     "File::Spec::Functions" => 0,
     "List::Util" => 0,
     "Scalar::Util" => 0,
     "Test::Fatal" => 0,
     "Test::More" => "0.96",
     "lib" => 0,
-    "version" => 0
+    "version" => "0.77"
   },
   "VERSION" => "2.000003",
   "test" => {
@@ -54,6 +55,7 @@ my %FallbackPrereqs = (
   "Dist::Zilla::Role::MetaProvider" => 0,
   "Dist::Zilla::Util::Test::KENTNL" => "0.01000004",
   "ExtUtils::MakeMaker" => 0,
+  "File::Spec" => 0,
   "File::Spec::Functions" => 0,
   "Hash::Merge::Simple" => 0,
   "List::Util" => 0,
@@ -69,7 +71,7 @@ my %FallbackPrereqs = (
   "namespace::autoclean" => 0,
   "strict" => 0,
   "utf8" => 0,
-  "version" => 0,
+  "version" => "0.77",
   "warnings" => 0
 );
 
