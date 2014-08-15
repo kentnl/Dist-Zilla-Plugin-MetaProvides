@@ -2,6 +2,7 @@
 
 {{$NEXT}}
  [00 Trivial]
+ - CPANDAY!
  - metdata changes.
  - tests augmented.
  - whitespace adjusted.
