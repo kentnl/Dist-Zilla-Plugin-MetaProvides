@@ -29,7 +29,7 @@ use namespace::autoclean;
 
 =cut
 
-=head1 PERFORMS ROLES
+=performs MetaProvider
 
 L<Dist::Zilla::Role::MetaProvider>
 
@@ -37,9 +37,7 @@ L<Dist::Zilla::Role::MetaProvider>
 
 with 'Dist::Zilla::Role::MetaProvider';
 
-=head1 REQUIRED METHODS FOR PERFORMING ROLES
-
-=head2 C<provides>
+=requires C<provides>
 
 Must return an array full of L<Dist::Zilla::MetaProvides::ProvideRecord>
 instances.
@@ -48,9 +46,7 @@ instances.
 
 requires 'provides';
 
-=head1 ATTRIBUTES / PARAMETERS
-
-=head2 C<inherit_version>
+=attr C<inherit_version>
 
 This dictates how to report versions.
 
@@ -79,7 +75,7 @@ has inherit_version => (
   documentation => 'Whether or not to treat the global version as an authority',
 );
 
-=head2 C<inherit_missing>
+=attr C<inherit_missing>
 
 This dictates how to react when a class is discovered but a version is not
 specified.
@@ -109,7 +105,7 @@ How to behave when we are trusting modules to have versions and one is missing o
 DOC
 );
 
-=head2 C<meta_noindex>
+=attr C<meta_noindex>
 
 This dictates how to behave when a discovered class is also present in the C<no_index> META field.
 
@@ -139,9 +135,7 @@ Scan for the meta_noindex metadata key and do not add provides records for thing
 DOC
 );
 
-=head1 PRIVATE METHODS
-
-=head2 C<_resolve_version>
+=pmethod C<_resolve_version>
 
 This is a utility method to make performing classes life easier in adhering to
 user requirements.
@@ -173,7 +167,7 @@ sub _resolve_version {
   return ( 'version', $version );
 }
 
-=head2 C<_try_regen_metadata>
+=pmethod C<_try_regen_metadata>
 
 This is a nasty hack really, to work around the way L<< C<Dist::Zilla>|Dist::Zilla >> handles
 metaproviders, which result in meta-data being inaccessible to metadata Plugins.
@@ -200,7 +194,7 @@ sub _try_regen_metadata {
   return $meta;
 }
 
-=head2 C<_apply_meta_noindex>
+=pmethod C<_apply_meta_noindex>
 
 This is a utility method to make performing classes life easier in skipping no_index entries.
 
@@ -273,9 +267,7 @@ around dump_config => sub {
 
 };
 
-=head1 PUBLIC METHODS
-
-=head2 C<metadata>
+=method C<metadata>
 
 Fulfills the requirement of L<Dist::Zilla::Role::MetaProvider> by processing
 results returned from C<$self-E<gt>provides>.
@@ -290,6 +282,10 @@ sub metadata {
   }
   return { provides => $discover };
 }
+
+no Moose::Role;
+
+1;
 
 =head1 SEE ALSO
 
@@ -313,8 +309,3 @@ for compatibility with MetaNoIndex plugin.
 =back
 
 =cut
-
-no Moose::Role;
-
-1;
-

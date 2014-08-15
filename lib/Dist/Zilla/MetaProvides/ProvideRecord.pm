@@ -29,9 +29,7 @@ use namespace::autoclean;
 
 =cut
 
-=head1 ATTRIBUTES
-
-=head2 version
+=attr version
 
 See L<Dist::Zilla::MetaProvides::Types/ModVersion>
 
@@ -39,7 +37,7 @@ See L<Dist::Zilla::MetaProvides::Types/ModVersion>
 
 has version => ( isa => ModVersion, is => 'ro', required => 1 );
 
-=head2 module
+=attr module
 
 The String Name of a fully qualified module to be reported as
 included in the distribution.
@@ -48,7 +46,7 @@ included in the distribution.
 
 has module => ( isa => Str, is => 'ro', required => 1 );
 
-=head2 file
+=attr file
 
 The String Name of the file as to be reported in the distribution.
 
@@ -56,7 +54,7 @@ The String Name of the file as to be reported in the distribution.
 
 has file => ( isa => Str, is => 'ro', required => 1 );
 
-=head2 parent
+=attr parent
 
 A L<Dist::Zilla::MetaProvides::Types/ProviderObject>, mostly to get Zilla information
 and accessors from L<Dist::Zilla::Role::MetaProvider::Provider>
@@ -71,9 +69,7 @@ has parent => (
   handles  => [ 'zilla', '_resolve_version', ],
 );
 
-=head1 METHODS
-
-=head2 copy_into C<( \%provides_list )>
+=method copy_into C<( \%provides_list )>
 
 Populate the referenced C<%provides_list> with data from this Provide Record object.
 
@@ -104,4 +100,3 @@ __PACKAGE__->meta->make_immutable;
 no Moose;
 
 1;
-

@@ -26,9 +26,7 @@ our $VERSION = '2.000003';
 use MooseX::Types::Moose qw( Str Undef Object );
 use MooseX::Types -declare => [qw( ModVersion ProviderObject )];
 
-=head1 SUBTYPES
-
-=head2 ModVersion
+=subtype ModVersion
 
 Module Versions can be either a string, or an undef.
 
@@ -41,13 +39,15 @@ undef will be trimmed from output.
 ## no critic (Bangs::ProhibitBitwiseOperators)
 subtype ModVersion, as Str | Undef;
 
-=head2 ProviderObject
+=subtype ProviderObject
 
 Just an easy to use Check that assures a given object performs a role.
 
 =cut
 
 subtype ProviderObject, as Object, where { $_->does('Dist::Zilla::Role::MetaProvider::Provider') };
+
+1;
 
 =head1 SEE ALSO
 
@@ -64,6 +64,3 @@ subtype ProviderObject, as Object, where { $_->does('Dist::Zilla::Role::MetaProv
 =back
 
 =cut
-
-1;
-
