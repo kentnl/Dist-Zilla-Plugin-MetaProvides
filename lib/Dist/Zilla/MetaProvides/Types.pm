@@ -36,8 +36,6 @@ use MooseX::Types -declare => [qw( ModVersion ProviderObject )];
 
 
 
-
-
 ## no critic (Bangs::ProhibitBitwiseOperators)
 subtype ModVersion, as Str | Undef;
 
@@ -48,22 +46,6 @@ subtype ModVersion, as Str | Undef;
 
 
 subtype ProviderObject, as Object, where { $_->does('Dist::Zilla::Role::MetaProvider::Provider') };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 1;
 
@@ -81,17 +63,6 @@ Dist::Zilla::MetaProvides::Types - Utility Types for the MetaProvides Plugin
 
 version 2.000003
 
-=begin MetaPOD::JSON v1.1.0
-
-{
-    "namespace":"Dist::Zilla::MetaProvides::Types",
-    "interface":"exporter",
-    "inherits":"MooseX::Types::Base"
-}
-
-
-=end MetaPOD::JSON
-
 =head1 SUBTYPES
 
 =head2 ModVersion
@@ -105,6 +76,17 @@ undef will be trimmed from output.
 =head2 ProviderObject
 
 Just an easy to use Check that assures a given object performs a role.
+
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Dist::Zilla::MetaProvides::Types",
+    "interface":"exporter",
+    "inherits":"MooseX::Types::Base"
+}
+
+
+=end MetaPOD::JSON
 
 =head1 SEE ALSO
 
