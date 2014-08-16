@@ -1,6 +1,8 @@
 ﻿Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+2.000003 2014-08-16T00:11:28Z
  [00 Trivial]
  - CPANDAY!
  - metdata changes.
