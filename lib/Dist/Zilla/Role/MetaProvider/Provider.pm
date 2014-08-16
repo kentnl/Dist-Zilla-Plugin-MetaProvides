@@ -5,7 +5,7 @@ use utf8;
 
 package Dist::Zilla::Role::MetaProvider::Provider;
 
-our $VERSION = '2.000002';
+our $VERSION = '2.000003';
 
 # ABSTRACT: A Role for Metadata providers specific to the 'provider' key.
 
@@ -44,11 +44,7 @@ with 'Dist::Zilla::Role::MetaProvider';
 
 
 
-
-
 requires 'provides';
-
-
 
 
 
@@ -138,8 +134,6 @@ has meta_noindex => (
 Scan for the meta_noindex metadata key and do not add provides records for things in it
 DOC
 );
-
-
 
 
 
@@ -280,8 +274,6 @@ around dump_config => sub {
 
 
 
-
-
 sub metadata {
   my ($self) = @_;
   my $discover = {};
@@ -290,29 +282,6 @@ sub metadata {
   }
   return { provides => $discover };
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 no Moose::Role;
 
@@ -330,29 +299,14 @@ Dist::Zilla::Role::MetaProvider::Provider - A Role for Metadata providers specif
 
 =head1 VERSION
 
-version 2.000002
+version 2.000003
 
-=begin MetaPOD::JSON v1.1.0
+=head1 PUBLIC METHODS
 
-{
-    "namespace":"Dist::Zilla::Role::MetaProvider::Provider",
-    "interface":"role",
-    "does":"Dist::Zilla::Role::MetaProvider"
-}
+=head2 C<metadata>
 
-
-=end MetaPOD::JSON
-
-=head1 PERFORMS ROLES
-
-L<Dist::Zilla::Role::MetaProvider>
-
-=head1 REQUIRED METHODS FOR PERFORMING ROLES
-
-=head2 C<provides>
-
-Must return an array full of L<Dist::Zilla::MetaProvides::ProvideRecord>
-instances.
+Fulfills the requirement of L<Dist::Zilla::Role::MetaProvider> by processing
+results returned from C<$self-E<gt>provides>.
 
 =head1 ATTRIBUTES / PARAMETERS
 
@@ -414,6 +368,19 @@ to not be provided in the metadata.
 
 =back
 
+=head1 PERFORMS ROLES
+
+=head2 MetaProvider
+
+L<Dist::Zilla::Role::MetaProvider>
+
+=head1 REQUIRED METHODS FOR PERFORMING ROLES
+
+=head2 C<provides>
+
+Must return an array full of L<Dist::Zilla::MetaProvides::ProvideRecord>
+instances.
+
 =head1 PRIVATE METHODS
 
 =head2 C<_resolve_version>
@@ -454,12 +421,16 @@ is the suggested use.
 
 Returns either an empty list, or a list of C<ProvideRecord>'s
 
-=head1 PUBLIC METHODS
+=begin MetaPOD::JSON v1.1.0
 
-=head2 C<metadata>
+{
+    "namespace":"Dist::Zilla::Role::MetaProvider::Provider",
+    "interface":"role",
+    "does":"Dist::Zilla::Role::MetaProvider"
+}
 
-Fulfills the requirement of L<Dist::Zilla::Role::MetaProvider> by processing
-results returned from C<$self-E<gt>provides>.
+
+=end MetaPOD::JSON
 
 =head1 SEE ALSO
 

@@ -5,7 +5,7 @@ use utf8;
 
 package Dist::Zilla::MetaProvides::ProvideRecord;
 
-our $VERSION = '2.000002';
+our $VERSION = '2.000003';
 
 # ABSTRACT: Data Management Record for MetaProvider::Provides Based Class
 
@@ -16,8 +16,6 @@ use MooseX::Types::Moose qw( Str );
 use Dist::Zilla::MetaProvides::Types qw( ModVersion ProviderObject );
 
 use namespace::autoclean;
-
-
 
 
 
@@ -88,8 +86,6 @@ has parent => (
 
 
 
-
-
 sub copy_into {
   my $self  = shift;
   my $dlist = shift;
@@ -117,20 +113,26 @@ Dist::Zilla::MetaProvides::ProvideRecord - Data Management Record for MetaProvid
 
 =head1 VERSION
 
-version 2.000002
+version 2.000003
 
-=begin MetaPOD::JSON v1.1.0
+=head1 PUBLIC METHODS
 
-{
-    "namespace":"Dist::Zilla::MetaProvides::ProvideRecord",
-    "interface":"class",
-    "inherits":"Moose::Object"
-}
+=head2 copy_into C<( \%provides_list )>
 
+Populate the referenced C<%provides_list> with data from this Provide Record object.
 
-=end MetaPOD::JSON
+This is called by the  L<Dist::Zilla::Role::MetaProvider::Provider> Role.
 
-=head1 ATTRIBUTES
+This is very convenient if you have an array full of these objects, for you can just do
+
+    my %discovered;
+    for ( @array ) {
+       $_->copy_into( \%discovered );
+    }
+
+and C<%discovered> will be populated with relevant data.
+
+=head1 ATTRIBUTES / PARAMETERS
 
 =head2 version
 
@@ -150,22 +152,16 @@ The String Name of the file as to be reported in the distribution.
 A L<Dist::Zilla::MetaProvides::Types/ProviderObject>, mostly to get Zilla information
 and accessors from L<Dist::Zilla::Role::MetaProvider::Provider>
 
-=head1 METHODS
+=begin MetaPOD::JSON v1.1.0
 
-=head2 copy_into C<( \%provides_list )>
+{
+    "namespace":"Dist::Zilla::MetaProvides::ProvideRecord",
+    "interface":"class",
+    "inherits":"Moose::Object"
+}
 
-Populate the referenced C<%provides_list> with data from this Provide Record object.
 
-This is called by the  L<Dist::Zilla::Role::MetaProvider::Provider> Role.
-
-This is very convenient if you have an array full of these objects, for you can just do
-
-    my %discovered;
-    for ( @array ) {
-       $_->copy_into( \%discovered );
-    }
-
-and C<%discovered> will be populated with relevant data.
+=end MetaPOD::JSON
 
 =head1 AUTHOR
 

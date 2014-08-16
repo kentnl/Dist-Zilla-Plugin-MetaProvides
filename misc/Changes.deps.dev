@@ -1,6 +1,13 @@
 This file contains changes to DEVELOPMENT dependencies only ( both REQUIRED and OPTIONAL )
 
-2.000002
+2.000003
+ [Added / develop requires]
+ - Dist::Zilla::Plugin::Git::Contributors 0.006
+
+ [Changed / develop suggests]
+ - Dist::Zilla::PluginBundle::Author::KENTNL 2.016002 → 2.017002
+
+2.000002 2014-07-13T12:27:14Z
  [Changed / develop suggests]
  - Dist::Zilla::App::Command::bakeini 0.001000 → 0.001001
  - Dist::Zilla::PluginBundle::Author::KENTNL 2.016001 → 2.016002
