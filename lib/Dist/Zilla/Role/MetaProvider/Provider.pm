@@ -368,6 +368,12 @@ to not be provided in the metadata.
 
 =back
 
+=head1 PERFORMS ROLES
+
+=head2 MetaProvider
+
+L<Dist::Zilla::Role::MetaProvider>
+
 =head1 REQUIRED METHODS FOR PERFORMING ROLES
 
 =head2 C<provides>
@@ -425,10 +431,6 @@ Returns either an empty list, or a list of C<ProvideRecord>'s
 
 
 =end MetaPOD::JSON
-
-=performs MetaProvider
-
-L<Dist::Zilla::Role::MetaProvider>
 
 =head1 SEE ALSO
 
