@@ -20,7 +20,7 @@ $bundle->configure;
 
 my @stopwords = (
   qw(
-    Zilla accessors MetaProvides Plugin ModVersion undef ProviderObject yml ini metadata mungers hashref plugins parseable YAML metaproviders Plugins ProvideRecord's xdg DAGOLDEN MetaNoIndex plugin SUBTYPES recognised
+    Zilla accessors MetaProvides MetaProvider Plugin ModVersion undef ProviderObject yml ini metadata mungers hashref plugins parseable YAML metaproviders Plugins ProvideRecord's xdg DAGOLDEN MetaNoIndex plugin SUBTYPES recognised
     )
 );
 for my $wordlist (@stopwords) {
