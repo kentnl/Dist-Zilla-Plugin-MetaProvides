@@ -5,7 +5,7 @@ use utf8;
 
 package Dist::Zilla::Role::MetaProvider::Provider;
 
-our $VERSION = '2.000004';
+our $VERSION = '2.000011';
 
 # ABSTRACT: A Role for Metadata providers specific to the 'provider' key.
 
