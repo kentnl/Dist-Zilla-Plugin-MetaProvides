@@ -129,19 +129,19 @@
    "provides" : {
       "Dist::Zilla::MetaProvides::ProvideRecord" : {
          "file" : "lib/Dist/Zilla/MetaProvides/ProvideRecord.pm",
-         "version" : "2.000004"
+         "version" : "2.000010"
       },
       "Dist::Zilla::MetaProvides::Types" : {
          "file" : "lib/Dist/Zilla/MetaProvides/Types.pm",
-         "version" : "2.000004"
+         "version" : "2.000010"
       },
       "Dist::Zilla::Plugin::MetaProvides" : {
          "file" : "lib/Dist/Zilla/Plugin/MetaProvides.pm",
-         "version" : "2.000004"
+         "version" : "2.000010"
       },
       "Dist::Zilla::Role::MetaProvider::Provider" : {
          "file" : "lib/Dist/Zilla/Role/MetaProvider/Provider.pm",
-         "version" : "2.000004"
+         "version" : "2.000010"
       }
    },
    "release_status" : "stable",
@@ -156,7 +156,7 @@
          "web" : "https://github.com/kentnl/Dist-Zilla-Plugin-MetaProvides"
       }
    },
-   "version" : "2.000004",
+   "version" : "2.000010",
    "x_BuiltWith" : {
       "modules" : {
          "CPAN::Meta" : "2.142060",
@@ -709,7 +709,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : null,
                   "signed" : 0,
-                  "tag" : "2.000004-source",
+                  "tag" : "2.000010-source",
                   "tag_format" : "%v-source",
                   "tag_message" : "v%v",
                   "time_zone" : "local"
@@ -780,7 +780,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : "releases",
                   "signed" : 0,
-                  "tag" : "2.000004",
+                  "tag" : "2.000010",
                   "tag_format" : "%v",
                   "tag_message" : "v%v",
                   "time_zone" : "local"
