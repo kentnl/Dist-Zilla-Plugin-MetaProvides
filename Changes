@@ -8,6 +8,7 @@
 
  [Tests]
  - reimplemented in terms of my newish tester util
+ - some tests split into smaller tests.
 
 2.000003 2014-08-16T00:11:28Z
  [00 Trivial]
