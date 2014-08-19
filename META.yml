@@ -26,16 +26,16 @@ no_index:
 provides:
   Dist::Zilla::MetaProvides::ProvideRecord:
     file: lib/Dist/Zilla/MetaProvides/ProvideRecord.pm
-    version: '2.000010'
+    version: '2.000011'
   Dist::Zilla::MetaProvides::Types:
     file: lib/Dist/Zilla/MetaProvides/Types.pm
-    version: '2.000010'
+    version: '2.000011'
   Dist::Zilla::Plugin::MetaProvides:
     file: lib/Dist/Zilla/Plugin/MetaProvides.pm
-    version: '2.000010'
+    version: '2.000011'
   Dist::Zilla::Role::MetaProvider::Provider:
     file: lib/Dist/Zilla/Role/MetaProvider/Provider.pm
-    version: '2.000010'
+    version: '2.000011'
 requires:
   Dist::Zilla::Role::MetaProvider: '0'
   Hash::Merge::Simple: '0'
@@ -52,7 +52,7 @@ resources:
   bugtracker: https://github.com/kentnl/Dist-Zilla-Plugin-MetaProvides/issues
   homepage: https://github.com/kentnl/Dist-Zilla-Plugin-MetaProvides
   repository: https://github.com/kentnl/Dist-Zilla-Plugin-MetaProvides.git
-version: '2.000010'
+version: '2.000011'
 x_BuiltWith:
   modules:
     CPAN::Meta: '2.142060'
@@ -495,7 +495,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
           signed: '0'
-          tag: 2.000010-source
+          tag: 2.000011-source
           tag_format: '%v-source'
           tag_message: v%v
           time_zone: local
@@ -549,7 +549,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: releases
           signed: '0'
-          tag: '2.000010'
+          tag: '2.000011'
           tag_format: '%v'
           tag_message: v%v
           time_zone: local

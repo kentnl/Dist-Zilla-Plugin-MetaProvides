@@ -1,5 +1,7 @@
 ﻿Revision history for Dist-Zilla-Plugin-MetaProvides
 
+2.000011 2014-08-19T01:27:18Z
+
 2.000010 2014-08-19T01:26:37Z
  [Code]
  - Remove unused Readonly stuff.
