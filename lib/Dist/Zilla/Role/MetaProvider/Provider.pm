@@ -13,8 +13,6 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 use Moose::Role qw( with requires has around );
 use MooseX::Types::Moose qw( Bool );
-use Readonly qw( Readonly );
-Readonly my $MIN_EMULATE_PHASE_VERSION => 0.01000101;
 use namespace::autoclean;
 
 
