@@ -11,8 +11,6 @@ Makefile.PL
 README
 dist.ini
 dist.ini.meta
-layout/self_structure.dot
-layout/self_structure.png
 lib/Dist/Zilla/MetaProvides/ProvideRecord.pm
 lib/Dist/Zilla/MetaProvides/Types.pm
 lib/Dist/Zilla/Plugin/MetaProvides.pm
