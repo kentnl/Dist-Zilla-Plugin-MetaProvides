@@ -5,7 +5,7 @@ use utf8;
 
 package Dist::Zilla::Plugin::MetaProvides;
 
-our $VERSION = '2.000004';
+our $VERSION = '2.000010';
 
 # ABSTRACT: Generating and Populating 'provides' in your META.yml
 
