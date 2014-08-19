@@ -5,7 +5,7 @@ use utf8;
 
 package Dist::Zilla::Role::MetaProvider::Provider;
 
-our $VERSION = '2.000003';
+our $VERSION = '2.000010';
 
 # ABSTRACT: A Role for Metadata providers specific to the 'provider' key.
 
@@ -13,8 +13,6 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 use Moose::Role qw( with requires has around );
 use MooseX::Types::Moose qw( Bool );
-use Readonly qw( Readonly );
-Readonly my $MIN_EMULATE_PHASE_VERSION => 0.01000101;
 use namespace::autoclean;
 
 
@@ -299,7 +297,59 @@ Dist::Zilla::Role::MetaProvider::Provider - A Role for Metadata providers specif
 
 =head1 VERSION
 
-version 2.000003
+version 2.000010
+
+=head1 QUICK REFERENCE
+
+  ->new(options={})
+    inherit_version => ?attr
+    inherit_missing => ?attr
+    meta_noindex    => ?attr
+
+  [>] provides
+  ->inherit_version               # Bool = 1
+  ->inherit_missing               # Bool = 1
+  ->meta_noindex                  # Bool = 1
+  ->_resolve_version( $version )  # ( 'version' , $resolved )
+                                  # ()
+  ->_try_regen_meta               # HashRef
+  ->_apply_meta_noindex( @items ) # Modified @items
+  ->dumpconfig                    # HashRef
+  ->metadata                      # { provides => ... }
+
+  -~- Dist::Zilla::Role::MetaProvider
+  [>] metadata
+
+  -~- Dist::Zilla::Role::Plugin
+  ->new(options={})
+    plugin_name => ^attr
+    zilla       => ^attr
+    logger      => ?attr
+
+  ->plugin_name                                 # Str
+  ->zilla                                       # DZil
+  ->logger                                      #
+  ->log                                         # via logger
+  ->log_debug                                   # via logger
+  ->log_fatal                                   # via logger
+  ->mvp_multivalue_args                         # ArrayRef
+  ->mvp_aliases                                 # HashRef
+  ->plugin_from_config( $name, $arg, $section ) # Instance
+  ->register_component( $name, $arg, $section );
+
+=over 4
+
+=item * C<Dist::Zilla::Role::MetaProvider> : L<<
+C<Dist::Zilla::Role::MetaProvider>
+|Dist::Zilla::Role::MetaProvider
+>>
+
+=item * C<Dist::Zilla::Role::Plugin> : L<<
+C<Dist::Zilla::Role::Plugin>
+|Dist::Zilla::Role::Plugin
+>>
+
+=back
 
 =head1 PUBLIC METHODS
 

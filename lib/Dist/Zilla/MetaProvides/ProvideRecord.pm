@@ -5,7 +5,7 @@ use utf8;
 
 package Dist::Zilla::MetaProvides::ProvideRecord;
 
-our $VERSION = '2.000003';
+our $VERSION = '2.000010';
 
 # ABSTRACT: Data Management Record for MetaProvider::Provides Based Class
 
@@ -113,7 +113,44 @@ Dist::Zilla::MetaProvides::ProvideRecord - Data Management Record for MetaProvid
 
 =head1 VERSION
 
-version 2.000003
+version 2.000010
+
+=head1 QUICK REFERENCE
+
+  ->new(options={})
+    version => ^attr
+    module  => ^attr
+    file    => ^attr
+    parent  => ^attr
+
+  ->version                         # ModVersion
+  ->module                          # Str
+  ->file                            # Str
+  ->parent                          # ProviderObject
+  ->zilla                           # DZil
+                                    # - via parent
+  ->_resolve_version($pkgversion)   # ( 'version', $resolved )
+                                    # - via parent
+  ->copy_into( $hash )
+
+=over 4
+
+=item * C<ProviderObject> : L<<
+C<Dist::Zilla::MetaProvides::Types>
+|Dist::Zilla::MetaProvides::Types/ProviderObject
+>>
+
+=item * C<ProviderObject> : L<<
+C<Dist::Zilla::Role::MetaProvider::Provider>
+|Dist::Zilla::Role::MetaProvider::Provider
+>>
+
+=item * C<ModVersion> : L<<
+C<Dist::Zilla::MetaProvides::Types>
+|Dist::Zilla::MetaProvides::Types/ModVersion
+>>
+
+=back
 
 =head1 PUBLIC METHODS
 

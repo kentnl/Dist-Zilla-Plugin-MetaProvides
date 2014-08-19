@@ -26,31 +26,31 @@ my %WriteMakefileArgs = (
     "Moose::Role" => 0,
     "MooseX::Types" => 0,
     "MooseX::Types::Moose" => 0,
-    "Readonly" => 0,
     "namespace::autoclean" => 0,
     "strict" => 0,
     "utf8" => 0,
     "warnings" => 0
   },
   "TEST_REQUIRES" => {
-    "Dist::Zilla::Util::Test::KENTNL" => "0.01000004",
+    "Dist::Zilla::Util::Test::KENTNL" => "1.001",
     "ExtUtils::MakeMaker" => 0,
     "File::Spec" => 0,
     "Scalar::Util" => 0,
+    "Test::DZil" => 0,
     "Test::Fatal" => 0,
     "Test::More" => "0.96",
     "lib" => 0
   },
-  "VERSION" => "2.000003",
+  "VERSION" => "2.000010",
   "test" => {
-    "TESTS" => "t/*.t t/00-compile/*.t"
+    "TESTS" => "t/*.t t/00-compile/*.t t/01-Provider/*.t"
   }
 );
 
 
 my %FallbackPrereqs = (
   "Dist::Zilla::Role::MetaProvider" => 0,
-  "Dist::Zilla::Util::Test::KENTNL" => "0.01000004",
+  "Dist::Zilla::Util::Test::KENTNL" => "1.001",
   "ExtUtils::MakeMaker" => 0,
   "File::Spec" => 0,
   "Hash::Merge::Simple" => 0,
@@ -58,8 +58,8 @@ my %FallbackPrereqs = (
   "Moose::Role" => 0,
   "MooseX::Types" => 0,
   "MooseX::Types::Moose" => 0,
-  "Readonly" => 0,
   "Scalar::Util" => 0,
+  "Test::DZil" => 0,
   "Test::Fatal" => 0,
   "Test::More" => "0.96",
   "lib" => 0,

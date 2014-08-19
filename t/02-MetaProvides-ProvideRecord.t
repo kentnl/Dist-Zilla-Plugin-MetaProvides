@@ -4,17 +4,15 @@ use warnings;
 use Test::More 0.96;
 use lib 't/lib';
 
-use Dist::Zilla::Util::Test::KENTNL qw( test_config );
+use Dist::Zilla::Util::Test::KENTNL qw( dztest );
 use Dist::Zilla::MetaProvides::ProvideRecord;
 use Test::Fatal;
+use Test::DZil qw( simple_ini );
 use Scalar::Util qw( refaddr );
 
-my $fake_dzil = test_config(
-  {
-    dist_root => 'corpus/dist/DZT',
-    ini       => [ 'GatherDir', [ 'Prereqs' => { 'Test::Simple' => '0.88' } ], [ 'FakePlugin' => {} ] ],
-  }
-);
+my $test = dztest();
+$test->add_file( 'dist.ini', simple_ini( [ 'FakePlugin' => {} ] ) );
+my $fake_dzil = $test->builder;
 
 my $record;
 

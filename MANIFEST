@@ -9,12 +9,8 @@ META.json
 META.yml
 Makefile.PL
 README
-corpus/dist/DZT/lib/DZT/Sample.pm
-corpus/dist/DZT/t/basic.t
 dist.ini
 dist.ini.meta
-layout/self_structure.dot
-layout/self_structure.png
 lib/Dist/Zilla/MetaProvides/ProvideRecord.pm
 lib/Dist/Zilla/MetaProvides/Types.pm
 lib/Dist/Zilla/Plugin/MetaProvides.pm
@@ -32,7 +28,9 @@ t/00-compile/lib_Dist_Zilla_Plugin_MetaProvides_pm.t
 t/00-compile/lib_Dist_Zilla_Role_MetaProvider_Provider_pm.t
 t/00-report-prereqs.dd
 t/00-report-prereqs.t
-t/01-MetaProvider-Provider.t
+t/01-Provider/01-boolean-attrs.t
+t/01-Provider/02-resolve-versions.t
+t/01-Provider/03-metanoindex.t
 t/02-MetaProvides-ProvideRecord.t
 t/03-Types.t
 t/lib/Dist/Zilla/Plugin/FakePlugin.pm
