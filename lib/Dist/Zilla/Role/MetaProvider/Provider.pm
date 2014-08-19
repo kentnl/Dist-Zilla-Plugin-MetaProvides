@@ -301,6 +301,44 @@ Dist::Zilla::Role::MetaProvider::Provider - A Role for Metadata providers specif
 
 version 2.000004
 
+=head1 QUICK REFERENCE
+
+  ->new(options={})
+    inherit_version => ?attr
+    inherit_missing => ?attr
+    meta_noindex    => ?attr
+
+  [>] provides
+  ->inherit_version               # Bool = 1
+  ->inherit_missing               # Bool = 1
+  ->meta_noindex                  # Bool = 1
+  ->_resolve_version( $version )  # ( 'version' , $resolved )
+                                  # ()
+  ->_try_regen_meta               # HashRef
+  ->_apply_meta_noindex( @items ) # Modified @items
+  ->dumpconfig                    # HashRef
+  ->metadata                      # { provides => ... }
+
+  -~- Dist::Zilla::Role::MetaProvider
+  [>] metadata
+
+  -~- Dist::Zilla::Role::Plugin
+  ->new(options={})
+    plugin_name => ^attr
+    zilla       => ^attr
+    logger      => ?attr
+
+  ->plugin_name                                 # Str
+  ->zilla                                       # DZil
+  ->logger                                      #
+  ->log                                         # via logger
+  ->log_debug                                   # via logger
+  ->log_fatal                                   # via logger
+  ->mvp_multivalue_args                         # ArrayRef
+  ->mvp_aliases                                 # HashRef
+  ->plugin_from_config( $name, $arg, $section ) # Instance
+  ->register_component( $name, $arg, $section );
+
 =head1 PUBLIC METHODS
 
 =head2 C<metadata>
