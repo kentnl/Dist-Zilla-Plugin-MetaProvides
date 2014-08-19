@@ -22,7 +22,6 @@ meta-spec:
 name: Dist-Zilla-Plugin-MetaProvides
 no_index:
   directory:
-    - corpus
     - t/lib
 provides:
   Dist::Zilla::MetaProvides::ProvideRecord:

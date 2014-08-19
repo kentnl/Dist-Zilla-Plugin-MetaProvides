@@ -15,7 +15,6 @@
    "name" : "Dist-Zilla-Plugin-MetaProvides",
    "no_index" : {
       "directory" : [
-         "corpus",
          "t/lib"
       ]
    },
