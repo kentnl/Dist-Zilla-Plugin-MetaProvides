@@ -1,9 +1,13 @@
 ﻿Revision history for {{$dist->name}}
 
 {{$NEXT}}
+ [Code]
+ - Remove unused Readonly stuff.
+
  [Dependencies::Stats]
  - Dependencies changed since 2.000003, see misc/*.deps* for details
  - develop: +1 ↑1 (suggests: ↑2)
+ - runtime: -1
  - test: +1 ↑1
 
  [Documentation]

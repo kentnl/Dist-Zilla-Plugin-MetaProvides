@@ -17,6 +17,9 @@ This file contains ALL changes in dependencies in both REQUIRED / OPTIONAL depen
  [Changed / test requires]
  - Dist::Zilla::Util::Test::KENTNL 0.01000004 → 1.001
 
+ [Removed / runtime requires]
+ - Readonly
+
 2.000003 2014-08-16T00:11:28Z
  [Added / develop requires]
  - Dist::Zilla::Plugin::Git::Contributors 0.006
