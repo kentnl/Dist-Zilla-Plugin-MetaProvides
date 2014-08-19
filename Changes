@@ -1,6 +1,13 @@
 ﻿Revision history for {{$dist->name}}
 
 {{$NEXT}}
+ [Dependencies::Stats]
+ - Dependencies changed since 2.000003, see misc/*.deps* for details
+ - develop: +1 ↑1 (suggests: ↑2)
+ - test: +1 ↑1
+
+ [Tests]
+ - reimplemented in terms of my newish tester util
 
 2.000003 2014-08-16T00:11:28Z
  [00 Trivial]

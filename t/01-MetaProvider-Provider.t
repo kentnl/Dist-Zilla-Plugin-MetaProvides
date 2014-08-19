@@ -4,46 +4,31 @@ use warnings;
 
 use Test::More 0.96;
 use Test::Fatal;
+use Test::DZil qw( simple_ini );
 
 use lib 't/lib';
 
-use Dist::Zilla::Util::Test::KENTNL 0.01000004 qw( test_config );
+use Dist::Zilla::Util::Test::KENTNL 1.001 qw( dztest );
 
-my $config;
+my $dzil;
 
 sub make_plugin {
   my @args = @_;
-  $config = test_config(
-    {
-      dist_root           => 'corpus/dist/DZT',
-      ini                 => [ 'GatherDir', [ 'Prereqs' => { 'Test::Simple' => '0.88' } ], [ 'FakePlugin' => {@args} ], ],
-      post_build_callback => sub {
-        my $config = shift;
-        die $config->{error} if $config->{error};
-      },
-    }
-  );
-  return $config->plugin_named('FakePlugin');
+  $dzil = dztest();
+  $dzil->add_file( 'dist.ini', simple_ini( [ 'FakePlugin' => {@args} ] ) );
+  return $dzil->builder->plugin_named('FakePlugin');
 }
 
 sub make_plugin_metanoindex {
   my $iconfig = shift;
-  $config = test_config(
-    {
-      dist_root => 'corpus/dist/DZT',
-      ini       => [
-        'GatherDir',
-        [ 'Prereqs'     => { 'Test::Simple' => '0.88' } ],
-        [ 'FakePlugin'  => $iconfig->{fakeplugin} ],
-        [ 'MetaNoIndex' => $iconfig->{noindex} ],
-      ],
-      post_build_callback => sub {
-        my $xconfig = shift;
-        die $xconfig->{error} if $xconfig->{error};
-      },
-    }
+  $dzil = dztest();
+  $dzil->add_file(
+    'dist.ini' => simple_ini(
+      [ 'FakePlugin'  => $iconfig->{fakeplugin} ],    #
+      [ 'MetaNoIndex' => $iconfig->{noindex} ],       #
+    )
   );
-  return $config->plugin_named('FakePlugin');
+  return $dzil->builder->plugin_named('FakePlugin');
 }
 
 subtest 'boolean attribute tests' => sub {
