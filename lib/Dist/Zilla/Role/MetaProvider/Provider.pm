@@ -339,15 +339,19 @@ version 2.000004
   ->plugin_from_config( $name, $arg, $section ) # Instance
   ->register_component( $name, $arg, $section );
 
-=over * C<Dist::Zilla::Role::MetaProvider> : L<<
+=over 4
+
+=item * C<Dist::Zilla::Role::MetaProvider> : L<<
 C<Dist::Zilla::Role::MetaProvider>
 |Dist::Zilla::Role::MetaProvider
 >>
 
-=over * C<Dist::Zilla::Role::Plugin> : L<<
+=item * C<Dist::Zilla::Role::Plugin> : L<<
 C<Dist::Zilla::Role::Plugin>
 |Dist::Zilla::Role::Plugin
 >>
+
+=back
 
 =head1 PUBLIC METHODS
 
