@@ -135,11 +135,20 @@ version 2.000004
 
 =over 4
 
-=item * C<ProviderObject> : L<< Dist::Zilla::MetaProvides::Types/ProviderObject >>
+=item * C<ProviderObject> : L<<
+C<Dist::Zilla::MetaProvides::Types>
+|Dist::Zilla::MetaProvides::Types/ProviderObject
+>>
 
-=item * C<ProviderObject> : L<< Dist::Zilla::Role::MetaProvider::Provider >>
+=item * C<ProviderObject> : L<<
+C<Dist::Zilla::Role::MetaProvider::Provider>
+|Dist::Zilla::Role::MetaProvider::Provider
+>>
 
-=item * C<ModVersion> : L<< Dist::Zilla::MetaProvides::Types/ModVersion >>
+=item * C<ModVersion> : L<<
+C<Dist::Zilla::MetaProvides::Types>
+|Dist::Zilla::MetaProvides::Types/ModVersion
+>>
 
 =back
 
