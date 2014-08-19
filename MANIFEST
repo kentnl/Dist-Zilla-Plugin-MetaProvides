@@ -9,8 +9,6 @@ META.json
 META.yml
 Makefile.PL
 README
-corpus/dist/DZT/lib/DZT/Sample.pm
-corpus/dist/DZT/t/basic.t
 dist.ini
 dist.ini.meta
 layout/self_structure.dot
