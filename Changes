@@ -6,6 +6,9 @@
  - develop: +1 ↑1 (suggests: ↑2)
  - test: +1 ↑1
 
+ [Documentation]
+ - Add very experimental QUICK REFERENCE sections.
+
  [Tests]
  - reimplemented in terms of my newish tester util
  - some tests split into smaller tests.

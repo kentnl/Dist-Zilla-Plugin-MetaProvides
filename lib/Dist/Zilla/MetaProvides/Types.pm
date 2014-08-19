@@ -49,6 +49,20 @@ subtype ProviderObject, as Object, where { $_->does('Dist::Zilla::Role::MetaProv
 
 1;
 
+=head1 QUICK REFERENCE
+
+  << ModVersion       # Str | Undef
+  << ProviderObject   # does Dist::Zilla::Role::MetaProvider::Provider
+
+=over 4
+
+=item * C<Role::MetaProvider::Provider> : L<<
+C<Dist::Zilla::Role::MetaProvider::Provider>
+|Dist::Zilla::Role::MetaProvider::Provider
+>>
+
+=back
+
 =head1 SEE ALSO
 
 =over 4
