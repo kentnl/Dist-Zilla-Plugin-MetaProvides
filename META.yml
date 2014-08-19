@@ -338,6 +338,10 @@ x_Dist_Zilla:
               version: '4.006'
             -
               class: Pod::Weaver::Section::Generic
+              name: 'QUICK REFERENCE'
+              version: '4.006'
+            -
+              class: Pod::Weaver::Section::Generic
               name: SYNOPSIS
               version: '4.006'
             -
