@@ -106,7 +106,7 @@ x_BuiltWith:
     Dist::Zilla::Plugin::UploadToCPAN: '5.020'
     Dist::Zilla::PluginBundle::Author::KENTNL: '2.020000'
     Dist::Zilla::Role::MetaProvider: '5.020'
-    Dist::Zilla::Util::ConfigDumper: '0.002000'
+    Dist::Zilla::Util::ConfigDumper: '0.002001'
     Dist::Zilla::Util::Test::KENTNL: '1.002000'
     ExtUtils::MakeMaker: '6.98'
     File::Spec: '3.49'
@@ -176,13 +176,10 @@ x_Dist_Zilla:
               class: Dist::Zilla::Plugin::FinderCode
               name: '@Author::KENTNL/MetaProvides::Package/AUTOVIV/:InstallModulesPM'
               version: '5.020'
-        Dist::Zilla::Role::MetaProvider::Provider: {}
-        Dist::Zilla::Util::ConfigDumper:
-          Dist::Zilla::Role::MetaProvider::Provider:
-            failed:
-              - inherit_version
-              - inherit_missing
-              - meta_noindex
+        Dist::Zilla::Role::MetaProvider::Provider:
+          inherit_missing: '1'
+          inherit_version: '1'
+          meta_noindex: '1'
       name: '@Author::KENTNL/MetaProvides::Package'
       version: '2.000004'
     -
