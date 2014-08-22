@@ -1,6 +1,8 @@
 ﻿Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+2.001000 2014-08-22T18:50:50Z
  [00 Minor]
  - Rewrite dump_config in terms of new Utility.
 
