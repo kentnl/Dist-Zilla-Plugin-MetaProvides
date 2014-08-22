@@ -5,7 +5,7 @@ use utf8;
 
 package Dist::Zilla::MetaProvides::Types;
 
-our $VERSION = '2.001000';
+our $VERSION = '2.001001';
 
 # ABSTRACT: Utility Types for the MetaProvides Plugin
 
@@ -61,7 +61,7 @@ Dist::Zilla::MetaProvides::Types - Utility Types for the MetaProvides Plugin
 
 =head1 VERSION
 
-version 2.001000
+version 2.001001
 
 =head1 QUICK REFERENCE
 
