@@ -21,6 +21,7 @@ my %WriteMakefileArgs = (
   "NAME" => "Dist::Zilla::Plugin::MetaProvides",
   "PREREQ_PM" => {
     "Dist::Zilla::Role::MetaProvider" => 0,
+    "Dist::Zilla::Util::ConfigDumper" => "0.002",
     "Hash::Merge::Simple" => 0,
     "Moose" => 0,
     "Moose::Role" => 0,
@@ -41,7 +42,7 @@ my %WriteMakefileArgs = (
     "Test::More" => "0.96",
     "lib" => 0
   },
-  "VERSION" => "2.000011",
+  "VERSION" => "2.001000",
   "test" => {
     "TESTS" => "t/*.t t/00-compile/*.t t/01-Provider/*.t"
   }
@@ -50,6 +51,7 @@ my %WriteMakefileArgs = (
 
 my %FallbackPrereqs = (
   "Dist::Zilla::Role::MetaProvider" => 0,
+  "Dist::Zilla::Util::ConfigDumper" => "0.002",
   "Dist::Zilla::Util::Test::KENTNL" => "1.001",
   "ExtUtils::MakeMaker" => 0,
   "File::Spec" => 0,

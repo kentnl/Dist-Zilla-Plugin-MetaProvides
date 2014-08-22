@@ -64,12 +64,13 @@ do { my $x = {
                                     },
                       'suggests' => {
                                       'Dist::Zilla::App::Command::bakeini' => '0.001002',
-                                      'Dist::Zilla::PluginBundle::Author::KENTNL' => '2.019000'
+                                      'Dist::Zilla::PluginBundle::Author::KENTNL' => '2.020000'
                                     }
                     },
        'runtime' => {
                       'requires' => {
                                       'Dist::Zilla::Role::MetaProvider' => '0',
+                                      'Dist::Zilla::Util::ConfigDumper' => '0.002',
                                       'Hash::Merge::Simple' => '0',
                                       'Moose' => '0',
                                       'Moose::Role' => '0',

@@ -5,7 +5,7 @@ use utf8;
 
 package Dist::Zilla::Role::MetaProvider::Provider;
 
-our $VERSION = '2.000011';
+our $VERSION = '2.001000';
 
 # ABSTRACT: A Role for Metadata providers specific to the 'provider' key.
 
@@ -247,23 +247,9 @@ sub _apply_meta_noindex {
   return @items;
 }
 
-around dump_config => sub {
-  my ( $orig, $self, @args ) = @_;
-  my $config    = $self->$orig(@args);
-  my $localconf = {};
-  for my $attribute (qw( inherit_version inherit_missing meta_noindex )) {
-    my $pred = 'has_' . $attribute;
-    if ( $self->can($pred) ) {
-      next unless $self->$pred();
-    }
-    if ( $self->can($attribute) ) {
-      $localconf->{$attribute} = $self->$attribute();
-    }
-  }
-  $config->{ q{} . __PACKAGE__ } = $localconf;
-  return $config;
+use Dist::Zilla::Util::ConfigDumper 0.002 qw( config_dumper );
 
-};
+around dump_config => config_dumper( __PACKAGE__, { attrs => [qw( inherit_version inherit_missing meta_noindex )] } );
 
 
 
@@ -297,7 +283,7 @@ Dist::Zilla::Role::MetaProvider::Provider - A Role for Metadata providers specif
 
 =head1 VERSION
 
-version 2.000011
+version 2.001000
 
 =head1 QUICK REFERENCE
 
