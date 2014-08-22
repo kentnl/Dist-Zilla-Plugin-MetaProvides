@@ -1,6 +1,13 @@
 ﻿Revision history for {{$dist->name}}
 
 {{$NEXT}}
+ [00 Minor]
+ - Rewrite dump_config in terms of new Utility.
+
+ [Dependencies::Stats]
+ - Dependencies changed since 2.000010, see misc/*.deps* for details
+ - develop: (suggests: ↑1)
+ - runtime: +1
 
 2.000010 2014-08-19T01:26:37Z
  [Code]
