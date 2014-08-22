@@ -159,9 +159,6 @@
    },
    "version" : "2.001000",
    "x_BuiltWith" : {
-      "failures" : {
-         "Dist::Zilla::Util::ConfigDumper" : "module was not found in INC"
-      },
       "modules" : {
          "CPAN::Meta" : "2.142060",
          "Dist::Zilla::App::Command::bakeini" : "0.001002",
@@ -213,6 +210,7 @@
          "Dist::Zilla::Plugin::UploadToCPAN" : "5.020",
          "Dist::Zilla::PluginBundle::Author::KENTNL" : "2.020000",
          "Dist::Zilla::Role::MetaProvider" : "5.020",
+         "Dist::Zilla::Util::ConfigDumper" : "0.002000",
          "Dist::Zilla::Util::Test::KENTNL" : "1.002000",
          "ExtUtils::MakeMaker" : "6.98",
          "File::Spec" : "3.49",
@@ -296,10 +294,15 @@
                      }
                   ]
                },
-               "Dist::Zilla::Role::MetaProvider::Provider" : {
-                  "inherit_missing" : "1",
-                  "inherit_version" : "1",
-                  "meta_noindex" : "1"
+               "Dist::Zilla::Role::MetaProvider::Provider" : {},
+               "Dist::Zilla::Util::ConfigDumper" : {
+                  "Dist::Zilla::Role::MetaProvider::Provider" : {
+                     "failed" : [
+                        "inherit_version",
+                        "inherit_missing",
+                        "meta_noindex"
+                     ]
+                  }
                }
             },
             "name" : "@Author::KENTNL/MetaProvides::Package",
