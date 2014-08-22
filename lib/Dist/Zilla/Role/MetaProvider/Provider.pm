@@ -247,7 +247,7 @@ sub _apply_meta_noindex {
   return @items;
 }
 
-use Dist::Zilla::Util::ConfigDumper 0.002 qw( config_dumper );
+use Dist::Zilla::Util::ConfigDumper 0.002001 qw( config_dumper );
 
 around dump_config => config_dumper( __PACKAGE__, { attrs => [qw( inherit_version inherit_missing meta_noindex )] } );
 
