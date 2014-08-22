@@ -1,6 +1,6 @@
 ﻿Revision history for Dist-Zilla-Plugin-MetaProvides
 
-2.001000 2014-08-19T01:27:32Z
+2.001000 2014-08-22T18:50:50Z
  [00 Minor]
  - Rewrite dump_config in terms of new Utility.
 
