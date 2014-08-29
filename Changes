@@ -1,5 +1,7 @@
 ﻿Revision history for Dist-Zilla-Plugin-MetaProvides
 
+2.001002 2014-08-29T11:57:11Z
+
 2.001001 2014-08-29T10:07:27Z
  [Bugfix]
  - avoid no-build-dir fails.
