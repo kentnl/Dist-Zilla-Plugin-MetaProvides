@@ -33,7 +33,7 @@ my %WriteMakefileArgs = (
     "warnings" => 0
   },
   "TEST_REQUIRES" => {
-    "Dist::Zilla::Util::Test::KENTNL" => "1.001",
+    "Dist::Zilla::Util::Test::KENTNL" => "1.003001",
     "ExtUtils::MakeMaker" => 0,
     "File::Spec" => 0,
     "Scalar::Util" => 0,
@@ -42,7 +42,7 @@ my %WriteMakefileArgs = (
     "Test::More" => "0.96",
     "lib" => 0
   },
-  "VERSION" => "2.001000",
+  "VERSION" => "2.001001",
   "test" => {
     "TESTS" => "t/*.t t/00-compile/*.t t/01-Provider/*.t"
   }
@@ -52,7 +52,7 @@ my %WriteMakefileArgs = (
 my %FallbackPrereqs = (
   "Dist::Zilla::Role::MetaProvider" => 0,
   "Dist::Zilla::Util::ConfigDumper" => "0.002001",
-  "Dist::Zilla::Util::Test::KENTNL" => "1.001",
+  "Dist::Zilla::Util::Test::KENTNL" => "1.003001",
   "ExtUtils::MakeMaker" => 0,
   "File::Spec" => 0,
   "Hash::Merge::Simple" => 0,

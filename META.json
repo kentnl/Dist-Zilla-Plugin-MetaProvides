@@ -113,7 +113,7 @@
             "Test::More" : "1.001003"
          },
          "requires" : {
-            "Dist::Zilla::Util::Test::KENTNL" : "1.001",
+            "Dist::Zilla::Util::Test::KENTNL" : "1.003001",
             "ExtUtils::MakeMaker" : "0",
             "File::Spec" : "0",
             "Scalar::Util" : "0",
@@ -130,19 +130,19 @@
    "provides" : {
       "Dist::Zilla::MetaProvides::ProvideRecord" : {
          "file" : "lib/Dist/Zilla/MetaProvides/ProvideRecord.pm",
-         "version" : "2.001000"
+         "version" : "2.001001"
       },
       "Dist::Zilla::MetaProvides::Types" : {
          "file" : "lib/Dist/Zilla/MetaProvides/Types.pm",
-         "version" : "2.001000"
+         "version" : "2.001001"
       },
       "Dist::Zilla::Plugin::MetaProvides" : {
          "file" : "lib/Dist/Zilla/Plugin/MetaProvides.pm",
-         "version" : "2.001000"
+         "version" : "2.001001"
       },
       "Dist::Zilla::Role::MetaProvider::Provider" : {
          "file" : "lib/Dist/Zilla/Role/MetaProvider/Provider.pm",
-         "version" : "2.001000"
+         "version" : "2.001001"
       }
    },
    "release_status" : "stable",
@@ -157,7 +157,7 @@
          "web" : "https://github.com/kentnl/Dist-Zilla-Plugin-MetaProvides"
       }
    },
-   "version" : "2.001000",
+   "version" : "2.001001",
    "x_BuiltWith" : {
       "modules" : {
          "CPAN::Meta" : "2.142060",
@@ -186,7 +186,7 @@
          "Dist::Zilla::Plugin::MetaData::BuiltWith" : "1.002000",
          "Dist::Zilla::Plugin::MetaJSON" : "5.020",
          "Dist::Zilla::Plugin::MetaNoIndex" : "5.020",
-         "Dist::Zilla::Plugin::MetaProvides::Package" : "2.000004",
+         "Dist::Zilla::Plugin::MetaProvides::Package" : "2.001000",
          "Dist::Zilla::Plugin::MetaTests" : "5.020",
          "Dist::Zilla::Plugin::MetaYAML" : "5.020",
          "Dist::Zilla::Plugin::MinimumPerl" : "1.003",
@@ -201,7 +201,7 @@
          "Dist::Zilla::Plugin::RunExtraTests" : "0.022",
          "Dist::Zilla::Plugin::Test::CPAN::Changes" : "0.008",
          "Dist::Zilla::Plugin::Test::Compile::PerFile" : "0.002002",
-         "Dist::Zilla::Plugin::Test::Kwalitee" : "2.08",
+         "Dist::Zilla::Plugin::Test::Kwalitee" : "2.11",
          "Dist::Zilla::Plugin::Test::MinimumVersion" : "2.000005",
          "Dist::Zilla::Plugin::Test::Perl::Critic" : "2.112410",
          "Dist::Zilla::Plugin::Test::ReportPrereqs" : "0.019",
@@ -210,8 +210,8 @@
          "Dist::Zilla::Plugin::UploadToCPAN" : "5.020",
          "Dist::Zilla::PluginBundle::Author::KENTNL" : "2.020000",
          "Dist::Zilla::Role::MetaProvider" : "5.020",
-         "Dist::Zilla::Util::ConfigDumper" : "0.002001",
-         "Dist::Zilla::Util::Test::KENTNL" : "1.002000",
+         "Dist::Zilla::Util::ConfigDumper" : "0.003001",
+         "Dist::Zilla::Util::Test::KENTNL" : "1.003001",
          "ExtUtils::MakeMaker" : "6.98",
          "File::Spec" : "3.49",
          "Hash::Merge::Simple" : "0.051",
@@ -301,7 +301,7 @@
                }
             },
             "name" : "@Author::KENTNL/MetaProvides::Package",
-            "version" : "2.000004"
+            "version" : "2.001000"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaData::BuiltWith",
@@ -400,11 +400,12 @@
             "class" : "Dist::Zilla::Plugin::Test::Kwalitee",
             "config" : {
                "Dist::Zilla::Plugin::Test::Kwalitee" : {
+                  "filename" : "xt/release/kwalitee.t",
                   "skiptest" : []
                }
             },
             "name" : "@Author::KENTNL/Test::Kwalitee",
-            "version" : "2.08"
+            "version" : "2.11"
          },
          {
             "class" : "Dist::Zilla::Plugin::EOLTests",
@@ -713,7 +714,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : null,
                   "signed" : 0,
-                  "tag" : "2.001000-source",
+                  "tag" : "2.001001-source",
                   "tag_format" : "%v-source",
                   "tag_message" : "v%v",
                   "time_zone" : "local"
@@ -784,7 +785,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : "releases",
                   "signed" : 0,
-                  "tag" : "2.001000",
+                  "tag" : "2.001001",
                   "tag_format" : "%v",
                   "tag_message" : "v%v",
                   "time_zone" : "local"
@@ -894,6 +895,17 @@
                }
             },
             "name" : "DevelopRequires",
+            "version" : "5.020"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Prereqs",
+            "config" : {
+               "Dist::Zilla::Plugin::Prereqs" : {
+                  "phase" : "test",
+                  "type" : "requires"
+               }
+            },
+            "name" : "TestRequires",
             "version" : "5.020"
          },
          {
