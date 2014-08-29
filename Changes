@@ -1,6 +1,8 @@
 ﻿Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+2.001001 2014-08-29T10:07:27Z
  [Bugfix]
  - avoid no-build-dir fails.
 
