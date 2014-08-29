@@ -37,5 +37,8 @@ Dist::Zilla::Plugin::MetaNoIndex = 0
 Dist::Zilla::Plugin::MetaNoIndex = 0
 Dist::Zilla::Plugin::Bootstrap::lib = 0
 
+[Prereqs / TestRequires]
+Dist::Zilla::Util::Test::KENTNL = 1.003001
+
 [MetaNoIndex]
 directory = t/lib
