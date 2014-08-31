@@ -58,7 +58,7 @@ x_BuiltWith:
   modules:
     CPAN::Meta: '2.142060'
     Dist::Zilla::App::Command::bakeini: '0.001002'
-    Dist::Zilla::Plugin::Author::KENTNL::RecommendFixes: '0.002003'
+    Dist::Zilla::Plugin::Author::KENTNL::RecommendFixes: '0.003001'
     Dist::Zilla::Plugin::Authority: '1.006'
     Dist::Zilla::Plugin::AutoPrereqs: '5.020'
     Dist::Zilla::Plugin::Bootstrap::lib: '1.000005'
@@ -82,7 +82,7 @@ x_BuiltWith:
     Dist::Zilla::Plugin::MetaData::BuiltWith: '1.002000'
     Dist::Zilla::Plugin::MetaJSON: '5.020'
     Dist::Zilla::Plugin::MetaNoIndex: '5.020'
-    Dist::Zilla::Plugin::MetaProvides::Package: '2.001000'
+    Dist::Zilla::Plugin::MetaProvides::Package: '2.001001'
     Dist::Zilla::Plugin::MetaTests: '5.020'
     Dist::Zilla::Plugin::MetaYAML: '5.020'
     Dist::Zilla::Plugin::MinimumPerl: '1.003'
@@ -106,7 +106,7 @@ x_BuiltWith:
     Dist::Zilla::Plugin::UploadToCPAN: '5.020'
     Dist::Zilla::PluginBundle::Author::KENTNL: '2.020000'
     Dist::Zilla::Role::MetaProvider: '5.020'
-    Dist::Zilla::Util::ConfigDumper: '0.003001'
+    Dist::Zilla::Util::ConfigDumper: '0.003003'
     Dist::Zilla::Util::Test::KENTNL: '1.003001'
     ExtUtils::MakeMaker: '6.98'
     File::Spec: '3.49'
@@ -116,7 +116,7 @@ x_BuiltWith:
     MooseX::Types: '0.44'
     MooseX::Types::Moose: '0.44'
     Pod::Coverage::TrustPod: '0.100003'
-    Scalar::Util: '1.39'
+    Scalar::Util: '1.40'
     Test::CPAN::Changes: '0.30'
     Test::CPAN::Meta: '0.23'
     Test::DZil: '5.020'
@@ -181,7 +181,7 @@ x_Dist_Zilla:
           inherit_version: '1'
           meta_noindex: '1'
       name: '@Author::KENTNL/MetaProvides::Package'
-      version: '2.001000'
+      version: '2.001001'
     -
       class: Dist::Zilla::Plugin::MetaData::BuiltWith
       config:
@@ -434,7 +434,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Author::KENTNL::RecommendFixes
       name: '@Author::KENTNL/Author::KENTNL::RecommendFixes'
-      version: '0.002003'
+      version: '0.003001'
     -
       class: Dist::Zilla::Plugin::ReadmeFromPod
       name: '@Author::KENTNL/ReadmeFromPod'
