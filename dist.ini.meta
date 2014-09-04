@@ -9,8 +9,7 @@ try_built = 1
 fallback  = 0
 
 [@Author::KENTNL]
-:version = 2.016000
-git_versions = 1
+:version = 2.020000
 twitter_hash_tags = #perl #cpan
 normal_form = numify
 mantissa = 6
