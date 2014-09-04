@@ -1,7 +1,7 @@
 name    = Dist-Zilla-Plugin-MetaProvides
 author  = Kent Fredric <kentnl@cpan.org>
 license = Perl_5
-copyright_holder = Kent Fredric
+copyright_holder = Kent Fredric <kentfredric@gmail.com>
 main_module = lib/Dist/Zilla/Plugin/MetaProvides.pm
 
 [Bootstrap::lib]
