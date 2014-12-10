@@ -5,7 +5,7 @@ do { my $x = {
                                         },
                         'requires' => {
                                         'ExtUtils::MakeMaker' => '0',
-                                        'perl' => '5.008'
+                                        'perl' => '5.006'
                                       }
                       },
        'develop' => {
@@ -84,9 +84,8 @@ do { my $x = {
                                       'MooseX::Types' => '0',
                                       'MooseX::Types::Moose' => '0',
                                       'namespace::autoclean' => '0',
-                                      'perl' => '5.008',
+                                      'perl' => '5.006',
                                       'strict' => '0',
-                                      'utf8' => '0',
                                       'warnings' => '0'
                                     },
                       'suggests' => {
@@ -108,7 +107,7 @@ do { my $x = {
                                    'Test::Fatal' => '0',
                                    'Test::More' => '0.96',
                                    'lib' => '0',
-                                   'perl' => '5.008'
+                                   'perl' => '5.006'
                                  },
                    'suggests' => {
                                    'Dist::Zilla::Plugin::MetaNoIndex' => '0'

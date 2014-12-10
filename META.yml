@@ -11,10 +11,10 @@ build_requires:
   Test::Fatal: '0'
   Test::More: '0.96'
   lib: '0'
-  perl: '5.008'
+  perl: '5.006'
 configure_requires:
   ExtUtils::MakeMaker: '0'
-  perl: '5.008'
+  perl: '5.006'
 dynamic_config: '0'
 generated_by: 'Dist::Zilla version 5.027, CPAN::Meta::Converter version 2.143240'
 license: perl
@@ -47,9 +47,8 @@ requires:
   MooseX::Types: '0'
   MooseX::Types::Moose: '0'
   namespace::autoclean: '0'
-  perl: '5.008'
+  perl: '5.006'
   strict: '0'
-  utf8: '0'
   warnings: '0'
 resources:
   bugtracker: https://github.com/kentnl/Dist-Zilla-Plugin-MetaProvides/issues
@@ -132,7 +131,6 @@ x_BuiltWith:
     lib: '0.63'
     namespace::autoclean: '0.22'
     strict: '1.08'
-    utf8: '1.14'
     warnings: '1.26'
   perl:
     original: v5.21.3
