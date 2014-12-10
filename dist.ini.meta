@@ -1,3 +1,4 @@
+; vim: syntax=dosini
 name    = Dist-Zilla-Plugin-MetaProvides
 author  = Kent Fredric <kentnl@cpan.org>
 license = Perl_5
@@ -10,7 +11,7 @@ fallback  = 0
 
 [@Author::KENTNL]
 :version = 2.020000
-twitter_hash_tags = #perl #cpan
+twitter_extra_hash_tags = #distzilla
 normal_form = numify
 mantissa = 6
 toolkit  = eumm
