@@ -2,7 +2,7 @@ This file contains ALL changes in dependencies in both REQUIRED / OPTIONAL depen
 
 2.001002
  [Added / configure requires]
- - perl 5.008
+ - perl 5.006
 
  [Added / develop recommends]
  - Test::More 1.001009
@@ -15,7 +15,7 @@ This file contains ALL changes in dependencies in both REQUIRED / OPTIONAL depen
  - Test::More
 
  [Added / test requires]
- - perl 5.008
+ - perl 5.006
 
  [Changed / configure recommends]
  - ExtUtils::MakeMaker 6.98 → 7.04
@@ -27,6 +27,9 @@ This file contains ALL changes in dependencies in both REQUIRED / OPTIONAL depen
  - Dist::Zilla::App::Command::bakeini 0.001002 → 0.002000
  - Dist::Zilla::PluginBundle::Author::KENTNL 2.020000 → 2.022001
 
+ [Changed / runtime requires]
+ - perl 5.008 → 5.006
+
  [Changed / test recommends]
  - ExtUtils::MakeMaker 6.98 → 7.04
  - Test::More 1.001003 → 1.001009
@@ -34,6 +37,9 @@ This file contains ALL changes in dependencies in both REQUIRED / OPTIONAL depen
  [Removed / develop requires]
  - Dist::Zilla::Plugin::EOLTests
  - Dist::Zilla::Plugin::ReadmeFromPod
+
+ [Removed / runtime requires]
+ - utf8
 
 2.001001 2014-08-29T10:07:27Z
  [Changed / test requires]
