@@ -221,25 +221,27 @@ sub _apply_meta_noindex {
     $self->log_debug(q{no_index found in metadata, will apply rules});
   }
 
-  my $noindex = $meta->{'no_index'};
-  my ( $files, $dirs, $packages, $namespaces ) = ( [], [], [], [] );
-  $files      = $noindex->{'file'}      if exists $noindex->{'file'};
-  $dirs       = $noindex->{'dir'}       if exists $noindex->{'dir'};
-  $dirs       = $noindex->{'directory'} if exists $noindex->{'directory'};
-  $packages   = $noindex->{'package'}   if exists $noindex->{'package'};
-  $namespaces = $noindex->{'namespace'} if exists $noindex->{'namespace'};
+  my $noindex = {
+    # defaults
+    file      => [],
+    package   => [],
+    namespace => [],
+    dir       => [],
+    %{ $meta->{'no_index'} }
+  };
+  $noindex->{dir} = $noindex->{directory} if exists $noindex->{directory};
 
-  for my $file ( @{$files} ) {
+  for my $file ( @{ $noindex->{file} } ) {
     @items = grep { $_->file ne $file } @items;
   }
-  for my $module ( @{$packages} ) {
+  for my $module ( @{ $noindex->{'package'} } ) {
     @items = grep { $_->module ne $module } @items;
   }
-  for my $dir ( @{$dirs} ) {
+  for my $dir ( @{ $noindex->{'dir'} } ) {
     ## no critic (RegularExpressions ProhibitPunctuationVars)
     @items = grep { $_->file !~ qr{^\Q$dir\E($|/)} } @items;
   }
-  for my $namespace ( @{$namespaces} ) {
+  for my $namespace ( @{ $noindex->{'namespace'} } ) {
     ## no critic (RegularExpressions ProhibitPunctuationVars)
     @items = grep { $_->module !~ qr{^\Q$namespace\E($|::)} } @items;
   }
