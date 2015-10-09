@@ -1,6 +1,11 @@
 ﻿Revision history for {{$dist->name}}
 
 {{$NEXT}}
+ [Dependencies::Stats]
+ - Dependencies changed since 2.001002, see misc/*.deps* for details
+ - configure: (recommends: ↑1)
+ - develop: +2 ↑1 (recommends: ↑1, suggests: ↑2)
+ - test: (recommends: ↑2)
 
 2.001002 2014-12-10T10:16:51Z 6baccf2
  [Dependencies::Stats]
@@ -381,4 +386,3 @@
 
 1.0920012 2009-07-19T12:24:43Z
  - First version.
-
