@@ -222,12 +222,13 @@ sub _apply_meta_noindex {
   }
 
   my $noindex = {
+
     # defaults
     file      => [],
     package   => [],
     namespace => [],
     dir       => [],
-    %{ $meta->{'no_index'} }
+    %{ $meta->{'no_index'} },
   };
   $noindex->{dir} = $noindex->{directory} if exists $noindex->{directory};
 
