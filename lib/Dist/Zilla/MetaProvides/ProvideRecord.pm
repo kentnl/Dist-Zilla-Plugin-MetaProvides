@@ -68,6 +68,9 @@ has parent => (
   handles  => [ 'zilla', '_resolve_version', ],
 );
 
+__PACKAGE__->meta->make_immutable;
+no Moose;
+
 
 
 
@@ -94,9 +97,6 @@ sub copy_into {
   };
   return 1;
 }
-
-__PACKAGE__->meta->make_immutable;
-no Moose;
 
 1;
 

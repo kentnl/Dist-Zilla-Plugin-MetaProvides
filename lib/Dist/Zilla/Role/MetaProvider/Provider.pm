@@ -257,6 +257,8 @@ around dump_config => config_dumper(
   sub { $_[1]->{ __PACKAGE__ . '::VERSION' } = $VERSION },
 );
 
+no Moose::Role;
+
 
 
 
@@ -272,8 +274,6 @@ sub metadata {
   }
   return { provides => $discover };
 }
-
-no Moose::Role;
 
 1;
 
