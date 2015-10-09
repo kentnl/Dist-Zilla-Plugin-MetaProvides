@@ -8,6 +8,10 @@
  - runtime: (recommends: +1)
  - test: (recommends: ↓2)
 
+ [Documentation]
+ - Remove confusing quick reference and try to find a better way another day
+ - kentnl/Dist-Zilla-Plugin-MetaProvides-Package#4
+
  [Features]
  - Experimentally injecting the version of the role into `dump_config` data.
  - Part of request #3
