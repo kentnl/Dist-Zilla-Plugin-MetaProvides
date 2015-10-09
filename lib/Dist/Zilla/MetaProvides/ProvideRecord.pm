@@ -68,6 +68,9 @@ has parent => (
   handles  => [ 'zilla', '_resolve_version', ],
 );
 
+__PACKAGE__->meta->make_immutable;
+no Moose;
+
 =method copy_into C<( \%provides_list )>
 
 Populate the referenced C<%provides_list> with data from this Provide Record object.
@@ -94,8 +97,5 @@ sub copy_into {
   };
   return 1;
 }
-
-__PACKAGE__->meta->make_immutable;
-no Moose;
 
 1;
