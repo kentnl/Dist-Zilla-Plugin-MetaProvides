@@ -219,7 +219,7 @@
                   ]
                },
                "Dist::Zilla::Role::MetaProvider::Provider" : {
-                  "Dist::Zilla::Role::MetaProvider::Provider::VERSION" : "2.001010",
+                  "Dist::Zilla::Role::MetaProvider::Provider::VERSION" : "2.001011",
                   "inherit_missing" : "1",
                   "inherit_version" : "1",
                   "meta_noindex" : "1"
