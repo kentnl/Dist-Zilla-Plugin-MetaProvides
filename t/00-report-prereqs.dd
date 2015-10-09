@@ -1,7 +1,7 @@
 do { my $x = {
        'configure' => {
                         'recommends' => {
-                                          'ExtUtils::MakeMaker' => '7.10'
+                                          'ExtUtils::MakeMaker' => '7.00'
                                         },
                         'requires' => {
                                         'ExtUtils::MakeMaker' => '0',
@@ -10,11 +10,13 @@ do { my $x = {
                       },
        'develop' => {
                       'recommends' => {
-                                        'Test::More' => '1.001014'
+                                        'Test::More' => '0.99'
                                       },
                       'requires' => {
                                       'Dist::Zilla' => '5',
-                                      'Dist::Zilla::Plugin::Author::KENTNL::RecommendFixes' => '0.001001',
+                                      'Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING' => '0.001003',
+                                      'Dist::Zilla::Plugin::Author::KENTNL::RecommendFixes' => '0.004002',
+                                      'Dist::Zilla::Plugin::Author::KENTNL::TravisCI' => '0.001002',
                                       'Dist::Zilla::Plugin::Authority' => '1.006',
                                       'Dist::Zilla::Plugin::AutoPrereqs' => '0',
                                       'Dist::Zilla::Plugin::Bootstrap::lib' => '0',
@@ -34,12 +36,12 @@ do { my $x = {
                                       'Dist::Zilla::Plugin::Manifest' => '0',
                                       'Dist::Zilla::Plugin::ManifestSkip' => '0',
                                       'Dist::Zilla::Plugin::MetaConfig' => '0',
-                                      'Dist::Zilla::Plugin::MetaData::BuiltWith' => '0',
+                                      'Dist::Zilla::Plugin::MetaData::BuiltWith' => '1.004000',
                                       'Dist::Zilla::Plugin::MetaJSON' => '0',
                                       'Dist::Zilla::Plugin::MetaNoIndex' => '0',
                                       'Dist::Zilla::Plugin::MetaProvides::Package' => '1.14000001',
                                       'Dist::Zilla::Plugin::MetaTests' => '0',
-                                      'Dist::Zilla::Plugin::MetaYAML' => '0',
+                                      'Dist::Zilla::Plugin::MetaYAML::Minimal' => '0',
                                       'Dist::Zilla::Plugin::MinimumPerl' => '0',
                                       'Dist::Zilla::Plugin::PodCoverageTests' => '0',
                                       'Dist::Zilla::Plugin::PodSyntaxTests' => '0',
@@ -47,7 +49,10 @@ do { my $x = {
                                       'Dist::Zilla::Plugin::Prereqs' => '0',
                                       'Dist::Zilla::Plugin::Prereqs::AuthorDeps' => '0',
                                       'Dist::Zilla::Plugin::Prereqs::Recommend::MatchInstalled' => '0',
+                                      'Dist::Zilla::Plugin::Prereqs::Upgrade' => '0',
+                                      'Dist::Zilla::Plugin::Readme::Brief' => '0',
                                       'Dist::Zilla::Plugin::ReadmeAnyFromPod' => '0',
+                                      'Dist::Zilla::Plugin::RemovePrereqs::Provided' => '0',
                                       'Dist::Zilla::Plugin::RewriteVersion::Sanitized' => '0',
                                       'Dist::Zilla::Plugin::RunExtraTests' => '0',
                                       'Dist::Zilla::Plugin::Test::CPAN::Changes' => '0',
@@ -77,6 +82,9 @@ do { my $x = {
                                     }
                     },
        'runtime' => {
+                      'recommends' => {
+                                        'Moose' => '2.000'
+                                      },
                       'requires' => {
                                       'Dist::Zilla::Role::MetaProvider' => '0',
                                       'Dist::Zilla::Util::ConfigDumper' => '0.002001',
@@ -97,8 +105,8 @@ do { my $x = {
        'test' => {
                    'recommends' => {
                                      'CPAN::Meta' => '2.120900',
-                                     'ExtUtils::MakeMaker' => '7.10',
-                                     'Test::More' => '1.001014'
+                                     'ExtUtils::MakeMaker' => '7.00',
+                                     'Test::More' => '0.99'
                                    },
                    'requires' => {
                                    'Dist::Zilla::Util::Test::KENTNL' => '1.003001',
