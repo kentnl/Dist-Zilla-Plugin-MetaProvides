@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::MetaProvides::ProvideRecord;
 
-our $VERSION = '2.001002';
+our $VERSION = '2.001010'; # TRIAL
 
 # ABSTRACT: Data Management Record for MetaProvider::Provides Based Class
 
@@ -68,6 +68,9 @@ has parent => (
   handles  => [ 'zilla', '_resolve_version', ],
 );
 
+__PACKAGE__->meta->make_immutable;
+no Moose;
+
 
 
 
@@ -95,9 +98,6 @@ sub copy_into {
   return 1;
 }
 
-__PACKAGE__->meta->make_immutable;
-no Moose;
-
 1;
 
 __END__
@@ -112,44 +112,7 @@ Dist::Zilla::MetaProvides::ProvideRecord - Data Management Record for MetaProvid
 
 =head1 VERSION
 
-version 2.001002
-
-=head1 QUICK REFERENCE
-
-  ->new(options={})
-    version => ^attr
-    module  => ^attr
-    file    => ^attr
-    parent  => ^attr
-
-  ->version                         # ModVersion
-  ->module                          # Str
-  ->file                            # Str
-  ->parent                          # ProviderObject
-  ->zilla                           # DZil
-                                    # - via parent
-  ->_resolve_version($pkgversion)   # ( 'version', $resolved )
-                                    # - via parent
-  ->copy_into( $hash )
-
-=over 4
-
-=item * C<ProviderObject> : L<<
-C<Dist::Zilla::MetaProvides::Types>
-|Dist::Zilla::MetaProvides::Types/ProviderObject
->>
-
-=item * C<ProviderObject> : L<<
-C<Dist::Zilla::Role::MetaProvider::Provider>
-|Dist::Zilla::Role::MetaProvider::Provider
->>
-
-=item * C<ModVersion> : L<<
-C<Dist::Zilla::MetaProvides::Types>
-|Dist::Zilla::MetaProvides::Types/ModVersion
->>
-
-=back
+version 2.001010
 
 =head1 PUBLIC METHODS
 
@@ -205,7 +168,7 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2015 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

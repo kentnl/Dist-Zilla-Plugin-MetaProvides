@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::MetaProvides::Types;
 
-our $VERSION = '2.001002';
+our $VERSION = '2.001010'; # TRIAL
 
 # ABSTRACT: Utility Types for the MetaProvides Plugin
 
@@ -60,21 +60,7 @@ Dist::Zilla::MetaProvides::Types - Utility Types for the MetaProvides Plugin
 
 =head1 VERSION
 
-version 2.001002
-
-=head1 QUICK REFERENCE
-
-  << ModVersion       # Str | Undef
-  << ProviderObject   # does Dist::Zilla::Role::MetaProvider::Provider
-
-=over 4
-
-=item * C<Role::MetaProvider::Provider> : L<<
-C<Dist::Zilla::Role::MetaProvider::Provider>
-|Dist::Zilla::Role::MetaProvider::Provider
->>
-
-=back
+version 2.001010
 
 =head1 SUBTYPES
 
@@ -121,7 +107,7 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2015 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

@@ -17,7 +17,6 @@ mantissa = 6
 toolkit  = eumm
 toolkit_hardness = soft
 bumpversions = 1
-copyfiles    = LICENSE
 srcreadme    = mkdn
 ;version_major = 1
 ;version_minor = 12

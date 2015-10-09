@@ -1,5 +1,21 @@
 ﻿Revision history for Dist-Zilla-Plugin-MetaProvides
 
+2.001010 2015-10-09T07:02:08Z d62ab63
+ [Dependencies::Stats]
+ - Dependencies changed since 2.001002, see misc/*.deps* for details
+ - configure: (recommends: ↓1)
+ - develop: +8 ↑3 -1 (recommends: ↓1, suggests: ↑2)
+ - runtime: (recommends: +1)
+ - test: (recommends: ↓2)
+
+ [Documentation]
+ - Remove confusing quick reference and try to find a better way another day
+ - kentnl/Dist-Zilla-Plugin-MetaProvides-Package#4
+
+ [Features]
+ - Experimentally injecting the version of the role into `dump_config` data.
+ - Part of request #3
+
 2.001002 2014-12-10T10:16:51Z 6baccf2
  [Dependencies::Stats]
  - Dependencies changed since 2.001001, see misc/*.deps* for details
@@ -379,4 +395,3 @@
 
 1.0920012 2009-07-19T12:24:43Z
  - First version.
-

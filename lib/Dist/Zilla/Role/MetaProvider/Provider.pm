@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::Role::MetaProvider::Provider;
 
-our $VERSION = '2.001002';
+our $VERSION = '2.001010'; # TRIAL
 
 # ABSTRACT: A Role for Metadata providers specific to the 'provider' key.
 
@@ -221,25 +221,28 @@ sub _apply_meta_noindex {
     $self->log_debug(q{no_index found in metadata, will apply rules});
   }
 
-  my $noindex = $meta->{'no_index'};
-  my ( $files, $dirs, $packages, $namespaces ) = ( [], [], [], [] );
-  $files      = $noindex->{'file'}      if exists $noindex->{'file'};
-  $dirs       = $noindex->{'dir'}       if exists $noindex->{'dir'};
-  $dirs       = $noindex->{'directory'} if exists $noindex->{'directory'};
-  $packages   = $noindex->{'package'}   if exists $noindex->{'package'};
-  $namespaces = $noindex->{'namespace'} if exists $noindex->{'namespace'};
+  my $noindex = {
 
-  for my $file ( @{$files} ) {
+    # defaults
+    file      => [],
+    package   => [],
+    namespace => [],
+    dir       => [],
+    %{ $meta->{'no_index'} },
+  };
+  $noindex->{dir} = $noindex->{directory} if exists $noindex->{directory};
+
+  for my $file ( @{ $noindex->{file} } ) {
     @items = grep { $_->file ne $file } @items;
   }
-  for my $module ( @{$packages} ) {
+  for my $module ( @{ $noindex->{'package'} } ) {
     @items = grep { $_->module ne $module } @items;
   }
-  for my $dir ( @{$dirs} ) {
+  for my $dir ( @{ $noindex->{'dir'} } ) {
     ## no critic (RegularExpressions ProhibitPunctuationVars)
     @items = grep { $_->file !~ qr{^\Q$dir\E($|/)} } @items;
   }
-  for my $namespace ( @{$namespaces} ) {
+  for my $namespace ( @{ $noindex->{'namespace'} } ) {
     ## no critic (RegularExpressions ProhibitPunctuationVars)
     @items = grep { $_->module !~ qr{^\Q$namespace\E($|::)} } @items;
   }
@@ -248,7 +251,13 @@ sub _apply_meta_noindex {
 
 use Dist::Zilla::Util::ConfigDumper 0.002001 qw( config_dumper );
 
-around dump_config => config_dumper( __PACKAGE__, { attrs => [qw( inherit_version inherit_missing meta_noindex )] } );
+around dump_config => config_dumper(
+  __PACKAGE__,
+  { attrs => [qw( inherit_version inherit_missing meta_noindex )] },
+  sub { $_[1]->{ __PACKAGE__ . '::VERSION' } = $VERSION },
+);
+
+no Moose::Role;
 
 
 
@@ -266,8 +275,6 @@ sub metadata {
   return { provides => $discover };
 }
 
-no Moose::Role;
-
 1;
 
 __END__
@@ -282,59 +289,7 @@ Dist::Zilla::Role::MetaProvider::Provider - A Role for Metadata providers specif
 
 =head1 VERSION
 
-version 2.001002
-
-=head1 QUICK REFERENCE
-
-  ->new(options={})
-    inherit_version => ?attr
-    inherit_missing => ?attr
-    meta_noindex    => ?attr
-
-  [>] provides
-  ->inherit_version               # Bool = 1
-  ->inherit_missing               # Bool = 1
-  ->meta_noindex                  # Bool = 1
-  ->_resolve_version( $version )  # ( 'version' , $resolved )
-                                  # ()
-  ->_try_regen_meta               # HashRef
-  ->_apply_meta_noindex( @items ) # Modified @items
-  ->dumpconfig                    # HashRef
-  ->metadata                      # { provides => ... }
-
-  -~- Dist::Zilla::Role::MetaProvider
-  [>] metadata
-
-  -~- Dist::Zilla::Role::Plugin
-  ->new(options={})
-    plugin_name => ^attr
-    zilla       => ^attr
-    logger      => ?attr
-
-  ->plugin_name                                 # Str
-  ->zilla                                       # DZil
-  ->logger                                      #
-  ->log                                         # via logger
-  ->log_debug                                   # via logger
-  ->log_fatal                                   # via logger
-  ->mvp_multivalue_args                         # ArrayRef
-  ->mvp_aliases                                 # HashRef
-  ->plugin_from_config( $name, $arg, $section ) # Instance
-  ->register_component( $name, $arg, $section );
-
-=over 4
-
-=item * C<Dist::Zilla::Role::MetaProvider> : L<<
-C<Dist::Zilla::Role::MetaProvider>
-|Dist::Zilla::Role::MetaProvider
->>
-
-=item * C<Dist::Zilla::Role::Plugin> : L<<
-C<Dist::Zilla::Role::Plugin>
-|Dist::Zilla::Role::Plugin
->>
-
-=back
+version 2.001010
 
 =head1 PUBLIC METHODS
 
@@ -494,7 +449,7 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2015 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
