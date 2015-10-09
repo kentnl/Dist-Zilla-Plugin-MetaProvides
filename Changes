@@ -3,9 +3,10 @@
 {{$NEXT}}
  [Dependencies::Stats]
  - Dependencies changed since 2.001002, see misc/*.deps* for details
- - configure: (recommends: ↑1)
- - develop: +2 ↑1 (recommends: ↑1, suggests: ↑2)
- - test: (recommends: ↑2)
+ - configure: (recommends: ↓1)
+ - develop: +8 ↑3 -1 (recommends: ↓1, suggests: ↑2)
+ - runtime: (recommends: +1)
+ - test: (recommends: ↓2)
 
 2.001002 2014-12-10T10:16:51Z 6baccf2
  [Dependencies::Stats]

@@ -2,18 +2,29 @@ This file contains changes to DEVELOPMENT dependencies only ( both REQUIRED and 
 
 2.001003
  [Added / develop requires]
+ - Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING 0.001003
+ - Dist::Zilla::Plugin::Author::KENTNL::TravisCI 0.001002
+ - Dist::Zilla::Plugin::MetaYAML::Minimal
+ - Dist::Zilla::Plugin::Prereqs::Upgrade
+ - Dist::Zilla::Plugin::Readme::Brief
+ - Dist::Zilla::Plugin::RemovePrereqs::Provided
  - English
  - Software::License::Perl_5
 
  [Changed / develop recommends]
- - Test::More 1.001009 → 1.001014
+ - Test::More 1.001009 → 0.99
 
  [Changed / develop requires]
+ - Dist::Zilla::Plugin::Author::KENTNL::RecommendFixes 0.001001 → 0.004002
+ - Dist::Zilla::Plugin::MetaData::BuiltWith 0 → 1.004000
  - Test::More 0 → 0.96
 
  [Changed / develop suggests]
  - Dist::Zilla::App::Command::bakeini 0.002000 → 0.002005
  - Dist::Zilla::PluginBundle::Author::KENTNL 2.022001 → 2.025002
+
+ [Removed / develop requires]
+ - Dist::Zilla::Plugin::MetaYAML
 
 2.001002 2014-12-10T10:16:51Z
  [Added / develop recommends]

@@ -2,16 +2,27 @@ This file contains ALL changes in dependencies in both REQUIRED / OPTIONAL depen
 
 2.001003
  [Added / develop requires]
+ - Dist::Zilla::Plugin::Author::KENTNL::CONTRIBUTING 0.001003
+ - Dist::Zilla::Plugin::Author::KENTNL::TravisCI 0.001002
+ - Dist::Zilla::Plugin::MetaYAML::Minimal
+ - Dist::Zilla::Plugin::Prereqs::Upgrade
+ - Dist::Zilla::Plugin::Readme::Brief
+ - Dist::Zilla::Plugin::RemovePrereqs::Provided
  - English
  - Software::License::Perl_5
 
+ [Added / runtime recommends]
+ - Moose 2.000
+
  [Changed / configure recommends]
- - ExtUtils::MakeMaker 7.04 → 7.10
+ - ExtUtils::MakeMaker 7.04 → 7.00
 
  [Changed / develop recommends]
- - Test::More 1.001009 → 1.001014
+ - Test::More 1.001009 → 0.99
 
  [Changed / develop requires]
+ - Dist::Zilla::Plugin::Author::KENTNL::RecommendFixes 0.001001 → 0.004002
+ - Dist::Zilla::Plugin::MetaData::BuiltWith 0 → 1.004000
  - Test::More 0 → 0.96
 
  [Changed / develop suggests]
@@ -19,8 +30,11 @@ This file contains ALL changes in dependencies in both REQUIRED / OPTIONAL depen
  - Dist::Zilla::PluginBundle::Author::KENTNL 2.022001 → 2.025002
 
  [Changed / test recommends]
- - ExtUtils::MakeMaker 7.04 → 7.10
- - Test::More 1.001009 → 1.001014
+ - ExtUtils::MakeMaker 7.04 → 7.00
+ - Test::More 1.001009 → 0.99
+
+ [Removed / develop requires]
+ - Dist::Zilla::Plugin::MetaYAML
 
 2.001002 2014-12-10T10:16:51Z
  [Added / configure requires]
