@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::Role::MetaProvider::Provider;
 
-our $VERSION = '2.001003';
+our $VERSION = '2.001010'; # TRIAL
 
 # ABSTRACT: A Role for Metadata providers specific to the 'provider' key.
 
@@ -248,7 +248,11 @@ sub _apply_meta_noindex {
 
 use Dist::Zilla::Util::ConfigDumper 0.002001 qw( config_dumper );
 
-around dump_config => config_dumper( __PACKAGE__, { attrs => [qw( inherit_version inherit_missing meta_noindex )] } );
+around dump_config => config_dumper(
+  __PACKAGE__,
+  { attrs => [qw( inherit_version inherit_missing meta_noindex )] },
+  sub { $_[1]->{ __PACKAGE__ . '::VERSION' } = $VERSION },
+);
 
 
 
@@ -282,7 +286,7 @@ Dist::Zilla::Role::MetaProvider::Provider - A Role for Metadata providers specif
 
 =head1 VERSION
 
-version 2.001003
+version 2.001010
 
 =head1 QUICK REFERENCE
 
