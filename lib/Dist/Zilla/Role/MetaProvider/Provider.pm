@@ -248,7 +248,11 @@ sub _apply_meta_noindex {
 
 use Dist::Zilla::Util::ConfigDumper 0.002001 qw( config_dumper );
 
-around dump_config => config_dumper( __PACKAGE__, { attrs => [qw( inherit_version inherit_missing meta_noindex )] } );
+around dump_config => config_dumper(
+  __PACKAGE__,
+  { attrs => [qw( inherit_version inherit_missing meta_noindex )] },
+  sub { $_[1]->{ __PACKAGE__ . '::VERSION' } = $VERSION },
+);
 
 =method C<metadata>
 
