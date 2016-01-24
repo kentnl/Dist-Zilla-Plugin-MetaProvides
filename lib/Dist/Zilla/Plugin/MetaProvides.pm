@@ -20,6 +20,8 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 
+
+
 sub register_component {
   require Carp;
   Carp::croak(<<"EOF");
@@ -88,6 +90,8 @@ is here to cover this problem by defining it in the metadata.
 
 
 =end MetaPOD::JSON
+
+=for Pod::Coverage register_component
 
 =head1 COMPONENT SUMMARY
 
