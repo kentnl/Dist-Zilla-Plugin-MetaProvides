@@ -48,18 +48,29 @@ version 2.001011
 
 =head1 SYNOPSIS
 
-In your projects dist.ini
+This module is not intended to be used directly, but instead, one of the following sub-modules should be used in your projects dist.ini
 
-    [MetaProvides::Class]
-    inherit_version = 0    ;optional flag
-    inherit_missing = 0    ;optional flag
-    meta_noindex    = 1    ;optional flag
+The most common usage should find
 
+    [MetaProvides::Package]
+
+Sufficient for indexing traditional Perl5 modules.
+
+Advanced Usage:
+
+    ; Traditional Perl5 Modules
     [MetaProvides::Package]
     inherit_version = 0    ;optional flag
     inherit_missing = 0    ;optional flag
     meta_noindex    = 1    ;optional flag
 
+    ; If using MooseX::Declare style "class" keywords.
+    [MetaProvides::Class]
+    inherit_version = 0    ;optional flag
+    inherit_missing = 0    ;optional flag
+    meta_noindex    = 1    ;optional flag
+
+    ; Hand Constructed Provides in an external file
     [MetaProvides::FromFile]
     inherit_version = 0     ;optional flag
     inherit_missing = 0     ;optional flag
