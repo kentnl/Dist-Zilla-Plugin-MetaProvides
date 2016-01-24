@@ -18,8 +18,18 @@ our $VERSION = '2.001011';
 
 =end MetaPOD::JSON
 
+=for Pod::Coverage register_component
+
 =cut
 
+sub register_component {
+  require Carp;
+  Carp::croak(<<"EOF");
+[MetaProvides] is merely a top level namespace, not an actual plugin.
+Perhaps you wanted [MetaProvides::Package]? or [MetaProvides::Class] for MX:Declare style packages
+EOF
+
+}
 1;
 
 =head1 SYNOPSIS
