@@ -20,6 +20,14 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 
+sub register_component {
+  require Carp;
+  Carp::croak(<<"EOF");
+[MetaProvides] is merely a top level namespace, not an actual plugin.
+Perhaps you wanted [MetaProvides::Package]? or [MetaProvides::Class] for MX:Declare style packages
+EOF
+
+}
 1;
 
 __END__

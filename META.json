@@ -106,6 +106,7 @@
             "Moose" : "2.000"
          },
          "requires" : {
+            "Carp" : "0",
             "Dist::Zilla::Role::MetaProvider" : "0",
             "Dist::Zilla::Util::ConfigDumper" : "0.002001",
             "Hash::Merge::Simple" : "0",
