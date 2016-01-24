@@ -6,6 +6,9 @@
  - develop: (suggests: ↑1)
  - runtime: +1
 
+ [Documentation]
+ - Enhanced Synopsis documentation as per #4
+
  [Features]
  - Customized Croak message for people who accidentally use [MetaProvides] directly. Closes #4
 
