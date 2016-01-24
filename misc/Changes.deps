@@ -1,6 +1,10 @@
 This file contains changes in REQUIRED dependencies for standard CPAN phases (configure/build/runtime/test)
 
-2.001010
+2.001011
+ [Added / runtime requires]
+ - Carp
+
+2.001010 2015-10-09T07:02:08Z
 
 2.001002 2014-12-10T10:16:51Z
  [Added / configure requires]

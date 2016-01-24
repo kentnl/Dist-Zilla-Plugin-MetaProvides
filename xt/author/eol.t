@@ -22,6 +22,7 @@ my @files = (
     't/01-Provider/03-metanoindex.t',
     't/02-MetaProvides-ProvideRecord.t',
     't/03-Types.t',
+    't/04-MetaProvides.t',
     't/lib/Dist/Zilla/Plugin/FakePlugin.pm'
 );
 

@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::Plugin::MetaProvides;
 
-our $VERSION = '2.001010'; # TRIAL
+our $VERSION = '2.001011';
 
 # ABSTRACT: Generating and Populating 'provides' in your META.yml
 
@@ -20,6 +20,16 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 
+
+
+sub register_component {
+  require Carp;
+  Carp::croak(<<"EOF");
+[MetaProvides] is merely a top level namespace, not an actual plugin.
+Perhaps you wanted [MetaProvides::Package]? or [MetaProvides::Class] for MX:Declare style packages
+EOF
+
+}
 1;
 
 __END__
@@ -34,22 +44,33 @@ Dist::Zilla::Plugin::MetaProvides - Generating and Populating 'provides' in your
 
 =head1 VERSION
 
-version 2.001010
+version 2.001011
 
 =head1 SYNOPSIS
 
-In your projects dist.ini
+This module is not intended to be used directly, but instead, one of the following sub-modules should be used in your projects dist.ini
 
-    [MetaProvides::Class]
-    inherit_version = 0    ;optional flag
-    inherit_missing = 0    ;optional flag
-    meta_noindex    = 1    ;optional flag
+The most common usage should find
 
+    [MetaProvides::Package]
+
+Sufficient for indexing traditional Perl5 modules.
+
+Advanced Usage:
+
+    ; Traditional Perl5 Modules
     [MetaProvides::Package]
     inherit_version = 0    ;optional flag
     inherit_missing = 0    ;optional flag
     meta_noindex    = 1    ;optional flag
 
+    ; If using MooseX::Declare style "class" keywords.
+    [MetaProvides::Class]
+    inherit_version = 0    ;optional flag
+    inherit_missing = 0    ;optional flag
+    meta_noindex    = 1    ;optional flag
+
+    ; Hand Constructed Provides in an external file
     [MetaProvides::FromFile]
     inherit_version = 0     ;optional flag
     inherit_missing = 0     ;optional flag
@@ -80,6 +101,8 @@ is here to cover this problem by defining it in the metadata.
 
 
 =end MetaPOD::JSON
+
+=for Pod::Coverage register_component
 
 =head1 COMPONENT SUMMARY
 
@@ -219,7 +242,7 @@ Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2015 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2016 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
