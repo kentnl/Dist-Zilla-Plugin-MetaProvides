@@ -1,9 +1,13 @@
 ﻿Revision history for Dist-Zilla-Plugin-MetaProvides
 
-2.001011 2016-01-22T17:51:43Z a16a0a9
+2.001011 2016-01-24T11:13:22Z b164ade
  [Dependencies::Stats]
  - Dependencies changed since 2.001010, see misc/*.deps* for details
  - develop: (suggests: ↑1)
+ - runtime: +1
+
+ [Features]
+ - Customized Croak message for people who accidentally use [MetaProvides] directly. Closes #4
 
 2.001010 2015-10-09T07:02:08Z d62ab63
  [Dependencies::Stats]

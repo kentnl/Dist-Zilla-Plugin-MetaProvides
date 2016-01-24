@@ -163,7 +163,7 @@
          "version" : "2.001011"
       }
    },
-   "release_status" : "testing",
+   "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
          "web" : "https://github.com/kentnl/Dist-Zilla-Plugin-MetaProvides/issues"
@@ -1005,7 +1005,7 @@
       "zilla" : {
          "class" : "Dist::Zilla::Dist::Builder",
          "config" : {
-            "is_trial" : "1"
+            "is_trial" : "0"
          },
          "version" : "5.043"
       }
