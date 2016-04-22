@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::Role::MetaProvider::Provider;
 
-our $VERSION = '2.001011';
+our $VERSION = '2.002000'; # TRIAL
 
 # ABSTRACT: A Role for Metadata providers specific to the 'provider' key.
 
@@ -244,7 +244,7 @@ sub _apply_meta_noindex {
   }
   for my $namespace ( @{ $noindex->{'namespace'} } ) {
     ## no critic (RegularExpressions ProhibitPunctuationVars)
-    @items = grep { $_->module !~ qr{^\Q$namespace\E($|::)} } @items;
+    @items = grep { $_->module !~ qr{^\Q$namespace\E::} } @items;
   }
   return @items;
 }
@@ -289,7 +289,7 @@ Dist::Zilla::Role::MetaProvider::Provider - A Role for Metadata providers specif
 
 =head1 VERSION
 
-version 2.001011
+version 2.002000
 
 =head1 PUBLIC METHODS
 

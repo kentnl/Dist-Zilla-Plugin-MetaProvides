@@ -139,19 +139,26 @@ subtest '_apply_meta_noindex tests' => sub {
         version => 1.0,
         parent  => $normal_plugin,
       );
+      $example_items->{L} = Dist::Zilla::MetaProvides::ProvideRecord->new(
+        file    => '_THISDOESNOTMATTER',
+        module  => 'Test::ThisIsAlso',     # Should not be excluded by namespace rule
+        version => 1.0,
+        parent  => $normal_plugin,
+      );
+
     },
     undef,
     'Test item construction does not die in a fire'
   );
   my %items = %{$example_items};
   is_deeply(
-    [ $normal_plugin->_apply_meta_noindex( @items{qw( A B C D E F G H I J K )} ) ],
-    [ @items{qw( A B C D E F G H I J K )} ],
+    [ $normal_plugin->_apply_meta_noindex( @items{qw( A B C D E F G H I J K L )} ) ],
+    [ @items{qw( A B C D E F G H I J K L )} ],
     'Normal ignorance works still'
   );
   is_deeply(
-    [ $noindex_plugin->_apply_meta_noindex( @items{qw( A B C D E F G H I J K )} ) ],
-    [ @items{qw( B D F H I )} ],
+    [ $noindex_plugin->_apply_meta_noindex( @items{qw( A B C D E F G H I J K L )} ) ],
+    [ @items{qw( B D F H I L )} ],
     'NoIndex Filtering application works'
   );
 };
