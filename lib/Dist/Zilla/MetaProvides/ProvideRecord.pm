@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::MetaProvides::ProvideRecord;
 
-our $VERSION = '2.001012';
+our $VERSION = '2.002000'; # TRIAL
 
 # ABSTRACT: Data Management Record for MetaProvider::Provides Based Class
 
@@ -112,7 +112,7 @@ Dist::Zilla::MetaProvides::ProvideRecord - Data Management Record for MetaProvid
 
 =head1 VERSION
 
-version 2.001012
+version 2.002000
 
 =head1 PUBLIC METHODS
 

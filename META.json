@@ -148,22 +148,22 @@
    "provides" : {
       "Dist::Zilla::MetaProvides::ProvideRecord" : {
          "file" : "lib/Dist/Zilla/MetaProvides/ProvideRecord.pm",
-         "version" : "2.001012"
+         "version" : "2.002000"
       },
       "Dist::Zilla::MetaProvides::Types" : {
          "file" : "lib/Dist/Zilla/MetaProvides/Types.pm",
-         "version" : "2.001012"
+         "version" : "2.002000"
       },
       "Dist::Zilla::Plugin::MetaProvides" : {
          "file" : "lib/Dist/Zilla/Plugin/MetaProvides.pm",
-         "version" : "2.001012"
+         "version" : "2.002000"
       },
       "Dist::Zilla::Role::MetaProvider::Provider" : {
          "file" : "lib/Dist/Zilla/Role/MetaProvider/Provider.pm",
-         "version" : "2.001012"
+         "version" : "2.002000"
       }
    },
-   "release_status" : "stable",
+   "release_status" : "testing",
    "resources" : {
       "bugtracker" : {
          "web" : "https://github.com/kentnl/Dist-Zilla-Plugin-MetaProvides/issues"
@@ -175,7 +175,7 @@
          "web" : "https://github.com/kentnl/Dist-Zilla-Plugin-MetaProvides"
       }
    },
-   "version" : "2.001012",
+   "version" : "2.002000",
    "x_BuiltWith" : {
       "external_file" : "misc/built_with.json"
    },
@@ -220,7 +220,7 @@
                   ]
                },
                "Dist::Zilla::Role::MetaProvider::Provider" : {
-                  "Dist::Zilla::Role::MetaProvider::Provider::VERSION" : "2.001012",
+                  "Dist::Zilla::Role::MetaProvider::Provider::VERSION" : "2.002000",
                   "inherit_missing" : "1",
                   "inherit_version" : "1",
                   "meta_noindex" : "1"
@@ -725,7 +725,7 @@
                   "branch" : null,
                   "changelog" : "Changes",
                   "signed" : 0,
-                  "tag" : "2.001012-source",
+                  "tag" : "2.002000-source",
                   "tag_format" : "%v-source",
                   "tag_message" : "v%v"
                },
@@ -816,7 +816,7 @@
                   "branch" : "releases",
                   "changelog" : "Changes",
                   "signed" : 0,
-                  "tag" : "2.001012",
+                  "tag" : "2.002000",
                   "tag_format" : "%v",
                   "tag_message" : "v%v"
                },
@@ -1005,7 +1005,7 @@
       "zilla" : {
          "class" : "Dist::Zilla::Dist::Builder",
          "config" : {
-            "is_trial" : "0"
+            "is_trial" : "1"
          },
          "version" : "5.043"
       }
