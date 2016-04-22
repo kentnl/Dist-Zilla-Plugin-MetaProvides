@@ -1,5 +1,7 @@
 ﻿Revision history for Dist-Zilla-Plugin-MetaProvides
 
+2.002001 2016-04-22T18:16:49Z bdaa531
+
 2.002000 2016-04-22T14:20:31Z 8cd4f33
  - IMPORTANT: Previously, MetaNoIndex compatibility implemented the "namespace" feature in contradiction of
    https://metacpan.org/pod/CPAN::Meta::Spec#namespace , which means packages that exactly matched the "namespace"
