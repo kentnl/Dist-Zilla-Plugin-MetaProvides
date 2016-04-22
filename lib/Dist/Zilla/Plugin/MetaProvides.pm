@@ -60,23 +60,24 @@ Advanced Usage:
 
     ; Traditional Perl5 Modules
     [MetaProvides::Package]
-    inherit_version = 0    ;optional flag
-    inherit_missing = 0    ;optional flag
-    meta_noindex    = 1    ;optional flag
+    inherit_version = 1  ; Default
+    inherit_missing = 1  ; Default
+    meta_noindex    = 1  ; Default
 
     ; If using MooseX::Declare style "class" keywords.
+    ; Default configuration shown
     [MetaProvides::Class]
-    inherit_version = 0    ;optional flag
-    inherit_missing = 0    ;optional flag
-    meta_noindex    = 1    ;optional flag
+    inherit_version = 1    ; Default
+    inherit_missing = 1    ; Default
+    meta_noindex    = 1    ; Default
 
     ; Hand Constructed Provides in an external file
     [MetaProvides::FromFile]
-    inherit_version = 0     ;optional flag
-    inherit_missing = 0     ;optional flag
-    file = some_file.ini    ;mandatory flag
+    inherit_version = 1     ; Default
+    inherit_missing = 1     ; Default
+
+    file = some_file.ini    ; mandatory flag
     reader_name = Config::INI::Reader ;optional flag
-    meta_noindex    = 1     ;optional and useless flag
 
 And then in some_file.ini
 

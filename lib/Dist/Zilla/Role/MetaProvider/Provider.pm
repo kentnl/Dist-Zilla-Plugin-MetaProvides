@@ -244,7 +244,7 @@ sub _apply_meta_noindex {
   }
   for my $namespace ( @{ $noindex->{'namespace'} } ) {
     ## no critic (RegularExpressions ProhibitPunctuationVars)
-    @items = grep { $_->module !~ qr{^\Q$namespace\E($|::)} } @items;
+    @items = grep { $_->module !~ qr{^\Q$namespace\E::} } @items;
   }
   return @items;
 }
