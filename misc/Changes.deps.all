@@ -1,6 +1,19 @@
 This file contains ALL changes in dependencies in both REQUIRED / OPTIONAL dependencies for all phases (configure/build/runtime/test/develop)
 
-2.002000
+2.002001
+ [Added / test recommends]
+ - Path::Tiny 0.058
+
+ [Added / test requires]
+ - Path::Tiny
+
+ [Removed / runtime requires]
+ - Dist::Zilla::Util::ConfigDumper 0.002001
+
+ [Removed / test requires]
+ - Dist::Zilla::Util::Test::KENTNL 1.003001
+
+2.002000 2016-04-22T14:20:31Z
 
 2.001011 2016-01-24T11:24:45Z
  [Added / runtime requires]

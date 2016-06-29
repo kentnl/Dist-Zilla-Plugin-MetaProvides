@@ -4,19 +4,27 @@ use warnings;
 
 use Test::More 0.96;
 use Test::Fatal;
-use Test::DZil qw( simple_ini );
+use Path::Tiny qw( path );
+use Test::DZil qw( simple_ini Builder );
 
 use lib 't/lib';
 
-use Dist::Zilla::Util::Test::KENTNL 1.001 qw( dztest );
-
-my $dzil;
+# Keepalive
+my $builder;
 
 sub make_plugin {
   my @args = @_;
-  $dzil = dztest();
-  $dzil->add_file( 'dist.ini', simple_ini( [ 'FakePlugin' => {@args} ] ) );
-  return $dzil->builder->plugin_named('FakePlugin');
+  $builder = Builder->from_config(
+    {
+      dist_root => 'invalid',
+    },
+    {
+      add_files => {
+        path('source/dist.ini') => simple_ini( [ 'FakePlugin' => {@args} ] ),
+      },
+    }
+  );
+  return $builder->plugin_named('FakePlugin');
 }
 
 subtest 'inherit_version boolean tests' => sub {
