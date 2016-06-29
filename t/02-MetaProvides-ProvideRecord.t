@@ -4,15 +4,22 @@ use warnings;
 use Test::More 0.96;
 use lib 't/lib';
 
-use Dist::Zilla::Util::Test::KENTNL qw( dztest );
 use Dist::Zilla::MetaProvides::ProvideRecord;
 use Test::Fatal;
-use Test::DZil qw( simple_ini );
+use Path::Tiny qw( path );
+use Test::DZil qw( simple_ini Builder );
 use Scalar::Util qw( refaddr );
 
-my $test = dztest();
-$test->add_file( 'dist.ini', simple_ini( [ 'FakePlugin' => {} ] ) );
-my $fake_dzil = $test->builder;
+my $tzil = Builder->from_config(
+  {
+    dist_root => 'invalid'
+  },
+  {
+    add_files => {
+      path('source/dist.ini') => simple_ini( [ 'FakePlugin' => {} ] ),
+    },
+  }
+);
 
 my $record;
 
@@ -22,7 +29,7 @@ is(
       version => '1.0',
       module  => 'FakeModule',
       file    => 'fakefile',
-      parent  => $fake_dzil->plugin_named('FakePlugin'),
+      parent  => $tzil->plugin_named('FakePlugin'),
     );
   },
   undef,
@@ -39,10 +46,10 @@ can_ok( $record, 'file' );
 is( $record->file, 'fakefile', 'file is consistent' );
 
 can_ok( $record, 'parent' );
-is( refaddr $record->parent, refaddr $fake_dzil->plugin_named('FakePlugin'), 'parent link is right' );
+is( refaddr $record->parent, refaddr $tzil->plugin_named('FakePlugin'), 'parent link is right' );
 
 can_ok( $record, 'zilla' );
-is( refaddr $record->zilla, refaddr $fake_dzil , 'dzil link is right' );
+is( refaddr $record->zilla, refaddr $tzil, 'dzil link is right' );
 
 can_ok( $record, '_resolve_version' );
 

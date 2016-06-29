@@ -126,12 +126,13 @@
          "recommends" : {
             "CPAN::Meta" : "2.120900",
             "ExtUtils::MakeMaker" : "7.00",
+            "Path::Tiny" : "0.058",
             "Test::More" : "0.99"
          },
          "requires" : {
-            "Dist::Zilla::Util::Test::KENTNL" : "1.003001",
             "ExtUtils::MakeMaker" : "0",
             "File::Spec" : "0",
+            "Path::Tiny" : "0",
             "Scalar::Util" : "0",
             "Test::DZil" : "0",
             "Test::Fatal" : "0",
@@ -934,17 +935,6 @@
                }
             },
             "name" : "DevelopRequires",
-            "version" : "5.047"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::Prereqs",
-            "config" : {
-               "Dist::Zilla::Plugin::Prereqs" : {
-                  "phase" : "test",
-                  "type" : "requires"
-               }
-            },
-            "name" : "TestRequires",
             "version" : "5.047"
          },
          {

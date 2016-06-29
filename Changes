@@ -1,12 +1,14 @@
 ﻿Revision history for Dist-Zilla-Plugin-MetaProvides
 
-2.002001 2016-06-29T04:30:01Z 921cdeb
+2.002001 2016-06-29T04:30:43Z 6883e84
  - Remove usage of ConfigDumper and inline dump_config code instead.
  - use '$' on front of role-injected '$VERSION' identifier to be clearer.
+ - Remove usage of my dztest testing util.
 
  [Dependencies::Stats]
  - Dependencies changed since 2.002000, see misc/*.deps* for details
  - runtime: -1
+ - test: +1 -1 (recommends: +1)
 
 2.002000 2016-04-22T14:20:31Z 8cd4f33
  - IMPORTANT: Previously, MetaNoIndex compatibility implemented the "namespace" feature in contradiction of
