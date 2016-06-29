@@ -108,7 +108,6 @@
          "requires" : {
             "Carp" : "0",
             "Dist::Zilla::Role::MetaProvider" : "0",
-            "Dist::Zilla::Util::ConfigDumper" : "0.002001",
             "Hash::Merge::Simple" : "0",
             "Moose" : "0",
             "Moose::Role" : "0",
@@ -163,7 +162,7 @@
          "version" : "2.002001"
       }
    },
-   "release_status" : "stable",
+   "release_status" : "testing",
    "resources" : {
       "bugtracker" : {
          "web" : "https://github.com/kentnl/Dist-Zilla-Plugin-MetaProvides/issues"
@@ -221,7 +220,7 @@
                   ]
                },
                "Dist::Zilla::Role::MetaProvider::Provider" : {
-                  "Dist::Zilla::Role::MetaProvider::Provider::VERSION" : "2.002001",
+                  "$Dist::Zilla::Role::MetaProvider::Provider::VERSION" : "2.002001",
                   "inherit_missing" : "1",
                   "inherit_version" : "1",
                   "meta_noindex" : "1"
@@ -1012,7 +1011,7 @@
       "zilla" : {
          "class" : "Dist::Zilla::Dist::Builder",
          "config" : {
-            "is_trial" : "0"
+            "is_trial" : "1"
          },
          "version" : "5.047"
       }

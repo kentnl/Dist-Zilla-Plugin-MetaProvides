@@ -43,7 +43,6 @@ recommends:
 requires:
   Carp: '0'
   Dist::Zilla::Role::MetaProvider: '0'
-  Dist::Zilla::Util::ConfigDumper: '0.002001'
   Hash::Merge::Simple: '0'
   Moose: '0'
   Moose::Role: '0'
