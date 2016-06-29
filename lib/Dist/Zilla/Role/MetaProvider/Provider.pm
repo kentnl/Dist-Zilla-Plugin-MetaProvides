@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::Role::MetaProvider::Provider;
 
-our $VERSION = '2.002001'; # TRIAL
+our $VERSION = '2.002002';
 
 # ABSTRACT: A Role for Metadata providers specific to the 'provider' key.
 
@@ -294,7 +294,7 @@ Dist::Zilla::Role::MetaProvider::Provider - A Role for Metadata providers specif
 
 =head1 VERSION
 
-version 2.002001
+version 2.002002
 
 =head1 PUBLIC METHODS
 
