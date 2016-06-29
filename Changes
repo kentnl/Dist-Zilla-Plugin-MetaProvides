@@ -1,6 +1,6 @@
 ﻿Revision history for Dist-Zilla-Plugin-MetaProvides
 
-2.002001 2016-06-29T05:32:02Z 3b200d1
+2.002001 2016-06-29T06:09:34Z 2be5312
  - Remove usage of ConfigDumper and inline dump_config code instead.
  - use '$' on front of role-injected '$VERSION' identifier to be clearer.
  - Remove usage of my dztest testing util.
