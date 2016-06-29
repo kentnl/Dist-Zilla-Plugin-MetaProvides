@@ -11,11 +11,13 @@ with 'Dist::Zilla::Role::MetaProvider::Provider';
 
 sub provides {
   my $self = shift;
-  return Dist::Zilla::MetaProvides::ProvideRecord->new(
-    module  => 'FakeModule',
-    file    => 'C:\temp\notevenonwindows.pl',
-    version => '3.1414',
-    parent  => $self,
+  return $self->_apply_meta_noindex(
+    Dist::Zilla::MetaProvides::ProvideRecord->new(
+      module  => 'FakeModule',
+      file    => 'C:\temp\notevenonwindows.pl',
+      version => '3.1414',
+      parent  => $self,
+    )
   );
 }
 
