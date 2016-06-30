@@ -3,6 +3,8 @@
 {{$NEXT}}
  - Adds logging warnings for Provides entries that don't map to shipped files. This should not be a problem for anyone
    unless you're using custom MetaProvides.
+ - Warn about cuckooed packages at the "provides-to-dzil" level. This enables automatic exposure of all packages where
+   "$filename" !~ "/Module/Name.pm" as being potentially problematic.
 
  [Dependencies::Stats]
  - Dependencies changed since 2.002001, see misc/*.deps* for details
