@@ -21,6 +21,8 @@ my @files = (
     't/01-Provider/02-resolve-versions.t',
     't/01-Provider/03-metanoindex.t',
     't/01-Provider/04-integration.t',
+    't/01-Provider/05-filenames.t',
+    't/01-Provider/06-cuckoo.t',
     't/02-MetaProvides-ProvideRecord.t',
     't/03-Types.t',
     't/04-MetaProvides.t',

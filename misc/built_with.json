@@ -57,6 +57,7 @@
       "Dist::Zilla::Plugin::UploadToCPAN" : "5.047",
       "Dist::Zilla::PluginBundle::Author::KENTNL" : "2.025010",
       "Dist::Zilla::Role::MetaProvider" : "5.047",
+      "Dist::Zilla::Role::Plugin" : "5.047",
       "English" : "1.09",
       "ExtUtils::MakeMaker" : "7.18",
       "File::Spec" : "3.62",

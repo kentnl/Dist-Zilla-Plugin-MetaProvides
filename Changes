@@ -1,5 +1,15 @@
 ﻿Revision history for Dist-Zilla-Plugin-MetaProvides
 
+2.002002 2016-07-07T11:55:30Z 2a9e822
+ - Adds logging warnings for Provides entries that don't map to shipped files. This should not be a problem for anyone
+   unless you're using custom MetaProvides.
+ - Warn about cuckooed packages at the "provides-to-dzil" level. This enables automatic exposure of all packages where
+   "$filename" !~ "/Module/Name.pm" as being potentially problematic.
+
+ [Dependencies::Stats]
+ - Dependencies changed since 2.002001, see misc/*.deps* for details
+ - test: +1
+
 2.002001 2016-06-29T06:09:34Z 2be5312
  - Remove usage of ConfigDumper and inline dump_config code instead.
  - use '$' on front of role-injected '$VERSION' identifier to be clearer.

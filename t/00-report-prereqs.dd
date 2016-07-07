@@ -110,6 +110,7 @@ do { my $x = {
                                      'Test::More' => '0.99'
                                    },
                    'requires' => {
+                                   'Dist::Zilla::Role::Plugin' => '0',
                                    'ExtUtils::MakeMaker' => '0',
                                    'File::Spec' => '0',
                                    'Path::Tiny' => '0',
