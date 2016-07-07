@@ -272,10 +272,26 @@ no Moose::Role;
 
 
 sub metadata {
-  my ($self) = @_;
-  my $discover = {};
-  for ( $self->provides ) {
-    $_->copy_into($discover);
+  my ($self)          = @_;
+  my $discover        = {};
+  my (%all_filenames) = map { $_->name => 1 } @{ $self->zilla->files || [] };
+  my (%missing_files);
+
+  for my $provide_record ( $self->provides ) {
+    my $file   = $provide_record->file;
+
+    if ( not exists $all_filenames{$file} ) {
+      $missing_files{$file} = 1;
+      $self->log_debug( 'Provides entry states missing file <' . $file . '>' );
+    }
+
+    $provide_record->copy_into($discover);
+  }
+
+  ## no critic (RestrictLongStrings)
+  if ( my $nkeys = scalar keys %missing_files ) {
+    $self->log( "$nkeys provide map entries did not map to distfiles: " . join q[, ],
+      sort keys %missing_files );
   }
   return { provides => $discover };
 }

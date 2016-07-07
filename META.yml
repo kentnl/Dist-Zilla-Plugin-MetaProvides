@@ -3,6 +3,7 @@ abstract: "Generating and Populating 'provides' in your META.yml"
 author:
   - 'Kent Fredric <kentnl@cpan.org>'
 build_requires:
+  Dist::Zilla::Role::Plugin: '0'
   ExtUtils::MakeMaker: '0'
   File::Spec: '0'
   Path::Tiny: '0'
