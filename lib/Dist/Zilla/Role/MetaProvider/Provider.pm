@@ -276,13 +276,21 @@ sub metadata {
   my $discover        = {};
   my (%all_filenames) = map { $_->name => 1 } @{ $self->zilla->files || [] };
   my (%missing_files);
+  my (%unmapped_modules);
 
   for my $provide_record ( $self->provides ) {
     my $file   = $provide_record->file;
+    my $module = $provide_record->module;
 
     if ( not exists $all_filenames{$file} ) {
       $missing_files{$file} = 1;
       $self->log_debug( 'Provides entry states missing file <' . $file . '>' );
+    }
+
+    my $notional_filename = do { ( join q[/], split /::|'/sx, $module ) . '.pm' };
+    if ( $file !~ /\b\Q$notional_filename\E\z/sx ) {
+      $unmapped_modules{$module} = 1;
+      $self->log_debug( 'Provides entry for module <' . $module . '> mapped to problematic <' . $file . '> ( want: <.*/' . $notional_filename . '> )'  );
     }
 
     $provide_record->copy_into($discover);
@@ -292,6 +300,10 @@ sub metadata {
   if ( my $nkeys = scalar keys %missing_files ) {
     $self->log( "$nkeys provide map entries did not map to distfiles: " . join q[, ],
       sort keys %missing_files );
+  }
+  if ( my $nkeys = scalar keys %unmapped_modules ) {
+    $self->log( "$nkeys provide map entries did not map to .pm files and may not be loadable at install time: " . join q[, ],
+      sort keys %unmapped_modules );
   }
   return { provides => $discover };
 }
