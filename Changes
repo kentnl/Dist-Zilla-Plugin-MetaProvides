@@ -1,5 +1,7 @@
 ﻿Revision history for Dist-Zilla-Plugin-MetaProvides
 
+2.002003 2016-07-07T13:04:21Z 7effc3e
+
 2.002002 2016-07-07T11:55:30Z 2a9e822
  - Adds logging warnings for Provides entries that don't map to shipped files. This should not be a problem for anyone
    unless you're using custom MetaProvides.
