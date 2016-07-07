@@ -29,6 +29,7 @@ my %WriteMakefileArgs = (
     "warnings" => 0
   },
   "TEST_REQUIRES" => {
+    "Dist::Zilla::Role::Plugin" => 0,
     "ExtUtils::MakeMaker" => 0,
     "File::Spec" => 0,
     "Path::Tiny" => 0,
@@ -48,6 +49,7 @@ my %WriteMakefileArgs = (
 my %FallbackPrereqs = (
   "Carp" => 0,
   "Dist::Zilla::Role::MetaProvider" => 0,
+  "Dist::Zilla::Role::Plugin" => 0,
   "ExtUtils::MakeMaker" => 0,
   "File::Spec" => 0,
   "Hash::Merge::Simple" => 0,
