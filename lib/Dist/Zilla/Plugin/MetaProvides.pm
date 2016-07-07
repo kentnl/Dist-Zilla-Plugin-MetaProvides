@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::Plugin::MetaProvides;
 
-our $VERSION = '2.002002';
+our $VERSION = '2.002002'; # TRIAL
 
 # ABSTRACT: Generating and Populating 'provides' in your META.yml
 

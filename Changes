@@ -1,6 +1,6 @@
 ﻿Revision history for Dist-Zilla-Plugin-MetaProvides
 
-2.002002 2016-06-29T06:37:17Z e2696bc
+2.002002 2016-06-30T05:16:35Z e8b5311
 
 2.002001 2016-06-29T06:09:34Z 2be5312
  - Remove usage of ConfigDumper and inline dump_config code instead.
