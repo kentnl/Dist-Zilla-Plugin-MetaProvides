@@ -1,6 +1,8 @@
 This file contains changes in REQUIRED dependencies for standard CPAN phases (configure/build/runtime/test)
 
-2.002002
+2.002003
+
+2.002002 2016-07-07T11:55:30Z
  [Added / test requires]
  - Dist::Zilla::Role::Plugin
 

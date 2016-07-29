@@ -17,7 +17,7 @@ configure_requires:
   ExtUtils::MakeMaker: '0'
   perl: '5.006'
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 5.047, CPAN::Meta::Converter version 2.150005'
+generated_by: 'Dist::Zilla version 6.006, CPAN::Meta::Converter version 2.150005'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -29,16 +29,16 @@ no_index:
 provides:
   Dist::Zilla::MetaProvides::ProvideRecord:
     file: lib/Dist/Zilla/MetaProvides/ProvideRecord.pm
-    version: '2.002002'
+    version: '2.002003'
   Dist::Zilla::MetaProvides::Types:
     file: lib/Dist/Zilla/MetaProvides/Types.pm
-    version: '2.002002'
+    version: '2.002003'
   Dist::Zilla::Plugin::MetaProvides:
     file: lib/Dist/Zilla/Plugin/MetaProvides.pm
-    version: '2.002002'
+    version: '2.002003'
   Dist::Zilla::Role::MetaProvider::Provider:
     file: lib/Dist/Zilla/Role/MetaProvider/Provider.pm
-    version: '2.002002'
+    version: '2.002003'
 recommends:
   Moose: '2.000'
 requires:
@@ -57,4 +57,4 @@ resources:
   bugtracker: https://github.com/kentnl/Dist-Zilla-Plugin-MetaProvides/issues
   homepage: https://github.com/kentnl/Dist-Zilla-Plugin-MetaProvides
   repository: https://github.com/kentnl/Dist-Zilla-Plugin-MetaProvides.git
-version: '2.002002'
+version: '2.002003'

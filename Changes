@@ -1,4 +1,13 @@
-﻿Revision history for Dist-Zilla-Plugin-MetaProvides
+Revision history for Dist-Zilla-Plugin-MetaProvides
+
+2.002003 2016-07-29T22:25:40Z c9860d3
+ - STABLE: This release includes all changes previously stated between 2.002000 and 2.002000 as stable.
+ - SHORTLIST: Better logging about possible issues, Fewer dependencies, Enhanced metaconfig data, MetaNoIndex
+   application now correct.
+
+ [Dependencies::Stats]
+ - Dependencies changed since 2.002002, see misc/*.deps* for details
+ - develop: (suggests: ↑1)
 
 2.002002 2016-07-07T11:55:30Z 2a9e822
  - Adds logging warnings for Provides entries that don't map to shipped files. This should not be a problem for anyone
