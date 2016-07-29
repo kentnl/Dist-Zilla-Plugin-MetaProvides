@@ -1,6 +1,9 @@
 ﻿Revision history for {{$dist->name}}
 
 {{$NEXT}}
+ [Dependencies::Stats]
+ - Dependencies changed since 2.002002, see misc/*.deps* for details
+ - develop: (suggests: ↑1)
 
 2.002002 2016-07-07T11:55:30Z 2a9e822
  - Adds logging warnings for Provides entries that don't map to shipped files. This should not be a problem for anyone
