@@ -29,16 +29,16 @@ no_index:
 provides:
   Dist::Zilla::MetaProvides::ProvideRecord:
     file: lib/Dist/Zilla/MetaProvides/ProvideRecord.pm
-    version: '2.002004'
+    version: '2.002005'
   Dist::Zilla::MetaProvides::Types:
     file: lib/Dist/Zilla/MetaProvides/Types.pm
-    version: '2.002004'
+    version: '2.002005'
   Dist::Zilla::Plugin::MetaProvides:
     file: lib/Dist/Zilla/Plugin/MetaProvides.pm
-    version: '2.002004'
+    version: '2.002005'
   Dist::Zilla::Role::MetaProvider::Provider:
     file: lib/Dist/Zilla/Role/MetaProvider/Provider.pm
-    version: '2.002004'
+    version: '2.002005'
 recommends:
   Moose: '2.000'
 requires:
@@ -57,4 +57,4 @@ resources:
   bugtracker: https://github.com/kentnl/Dist-Zilla-Plugin-MetaProvides/issues
   homepage: https://github.com/kentnl/Dist-Zilla-Plugin-MetaProvides
   repository: https://github.com/kentnl/Dist-Zilla-Plugin-MetaProvides.git
-version: '2.002004'
+version: '2.002005'

@@ -1,5 +1,7 @@
 Revision history for Dist-Zilla-Plugin-MetaProvides
 
+2.002005 2017-03-01T12:19:21Z cc8c243
+
 2.002004 2017-03-01T11:57:55Z fd9040a
  [Bugfix]
  - Update tooling to avoid .-in-@INC issues
