@@ -1,5 +1,14 @@
 Revision history for Dist-Zilla-Plugin-MetaProvides
 
+2.002004 2017-03-01T11:57:55Z fd9040a
+ [Bugfix]
+ - Update tooling to avoid .-in-@INC issues
+ - Closes https://github.com/kentnl/Dist-Zilla-Plugin-MetaProvides/issues/7
+
+ [Dependencies::Stats]
+ - Dependencies changed since 2.002003, see misc/*.deps* for details
+ - develop: +1 ↑1
+
 2.002003 2016-07-29T22:25:40Z c9860d3
  - STABLE: This release includes all changes previously stated between 2.002000 and 2.002000 as stable.
  - SHORTLIST: Better logging about possible issues, Fewer dependencies, Enhanced metaconfig data, MetaNoIndex
