@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+2.002004 2017-03-01T11:57:55Z fd9040a
  [Bugfix]
  - Update tooling to avoid .-in-@INC issues
  - Closes https://github.com/kentnl/Dist-Zilla-Plugin-MetaProvides/issues/7
